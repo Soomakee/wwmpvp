@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const compareBtn = document.getElementById('compareBtn');
     const resultOutput = document.getElementById('resultOutput');
     const resultText = document.getElementById('resultText');
+    const resultNote = document.getElementById('resultNote');
     
     const selectionModal = document.getElementById('selectionModal');
     const closeModal = document.getElementById('closeModal');
@@ -125,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pB.className = `badge ${(statsB.isWIP || statsB.wipD) ? 'b-0' : getBadgeClass(statsB.D)}`;
         
         resultOutput.classList.add('hidden');
+        resultNote.textContent = '';
     };
 
     const updateSkillUI = (slot) => {
@@ -154,18 +156,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = modalSearch.value.toLowerCase();
         let items = [];
         
-        if (appState.activeCategory === 'weapons') {
-            items = Object.keys(weaponData).map(name => ({ name, type: 'weapon' }));
+        const weapons = Object.keys(weaponData).map(name => ({ name, type: 'weapon' }));
+        const skills = Object.keys(mysticSkillsData).map(name => ({ name, type: 'skill' }));
+
+        if (query) {
+            // If searching, search EVERYTHING
+            items = [...weapons, ...skills];
         } else {
-            items = Object.keys(mysticSkillsData).map(name => ({ name, type: 'skill' }));
+            // If NOT searching, respect the active tab
+            items = (appState.activeCategory === 'weapons') ? weapons : skills;
         }
 
         const filtered = items.filter(i => i.name.toLowerCase().includes(query));
         
         modalGrid.innerHTML = filtered.map(item => `
-            <div class="modal-item" data-name="${item.name}">
+            <div class="modal-item" data-name="${item.name}" data-type="${item.type}">
                 <img src="Icons/${getImageFileName(item.name)}.png" class="modal-item-icon" alt="${item.name}" onerror="this.style.display='none'">
-                <span class="modal-item-name">${item.name}</span>
+                <div class="modal-item-info">
+                    <span class="modal-item-name">${item.name}</span>
+                    ${query ? `<span class="modal-item-category">${item.type === 'weapon' ? 'Weapon' : 'Skill'}</span>` : ''}
+                </div>
             </div>
         `).join('');
 
@@ -173,8 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.modal-item').forEach(el => {
             el.addEventListener('click', () => {
                 const name = el.getAttribute('data-name');
+                const type = el.getAttribute('data-type');
                 const slot = appState.activeSlot;
-                const type = appState.activeCategory === 'weapons' ? 'weapon' : 'skill';
                 
                 appState[`skill${slot}`].type = type;
                 appState[`skill${slot}`].name = name;
@@ -256,6 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultText.textContent = `${appState.skillA.name} Wins`;
             resultText.style.color = 'var(--w1-color)';
             resultOutput.style.borderColor = 'var(--w1-color)';
+            resultNote.textContent = '';
             
             iconWrap.style.display = 'flex';
             iconWrap.style.borderColor = 'var(--w1-color)';
@@ -264,18 +275,21 @@ document.addEventListener('DOMContentLoaded', () => {
             resultText.textContent = `${appState.skillB.name} Wins`;
             resultText.style.color = 'var(--w2-color)';
             resultOutput.style.borderColor = 'var(--w2-color)';
+            resultNote.textContent = '';
             
             iconWrap.style.display = 'flex';
             iconWrap.style.borderColor = 'var(--w2-color)';
             winnerIcon.src = `Icons/${getImageFileName(appState.skillB.name)}.png`;
         } else if (mutualStagger) {
-            resultText.textContent = 'Mutual Stagger';
+            resultText.textContent = 'Both Staggered';
             resultText.style.color = 'var(--badge-3)';
             resultOutput.style.borderColor = 'var(--badge-3)';
+            resultNote.textContent = 'Whoever casts first wins the trade. Ping can impact this and cause variations.';
         } else if (clashNeutral) {
-            resultText.textContent = 'Clash / Neutral';
+            resultText.textContent = 'Both hits, but no Stagger';
             resultText.style.color = 'var(--text-muted)';
             resultOutput.style.borderColor = 'var(--border-color)';
+            resultNote.textContent = '';
         }
         
         resultOutput.classList.remove('hidden');

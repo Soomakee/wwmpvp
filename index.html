@@ -72,8 +72,11 @@
                             (D)</strong>, while holding against their Stagger.
                     </div>
                     <div class="info-example">
-                        <strong>Example:</strong> Martial Art (S:2, D:1) vs Light Attack (S:1, D:0) =
-                        <strong>Victory</strong> (2 > 0 and 1 ≤ 1)
+                        <strong>Victory:</strong> Martial Art (S:2, D:1) vs Light Attack (S:1, D:0) =
+                        <strong>Win</strong> (2 > 0 and 1 ≤ 1)
+                    </div>
+                    <div class="info-text">
+                        If both players break through defense (S > D for both), you get <strong>Both Staggered</strong>. In this state, whoever casts the ability <strong>first</strong> wins the trade; however, high <strong>Ping</strong> can cause variations.
                     </div>
                 </div>
             </div>
@@ -162,6 +165,7 @@
                         <div class="outcome-info">
                             <div class="outcome-label">Comparison Result</div>
                             <div id="resultText" class="outcome-text">Draw</div>
+                            <div id="resultNote" class="outcome-note"></div>
                         </div>
                     </div>
                 </div>
@@ -174,10 +178,10 @@
                 <h2>Weapon Priorities</h2>
                 <p>Weapon attack priorities statistics</p>
                 <div class="legend-container">
-                    <div class="legend-item"><span class="badge b-0">0</span> No Priority/Defense</div>
-                    <div class="legend-item"><span class="badge b-1">1</span> Some Priority/Defense</div>
-                    <div class="legend-item"><span class="badge b-3">3</span> Tenacity</div>
-                    <div class="legend-item"><span class="badge b-4">4</span> Super Armor</div>
+                    <div class="legend-item"><span class="badge b-0">0</span> No Stagger/No Defense</div>
+                    <div class="legend-item"><span class="badge b-1">1</span> Low Stagger/Low Defense</div>
+                    <div class="legend-item"><span class="badge b-3">3</span> High Stagger/High Defense(Tenacity)</div>
+                    <div class="legend-item"><span class="badge b-4">4</span> Extreme Stagger/Unbreakable(Super Armor)</div>
                 </div>
             </div>
 
@@ -192,10 +196,10 @@
                 <h2>Mystic Skills Priorities</h2>
                 <p>Mystic Skills attack priorities statistics</p>
                 <div class="legend-container">
-                    <div class="legend-item"><span class="badge b-0">0</span> No Priority/Defense</div>
-                    <div class="legend-item"><span class="badge b-1">1</span> Some Priority/Defense</div>
-                    <div class="legend-item"><span class="badge b-3">3</span> Tenacity</div>
-                    <div class="legend-item"><span class="badge b-4">4</span> Super Armor</div>
+                    <div class="legend-item"><span class="badge b-0">0</span> No Stagger/No Defense</div>
+                    <div class="legend-item"><span class="badge b-1">1</span> Low Stagger/Low Defense</div>
+                    <div class="legend-item"><span class="badge b-3">3</span> High Stagger/High Defense(Tenacity)</div>
+                    <div class="legend-item"><span class="badge b-4">4</span> Extreme Stagger/Unbreakable(Super Armor)</div>
                 </div>
             </div>
 
@@ -505,6 +509,12 @@
             </div>
         </div>
     </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <span class="creator-credit">Created by <strong>Saia</strong></span>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
