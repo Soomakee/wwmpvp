@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combat Conflict Calculator</title>
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="14.5 2 22 2 22 9.5 10 21.5 2 21.5 2 13.5 14.5 2"></polygon>
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                </svg>
+                <span>COMBAT RESOLVER</span>
+            </div>
+            <div class="nav-tabs">
+                <button class="nav-btn active" data-tab="calculator">Calculator</button>
+                <button class="nav-btn" data-tab="dashboard">Reference Dashboard</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+
+        <!-- CALCULATION ENGINE TAB -->
+        <section id="calculator" class="tab-pane active">
+            <div class="calc-grid">
+                
+                <!-- Fighter A -->
+                <div class="combat-card card-a">
+                    <div class="combat-header">
+                        <h2>Weapon A</h2>
+                    </div>
+                    <div class="combat-body">
+                        <div class="input-group">
+                            <label for="w1">Weapon</label>
+                            <select id="w1"></select>
+                        </div>
+                        <div class="input-group">
+                            <label for="a1">Attack Type</label>
+                            <select id="a1"></select>
+                        </div>
+                    </div>
+                    <div class="combat-footer stats-row">
+                        <div class="stat-pill"><span class="stat-label">Stagger</span><span class="badge" id="s1">0</span></div>
+                        <div class="stat-pill"><span class="stat-label">Protection</span><span class="badge" id="p1">0</span></div>
+                    </div>
+                </div>
+
+                <!-- Fighter B -->
+                <div class="combat-card card-b">
+                    <div class="combat-header">
+                        <h2>Weapon B</h2>
+                    </div>
+                    <div class="combat-body">
+                        <div class="input-group">
+                            <label for="w2">Weapon</label>
+                            <select id="w2"></select>
+                        </div>
+                        <div class="input-group">
+                            <label for="a2">Attack Type</label>
+                            <select id="a2"></select>
+                        </div>
+                    </div>
+                    <div class="combat-footer stats-row">
+                        <div class="stat-pill"><span class="stat-label">Stagger</span><span class="badge" id="s2">0</span></div>
+                        <div class="stat-pill"><span class="stat-label">Protection</span><span class="badge" id="p2">0</span></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="action-center">
+                <button id="compareBtn" class="btn-primary">COMPARE RESOLUTION</button>
+                
+                <div id="resultOutput" class="outcome-card hidden">
+                    <div class="outcome-label">Result</div>
+                    <div id="resultText" class="outcome-text">Draw</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REFERENCE DASHBOARD TAB -->
+        <section id="dashboard" class="tab-pane">
+            <div class="dashboard-header">
+                <h2>Weapon Compendium</h2>
+                <p>Valid attack configurations and their associated S/P statistics.</p>
+                <div class="legend-container">
+                    <div class="legend-item"><span class="badge b-0">0</span> No Priority/Protection</div>
+                    <div class="legend-item"><span class="badge b-1">1</span> Some Priority/Protection</div>
+                    <div class="legend-item"><span class="badge b-3">3</span> Tenacity</div>
+                    <div class="legend-item"><span class="badge b-4">4</span> Super Armor</div>
+                </div>
+            </div>
+            
+            <div class="card-grid" id="referenceGrid">
+                <!-- Javascript will statically inject reference cards here -->
+            </div>
+        </section>
+        
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
