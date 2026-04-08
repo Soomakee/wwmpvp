@@ -1,5 +1,5 @@
 # WWMPVP - Combat Calculator Dashboard
-
+Vibe Coded until I decide to actually code it or hire someone to code.
 A modern, responsive dashboard for high-level PvP combat analysis and weapon reference.
 
 ## Core Features
