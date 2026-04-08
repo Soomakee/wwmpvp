@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combat Conflict Calculator</title>
+    <title>WWM PvP Priority</title>
     <!-- Modern Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,12 +22,16 @@
                     <polygon points="14.5 2 22 2 22 9.5 10 21.5 2 21.5 2 13.5 14.5 2"></polygon>
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                 </svg>
-                <span>COMBAT RESOLVER</span>
+                <span>PvP Priority</span>
             </div>
-            <div class="nav-tabs">
+
+            <div class="nav-main">
                 <button class="nav-btn active" data-tab="calculator">Calculator</button>
                 <button class="nav-btn" data-tab="dashboard">Weapon Priorities</button>
-                <button class="nav-btn" data-tab="mystics">Mystic Priorities</button>
+                <button class="nav-btn" data-tab="mystics">Mystic Skill Priorities</button>
+            </div>
+
+            <div class="nav-secondary">
                 <button class="nav-btn" data-tab="contact">Contact</button>
                 <span class="wip-pill">⚠️ BETA</span>
             </div>
@@ -49,23 +53,23 @@
                     </svg>
                 </div>
                 <p>All skills indicated have been tested as <strong>BASE</strong> and do not include Inner Ways or
-                    Attunements, which can drastically change Skill Priority. I Will be adding them soon.</p>
+                    Attunements, which can drastically change Skill Priority. I will be adding them soon.</p>
             </div>
             <div class="calc-grid">
 
-                <!-- Fighter A -->
-                <div class="combat-card card-a">
-                    <div class="combat-header">
-                        <h2>Fighter A</h2>
+                <!-- Skill A -->
+                <div class="skill-card card-a">
+                    <div class="skill-header">
+                        <h2>Skill A</h2>
                     </div>
-                    <div class="combat-body">
-                        <div class="selection-trigger" id="trigger1">
+                    <div class="skill-body">
+                        <div class="selection-trigger" id="triggerA">
                             <div class="trigger-icon-wrap">
-                                <img src="Icons/Strategic Sword.png" id="icon1" class="trigger-icon" alt="">
+                                <img src="Icons/Strategic Sword.png" id="iconA" class="trigger-icon" alt="">
                             </div>
                             <div class="trigger-text-wrap">
                                 <span class="trigger-label">Weapon / Skill</span>
-                                <span class="trigger-name" id="name1">Strategic Sword</span>
+                                <span class="trigger-name" id="nameA">Strategic Sword</span>
                             </div>
                             <div class="trigger-chevron">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -75,32 +79,32 @@
                             </div>
                         </div>
 
-                        <div class="input-group" id="attackGroup1">
-                            <label for="a1">Action / Attack Type</label>
-                            <select id="a1"></select>
+                        <div class="input-group" id="attackGroupA">
+                            <label for="aA">Action / Attack Type</label>
+                            <select id="aA"></select>
                         </div>
                     </div>
-                    <div class="combat-footer stats-row">
+                    <div class="skill-footer stats-row">
                         <div class="stat-pill"><span class="stat-label">Stagger</span><span class="badge"
-                                id="s1">0</span></div>
+                                id="sA">0</span></div>
                         <div class="stat-pill"><span class="stat-label">Protection</span><span class="badge"
-                                id="p1">0</span></div>
+                                id="pA">0</span></div>
                     </div>
                 </div>
 
-                <!-- Fighter B -->
-                <div class="combat-card card-b">
-                    <div class="combat-header">
-                        <h2>Fighter B</h2>
+                <!-- Skill B -->
+                <div class="skill-card card-b">
+                    <div class="skill-header">
+                        <h2>Skill B</h2>
                     </div>
-                    <div class="combat-body">
-                        <div class="selection-trigger" id="trigger2">
+                    <div class="skill-body">
+                        <div class="selection-trigger" id="triggerB">
                             <div class="trigger-icon-wrap">
-                                <img src="Icons/Nameless Sword.png" id="icon2" class="trigger-icon" alt="">
+                                <img src="Icons/Nameless Sword.png" id="iconB" class="trigger-icon" alt="">
                             </div>
                             <div class="trigger-text-wrap">
                                 <span class="trigger-label">Weapon / Skill</span>
-                                <span class="trigger-name" id="name2">Nameless Sword</span>
+                                <span class="trigger-name" id="nameB">Nameless Sword</span>
                             </div>
                             <div class="trigger-chevron">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -110,16 +114,16 @@
                             </div>
                         </div>
 
-                        <div class="input-group" id="attackGroup2">
-                            <label for="a2">Action / Attack Type</label>
-                            <select id="a2"></select>
+                        <div class="input-group" id="attackGroupB">
+                            <label for="aB">Action / Attack Type</label>
+                            <select id="aB"></select>
                         </div>
                     </div>
-                    <div class="combat-footer stats-row">
+                    <div class="skill-footer stats-row">
                         <div class="stat-pill"><span class="stat-label">Stagger</span><span class="badge"
-                                id="s2">0</span></div>
+                                id="sB">0</span></div>
                         <div class="stat-pill"><span class="stat-label">Protection</span><span class="badge"
-                                id="p2">0</span></div>
+                                id="pB">0</span></div>
                     </div>
                 </div>
 
@@ -145,7 +149,7 @@
         <!-- REFERENCE DASHBOARD TAB -->
         <section id="dashboard" class="tab-pane">
             <div class="dashboard-header">
-                <h2>Weapon Compendium</h2>
+                <h2>Weapon Priorities</h2>
                 <p>Valid attack configurations and their associated S/P statistics.</p>
                 <div class="legend-container">
                     <div class="legend-item"><strong class="text-stagger">S:</strong> Stagger Level</div>
@@ -193,8 +197,10 @@
                 <p class="form-subtitle">Have a question, feedback, or found an issue? I'd love to hear from you. Your
                     input helps me make the site better.</p>
 
-                <form action="https://submit-form.com/3wv9HLMXU" method="POST" class="contact-form">
-                    <input type="hidden" name="_redirect" value="false" />
+                <form action="https://submit-form.com/3wv9HLMXU" method="POST" class="contact-form"
+                    target="contact-target">
+                    <!-- Formspark AJAX response will load into this hidden iframe -->
+                    <iframe name="contact-target" style="display:none;" id="contact-target"></iframe>
 
                     <div class="form-group">
                         <label for="contact-subject">SUBJECT *</label>
@@ -231,8 +237,13 @@
                         <input type="email" id="contact-email" name="email" placeholder="your@email.com">
                     </div>
 
-                    <button type="submit" class="btn-submit">Contact</button>
+                    <button type="submit" id="contactSubmit" class="btn-submit">Contact</button>
                 </form>
+
+                <div id="contactSuccess" class="form-success-msg hidden">
+                    <div class="success-icon">✓</div>
+                    <p>Message Sent! I'll get back to you soon.</p>
+                </div>
             </div>
         </section>
 

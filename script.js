@@ -58,24 +58,24 @@ const mysticSkillsData = {
 document.addEventListener('DOMContentLoaded', () => {
     // --- App State ---
     let appState = {
-        activeFighter: null, // 1 or 2
+        activeSlot: null, // 'A' or 'B'
         activeCategory: 'weapons',
-        fighter1: { type: 'weapon', name: 'Strategic Sword', action: 'Light Attack' },
-        fighter2: { type: 'weapon', name: 'Nameless Sword', action: 'Light Attack' }
+        skillA: { type: 'weapon', name: 'Strategic Sword', action: 'Light Attack' },
+        skillB: { type: 'weapon', name: 'Nameless Sword', action: 'Light Attack' }
     };
 
     // --- Elements ---
     const navBtns = document.querySelectorAll('.nav-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
     
-    const trigger1 = document.getElementById('trigger1');
-    const trigger2 = document.getElementById('trigger2');
-    const a1 = document.getElementById('a1');
-    const a2 = document.getElementById('a2');
-    const s1 = document.getElementById('s1');
-    const p1 = document.getElementById('p1');
-    const s2 = document.getElementById('s2');
-    const p2 = document.getElementById('p2');
+    const trigger1 = document.getElementById('triggerA');
+    const trigger2 = document.getElementById('triggerB');
+    const aA = document.getElementById('aA');
+    const aB = document.getElementById('aB');
+    const sA = document.getElementById('sA');
+    const pA = document.getElementById('pA');
+    const sB = document.getElementById('sB');
+    const pB = document.getElementById('pB');
     
     const compareBtn = document.getElementById('compareBtn');
     const resultOutput = document.getElementById('resultOutput');
@@ -101,44 +101,44 @@ document.addEventListener('DOMContentLoaded', () => {
         return name;
     };
 
-    const getStats = (fighter) => {
-        if (fighter.type === 'weapon') {
-            const weapon = weaponData[fighter.name];
-            return (weapon && weapon[fighter.action]) ? weapon[fighter.action] : {S:0, P:0};
+    const getStats = (slotData) => {
+        if (slotData.type === 'weapon') {
+            const weapon = weaponData[slotData.name];
+            return (weapon && weapon[slotData.action]) ? weapon[slotData.action] : {S:0, P:0};
         } else {
-            return mysticSkillsData[fighter.name] || {S:0, P:0};
+            return mysticSkillsData[slotData.name] || {S:0, P:0};
         }
     };
 
     // --- UI Updaters ---
     const updateDisplay = () => {
-        const stats1 = getStats(appState.fighter1);
-        s1.textContent = stats1.S; s1.className = `badge ${getBadgeClass(stats1.S)}`;
-        p1.textContent = stats1.P; p1.className = `badge ${getBadgeClass(stats1.P)}`;
+        const statsA = getStats(appState.skillA);
+        sA.textContent = statsA.S; sA.className = `badge ${getBadgeClass(statsA.S)}`;
+        pA.textContent = statsA.P; pA.className = `badge ${getBadgeClass(statsA.P)}`;
 
-        const stats2 = getStats(appState.fighter2);
-        s2.textContent = stats2.S; s2.className = `badge ${getBadgeClass(stats2.S)}`;
-        p2.textContent = stats2.P; p2.className = `badge ${getBadgeClass(stats2.P)}`;
+        const statsB = getStats(appState.skillB);
+        sB.textContent = statsB.S; sB.className = `badge ${getBadgeClass(statsB.S)}`;
+        pB.textContent = statsB.P; pB.className = `badge ${getBadgeClass(statsB.P)}`;
         
         resultOutput.classList.add('hidden');
     };
 
-    const updateFighterUI = (num) => {
-        const fighter = appState[`fighter${num}`];
-        const nameEl = document.getElementById(`name${num}`);
-        const iconEl = document.getElementById(`icon${num}`);
-        const attackGroup = document.getElementById(`attackGroup${num}`);
-        const attackSelect = document.getElementById(`a${num}`);
+    const updateSkillUI = (slot) => {
+        const slotData = appState[`skill${slot}`];
+        const nameEl = document.getElementById(`name${slot}`);
+        const iconEl = document.getElementById(`icon${slot}`);
+        const attackGroup = document.getElementById(`attackGroup${slot}`);
+        const attackSelect = document.getElementById(`a${slot}`);
 
-        nameEl.textContent = fighter.name;
-        iconEl.src = `Icons/${getImageFileName(fighter.name)}.png`;
+        nameEl.textContent = slotData.name;
+        iconEl.src = `Icons/${getImageFileName(slotData.name)}.png`;
 
-        if (fighter.type === 'weapon') {
+        if (slotData.type === 'weapon') {
             attackGroup.style.display = 'flex';
-            const attacks = Object.keys(weaponData[fighter.name] || {});
+            const attacks = Object.keys(weaponData[slotData.name] || {});
             attackSelect.innerHTML = '';
             attacks.forEach(atk => attackSelect.add(new Option(atk, atk)));
-            attackSelect.value = fighter.action;
+            attackSelect.value = slotData.action;
         } else {
             attackGroup.style.display = 'none';
         }
@@ -169,33 +169,33 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.modal-item').forEach(el => {
             el.addEventListener('click', () => {
                 const name = el.getAttribute('data-name');
-                const fighterNum = appState.activeFighter;
+                const slot = appState.activeSlot;
                 const type = appState.activeCategory === 'weapons' ? 'weapon' : 'skill';
                 
-                appState[`fighter${fighterNum}`].type = type;
-                appState[`fighter${fighterNum}`].name = name;
+                appState[`skill${slot}`].type = type;
+                appState[`skill${slot}`].name = name;
                 
                 if (type === 'weapon') {
-                    appState[`fighter${fighterNum}`].action = Object.keys(weaponData[name])[0];
+                    appState[`skill${slot}`].action = Object.keys(weaponData[name])[0];
                 }
 
-                updateFighterUI(fighterNum);
+                updateSkillUI(slot);
                 selectionModal.classList.add('hidden');
                 modalSearch.value = '';
             });
         });
     };
 
-    const openPicker = (fighterNum) => {
-        appState.activeFighter = fighterNum;
+    const openPicker = (slot) => {
+        appState.activeSlot = slot;
         selectionModal.classList.remove('hidden');
         renderModalItems();
         modalSearch.focus();
     };
 
     // --- Listeners ---
-    if (trigger1) trigger1.addEventListener('click', () => openPicker(1));
-    if (trigger2) trigger2.addEventListener('click', () => openPicker(2));
+    if (trigger1) trigger1.addEventListener('click', () => openPicker('A'));
+    if (trigger2) trigger2.addEventListener('click', () => openPicker('B'));
     
     if (closeModal) closeModal.addEventListener('click', () => selectionModal.classList.add('hidden'));
     
@@ -210,13 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    a1.addEventListener('change', (e) => {
-        appState.fighter1.action = e.target.value;
+    aA.addEventListener('change', (e) => {
+        appState.skillA.action = e.target.value;
         updateDisplay();
     });
     
-    a2.addEventListener('change', (e) => {
-        appState.fighter2.action = e.target.value;
+    aB.addEventListener('change', (e) => {
+        appState.skillB.action = e.target.value;
         updateDisplay();
     });
 
@@ -232,8 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Core Logic Evaluator ---
     compareBtn.addEventListener('click', () => {
-        const statsA = getStats(appState.fighter1);
-        const statsB = getStats(appState.fighter2);
+        const statsA = getStats(appState.skillA);
+        const statsB = getStats(appState.skillB);
 
         const sa = Number(statsA.S); const pa = Number(statsA.P);
         const sb = Number(statsB.S); const pb = Number(statsB.P);
@@ -249,21 +249,21 @@ document.addEventListener('DOMContentLoaded', () => {
         iconWrap.style.display = 'none';
 
         if (aWins) {
-            resultText.textContent = `${appState.fighter1.name} Wins`;
+            resultText.textContent = `${appState.skillA.name} Wins`;
             resultText.style.color = 'var(--w1-color)';
             resultOutput.style.borderColor = 'var(--w1-color)';
             
             iconWrap.style.display = 'flex';
             iconWrap.style.borderColor = 'var(--w1-color)';
-            winnerIcon.src = `Icons/${getImageFileName(appState.fighter1.name)}.png`;
+            winnerIcon.src = `Icons/${getImageFileName(appState.skillA.name)}.png`;
         } else if (bWins) {
-            resultText.textContent = `${appState.fighter2.name} Wins`;
+            resultText.textContent = `${appState.skillB.name} Wins`;
             resultText.style.color = 'var(--w2-color)';
             resultOutput.style.borderColor = 'var(--w2-color)';
             
             iconWrap.style.display = 'flex';
             iconWrap.style.borderColor = 'var(--w2-color)';
-            winnerIcon.src = `Icons/${getImageFileName(appState.fighter2.name)}.png`;
+            winnerIcon.src = `Icons/${getImageFileName(appState.skillB.name)}.png`;
         } else if (mutualStagger) {
             resultText.textContent = 'Mutual Stagger';
             resultText.style.color = 'var(--badge-3)';
@@ -359,37 +359,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const setupContactForm = () => {
         const contactForm = document.querySelector('.contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const submitBtn = contactForm.querySelector('.btn-submit');
-                const originalText = submitBtn.textContent;
+        const iframe = document.getElementById('contact-target');
+        const successMsg = document.getElementById('contactSuccess');
+        const submitBtn = document.getElementById('contactSubmit');
+
+        if (contactForm && iframe) {
+            contactForm.addEventListener('submit', () => {
                 submitBtn.textContent = 'Sending...';
-                try {
-                    const response = await fetch(contactForm.action, {
-                        method: 'POST',
-                        headers: { 'Accept': 'application/json' },
-                        body: new FormData(contactForm)
-                    });
-                    if (response.ok) {
+                submitBtn.disabled = true;
+                
+                // When iframe loads, submission is complete
+                iframe.onload = () => {
+                    contactForm.classList.add('hidden');
+                    successMsg.classList.remove('hidden');
+                    
+                    // Reset after 5 seconds to allow new submissions
+                    setTimeout(() => {
                         contactForm.reset();
-                        submitBtn.textContent = 'Message Sent!';
-                        submitBtn.style.backgroundColor = 'var(--badge-1)';
-                    } else {
-                        submitBtn.textContent = 'Error Sending';
-                    }
-                } catch (error) { submitBtn.textContent = 'Error Sending'; }
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.backgroundColor = '';
-                }, 3000);
+                        contactForm.classList.remove('hidden');
+                        successMsg.classList.add('hidden');
+                        submitBtn.textContent = 'Contact';
+                        submitBtn.disabled = false;
+                    }, 5000);
+                };
             });
         }
     };
 
     // --- Initial Init ---
-    updateFighterUI(1);
-    updateFighterUI(2);
+    updateSkillUI('A');
+    updateSkillUI('B');
     renderWeaponCompendium();
     renderMysticCompendium();
     setupContactForm();

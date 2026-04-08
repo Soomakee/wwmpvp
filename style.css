@@ -41,13 +41,13 @@ body {
     box-shadow: var(--shadow-sm);
 }
 .nav-container {
-    max-width: 98%;
     margin: 0 auto;
     padding: 0 1.5rem;
     height: 70px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
+    gap: 1.5rem;
 }
 .nav-brand {
     display: flex;
@@ -57,7 +57,17 @@ body {
     font-size: 1.25rem;
     color: #fff;
 }
-.nav-tabs { display: flex; gap: 0.5rem; }
+.nav-main { 
+    display: flex; 
+    gap: 0.5rem; 
+    justify-content: center;
+}
+.nav-secondary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
 .nav-btn {
     background: transparent; border: none; color: var(--text-muted);
     font-size: 0.95rem; font-weight: 600; padding: 0.5rem 1.25rem;
@@ -125,19 +135,19 @@ body {
     display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;
 }
 @media (max-width: 768px) { .calc-grid { grid-template-columns: 1fr; } }
-.combat-card {
+.skill-card {
     background-color: var(--bg-surface); border: 1px solid var(--border-color);
     border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md);
     display: flex; flex-direction: column;
 }
-.card-a .combat-header { border-bottom: 2px solid var(--w1-color); }
-.card-b .combat-header { border-bottom: 2px solid var(--w2-color); }
-.card-a .combat-header h2 { color: var(--w1-color); }
-.card-b .combat-header h2 { color: var(--w2-color); }
+.card-a .skill-header { border-bottom: 2px solid var(--w1-color); }
+.card-b .skill-header { border-bottom: 2px solid var(--w2-color); }
+.card-a .skill-header h2 { color: var(--w1-color); }
+.card-b .skill-header h2 { color: var(--w2-color); }
 
-.combat-header { padding: 1.25rem 1.5rem; background: rgba(0,0,0,0.2); }
-.combat-header h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; }
-.combat-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; flex: 1; }
+.skill-header { padding: 1.25rem 1.5rem; background: rgba(0,0,0,0.2); }
+.skill-header h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; }
+.skill-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; flex: 1; }
 .input-group { display: flex; flex-direction: column; gap: 0.5rem; }
 .input-group label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
 
@@ -150,7 +160,7 @@ select {
 }
 select:focus { outline: none; border-color: var(--primary); }
 
-.combat-footer {
+.skill-footer {
     padding: 1.5rem; background-color: rgba(0,0,0,0.3); border-top: 1px solid var(--border-color);
     display: flex; justify-content: center; gap: 2rem;
 }
@@ -628,3 +638,24 @@ select:focus { outline: none; border-color: var(--primary); }
 .btn-submit:hover {
     opacity: 0.9;
 }
+
+/* === FORM SUCCESS MESSAGE === */
+.form-success-msg {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 12px;
+    animation: fade-in 0.4s ease-out;
+}
+.success-icon {
+    font-size: 3rem;
+    color: var(--badge-1);
+    margin-bottom: 1rem;
+}
+.form-success-msg p {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.hidden { display: none !important; }
