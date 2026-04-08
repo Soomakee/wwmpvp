@@ -88,6 +88,34 @@ body {
     margin: 2.5rem auto;
     padding: 0 1.5rem;
 }
+
+/* === NOTICE BANNER === */
+.notice-banner {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+.notice-icon {
+    color: var(--badge-3);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+.notice-banner p {
+    color: var(--text-main);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+.notice-banner strong {
+    color: var(--badge-3);
+}
+
 .tab-pane { display: none; animation: fade-in 0.3s ease-in-out; }
 .tab-pane.active { display: block; }
 @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -402,13 +430,13 @@ select:focus { outline: none; border-color: var(--primary); }
 .weapon-icon { width: 32px; height: 32px; object-fit: contain; }
 .ref-attack-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.03); gap: 0.5rem; }
 .ref-attack-row:last-child { border-bottom: none; }
-.ref-attack-name { font-size: 0.85rem; line-height: 1.2; color: var(--text-muted); font-weight: 600; flex: 1; word-wrap: break-word; }
-.ref-attack-stats { display: flex; gap: 0.4rem; flex-shrink: 0; }
-.mini-badge { display: flex; align-items: center; gap: 0.35rem; background: var(--bg-base); padding: 0.25rem 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); font-size: 0.8rem; font-weight: 600; color: var(--text-muted); }
-.mini-badge .b-dot { display: inline-block; width: 16px; height: 16px; border-radius: 4px; line-height: 16px; text-align: center; color: #fff; font-size: 0.7rem; }
+.ref-attack-name { font-size: 0.95rem; line-height: 1.2; color: var(--text-main); font-weight: 600; flex: 1; word-wrap: break-word; }
+.ref-attack-stats { display: flex; gap: 0.5rem; flex-shrink: 0; }
+.mini-badge { display: flex; align-items: center; gap: 0.5rem; background: var(--bg-base); padding: 0.35rem 0.65rem; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+.mini-badge .b-dot { display: inline-block; width: 22px; height: 22px; border-radius: 6px; line-height: 22px; text-align: center; color: #fff; font-size: 0.85rem; }
 
-.text-stagger { color: #f87171; }
-.text-protection { color: #60a5fa; }
+.text-stagger { color: var(--text-muted); }
+.text-protection { color: var(--text-muted); }
 
 /* === MYSTIC STAT LAYOUT === */
 .mystic-stat-body {
@@ -437,10 +465,11 @@ select:focus { outline: none; border-color: var(--primary); }
     justify-content: center !important;
 }
 .mystic-stat-label {
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
 }
 .winner-display {
     display: flex;
