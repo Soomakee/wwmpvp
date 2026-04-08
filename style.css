@@ -126,6 +126,49 @@ body {
     color: var(--badge-3);
 }
 
+/* === PRIORITY GUIDE === */
+.priority-info {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+}
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary);
+}
+.info-header span {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+.info-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.info-text {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+.info-example {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-left: 3px solid var(--primary);
+}
+.info-example strong {
+    color: var(--text-main);
+}
+
 .tab-pane { display: none; animation: fade-in 0.3s ease-in-out; }
 .tab-pane.active { display: block; }
 @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -166,12 +209,12 @@ select:focus { outline: none; border-color: var(--primary); }
 }
 .stat-pill {
     display: flex; align-items: center; gap: 0.75rem; background: var(--bg-base);
-    padding: 0.5rem 0.5rem 0.5rem 1rem; border-radius: 50px; border: 1px solid var(--border-color);
+    padding: 0.5rem 0.5rem 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--border-color);
 }
 .stat-label { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
 .badge {
     display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;
-    border-radius: 50%; font-weight: 800; font-size: 1.1rem; color: #fff; box-shadow: var(--shadow-sm);
+    border-radius: 6px; font-weight: 800; font-size: 1.1rem; color: #fff; box-shadow: var(--shadow-sm);
 }
 
 .b-0 { background-color: var(--badge-0); } .b-1 { background-color: var(--badge-1); }
@@ -385,7 +428,7 @@ select:focus { outline: none; border-color: var(--primary); }
 .action-center { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
 .btn-primary {
     background: linear-gradient(135deg, var(--primary), #8b5cf6); color: white; border: none;
-    padding: 1.2rem 3.5rem; border-radius: 50px; font-family: inherit; font-size: 1.1rem;
+    padding: 1.2rem 3.5rem; border-radius: 12px; font-family: inherit; font-size: 1.1rem;
     font-weight: 800; letter-spacing: 1.5px; cursor: pointer; box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
     transition: transform 0.2s ease;
 }
@@ -438,15 +481,23 @@ select:focus { outline: none; border-color: var(--primary); }
 .weapon-ref-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; }
 .ref-card-header { display: flex; align-items: center; gap: 0.75rem; background: rgba(0,0,0,0.3); padding: 1rem 1.25rem; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid var(--border-color); }
 .weapon-icon { width: 32px; height: 32px; object-fit: contain; }
+
+.ref-card-body { padding: 0.5rem 0; }
+.ref-column-headers { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.col-label { font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.col-stats { display: flex; align-items: center; width: 130px; }
+.col-divider { width: 1px; height: 14px; background: rgba(255,255,255,0.1); flex-shrink: 0; margin: 0 4px; }
+.col-label.text-stagger, .col-label.text-defense { flex: 1; text-align: center; }
+
 .ref-attack-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.03); gap: 0.5rem; }
 .ref-attack-row:last-child { border-bottom: none; }
 .ref-attack-name { font-size: 0.95rem; line-height: 1.2; color: var(--text-main); font-weight: 600; flex: 1; word-wrap: break-word; }
-.ref-attack-stats { display: flex; gap: 0.5rem; flex-shrink: 0; }
-.mini-badge { display: flex; align-items: center; gap: 0.5rem; background: var(--bg-base); padding: 0.35rem 0.65rem; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
-.mini-badge .b-dot { display: inline-block; width: 22px; height: 22px; border-radius: 6px; line-height: 22px; text-align: center; color: #fff; font-size: 0.85rem; }
+.ref-attack-stats { display: flex; align-items: center; flex-shrink: 0; width: 130px; }
+.mini-badge { flex: 1; display: flex; justify-content: center; align-items: center; }
+.mini-badge .b-dot { display: inline-block; width: 24px; height: 24px; border-radius: 6px; line-height: 24px; text-align: center; color: #fff; font-size: 0.85rem; }
 
 .text-stagger { color: var(--text-muted); }
-.text-protection { color: var(--text-muted); }
+.text-defense { color: var(--text-muted); }
 
 /* === MYSTIC STAT LAYOUT === */
 .mystic-stat-body {
@@ -625,7 +676,7 @@ select:focus { outline: none; border-color: var(--primary); }
     background-color: var(--badge-4);
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     padding: 1.25rem;
     font-weight: 800;
     font-size: 1rem;

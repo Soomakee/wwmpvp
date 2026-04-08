@@ -4,22 +4,22 @@
 // Define only the attacks that exist for each weapon.
 // Do not define an attack if the weapon does not possess it.
 const weaponData = {
-    "Strategic Sword": { "Light Attack": {S:1, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:2, P:1}, "Special Skill": {S:2, P:1}, "Dual Weapon Skill": {S:2, P:1}, "Heavy Charged": {S:1, P:1} },
-    "Nameless Sword": { "Light Attack": {S:1, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:2, P:1}, "Special Skill": {S:2, P:1}, "Dual Weapon Skill": {S:2, P:1}, "Heavy Charged": {S:1, P:1} },
-    "Heavenquaker Spear": { "Light Attack": {S:1, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:2, P:1}, "Special Skill": {S:2, P:1}, "Dual Weapon Skill": {S:2, P:1}, "Heavy Charged": {S:2, P:3} },
-    "Nameless Spear": { "Light Attack": {S:1, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:4, P:1}, "Special Skill": {S:2, P:1}, "Dual Weapon Skill": {S:2, P:1}, "Heavy Charged": {S:2, P:1} },
-    "Infernal Twinblades": { "Light Attack": {S:1, P:0}, "Heavy Attack": {S:1, P:3}, "Martial Art": {S:2, P:1}, "Special Skill": {S:2, P:1}, "Dual Weapon Skill": {S:2, P:1} },
-    "Mortal Ropedart": { "Light Attack": {S:1, P:0}, "Martial Art": {S:2, P:1}, "Special Skill": {S:0, P:1}, "Dual Weapon Skill": {S:2, P:1}, "Heavy Charged": {S:0, P:3}, "Light Varied Combo": {S:1, P:1}, "Heavy Varied Combo": {S:1, P:1} },
-    "Everspring Umbrella": { "Light Attack": {S:0, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:2, P:1}, "Special Skill": {S:2, P:3}, "Dual Weapon Skill": {S:1, P:1}, "Heavy Charged": {S:1, P:1} },
-    "Unfettered Rope Dart": { "Light Attack": {S:1, P:0}, "Martial Art": {S:2, P:1}, "Special Skill": {S:2, P:3}, "Dual Weapon Skill": {S:2, P:1}, "Heavy Charged": {S:2, P:1} },
-    "Thundercry Blade": { "Light Attack": {S:1, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:0, P:3}, "Special Skill": {S:2, P:3}, "Dual Weapon Skill": {S:2, P:1}, "Light Charged": {S:1, P:3}, "Heavy Charged": {S:1, P:3}, "Light Varied Combo": {S:2, P:3}, "Heavy Varied Combo": {S:2, P:3}, "Martial Perception Skill": {S:0, P:3} },
-    "Stormbreaker Spear": { "Light Attack": {S:1, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:2, P:3}, "Special Skill": {S:2, P:3}, "Dual Weapon Skill": {S:2, P:1}, "Heavy Charged": {S:1, P:3} },
-    "Phalanxbane Blade": { "Light Attack": {S:1, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:2, P:1}, "Special Skill": {S:0, P:3}, "Dual Weapon Skill": {S:2, P:1}, "Heavy Charged": {S:1, P:3}, "Martial Perception Skill": {S:2, P:3} },
-    "Snowparting Blade": { "Light Attack": {S:1, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:2, P:1}, "Special Skill": {S:2, P:3}, "Dual Weapon Skill": {S:2, P:1}, "Light Charged": {S:1, P:1}, "Light Varied Combo": {S:1, P:1} },
-    "Vernal Umbrella": { "Light Attack": {S:0, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:4, P:1}, "Special Skill": {S:0, P:1}, "Dual Weapon Skill": {S:0, P:1}, "Light Charged": {S:0, P:1}, "Heavy Charged": {S:1, P:3}, "Light Varied Combo": {S:1, P:0}, "Heavy Varied Combo": {S:1, P:1} },
-    "Soulshade Umbrella": { "Light Attack": {S:0, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:0, P:1}, "Special Skill": {S:0, P:1}, "Dual Weapon Skill": {S:2, P:1}, "Heavy Charged": {S:1, P:1} },
-    "Inkwell Fan": { "Light Attack": {S:0, P:0}, "Heavy Attack": {S:1, P:0}, "Martial Art": {S:2, P:1}, "Special Skill": {S:2, P:1}, "Dual Weapon Skill": {S:0, P:1}, "Light Charged": {S:1, P:1}, "Heavy Charged": {S:1, P:1} },
-    "Panacea Fan": { "Light Attack": {S:0, P:0}, "Heavy Attack": {S:0, P:0}, "Martial Art": {S:0, P:1}, "Special Skill": {S:0, P:1}, "Dual Weapon Skill": {S:0, P:1}, "Martial Perception Skill": {S:0, P:1}, "Special Perception Skill": {S:0, P:1} }
+    "Strategic Sword": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:1}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:1, D:1} },
+    "Nameless Sword": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:1}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:1, D:1} },
+    "Heavenquaker Spear": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:1}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:2, D:3} },
+    "Nameless Spear": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:4, D:1}, "Special Skill": {S:2, D:1}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:2, D:1} },
+    "Infernal Twinblades": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:3}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:1}, "Dual Weapon Skill": {S:2, D:1} },
+    "Mortal Ropedart": { "Light Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:0, D:1}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:0, D:3}, "Light Varied Combo": {S:1, D:1}, "Heavy Varied Combo": {S:1, D:1} },
+    "Everspring Umbrella": { "Light Attack": {S:0, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:3}, "Dual Weapon Skill": {S:1, D:1}, "Heavy Charged": {S:1, D:1} },
+    "Unfettered Rope Dart": { "Light Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:3}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:2, D:1} },
+    "Thundercry Blade": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:0, D:3}, "Special Skill": {S:2, D:3}, "Dual Weapon Skill": {S:2, D:1}, "Light Charged": {S:1, D:3}, "Heavy Charged": {S:1, D:3}, "Light Varied Combo": {S:2, D:3}, "Heavy Varied Combo": {S:2, D:3}, "Martial Perception Skill": {S:0, D:3} },
+    "Stormbreaker Spear": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:3}, "Special Skill": {S:2, D:3}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:1, D:3} },
+    "Phalanxbane Blade": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:0, D:3}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:1, D:3}, "Martial Perception Skill": {S:2, D:3} },
+    "Snowparting Blade": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:3}, "Dual Weapon Skill": {S:2, D:1}, "Light Charged": {S:1, D:1}, "Light Varied Combo": {S:1, D:1} },
+    "Vernal Umbrella": { "Light Attack": {S:0, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:4, D:1}, "Special Skill": {S:0, D:1}, "Dual Weapon Skill": {S:0, D:1}, "Light Charged": {S:0, D:1}, "Heavy Charged": {S:1, D:3}, "Light Varied Combo": {S:1, D:0}, "Heavy Varied Combo": {S:1, D:1} },
+    "Soulshade Umbrella": { "Light Attack": {S:0, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:0, D:1}, "Special Skill": {S:0, D:1}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:1, D:1} },
+    "Inkwell Fan": { "Light Attack": {S:0, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:1}, "Dual Weapon Skill": {S:0, D:1}, "Light Charged": {S:1, D:1}, "Heavy Charged": {S:1, D:1} },
+    "Panacea Fan": { "Light Attack": {S:0, D:0}, "Heavy Attack": {S:0, D:0}, "Martial Art": {S:0, D:1}, "Special Skill": {S:0, D:1}, "Dual Weapon Skill": {S:0, D:1}, "Martial Perception Skill": {S:0, D:1}, "Special Perception Skill": {S:0, D:1} }
 };
 // =====================================================================
 // === WEAPON DATA END =================================================
@@ -29,27 +29,27 @@ const weaponData = {
 // === MYSTIC SKILLS DATA START ========================================
 // =====================================================================
 const mysticSkillsData = {
-    "Meridian Touch": {S: 2, P: 1},
-    "Cloud Steps": {S: 4, P: 3},
-    "Lions Roar": {S: 2, P: 3},
-    "Leaping Toad": {S: 2, P: 2},
-    "Guardians Palm": {S: 2, P: 1},
-    "Flaming Meteor": {S: 2, P: 4},
-    "Flute of the Tides": {S: 0, P: 1},
-    "Talon Strike": {S: 2, P: 1},
-    "Yaksha Rush": {S: 2, P: 1},
-    "Free Morph": {S: 2, P: 1},
-    "Wolflike Frenzy": {S: 2, P: 2},
-    "Soaring Spin": {S: 2, P: 1},
-    "Dragons Breath": {S: 2, P: 3},
-    "Drunken Poet": {S: 2, P: 3},
-    "Dragons Head": {S: 2, P: 4},
-    "Serene Breeze": {S: 2, P: 4},
-    "Golden Body": {S: 0, P: 3},
-    "Ghostly Steps": {S: 0, P: 0},
-    "Divine Counter": {S: 4, P: 3},
-    "Goosey Slide": {S: 0, P: 0, isWIP: true},
-    "Mighty Drop": {S: 0, P: 0, isWIP: true}
+    "Meridian Touch": {S: 2, D: 1},
+    "Cloud Steps": {S: 4, D: 3},
+    "Lions Roar": {S: 2, D: 3},
+    "Leaping Toad": {S: 2, D: 2},
+    "Guardians Palm": {S: 2, D: 1},
+    "Flaming Meteor": {S: 2, D: 4},
+    "Flute of the Tides": {S: 0, D: 1},
+    "Talon Strike": {S: 2, D: 1},
+    "Yaksha Rush": {S: 2, D: 1},
+    "Free Morph": {S: 2, D: 1},
+    "Wolflike Frenzy": {S: 2, D: 2},
+    "Soaring Spin": {S: 2, D: 1},
+    "Dragons Breath": {S: 2, D: 3},
+    "Drunken Poet": {S: 2, D: 3},
+    "Dragons Head": {S: 2, D: 4},
+    "Serene Breeze": {S: 2, D: 4},
+    "Golden Body": {S: 0, D: 3},
+    "Ghostly Steps": {S: 0, D: 0},
+    "Divine Counter": {S: 4, D: 3},
+    "Goosey Slide": {S: 0, D: 0, isWIP: true},
+    "Mighty Drop": {S: 0, D: 0, isWIP: true}
 };
 // =====================================================================
 // === MYSTIC SKILLS DATA END ==========================================
@@ -104,9 +104,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const getStats = (slotData) => {
         if (slotData.type === 'weapon') {
             const weapon = weaponData[slotData.name];
-            return (weapon && weapon[slotData.action]) ? weapon[slotData.action] : {S:0, P:0};
+            return (weapon && weapon[slotData.action]) ? weapon[slotData.action] : {S:0, D:0};
         } else {
-            return mysticSkillsData[slotData.name] || {S:0, P:0};
+            return mysticSkillsData[slotData.name] || {S:0, D:0};
         }
     };
 
@@ -114,11 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateDisplay = () => {
         const statsA = getStats(appState.skillA);
         sA.textContent = statsA.S; sA.className = `badge ${getBadgeClass(statsA.S)}`;
-        pA.textContent = statsA.P; pA.className = `badge ${getBadgeClass(statsA.P)}`;
+        pA.textContent = statsA.D; pA.className = `badge ${getBadgeClass(statsA.D)}`;
 
         const statsB = getStats(appState.skillB);
         sB.textContent = statsB.S; sB.className = `badge ${getBadgeClass(statsB.S)}`;
-        pB.textContent = statsB.P; pB.className = `badge ${getBadgeClass(statsB.P)}`;
+        pB.textContent = statsB.D; pB.className = `badge ${getBadgeClass(statsB.D)}`;
         
         resultOutput.classList.add('hidden');
     };
@@ -235,13 +235,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const statsA = getStats(appState.skillA);
         const statsB = getStats(appState.skillB);
 
-        const sa = Number(statsA.S); const pa = Number(statsA.P);
-        const sb = Number(statsB.S); const pb = Number(statsB.P);
+        const sa = Number(statsA.S); const da = Number(statsA.D);
+        const sb = Number(statsB.S); const db = Number(statsB.D);
 
-        const aWins = (sa > pb) && (sb <= pa);
-        const bWins = (sb > pa) && (sa <= pb);
-        const mutualStagger = (sa > pb) && (sb > pa);
-        const clashNeutral = (sa <= pb) && (sb <= pa);
+        const aWins = (sa > db) && (sb <= da);
+        const bWins = (sb > da) && (sa <= db);
+        const mutualStagger = (sa > db) && (sb > da);
+        const clashNeutral = (sa <= db) && (sb <= da);
 
         const iconWrap = document.querySelector('.winner-icon-wrap');
         const winnerIcon = document.getElementById('winnerIcon');
@@ -291,6 +291,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${w}
                     </div>
                     <div class="ref-card-body">
+                        <div class="ref-column-headers">
+                            <span class="col-label">Attack Name</span>
+                            <div class="col-stats">
+                                <span class="col-label text-stagger">Stagger</span>
+                                <div class="col-divider"></div>
+                                <span class="col-label text-defense">Defense</span>
+                            </div>
+                        </div>
             `;
             const attacks = Object.keys(weaponData[w]);
             for (const a of attacks) {
@@ -299,8 +307,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="ref-attack-row">
                         <span class="ref-attack-name">${a}</span>
                         <div class="ref-attack-stats">
-                            <div class="mini-badge"><span class="text-stagger">S:</span><span class="b-dot ${getBadgeClass(st.S)}">${st.S}</span></div>
-                            <div class="mini-badge"><span class="text-protection">P:</span><span class="b-dot ${getBadgeClass(st.P)}">${st.P}</span></div>
+                            <div class="mini-badge"><span class="b-dot ${getBadgeClass(st.S)}">${st.S}</span></div>
+                            <div class="col-divider"></div>
+                            <div class="mini-badge"><span class="b-dot ${getBadgeClass(st.D)}">${st.D}</span></div>
                         </div>
                     </div>
                 `;
@@ -346,8 +355,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                             <div class="mystic-stat-divider"></div>
                             <div class="mystic-stat-block">
-                                <span class="b-dot ${getBadgeClass(st.P)} mystic-stat-num">${st.P}</span>
-                                <span class="mystic-stat-label text-protection">Protection</span>
+                                <span class="b-dot ${getBadgeClass(st.D)} mystic-stat-num">${st.D}</span>
+                                <span class="mystic-stat-label text-defense">Defense</span>
                             </div>
                         </div>
                     </div>

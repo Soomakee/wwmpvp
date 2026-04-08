@@ -55,6 +55,21 @@
                 <p>All skills indicated have been tested as <strong>BASE</strong> and do not include Inner Ways or
                     Attunements, which can drastically change Skill Priority. I will be adding them soon.</p>
             </div>
+
+            <div class="priority-info">
+                <div class="info-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>How Combat Priority Works</span>
+                </div>
+                <div class="info-body">
+                    <div class="info-text">
+                        To win, your <strong>Stagger (S)</strong> must be higher than their <strong>Defense (D)</strong>, while holding against their Stagger.
+                    </div>
+                    <div class="info-example">
+                        <strong>Example:</strong> Martial Art (S:2, D:1) vs Light Attack (S:1, D:0) = <strong>Victory</strong> (2 > 0 and 1 ≤ 1)
+                    </div>
+                </div>
+            </div>
             <div class="calc-grid">
 
                 <!-- Skill A -->
@@ -87,7 +102,7 @@
                     <div class="skill-footer stats-row">
                         <div class="stat-pill"><span class="stat-label">Stagger</span><span class="badge"
                                 id="sA">0</span></div>
-                        <div class="stat-pill"><span class="stat-label">Protection</span><span class="badge"
+                        <div class="stat-pill"><span class="stat-label">Defense</span><span class="badge"
                                 id="pA">0</span></div>
                     </div>
                 </div>
@@ -122,7 +137,7 @@
                     <div class="skill-footer stats-row">
                         <div class="stat-pill"><span class="stat-label">Stagger</span><span class="badge"
                                 id="sB">0</span></div>
-                        <div class="stat-pill"><span class="stat-label">Protection</span><span class="badge"
+                        <div class="stat-pill"><span class="stat-label">Defense</span><span class="badge"
                                 id="pB">0</span></div>
                     </div>
                 </div>
@@ -150,12 +165,10 @@
         <section id="dashboard" class="tab-pane">
             <div class="dashboard-header">
                 <h2>Weapon Priorities</h2>
-                <p>Valid attack configurations and their associated S/P statistics.</p>
+                <p>Valid attack configurations and their associated S/D statistics.</p>
                 <div class="legend-container">
-                    <div class="legend-item"><strong class="text-stagger">S:</strong> Stagger Level</div>
-                    <div class="legend-item"><strong class="text-protection">P:</strong> Protection Level</div>
-                    <div class="legend-item"><span class="badge b-0">0</span> No Priority/Protection</div>
-                    <div class="legend-item"><span class="badge b-1">1</span> Some Priority/Protection</div>
+                    <div class="legend-item"><span class="badge b-0">0</span> No Priority/Defense</div>
+                    <div class="legend-item"><span class="badge b-1">1</span> Some Priority/Defense</div>
                     <div class="legend-item"><span class="badge b-3">3</span> Tenacity</div>
                     <div class="legend-item"><span class="badge b-4">4</span> Super Armor</div>
                 </div>
