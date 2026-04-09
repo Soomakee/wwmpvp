@@ -276,7 +276,7 @@ body::after {
     font-size: 0.9rem;
 }
 
-.info-body {
+.priority-info .info-body {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -498,7 +498,7 @@ select:focus {
 }
 
 /* === SELECTION TRIGGERS === */
-.ref-card-header {
+.selection-trigger .ref-card-header {
     padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
@@ -508,7 +508,7 @@ select:focus {
     min-height: 5rem;
 }
 
-.header-text-wrap {
+.selection-trigger .header-text-wrap {
     display: flex;
     flex-direction: column;
     gap: 0.15rem;
@@ -936,7 +936,8 @@ select:focus {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.ref-card-header {
+.weapon-ref-card .ref-card-header,
+.info-entry-card .ref-card-header {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -948,7 +949,8 @@ select:focus {
     min-height: 4.8rem;
 }
 
-.header-text-wrap {
+.weapon-ref-card .header-text-wrap,
+.info-entry-card .header-text-wrap {
     flex: 1;
     display: flex;
     align-items: center;
@@ -1361,7 +1363,7 @@ select:focus {
     border-color: var(--primary);
 }
 
-.info-body {
+.info-entry-card .info-body {
     padding: 1.25rem;
     background: rgba(0, 0, 0, 0.2);
     display: flex;
