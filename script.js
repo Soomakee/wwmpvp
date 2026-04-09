@@ -12,14 +12,14 @@ const weaponData = {
     "Mortal Ropedart": { "Light Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 'X', D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 'X', D: 3 }, "Light Varied Combo": { S: 1, D: 1 }, "Heavy Varied Combo": { S: 1, D: 1 } },
     "Everspring Umbrella": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 0, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Heavy Charged": { S: 0, D: 1 } },
     "Unfettered Rope Dart": { "Light Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 0, D: 3 } },
-    "Thundercry Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 'X', D: 3 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Light Charged": { S: 1, D: 3 }, "Heavy Charged": { S: 1, D: 3 }, "Light Varied Combo": { S: 2, D: 3 }, "Heavy Varied Combo": { S: 2, D: 3 }, "Martial Perception Skill": { S: 'X', D: 3 } },
+    "Thundercry Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 'X', D: 3 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Light Charged": { S: 1, D: 3 }, "Heavy Charged": { S: 1, D: 3 }, "Light Varied Combo": { S: 2, D: 3 }, "Heavy Varied Combo": { S: 2, D: 3 }, "Martial Art (Charged)": { S: 'X', D: 3 } },
     "Stormbreaker Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 3 }, "Special Skill": { S: 2, D: 4 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 3 } },
-    "Phalanxbane Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 3 }, "Special Skill": { S: 0, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 3 }, "Martial Perception Skill": { S: 2, D: 3 } },
+    "Phalanxbane Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 0, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 3 }, "Martial Art (Charged)": { S: 2, D: 3 } },
     "Snowparting Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 4, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Light Charged": { S: 1, D: 1 }, "Light Varied Combo": { S: 1, D: 1 }, "Heavy Varied Combo": { S: 2, D: 3 } },
     "Vernal Umbrella": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 4, D: 1 }, "Special Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Light Charged": { S: 0, D: 1 }, "Heavy Charged": { S: 1, D: 3 }, "Light Varied Combo": { S: 0, D: 0 }, "Heavy Varied Combo": { S: 0, D: 1 } },
     "Soulshade Umbrella": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 0, D: 0 }, "Martial Art": { S: 0, D: 1 }, "Special Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 0, D: 1 } },
     "Inkwell Fan": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 0, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Light Charged": { S: 1, D: 1 }, "Heavy Charged": { S: 1, D: 1 } },
-    "Panacea Fan": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 'X', D: 1 }, "Martial Art": { S: 'X', D: 1 }, "Special Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Martial Perception Skill": { S: 'X', D: 1 }, "Special Perception Skill": { S: 'X', D: 1 } }
+    "Panacea Fan": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 'X', D: 1 }, "Martial Art": { S: 'X', D: 1 }, "Special Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Martial Art (Charged)": { S: 'X', D: 1 }, "Special Skill (Charged)": { S: 'X', D: 1 } }
 };
 // =====================================================================
 // === WEAPON DATA END =================================================
@@ -61,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
         activeSlot: null, // 'A' or 'B'
         activeCategory: 'weapons',
         skillA: { type: 'weapon', name: 'Strategic Sword', action: 'Light Attack' },
-        skillB: { type: 'weapon', name: 'Nameless Sword', action: 'Light Attack' }
+        skillB: { type: 'weapon', name: 'Nameless Sword', action: 'Light Attack' },
+        skillMatchup: { type: 'weapon', name: 'Strategic Sword', action: 'Light Attack' }
     };
 
     // --- Elements ---
@@ -131,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateSkillUI = (slot) => {
-        const slotData = appState[`skill${slot}`];
+        const slotData = (slot === 'A' || slot === 'B') ? appState[`skill${slot}`] : appState.skillMatchup;
         const nameEl = document.getElementById(`name${slot}`);
         const iconEl = document.getElementById(`icon${slot}`);
         const attackGroup = document.getElementById(`attackGroup${slot}`);
@@ -149,7 +150,80 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             attackGroup.style.display = 'none';
         }
-        updateDisplay();
+
+        if (slot === 'A' || slot === 'B') {
+            updateDisplay();
+        } else {
+            updateMatchupDisplay();
+        }
+    };
+
+    const updateMatchupDisplay = () => {
+        const stats = getStats(appState.skillMatchup);
+        const sEl = document.getElementById('sMatchup');
+        const pEl = document.getElementById('pMatchup');
+
+        sEl.innerHTML = (stats.isWIP || stats.wipS) ? '<span class="text-error">X</span>' : stats.S;
+        sEl.className = `badge-mini ${(stats.isWIP || stats.wipS) ? 'b-0' : getBadgeClass(stats.S)}`;
+        pEl.innerHTML = (stats.isWIP || stats.wipD) ? '<span class="text-error">X</span>' : stats.D;
+        pEl.className = `badge-mini ${(stats.isWIP || stats.wipD) ? 'b-0' : getBadgeClass(stats.D)}`;
+
+        renderMatchups();
+    };
+
+    const renderMatchups = () => {
+        const targetStats = getStats(appState.skillMatchup);
+        const targetD = (targetStats.D === 'X' || targetStats.isWIP || targetStats.wipD) ? 0 : Number(targetStats.D);
+        const grid = document.getElementById('matchupGrid');
+        const countText = document.getElementById('matchupCountText');
+
+        let grouped = {};
+        let totalCount = 0;
+
+        // Check Weapons
+        for (const [weaponName, actions] of Object.entries(weaponData)) {
+            for (const [actionName, stats] of Object.entries(actions)) {
+                const s = (stats.S === 'X' || stats.isWIP || stats.wipS) ? 0 : Number(stats.S);
+                if (s > targetD) {
+                    if (!grouped[weaponName]) grouped[weaponName] = { name: weaponName, type: 'weapon', items: [] };
+                    grouped[weaponName].items.push({ action: actionName, stats });
+                    totalCount++;
+                }
+            }
+        }
+
+        // Check Mystic Skills
+        for (const [skillName, stats] of Object.entries(mysticSkillsData)) {
+            const s = (stats.S === 'X' || stats.isWIP || stats.wipS) ? 0 : Number(stats.S);
+            if (s > targetD) {
+                if (!grouped[skillName]) grouped[skillName] = { name: skillName, type: 'skill', items: [] };
+                grouped[skillName].items.push({ action: 'Mystic Skill', stats });
+                totalCount++;
+            }
+        }
+
+        countText.textContent = `Found ${totalCount} counter-move${totalCount !== 1 ? 's' : ''} across ${Object.keys(grouped).length} categories.`;
+
+        grid.innerHTML = Object.values(grouped).map(group => {
+            const hasWip = group.items.some(i => i.stats.isWIP || i.stats.wipS || i.stats.wipD);
+            return `
+            <div class="weapon-ref-card ${hasWip ? 'wip-card-partial' : ''}">
+                <div class="ref-card-header">
+                    <img src="Icons/${getImageFileName(group.name)}.png" class="weapon-icon" alt="${group.name}" onerror="this.style.display='none'">
+                    <div class="header-text-wrap">
+                        <div class="ref-card-name">${group.name}</div>
+                    </div>
+                </div>
+                <div class="matchup-action-list">
+                    ${group.items.map(i => `
+                        <div class="matchup-action-item">
+                            <span class="m-action-name">${i.action}</span>
+                            <span class="m-badge ${getBadgeClass(i.stats.S)}">${i.stats.S === 'X' ? 'X' : i.stats.S}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `}).join('');
     };
 
     // --- Modal Logic ---
@@ -186,12 +260,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const name = el.getAttribute('data-name');
                 const type = el.getAttribute('data-type');
                 const slot = appState.activeSlot;
+                const targetSlot = (slot === 'A' || slot === 'B') ? appState[`skill${slot}`] : appState.skillMatchup;
 
-                appState[`skill${slot}`].type = type;
-                appState[`skill${slot}`].name = name;
+                targetSlot.type = type;
+                targetSlot.name = name;
 
                 if (type === 'weapon') {
-                    appState[`skill${slot}`].action = Object.keys(weaponData[name])[0];
+                    targetSlot.action = Object.keys(weaponData[name])[0];
                 }
 
                 updateSkillUI(slot);
@@ -211,6 +286,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Listeners ---
     if (trigger1) trigger1.addEventListener('click', () => openPicker('A'));
     if (trigger2) trigger2.addEventListener('click', () => openPicker('B'));
+    const triggerMatchup = document.getElementById('triggerMatchup');
+    if (triggerMatchup) triggerMatchup.addEventListener('click', () => openPicker('Matchup'));
 
     if (closeModal) closeModal.addEventListener('click', () => selectionModal.classList.add('hidden'));
 
@@ -235,15 +312,53 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDisplay();
     });
 
-    // --- Navigation ---
+    const aMatchup = document.getElementById('aMatchup');
+    aMatchup.addEventListener('change', (e) => {
+        appState.skillMatchup.action = e.target.value;
+        updateMatchupDisplay();
+    });
+
     navBtns.forEach(btn => {
         btn.addEventListener('click', () => {
+            const targetTab = btn.getAttribute('data-tab');
             navBtns.forEach(b => b.classList.remove('active'));
             tabPanes.forEach(p => p.classList.remove('active'));
             btn.classList.add('active');
-            document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+            document.getElementById(targetTab).classList.add('active');
         });
     });
+
+    // --- Registry Sub-nav Logic ---
+    const subBtns = document.querySelectorAll('.sub-btn');
+    const subPanes = document.querySelectorAll('.sub-pane');
+
+    const switchSubTab = (subType) => {
+        subBtns.forEach(b => {
+            b.classList.toggle('active', b.getAttribute('data-sub') === subType);
+        });
+        subPanes.forEach(p => {
+            p.classList.toggle('active', p.id === `registry-${subType}`);
+        });
+    };
+
+    subBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            switchSubTab(btn.getAttribute('data-sub'));
+        });
+    });
+
+    // Global Registry Router
+    window.openRegistry = (type) => {
+        // Switch main tab to registry
+        navBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-tab') === 'registry'));
+        tabPanes.forEach(p => p.classList.toggle('active', p.id === 'registry'));
+
+        // Switch sub tab
+        switchSubTab(type);
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     // --- Core Logic Evaluator ---
     compareBtn.addEventListener('click', () => {
@@ -444,6 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Initial Init ---
     updateSkillUI('A');
     updateSkillUI('B');
+    updateSkillUI('Matchup');
     renderWeaponCompendium();
     renderMysticCompendium();
     setupContactForm();

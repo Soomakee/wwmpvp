@@ -28,11 +28,12 @@
                 </div>
             </div>
 
-            <div class="nav-main">
-                <button class="nav-btn active" data-tab="calculator">Calculator</button>
-                <button class="nav-btn" data-tab="dashboard">Weapon Priorities</button>
-                <button class="nav-btn" data-tab="mystics">Mystic Skill Priorities</button>
-                <button class="nav-btn" data-tab="info">Important Info</button>
+            <div class="nav-links">
+                <button class="nav-btn active" data-tab="home">Home</button>
+                <button class="nav-btn" data-tab="calculator">Calculator</button>
+                <button class="nav-btn" data-tab="matchups">Matchups</button>
+                <button class="nav-btn" data-tab="registry">Skill Priorities</button>
+                <button class="nav-btn" data-tab="info">Important Information</button>
             </div>
 
             <div class="nav-secondary">
@@ -45,8 +46,79 @@
 
     <main class="main-container">
 
+        <!-- HOME TAB (SYMMETRIC DASHBOARD) -->
+        <section id="home" class="tab-pane active">
+            <div class="dash-hero">
+                <h1>WWM Skill Priority</h1>
+            </div>
+
+            <div class="dash-grid">
+                <!-- Calculator -->
+                <div class="dash-card" onclick="document.querySelector('[data-tab=\'calculator\']').click()">
+                    <div class="card-head">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14.5 17.5 3 6V3h3l11.5 11.5" />
+                            <path d="m13 19 2 2 5-5-2-2Z" />
+                            <path d="M8.5 22 11 19.5" />
+                            <path d="m15 15 6.5-6.5V6h-2.5L12.5 12.5" />
+                            <path d="m5 15 2 2" />
+                            <path d="m2 11 3-3" />
+                        </svg>
+                    </div>
+                    <h3>Skill vs Skill Calculator</h3>
+                    <p>Select 2 Weapon/Mystic skills to determine which skill will win based on same hit timings.</p>
+                    <div class="card-foot">Launch Calculator &rarr;</div>
+                </div>
+
+                <!-- Matchups -->
+                <div class="dash-card" onclick="document.querySelector('[data-tab=\'matchups\']').click()">
+                    <div class="card-head">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.3-4.3" />
+                        </svg>
+                    </div>
+                    <h3>Matchup Search</h3>
+                    <p>Choose a Weapon/Mystic Skill, and see all possible weapons that can stagger through it.</p>
+                    <div class="card-foot">Search Matchups &rarr;</div>
+                </div>
+
+                <!-- Skill Registry Card -->
+                <div class="dash-card" onclick="openRegistry('weapons')">
+                    <div class="card-head">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+                        </svg>
+                    </div>
+                    <h3>Skill Priority Data</h3>
+                    <p>See overall Weapon and Mystic Skill Priority data.</p>
+                    <div class="card-foot">View Data &rarr;</div>
+                </div>
+
+                <!-- Info -->
+                <div class="dash-card" onclick="document.querySelector('[data-tab=\'info\']').click()">
+                    <div class="card-head">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                            <path d="M9 18h6" />
+                            <path d="M10 22h4" />
+                        </svg>
+                    </div>
+                    <h3>Important Information</h3>
+                    <p>Includes more information about specific priorities due to Inner Ways and Attunements changing
+                        priorities.</p>
+                    <div class="card-foot">Read Information &rarr;</div>
+                </div>
+            </div>
+        </section>
+
         <!-- CALCULATION ENGINE TAB -->
-        <section id="calculator" class="tab-pane active">
+        <section id="calculator" class="tab-pane">
             <div class="notice-banner">
                 <div class="notice-icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -81,8 +153,12 @@
                         <span class="stagger-highlight">Stagger</span>.
                     </div>
                     <div class="info-example">
-                        <strong>Victory:</strong> Martial Art (<span class="stagger-highlight">S</span>:2, <span class="defense-highlight">D</span>:1) vs Light Attack (<span class="stagger-highlight">S</span>:1, <span class="defense-highlight">D</span>:0) =
-                        <strong>Win</strong> (<span class="stagger-highlight">Stagger</span> <strong>beats</strong> <span class="defense-highlight">Defense</span> and <span class="defense-highlight">Defense</span> <strong>holds
+                        <strong>Victory:</strong> Martial Art (<span class="stagger-highlight">S</span>:2, <span
+                            class="defense-highlight">D</span>:1) vs Light Attack (<span
+                            class="stagger-highlight">S</span>:1, <span class="defense-highlight">D</span>:0) =
+                        <strong>Win</strong> (<span class="stagger-highlight">Stagger</span> <strong>beats</strong>
+                        <span class="defense-highlight">Defense</span> and <span
+                            class="defense-highlight">Defense</span> <strong>holds
                             against</strong> <span class="stagger-highlight">Stagger</span>)
                     </div>
                     <div class="info-text">
@@ -185,45 +261,38 @@
             </div>
         </section>
 
-        <!-- REFERENCE DASHBOARD TAB -->
-        <section id="dashboard" class="tab-pane">
+        <!-- SKILL REGISTRY TAB (CONSOLIDATED) -->
+        <section id="registry" class="tab-pane">
             <div class="dashboard-header">
-                <h2>Weapon Priorities</h2>
-                <p>Weapon attack priorities statistics</p>
+                <h2>Skill Priority Registry</h2>
                 <div class="legend-container">
                     <div class="legend-item"><span class="badge b-0">X</span> No Attack</div>
-                    <div class="legend-item"><span class="badge b-0">0</span> No Stagger/No Defense</div>
-                    <div class="legend-item"><span class="badge b-1">1</span> Low Stagger/Low Defense</div>
-                    <div class="legend-item"><span class="badge b-2">2</span> Mid Stagger/Mid Defense</div>
-                    <div class="legend-item"><span class="badge b-3">3</span> High Stagger/High Defense(Tenacity)</div>
-                    <div class="legend-item"><span class="badge b-4">4</span> Extreme Stagger/Unbreakable(Super Armor)
-                    </div>
+                    <div class="legend-item"><span class="badge b-1">1</span> Low Stagger/Defense</div>
+                    <div class="legend-item"><span class="badge b-2">2</span> Mid Stagger/Defense</div>
+                    <div class="legend-item"><span class="badge b-3">3</span> High Stagger/Defense (Tenacity)</div>
+                    <div class="legend-item"><span class="badge b-4">4</span> Extreme Stagger/Unstaggerable (Super
+                        Armor)</div>
+                </div>
+
+                <!-- SUB NAVIGATION -->
+                <div class="registry-subnav">
+                    <button class="sub-btn active" data-sub="weapons">Weapon Skills</button>
+                    <button class="sub-btn" data-sub="skills">Mystic Skills</button>
                 </div>
             </div>
 
-            <div class="card-grid" id="referenceGrid">
-                <!-- Javascript will statically inject reference cards here -->
-            </div>
-        </section>
-
-        <!-- MYSTIC SKILLS TAB -->
-        <section id="mystics" class="tab-pane">
-            <div class="dashboard-header">
-                <h2>Mystic Skills Priorities</h2>
-                <p>Mystic Skills attack priorities statistics</p>
-                <div class="legend-container">
-                    <div class="legend-item"><span class="badge b-0">X</span> No Attack</div>
-                    <div class="legend-item"><span class="badge b-0">0</span> No Stagger/No Defense</div>
-                    <div class="legend-item"><span class="badge b-1">1</span> Low Stagger/Low Defense</div>
-                    <div class="legend-item"><span class="badge b-2">2</span> Mid Stagger/Mid Defense</div>
-                    <div class="legend-item"><span class="badge b-3">3</span> High Stagger/High Defense(Tenacity)</div>
-                    <div class="legend-item"><span class="badge b-4">4</span> Extreme Stagger/Unbreakable(Super Armor)
-                    </div>
+            <!-- Weapon Grid Sub-pane -->
+            <div id="registry-weapons" class="sub-pane active">
+                <div class="card-grid" id="referenceGrid">
+                    <!-- Javascript will statically inject reference cards here -->
                 </div>
             </div>
 
-            <div class="card-grid" id="mysticGrid">
-                <!-- Javascript will statically inject reference cards here -->
+            <!-- Mystic Grid Sub-pane -->
+            <div id="registry-skills" class="sub-pane">
+                <div class="card-grid" id="mysticGrid">
+                    <!-- Javascript will statically inject reference cards here -->
+                </div>
             </div>
         </section>
 
@@ -231,14 +300,14 @@
         <section id="info" class="tab-pane">
             <div class="dashboard-header">
                 <h2>Important PvP Information</h2>
-                <p>Crucial synergy details and non-base state variations.</p>
+                <p>Inner Way and Attunement information that can cause priority differences.</p>
             </div>
             <div class="info-card-grid">
                 <div class="info-entry-card">
                     <div class="ref-card-header">
                         <img src="Icons/Heavenquaker Spear.png" class="weapon-icon" alt="Heavenquaker Spear"
                             onerror="this.style.display='none'">
-                        Heavenquaker Spear
+                        Heavenquaker Spear (Martial Art)
                     </div>
                     <div class="info-body">
                         <div class="info-stat-item">
@@ -252,43 +321,20 @@
                         </div>
                     </div>
                     <div class="info-footer">
-                        <strong>Wolfchaser Tier 3 Inner Way</strong> elevates Defense to <span
-                            class="badge-mini b-3">3</span> (<span class="color-tenacity">Tenacity</span>). This site
+                        <strong>Wolfchaser Tier 3 Inner Way</strong> elevates the <strong>Martial Art</strong> Defense
+                        to <span class="badge-mini b-3">3</span> (<span class="color-tenacity">Tenacity</span>). This
+                        site
                         uses the standardized <span class="badge-mini b-2">2</span> / <span
                             class="badge-mini b-3">3</span> values for calculations.
                     </div>
                 </div>
 
-                <div class="info-entry-card">
-                    <div class="ref-card-header">
-                        <img src="Icons/Phalanxbane Blade.png" class="weapon-icon" alt="Phalanxbane Blade"
-                            onerror="this.style.display='none'">
-                        Phalanxbane Blade
-                    </div>
-                    <div class="info-body">
-                        <div class="info-stat-item">
-                            <span class="badge b-2">2</span>
-                            <span class="info-stat-label">Stagger</span>
-                        </div>
-                        <div class="mystic-stat-divider"></div>
-                        <div class="info-stat-item">
-                            <span class="badge b-3">3</span>
-                            <span class="info-stat-label">Defense</span>
-                        </div>
-                    </div>
-                    <div class="info-footer">
-                        Startup is Defense <span class="badge-mini b-2">2</span>, and charging elevates Defense to <span
-                            class="badge-mini b-3">3</span> (<span class="color-tenacity">Tenacity</span>). This site
-                        uses the fully charged <span class="badge-mini b-2">2</span> / <span
-                            class="badge-mini b-3">3</span> values.
-                    </div>
-                </div>
 
                 <div class="info-entry-card">
                     <div class="ref-card-header">
                         <img src="Icons/Snowparting Blade.png" class="weapon-icon" alt="Snowparting Blade"
                             onerror="this.style.display='none'">
-                        Snowparting Blade
+                        Snowparting Blade (Special Skill)
                     </div>
                     <div class="info-body">
                         <div class="info-stat-item">
@@ -482,7 +528,55 @@
             </div>
         </section>
 
-        <!-- CONTACT TAB -->
+        <!-- MATCHUP ENGINE TAB -->
+        <section id="matchups" class="tab-pane">
+            <div class="matchup-container">
+                <div class="matchup-selector-card">
+                    <div class="selector-header">
+                        <h2>Counter Selection</h2>
+                        <p>Select a skill to see everything that can break it.</p>
+                    </div>
+                    <div class="selector-controls">
+                        <div class="selection-trigger" id="triggerMatchup">
+                            <div class="trigger-icon-wrap">
+                                <img src="Icons/Strategic Sword.png" id="iconMatchup" class="trigger-icon" alt="">
+                            </div>
+                            <div class="trigger-text-wrap">
+                                <span class="trigger-label">Target Weapon / Skill</span>
+                                <span class="trigger-name" id="nameMatchup">Strategic Sword</span>
+                            </div>
+                            <div class="trigger-stats">
+                                <div class="mini-stat">
+                                    <span class="badge-mini b-1" id="sMatchup">1</span>
+                                    <span>S</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <span class="badge-mini b-0" id="pMatchup">0</span>
+                                    <span>D</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="attack-selector-wrap" id="attackGroupMatchup" style="display: none;">
+                            <label class="selector-mini-label">Select Attack Type</label>
+                            <select id="aMatchup" class="attack-select"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="matchup-results-wrap">
+                    <div class="results-header">
+                        <h3>Potential Counters</h3>
+                        <p id="matchupCountText">Select a skill to analyze.</p>
+                    </div>
+                    <div class="matchup-grid" id="matchupGrid">
+                        <!-- Counters will be rendered here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DASHBOARD TAB -->
         <section id="contact" class="tab-pane">
             <div class="dashboard-header">
                 <h2 style="text-transform: uppercase;">Support</h2>
