@@ -73,6 +73,8 @@ body::after { bottom: -200px; right: -200px; background: #a855f7; }
     gap: 0.75rem;
     color: #fff;
 }
+<<<<<<< Updated upstream
+=======
 .brand-info {
     display: flex;
     flex-direction: column;
@@ -97,6 +99,7 @@ body::after { bottom: -200px; right: -200px; background: #a855f7; }
     font-weight: 800;
     opacity: 1;
 }
+>>>>>>> Stashed changes
 .nav-main { 
     display: flex; 
     gap: 0.5rem; 
@@ -108,6 +111,12 @@ body::after { bottom: -200px; right: -200px; background: #a855f7; }
     gap: 0.5rem;
     justify-content: flex-end;
 }
+<<<<<<< Updated upstream
+.nav-btn {
+    background: transparent; border: none; color: var(--text-muted);
+    font-size: 0.95rem; font-weight: 600; padding: 0.5rem 1.25rem;
+    border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
+=======
 .nav-support-text {
     font-size: 0.72rem;
     font-weight: 600;
@@ -157,6 +166,7 @@ body::after { bottom: -200px; right: -200px; background: #a855f7; }
 .nav-btn-home:hover {
     background: rgba(59, 130, 246, 0.1);
     border-color: var(--primary);
+>>>>>>> Stashed changes
 }
 .wip-pill {
     display: inline-flex;
@@ -240,9 +250,12 @@ body::after { bottom: -200px; right: -200px; background: #a855f7; }
     color: var(--text-main);
     line-height: 1.5;
 }
+<<<<<<< Updated upstream
+=======
 .stagger-highlight { color: var(--badge-3); font-weight: 700; }
 .defense-highlight { color: var(--badge-2); font-weight: 700; }
 .tenacity-highlight { color: var(--badge-3); font-weight: 700; }
+>>>>>>> Stashed changes
 .info-example {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -265,6 +278,12 @@ body::after { bottom: -200px; right: -200px; background: #a855f7; }
 }
 @media (max-width: 768px) { .calc-grid { grid-template-columns: 1fr; } }
 .skill-card {
+<<<<<<< Updated upstream
+    background-color: var(--bg-surface); border: 1px solid var(--border-color);
+    border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md);
+    display: flex; flex-direction: column;
+}
+=======
     background-color: rgba(24, 24, 27, 0.8);
     backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
@@ -278,6 +297,7 @@ body::after { bottom: -200px; right: -200px; background: #a855f7; }
 .skill-card:hover {
     border-color: rgba(59, 130, 246, 0.5);
 }
+>>>>>>> Stashed changes
 .card-a .skill-header { border-bottom: 2px solid var(--w1-color); }
 .card-b .skill-header { border-bottom: 2px solid var(--w2-color); }
 .card-a .skill-header h2 { color: var(--w1-color); }
@@ -615,6 +635,10 @@ select:focus { outline: none; border-color: var(--primary); }
     color: #000;
 }
 
+<<<<<<< Updated upstream
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; align-items: start; }
+.weapon-ref-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; }
+=======
 .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; align-items: stretch; }
 .weapon-ref-card { 
     background: rgba(24, 24, 27, 0.7); 
@@ -632,11 +656,16 @@ select:focus { outline: none; border-color: var(--primary); }
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
+>>>>>>> Stashed changes
 .ref-card-header { display: flex; align-items: center; gap: 0.75rem; background: rgba(0,0,0,0.3); padding: 1rem 2.5rem 1rem 1.25rem; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid var(--border-color); min-height: 4.8rem; }
 .header-text-wrap { flex: 1; display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; line-height: 1.2; }
 .weapon-icon { width: 32px; height: 32px; object-fit: contain; }
 
+<<<<<<< Updated upstream
+.ref-card-body { padding: 0.5rem 0; }
+=======
 .ref-card-body { padding: 0.5rem 0; flex-grow: 1; display: flex; flex-direction: column; }
+>>>>>>> Stashed changes
 .ref-column-headers { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
 .col-label { font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
 .col-stats { display: flex; align-items: center; width: 130px; }
@@ -977,6 +1006,29 @@ select:focus { outline: none; border-color: var(--primary); }
     border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 
+<<<<<<< Updated upstream
+/* === FOOTER === */
+.site-footer {
+    padding: 3rem 1.5rem 4rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background: rgba(0,0,0,0.2);
+    margin-top: 4rem;
+}
+.creator-credit {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.creator-credit strong {
+    color: var(--primary);
+    font-weight: 800;
+}
+
+=======
+>>>>>>> Stashed changes
 /* === SMALL MONITOR OPTIMIZATIONS === */
 @media (max-height: 900px) {
     .main-container { margin: 1rem auto; }
@@ -1179,6 +1231,8 @@ select:focus { outline: none; border-color: var(--primary); }
     .badge { width: 24px; height: 24px; font-size: 0.85rem; }
     .outcome-text { font-size: 1.5rem; }
 }
+<<<<<<< Updated upstream
+=======
 /* === MATCHUPS TAB === */
 .matchup-container {
     display: flex;
@@ -1436,3 +1490,4 @@ select:focus { outline: none; border-color: var(--primary); }
     .dash-hero h1 { font-size: 2.5rem; }
     .dash-grid { grid-template-columns: 1fr; }
 }
+>>>>>>> Stashed changes
