@@ -9,17 +9,17 @@ const weaponData = {
     "Heavenquaker Spear": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:3}, "Special Skill": {S:2, D:1}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:2, D:3} },
     "Nameless Spear": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:4, D:1}, "Special Skill": {S:2, D:1}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:2, D:1} },
     "Infernal Twinblades": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:3}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:1}, "Dual Weapon Skill": {S:2, D:1} },
-    "Mortal Ropedart": { "Light Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:0, D:1}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:0, D:3}, "Light Varied Combo": {S:1, D:1}, "Heavy Varied Combo": {S:1, D:1} },
+    "Mortal Ropedart": { "Light Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:'X', D:1}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:'X', D:3}, "Light Varied Combo": {S:1, D:1}, "Heavy Varied Combo": {S:1, D:1} },
     "Everspring Umbrella": { "Light Attack": {S:0, D:0}, "Heavy Attack": {S:0, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:3}, "Dual Weapon Skill": {S:0, D:1}, "Heavy Charged": {S:0, D:1} },
-    "Unfettered Rope Dart": { "Light Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:3}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:2, D:1} },
-    "Thundercry Blade": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:0, D:3}, "Special Skill": {S:2, D:3}, "Dual Weapon Skill": {S:2, D:1}, "Light Charged": {S:1, D:3}, "Heavy Charged": {S:1, D:3}, "Light Varied Combo": {S:2, D:3}, "Heavy Varied Combo": {S:2, D:3}, "Martial Perception Skill": {S:0, D:3} },
+    "Unfettered Rope Dart": { "Light Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:3}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:0, D:3} },
+    "Thundercry Blade": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:'X', D:3}, "Special Skill": {S:2, D:3}, "Dual Weapon Skill": {S:2, D:1}, "Light Charged": {S:1, D:3}, "Heavy Charged": {S:1, D:3}, "Light Varied Combo": {S:2, D:3}, "Heavy Varied Combo": {S:2, D:3}, "Martial Perception Skill": {S:'X', D:3} },
     "Stormbreaker Spear": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:3}, "Special Skill": {S:2, D:4}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:1, D:3} },
     "Phalanxbane Blade": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:3}, "Special Skill": {S:0, D:3}, "Dual Weapon Skill": {S:2, D:1}, "Heavy Charged": {S:1, D:3}, "Martial Perception Skill": {S:2, D:3} },
     "Snowparting Blade": { "Light Attack": {S:1, D:0}, "Heavy Attack": {S:1, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:4, D:3}, "Dual Weapon Skill": {S:2, D:1}, "Light Charged": {S:1, D:1}, "Light Varied Combo": {S:1, D:1}, "Heavy Varied Combo": {S:2, D:3} },
     "Vernal Umbrella": { "Light Attack": {S:0, D:0}, "Heavy Attack": {S:0, D:0}, "Martial Art": {S:4, D:1}, "Special Skill": {S:0, D:1}, "Dual Weapon Skill": {S:0, D:1}, "Light Charged": {S:0, D:1}, "Heavy Charged": {S:1, D:3}, "Light Varied Combo": {S:0, D:0}, "Heavy Varied Combo": {S:0, D:1} },
     "Soulshade Umbrella": { "Light Attack": {S:0, D:0}, "Heavy Attack": {S:0, D:0}, "Martial Art": {S:0, D:1}, "Special Skill": {S:0, D:1}, "Dual Weapon Skill": {S:0, D:1}, "Heavy Charged": {S:0, D:1} },
     "Inkwell Fan": { "Light Attack": {S:0, D:0}, "Heavy Attack": {S:0, D:0}, "Martial Art": {S:2, D:1}, "Special Skill": {S:2, D:1}, "Dual Weapon Skill": {S:0, D:1}, "Light Charged": {S:0, D:1}, "Heavy Charged": {S:0, D:1} },
-    "Panacea Fan": { "Light Attack": {S:0, D:0}, "Heavy Attack": {S:0, D:0}, "Martial Art": {S:0, D:1}, "Special Skill": {S:0, D:1}, "Dual Weapon Skill": {S:0, D:1}, "Martial Perception Skill": {S:0, D:1}, "Special Perception Skill": {S:0, D:1} }
+    "Panacea Fan": { "Light Attack": {S:0, D:0}, "Heavy Attack": {S:'X', D:1}, "Martial Art": {S:'X', D:1}, "Special Skill": {S:0, D:1}, "Dual Weapon Skill": {S:0, D:1}, "Martial Perception Skill": {S:'X', D:1}, "Special Perception Skill": {S:'X', D:1} }
 };
 // =====================================================================
 // === WEAPON DATA END =================================================
@@ -45,8 +45,8 @@ const mysticSkillsData = {
     "Drunken Poet": {S: 2, D: 3},
     "Dragons Head": {S: 2, D: 4},
     "Serene Breeze": {S: 2, D: 4},
-    "Golden Body": {S: 0, D: 1},
-    "Ghostly Steps": {S: 0, D: 0},
+    "Golden Body": {S: 'X', D: 1},
+    "Ghostly Steps": {S: 'X', D: 0},
     "Divine Counter": {S: 4, D: 3},
     "Goosey Slide": {S: 0, D: 0, isWIP: true},
     "Mighty Drop": {S: 0, D: 0, isWIP: true}
@@ -89,7 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalGrid = document.getElementById('modalGrid');
 
     // --- Helpers ---
-    const getBadgeClass = (value) => {
+    const getBadgeClass = (val) => {
+        const value = (val === 'X') ? 0 : Number(val);
         if (value >= 4) return 'b-4';
         if (value === 3) return 'b-3';
         if (value === 2) return 'b-2';
@@ -249,13 +250,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const statsA = getStats(appState.skillA);
         const statsB = getStats(appState.skillB);
 
-        const sa = Number(statsA.S); const da = Number(statsA.D);
-        const sb = Number(statsB.S); const db = Number(statsB.D);
+        const parseVal = (v) => (v === 'X' ? 0 : Number(v));
+        const sa = parseVal(statsA.S); const da = parseVal(statsA.D);
+        const sb = parseVal(statsB.S); const db = parseVal(statsB.D);
+        
+        const isX_A = statsA.S === 'X';
+        const isX_B = statsB.S === 'X';
 
-        const aWins = (sa > db) && (sb <= da);
-        const bWins = (sb > da) && (sa <= db);
-        const mutualStagger = (sa > db) && (sb > da);
-        const clashNeutral = (sa <= db) && (sb <= da);
+        const aWins = (sa > db) && (sb <= da || isX_B);
+        const bWins = (sb > da) && (sa <= db || isX_A);
+        const bothStaggered = (sa > db) && (sb > da) && !isX_A && !isX_B;
+        const bothHitNoStagger = (sa <= db) && (sb <= da) && !isX_A && !isX_B;
+        const defensiveExchange = (isX_A !== isX_B) && ((isX_A && sb <= da) || (isX_B && sa <= db));
+        const noInteraction = isX_A && isX_B;
 
         const iconWrap = document.querySelector('.winner-icon-wrap');
         const winnerIcon = document.getElementById('winnerIcon');
@@ -280,16 +287,26 @@ document.addEventListener('DOMContentLoaded', () => {
             iconWrap.style.display = 'flex';
             iconWrap.style.borderColor = 'var(--w2-color)';
             winnerIcon.src = `Icons/${getImageFileName(appState.skillB.name)}.png`;
-        } else if (mutualStagger) {
+        } else if (bothStaggered) {
             resultText.textContent = 'Both Staggered';
             resultText.style.color = 'var(--badge-3)';
             resultOutput.style.borderColor = 'var(--badge-3)';
             resultNote.textContent = 'Whoever casts first wins the trade. Ping can impact this and cause variations.';
-        } else if (clashNeutral) {
+        } else if (bothHitNoStagger) {
             resultText.textContent = 'Both hits, but no Stagger';
             resultText.style.color = 'var(--text-muted)';
             resultOutput.style.borderColor = 'var(--border-color)';
             resultNote.textContent = '';
+        } else if (defensiveExchange) {
+            resultText.textContent = 'Defensive Exchange';
+            resultText.style.color = 'var(--badge-1)'; 
+            resultOutput.style.borderColor = 'var(--badge-1)';
+            resultNote.textContent = 'The attack that can hit will hit, and the X will not.';
+        } else if (noInteraction) {
+            resultText.textContent = 'No Combat Interaction';
+            resultText.style.color = 'var(--text-muted)';
+            resultOutput.style.borderColor = 'var(--border-color)';
+            resultNote.textContent = 'Both participants used non-attacking utility skills.';
         }
         
         resultOutput.classList.remove('hidden');
