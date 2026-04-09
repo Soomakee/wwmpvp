@@ -22,6 +22,7 @@
                     <polygon points="14.5 2 22 2 22 9.5 10 21.5 2 21.5 2 13.5 14.5 2"></polygon>
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                 </svg>
+<<<<<<< Updated upstream
                 <span>PvP Priority</span>
             </div>
 
@@ -34,6 +35,25 @@
 
             <div class="nav-secondary">
                 <button class="nav-btn" data-tab="contact">Contact</button>
+=======
+                <div class="brand-info">
+                    <span class="brand-name">PvP Priority</span>
+                    <span class="nav-credit">by <span class="credit-name">Saia</span></span>
+                </div>
+            </div>
+
+            <div class="nav-links">
+                <button class="nav-btn active" data-tab="home">Home</button>
+                <button class="nav-btn" data-tab="calculator">Calculator</button>
+                <button class="nav-btn" data-tab="matchups">Matchups</button>
+                <button class="nav-btn" data-tab="registry">Skill Priorities</button>
+                <button class="nav-btn" data-tab="info">Important Information</button>
+            </div>
+
+            <div class="nav-secondary">
+                <span class="nav-support-text">Wrong Data or Issues? &rarr;</span>
+                <button class="nav-btn" data-tab="contact">Support</button>
+>>>>>>> Stashed changes
                 <span class="wip-pill">⚠️ BETA</span>
             </div>
         </div>
@@ -41,8 +61,79 @@
 
     <main class="main-container">
 
+        <!-- HOME TAB (SYMMETRIC DASHBOARD) -->
+        <section id="home" class="tab-pane active">
+            <div class="dash-hero">
+                <h1>WWM Skill Priority</h1>
+            </div>
+
+            <div class="dash-grid">
+                <!-- Calculator -->
+                <div class="dash-card" onclick="document.querySelector('[data-tab=\'calculator\']').click()">
+                    <div class="card-head">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14.5 17.5 3 6V3h3l11.5 11.5" />
+                            <path d="m13 19 2 2 5-5-2-2Z" />
+                            <path d="M8.5 22 11 19.5" />
+                            <path d="m15 15 6.5-6.5V6h-2.5L12.5 12.5" />
+                            <path d="m5 15 2 2" />
+                            <path d="m2 11 3-3" />
+                        </svg>
+                    </div>
+                    <h3>Skill vs Skill Calculator</h3>
+                    <p>Select 2 Weapon/Mystic skills to determine which skill will win based on same hit timings.</p>
+                    <div class="card-foot">Launch Calculator &rarr;</div>
+                </div>
+
+                <!-- Matchups -->
+                <div class="dash-card" onclick="document.querySelector('[data-tab=\'matchups\']').click()">
+                    <div class="card-head">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.3-4.3" />
+                        </svg>
+                    </div>
+                    <h3>Matchup Search</h3>
+                    <p>Choose a Weapon/Mystic Skill, and see all possible weapons that can stagger through it.</p>
+                    <div class="card-foot">Search Matchups &rarr;</div>
+                </div>
+
+                <!-- Skill Registry Card -->
+                <div class="dash-card" onclick="openRegistry('weapons')">
+                    <div class="card-head">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+                        </svg>
+                    </div>
+                    <h3>Skill Priority Data</h3>
+                    <p>See overall Weapon and Mystic Skill Priority data.</p>
+                    <div class="card-foot">View Data &rarr;</div>
+                </div>
+
+                <!-- Info -->
+                <div class="dash-card" onclick="document.querySelector('[data-tab=\'info\']').click()">
+                    <div class="card-head">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                            <path d="M9 18h6" />
+                            <path d="M10 22h4" />
+                        </svg>
+                    </div>
+                    <h3>Important Information</h3>
+                    <p>Includes more information about specific priorities due to Inner Ways and Attunements changing
+                        priorities.</p>
+                    <div class="card-foot">Read Information &rarr;</div>
+                </div>
+            </div>
+        </section>
+
         <!-- CALCULATION ENGINE TAB -->
-        <section id="calculator" class="tab-pane active">
+        <section id="calculator" class="tab-pane">
             <div class="notice-banner">
                 <div class="notice-icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -53,7 +144,14 @@
                         <line x1="12" y1="17" x2="12.01" y2="17"></line>
                     </svg>
                 </div>
+<<<<<<< Updated upstream
                 <p>Some skills leverage <strong>Inner Ways</strong> and <strong>Attunements</strong> for priority calculation; however, several are still being implemented and may be missing. Ongoing testing is in progress for all synergistic additions.</p>
+=======
+                <p>Some skills leverage <strong>Inner Ways</strong> and <strong>Attunements</strong> for priority, such
+                    as adding <span class="tenacity-highlight">Tenacity</span> to said skill etc; however, several are
+                    still being implemented and may be missing. Ongoing testing is in progress for all synergistic
+                    additions.</p>
+>>>>>>> Stashed changes
             </div>
 
             <div class="priority-info">
@@ -68,6 +166,7 @@
                 </div>
                 <div class="info-body">
                     <div class="info-text">
+<<<<<<< Updated upstream
                         To win, your <strong>Stagger (S)</strong> must be higher than their <strong>Defense
                             (D)</strong>, while holding against their Stagger.
                     </div>
@@ -77,6 +176,27 @@
                     </div>
                     <div class="info-text">
                         If both players break through defense (S > D for both), you get <strong>Both Staggered</strong>. In this state, whoever casts the ability <strong>first</strong> wins the trade; however, high <strong>Ping</strong> can cause variations.
+=======
+                        To win, your <span class="stagger-highlight">Stagger (S)</span> must be <strong>higher</strong>
+                        than their <span class="defense-highlight">Defense
+                            (D)</span>, while your <span class="defense-highlight">Defense</span> holds against their
+                        <span class="stagger-highlight">Stagger</span>.
+                    </div>
+                    <div class="info-example">
+                        <strong>Victory:</strong> Martial Art (<span class="stagger-highlight">S</span>:2, <span
+                            class="defense-highlight">D</span>:1) vs Light Attack (<span
+                            class="stagger-highlight">S</span>:1, <span class="defense-highlight">D</span>:0) =
+                        <strong>Win</strong> (<span class="stagger-highlight">Stagger</span> <strong>beats</strong>
+                        <span class="defense-highlight">Defense</span> and <span
+                            class="defense-highlight">Defense</span> <strong>holds
+                            against</strong> <span class="stagger-highlight">Stagger</span>)
+                    </div>
+                    <div class="info-text">
+                        If both players break through defense (<span class="stagger-highlight">Stagger</span> is
+                        <strong>greater than</strong> <span class="defense-highlight">Defense</span> for both), you get
+                        <strong>Both Staggered</strong>. In this state, whoever casts the ability <strong>first</strong>
+                        wins the trade; however, high <strong>Ping</strong> can cause variations.
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
@@ -172,9 +292,10 @@
             </div>
         </section>
 
-        <!-- REFERENCE DASHBOARD TAB -->
-        <section id="dashboard" class="tab-pane">
+        <!-- SKILL REGISTRY TAB (CONSOLIDATED) -->
+        <section id="registry" class="tab-pane">
             <div class="dashboard-header">
+<<<<<<< Updated upstream
                 <h2>Weapon Priorities</h2>
                 <p>Weapon attack priorities statistics</p>
                 <div class="legend-container">
@@ -200,11 +321,37 @@
                     <div class="legend-item"><span class="badge b-1">1</span> Low Stagger/Low Defense</div>
                     <div class="legend-item"><span class="badge b-3">3</span> High Stagger/High Defense(Tenacity)</div>
                     <div class="legend-item"><span class="badge b-4">4</span> Extreme Stagger/Unbreakable(Super Armor)</div>
+=======
+                <h2>Skill Priority Registry</h2>
+                <div class="legend-container">
+                    <div class="legend-item"><span class="badge b-0">X</span> No Attack</div>
+                    <div class="legend-item"><span class="badge b-1">1</span> Low Stagger/Defense</div>
+                    <div class="legend-item"><span class="badge b-2">2</span> Mid Stagger/Defense</div>
+                    <div class="legend-item"><span class="badge b-3">3</span> High Stagger/Defense (Tenacity)</div>
+                    <div class="legend-item"><span class="badge b-4">4</span> Extreme Stagger/Unstaggerable (Super
+                        Armor)</div>
+                </div>
+
+                <!-- SUB NAVIGATION -->
+                <div class="registry-subnav">
+                    <button class="sub-btn active" data-sub="weapons">Weapon Skills</button>
+                    <button class="sub-btn" data-sub="skills">Mystic Skills</button>
                 </div>
             </div>
 
-            <div class="card-grid" id="mysticGrid">
-                <!-- Javascript will statically inject reference cards here -->
+            <!-- Weapon Grid Sub-pane -->
+            <div id="registry-weapons" class="sub-pane active">
+                <div class="card-grid" id="referenceGrid">
+                    <!-- Javascript will statically inject reference cards here -->
+>>>>>>> Stashed changes
+                </div>
+            </div>
+
+            <!-- Mystic Grid Sub-pane -->
+            <div id="registry-skills" class="sub-pane">
+                <div class="card-grid" id="mysticGrid">
+                    <!-- Javascript will statically inject reference cards here -->
+                </div>
             </div>
         </section>
 
@@ -212,13 +359,23 @@
         <section id="info" class="tab-pane">
             <div class="dashboard-header">
                 <h2>Important PvP Information</h2>
+<<<<<<< Updated upstream
                 <p>Crucial synergy details and non-base state variations.</p>
+=======
+                <p>Inner Way and Attunement information that can cause priority differences.</p>
+>>>>>>> Stashed changes
             </div>
             <div class="info-card-grid">
                 <div class="info-entry-card">
                     <div class="ref-card-header">
+<<<<<<< Updated upstream
                         <img src="Icons/Heavenquaker Spear.png" class="weapon-icon" alt="Heavenquaker Spear" onerror="this.style.display='none'">
                         Heavenquaker Spear
+=======
+                        <img src="Icons/Heavenquaker Spear.png" class="weapon-icon" alt="Heavenquaker Spear"
+                            onerror="this.style.display='none'">
+                        Heavenquaker Spear (Martial Art)
+>>>>>>> Stashed changes
                     </div>
                     <div class="info-body">
                         <div class="info-stat-item">
@@ -232,6 +389,7 @@
                         </div>
                     </div>
                     <div class="info-footer">
+<<<<<<< Updated upstream
                         <strong>Wolfchaser Tier 3 Inner Way</strong> elevates Defense to <span class="badge-mini b-3">3</span> (<span class="color-tenacity">Tenacity</span>). This site uses the standardized <span class="badge-mini b-2">2</span> / <span class="badge-mini b-3">3</span> values for calculations.
                     </div>
                 </div>
@@ -261,6 +419,22 @@
                     <div class="ref-card-header">
                         <img src="Icons/Snowparting Blade.png" class="weapon-icon" alt="Snowparting Blade" onerror="this.style.display='none'">
                         Snowparting Blade
+=======
+                        <strong>Wolfchaser Tier 3 Inner Way</strong> elevates the <strong>Martial Art</strong> Defense
+                        to <span class="badge-mini b-3">3</span> (<span class="color-tenacity">Tenacity</span>). This
+                        site
+                        uses the standardized <span class="badge-mini b-2">2</span> / <span
+                            class="badge-mini b-3">3</span> values for calculations.
+                    </div>
+                </div>
+
+
+                <div class="info-entry-card">
+                    <div class="ref-card-header">
+                        <img src="Icons/Snowparting Blade.png" class="weapon-icon" alt="Snowparting Blade"
+                            onerror="this.style.display='none'">
+                        Snowparting Blade (Special Skill)
+>>>>>>> Stashed changes
                     </div>
                     <div class="info-body">
                         <div class="info-stat-item">
@@ -274,13 +448,24 @@
                         </div>
                     </div>
                     <div class="info-footer">
+<<<<<<< Updated upstream
                         Initial hits are <span class="badge-mini b-2">2</span>. The final Special Skill hit elevates to <span class="badge-mini b-4">4</span> (<span class="color-superarmor">Super Armor</span>) to break <span class="color-tenacity">Tenacity</span>. This site calculates based on the final hit.
+=======
+                        Initial hits are <span class="badge-mini b-2">2</span>. The final Special Skill hit elevates to
+                        <span class="badge-mini b-4">4</span> (<span class="color-superarmor">Super Armor</span>) to
+                        break <span class="color-tenacity">Tenacity</span>. This site calculates based on the final hit.
+>>>>>>> Stashed changes
                     </div>
                 </div>
 
                 <div class="info-entry-card">
                     <div class="ref-card-header">
+<<<<<<< Updated upstream
                         <img src="Icons/Snowparting Blade.png" class="weapon-icon" alt="Snowparting Blade" onerror="this.style.display='none'">
+=======
+                        <img src="Icons/Snowparting Blade.png" class="weapon-icon" alt="Snowparting Blade"
+                            onerror="this.style.display='none'">
+>>>>>>> Stashed changes
                         Snowparting Blade (Heavy Varied Combo)
                     </div>
                     <div class="info-body">
@@ -295,13 +480,25 @@
                         </div>
                     </div>
                     <div class="info-footer">
+<<<<<<< Updated upstream
                         This ability is <strong>granted</strong> by the <strong>Frost-Clad Night Tier 0</strong> Inner Way and standardized at <span class="badge-mini b-3">3</span> (<span class="color-tenacity">Tenacity</span>). This site calculates based on this unlocked <span class="badge-mini b-2">2</span> / <span class="badge-mini b-3">3</span> configuration.
+=======
+                        This ability is <strong>granted</strong> by the <strong>Frost-Clad Night Tier 0</strong> Inner
+                        Way and standardized at <span class="badge-mini b-3">3</span> (<span
+                            class="color-tenacity">Tenacity</span>). This site calculates based on this unlocked <span
+                            class="badge-mini b-2">2</span> / <span class="badge-mini b-3">3</span> configuration.
+>>>>>>> Stashed changes
                     </div>
                 </div>
 
                 <div class="info-entry-card">
                     <div class="ref-card-header">
+<<<<<<< Updated upstream
                         <img src="Icons/Vernal Umbrella.png" class="weapon-icon" alt="Vernal Umbrella" onerror="this.style.display='none'">
+=======
+                        <img src="Icons/Vernal Umbrella.png" class="weapon-icon" alt="Vernal Umbrella"
+                            onerror="this.style.display='none'">
+>>>>>>> Stashed changes
                         Vernal Umbrella (Special)
                     </div>
                     <div class="info-body">
@@ -317,13 +514,23 @@
                     </div>
                     <div class="info-base-label">Calculation Standard</div>
                     <div class="info-footer">
+<<<<<<< Updated upstream
                         Activating the Special executes an initial kick (Melee) at <span class="badge-mini b-2">2</span> Stagger, then summons the <strong>Turret</strong> at <span class="badge-mini b-0">0</span> Stagger. This site calculates based on the <strong>Ranged/Turret</strong> hit.
+=======
+                        Activating the Special executes an initial kick (Melee) at <span class="badge-mini b-2">2</span>
+                        Stagger, then summons the <strong>Turret</strong> at <span class="badge-mini b-0">0</span>
+                        Stagger. This site calculates based on the <strong>Ranged/Turret</strong> hit.
+>>>>>>> Stashed changes
                     </div>
                 </div>
 
                 <div class="info-entry-card">
                     <div class="ref-card-header">
+<<<<<<< Updated upstream
                          Fans & Umbrellas (Light)
+=======
+                        Fans & Umbrellas (Light)
+>>>>>>> Stashed changes
                     </div>
                     <div class="info-body">
                         <div class="info-stat-item">
@@ -337,13 +544,25 @@
                         </div>
                     </div>
                     <div class="info-footer">
+<<<<<<< Updated upstream
                         <strong>Melee</strong> attacks are <span class="badge-mini b-1">1</span> Stagger, while <strong>Ranged</strong> are <span class="badge-mini b-0">0</span>. Light Attacks are <span class="badge-mini b-0">0</span> on initial hits and <span class="badge-mini b-1">1</span> on the final hit. The site calculates based on the <strong>Ranged (0)</strong> engaging standard.
+=======
+                        <strong>Melee</strong> attacks are <span class="badge-mini b-1">1</span> Stagger, while
+                        <strong>Ranged</strong> are <span class="badge-mini b-0">0</span>. Light Attacks are <span
+                            class="badge-mini b-0">0</span> on initial hits and <span class="badge-mini b-1">1</span> on
+                        the final hit. The site calculates based on the <strong>Ranged (0)</strong> engaging standard.
+>>>>>>> Stashed changes
                     </div>
                 </div>
 
                 <div class="info-entry-card">
                     <div class="ref-card-header">
+<<<<<<< Updated upstream
                         <img src="Icons/Stormbreaker Spear.png" class="weapon-icon" alt="Stormbreaker Spear" onerror="this.style.display='none'">
+=======
+                        <img src="Icons/Stormbreaker Spear.png" class="weapon-icon" alt="Stormbreaker Spear"
+                            onerror="this.style.display='none'">
+>>>>>>> Stashed changes
                         Stormbreaker Spear (Special)
                     </div>
                     <div class="info-body">
@@ -358,13 +577,24 @@
                         </div>
                     </div>
                     <div class="info-footer">
+<<<<<<< Updated upstream
                         Landing the Special Skill slam grants 2 seconds of <span class="color-superarmor">Super Armor</span> <span class="badge-mini b-4">4</span> via a <span class="color-white">Disc Attunement</span>. This site calculates based on this buff configuration.
+=======
+                        Landing the Special Skill slam grants 2 seconds of <span class="color-superarmor">Super
+                            Armor</span> <span class="badge-mini b-4">4</span> via a <span class="color-white">Disc
+                            Attunement</span>. This site calculates based on this buff configuration.
+>>>>>>> Stashed changes
                     </div>
                 </div>
 
                 <div class="info-entry-card">
                     <div class="ref-card-header">
+<<<<<<< Updated upstream
                         <img src="Icons/Soaring Spin.png" class="weapon-icon" alt="Soaring Spin" onerror="this.style.display='none'">
+=======
+                        <img src="Icons/Soaring Spin.png" class="weapon-icon" alt="Soaring Spin"
+                            onerror="this.style.display='none'">
+>>>>>>> Stashed changes
                         Soaring Spin (Perfect Dodge)
                     </div>
                     <div class="info-body">
@@ -379,13 +609,25 @@
                         </div>
                     </div>
                     <div class="info-footer">
+<<<<<<< Updated upstream
                         Executing a <span class="color-white">Perfect Dodge</span> elevates Soaring Spin to <span class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>. This site calculates based on this proc'd condition instead of the base Defense <span class="badge-mini b-1">1</span>.
+=======
+                        Executing a <span class="color-white">Perfect Dodge</span> elevates Soaring Spin to <span
+                            class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>. This site
+                        calculates based on this proc'd condition instead of the base Defense <span
+                            class="badge-mini b-1">1</span>.
+>>>>>>> Stashed changes
                     </div>
                 </div>
 
                 <div class="info-entry-card">
                     <div class="ref-card-header">
+<<<<<<< Updated upstream
                         <img src="Icons/Golden Body.png" class="weapon-icon" alt="Golden Body" onerror="this.style.display='none'">
+=======
+                        <img src="Icons/Golden Body.png" class="weapon-icon" alt="Golden Body"
+                            onerror="this.style.display='none'">
+>>>>>>> Stashed changes
                         Golden Body (Synergy)
                     </div>
                     <div class="info-body">
@@ -400,13 +642,25 @@
                         </div>
                     </div>
                     <div class="info-footer">
+<<<<<<< Updated upstream
                         Default activation provides Defense <span class="badge-mini b-1">1</span>. Pairing with <span class="color-white">Shields</span> (e.g. Thundercry) elevates it to <span class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>. This site calculates for standalone use for <span class="color-white">Qi Regen</span>.
+=======
+                        Default activation provides Defense <span class="badge-mini b-1">1</span>. Pairing with <span
+                            class="color-white">Shields</span> (e.g. Thundercry) elevates it to <span
+                            class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>. This site
+                        calculates for standalone use for <span class="color-white">Qi Regen</span>.
+>>>>>>> Stashed changes
                     </div>
                 </div>
 
                 <div class="info-entry-card">
                     <div class="ref-card-header">
+<<<<<<< Updated upstream
                         <img src="Icons/Serene Breeze.png" class="weapon-icon" alt="Serene Breeze" onerror="this.style.display='none'">
+=======
+                        <img src="Icons/Serene Breeze.png" class="weapon-icon" alt="Serene Breeze"
+                            onerror="this.style.display='none'">
+>>>>>>> Stashed changes
                         Serene Breeze (Attunement)
                     </div>
                     <div class="info-body">
@@ -421,16 +675,75 @@
                         </div>
                     </div>
                     <div class="info-footer">
+<<<<<<< Updated upstream
                         Automatic cast provides <span class="color-superarmor">Super Armor</span> <span class="badge-mini b-4">4</span>. <span class="color-white">Helmet Attunement</span> then grants <span class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span> after the effect ends. Manual presses can be staggered by Divine Counter.
+=======
+                        Automatic cast provides <span class="color-superarmor">Super Armor</span> <span
+                            class="badge-mini b-4">4</span>. <span class="color-white">Helmet Attunement</span> then
+                        grants <span class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span> after
+                        the effect ends. Manual presses can be staggered by Divine Counter.
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
         </section>
 
+<<<<<<< Updated upstream
         <!-- CONTACT TAB -->
+=======
+        <!-- MATCHUP ENGINE TAB -->
+        <section id="matchups" class="tab-pane">
+            <div class="matchup-container">
+                <div class="matchup-selector-card">
+                    <div class="selector-header">
+                        <h2>Counter Selection</h2>
+                        <p>Select a skill to see everything that can break it.</p>
+                    </div>
+                    <div class="selector-controls">
+                        <div class="selection-trigger" id="triggerMatchup">
+                            <div class="trigger-icon-wrap">
+                                <img src="Icons/Strategic Sword.png" id="iconMatchup" class="trigger-icon" alt="">
+                            </div>
+                            <div class="trigger-text-wrap">
+                                <span class="trigger-label">Target Weapon / Skill</span>
+                                <span class="trigger-name" id="nameMatchup">Strategic Sword</span>
+                            </div>
+                            <div class="trigger-stats">
+                                <div class="mini-stat">
+                                    <span class="badge-mini b-1" id="sMatchup">1</span>
+                                    <span>S</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <span class="badge-mini b-0" id="pMatchup">0</span>
+                                    <span>D</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="attack-selector-wrap" id="attackGroupMatchup" style="display: none;">
+                            <label class="selector-mini-label">Select Attack Type</label>
+                            <select id="aMatchup" class="attack-select"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="matchup-results-wrap">
+                    <div class="results-header">
+                        <h3>Potential Counters</h3>
+                        <p id="matchupCountText">Select a skill to analyze.</p>
+                    </div>
+                    <div class="matchup-grid" id="matchupGrid">
+                        <!-- Counters will be rendered here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DASHBOARD TAB -->
+>>>>>>> Stashed changes
         <section id="contact" class="tab-pane">
             <div class="dashboard-header">
-                <h2 style="text-transform: uppercase;">Contact</h2>
+                <h2 style="text-transform: uppercase;">Support</h2>
             </div>
 
             <div class="form-card">
@@ -510,11 +823,14 @@
         </div>
     </div>
 
+<<<<<<< Updated upstream
     <footer class="site-footer">
         <div class="footer-content">
             <span class="creator-credit">Created by <strong>Saia</strong></span>
         </div>
     </footer>
+=======
+>>>>>>> Stashed changes
 
     <script src="script.js"></script>
 </body>
