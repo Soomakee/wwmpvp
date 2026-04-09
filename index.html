@@ -22,7 +22,10 @@
                     <polygon points="14.5 2 22 2 22 9.5 10 21.5 2 21.5 2 13.5 14.5 2"></polygon>
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                 </svg>
-                <span>PvP Priority</span>
+                <div class="brand-info">
+                    <span class="brand-name">PvP Priority</span>
+                    <span class="nav-credit">by <span class="credit-name">Saia</span></span>
+                </div>
             </div>
 
             <div class="nav-main">
@@ -53,7 +56,7 @@
                         <line x1="12" y1="17" x2="12.01" y2="17"></line>
                     </svg>
                 </div>
-                <p>Some skills leverage <strong>Inner Ways</strong> and <strong>Attunements</strong> for priority calculation; however, several are still being implemented and may be missing. Ongoing testing is in progress for all synergistic additions.</p>
+                <p>Some skills leverage <strong>Inner Ways</strong> and <strong>Attunements</strong> for priority, such as adding <span class="tenacity-highlight">Tenacity</span> to said skill etc; however, several are still being implemented and may be missing. Ongoing testing is in progress for all synergistic additions.</p>
             </div>
 
             <div class="priority-info">
@@ -68,15 +71,15 @@
                 </div>
                 <div class="info-body">
                     <div class="info-text">
-                        To win, your <strong>Stagger (S)</strong> must be higher than their <strong>Defense
-                            (D)</strong>, while holding against their Stagger.
+                        To win, your <span class="stagger-highlight">Stagger (S)</span> must be <strong>higher</strong> than their <span class="defense-highlight">Defense
+                            (D)</span>, while your <span class="defense-highlight">Defense</span> holds against their <span class="stagger-highlight">Stagger</span>.
                     </div>
                     <div class="info-example">
                         <strong>Victory:</strong> Martial Art (S:2, D:1) vs Light Attack (S:1, D:0) =
-                        <strong>Win</strong> (2 > 0 and 1 ≤ 1)
+                        <strong>Win</strong> (Stagger <strong>beats</strong> Defense and Defense <strong>holds against</strong> Stagger)
                     </div>
                     <div class="info-text">
-                        If both players break through defense (S > D for both), you get <strong>Both Staggered</strong>. In this state, whoever casts the ability <strong>first</strong> wins the trade; however, high <strong>Ping</strong> can cause variations.
+                        If both players break through defense (<span class="stagger-highlight">Stagger</span> is <strong>greater than</strong> <span class="defense-highlight">Defense</span> for both), you get <strong>Both Staggered</strong>. In this state, whoever casts the ability <strong>first</strong> wins the trade; however, high <strong>Ping</strong> can cause variations.
                     </div>
                 </div>
             </div>
@@ -514,11 +517,6 @@
         </div>
     </div>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <span class="creator-credit">Created by <strong>Saia</strong></span>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>
