@@ -321,6 +321,8 @@ const initApp = () => {
     navBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const targetTab = btn.getAttribute('data-tab');
+            if (!targetTab) return; // Ignore links like Donate that don't have a tab
+            
             navBtns.forEach(b => b.classList.remove('active'));
             tabPanes.forEach(p => p.classList.remove('active'));
             btn.classList.add('active');

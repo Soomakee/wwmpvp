@@ -23,7 +23,7 @@
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                 </svg>
                 <div class="brand-info">
-                    <span class="brand-name">PvP Priority</span>
+                    <span class="brand-name" style="display: flex; align-items: center;">PvP Priority <span class="wip-pill" style="margin-left: 0.5rem; margin-top: -2px;">⚠️ BETA</span></span>
                     <span class="nav-credit">by <span class="credit-name">Saia</span></span>
                 </div>
             </div>
@@ -37,9 +37,9 @@
             </div>
 
             <div class="nav-secondary">
-                <span class="nav-support-text">Wrong Data or Issues? &rarr;</span>
-                <button class="nav-btn" data-tab="contact">Support</button>
-                <span class="wip-pill">⚠️ BETA</span>
+                <span class="nav-support-text">Find an issue? &rarr;</span>
+                <button class="nav-btn" data-tab="contact">Create a Ticket</button>
+                <a href="https://streamelements.com/imsaia/tip" target="_blank" rel="noopener noreferrer" class="nav-btn donate-btn" title="Tip via StreamElements">Donate ❤️</a>
             </div>
         </div>
     </nav>
@@ -199,9 +199,9 @@
                         </div>
                     </div>
                     <div class="skill-footer stats-row">
-                        <div class="stat-pill"><span class="stat-label">Stagger</span><span class="badge"
+                        <div class="stat-pill"><span class="stat-label text-stagger">Stagger</span><span class="badge"
                                 id="sA">0</span></div>
-                        <div class="stat-pill"><span class="stat-label">Defense</span><span class="badge"
+                        <div class="stat-pill"><span class="stat-label text-defense">Defense</span><span class="badge"
                                 id="pA">0</span></div>
                     </div>
                 </div>
@@ -234,9 +234,9 @@
                         </div>
                     </div>
                     <div class="skill-footer stats-row">
-                        <div class="stat-pill"><span class="stat-label">Stagger</span><span class="badge"
+                        <div class="stat-pill"><span class="stat-label text-stagger">Stagger</span><span class="badge"
                                 id="sB">0</span></div>
-                        <div class="stat-pill"><span class="stat-label">Defense</span><span class="badge"
+                        <div class="stat-pill"><span class="stat-label text-defense">Defense</span><span class="badge"
                                 id="pB">0</span></div>
                     </div>
                 </div>
@@ -267,6 +267,7 @@
                 <h2>Skill Priority Registry</h2>
                 <div class="legend-container">
                     <div class="legend-item"><span class="badge b-0">X</span> No Attack</div>
+                    <div class="legend-item"><span class="badge b-0">0</span> No Stagger/Defense</div>
                     <div class="legend-item"><span class="badge b-1">1</span> Low Stagger/Defense</div>
                     <div class="legend-item"><span class="badge b-2">2</span> Mid Stagger/Defense</div>
                     <div class="legend-item"><span class="badge b-3">3</span> High Stagger/Defense (Tenacity)</div>
@@ -323,7 +324,7 @@
                         </div>
                     </div>
                     <div class="info-footer">
-                        <strong>Wolfchaser Tier 3 Inner Way</strong> elevates the <strong>Martial Art</strong> Defense
+                        <strong>Wolfchaser Tier 3 Inner Way</strong> elevates the <strong>Martial Art</strong> <span class="defense-highlight">Defense</span>
                         to <span class="badge-mini b-3">3</span> (<span class="color-tenacity">Tenacity</span>). This
                         site
                         uses the standardized <span class="badge-mini b-2">2</span> / <span
@@ -331,32 +332,6 @@
                     </div>
                 </div>
 
-                <div class="info-entry-card">
-                    <div class="ref-card-header">
-                        <img src="Icons/Phalanxbane Blade.png" class="weapon-icon" alt="Phalanxbane Blade"
-                            onerror="this.style.display='none'">
-                        <div class="header-text-wrap">
-                            Phalanxbane Blade
-                        </div>
-                    </div>
-                    <div class="info-body">
-                        <div class="info-stat-item">
-                            <span class="badge b-2">2</span>
-                            <span class="info-stat-label">Stagger</span>
-                        </div>
-                        <div class="mystic-stat-divider"></div>
-                        <div class="info-stat-item">
-                            <span class="badge b-3">3</span>
-                            <span class="info-stat-label">Defense</span>
-                        </div>
-                    </div>
-                    <div class="info-footer">
-                        Startup is Defense <span class="badge-mini b-2">2</span>, and charging elevates Defense to <span
-                            class="badge-mini b-3">3</span> (<span class="color-tenacity">Tenacity</span>). This site
-                        uses the fully charged <span class="badge-mini b-2">2</span> / <span
-                            class="badge-mini b-3">3</span> values.
-                    </div>
-                </div>
 
                 <div class="info-entry-card">
                     <div class="ref-card-header">
@@ -436,8 +411,8 @@
                     <div class="info-base-label">Calculation Standard</div>
                     <div class="info-footer">
                         Activating the Special executes an initial kick (Melee) at <span class="badge-mini b-2">2</span>
-                        Stagger, then summons the <strong>Turret</strong> at <span class="badge-mini b-0">0</span>
-                        Stagger. This site calculates based on the <strong>Ranged/Turret</strong> hit.
+                        <span class="stagger-highlight">Stagger</span>, then summons the <strong>Turret</strong> at <span class="badge-mini b-0">0</span>
+                        <span class="stagger-highlight">Stagger</span>. This site calculates based on the <strong>Ranged/Turret</strong> hit.
                     </div>
                 </div>
 
@@ -459,7 +434,7 @@
                         </div>
                     </div>
                     <div class="info-footer">
-                        <strong>Melee</strong> attacks are <span class="badge-mini b-1">1</span> Stagger, while
+                        <strong>Melee</strong> attacks are <span class="badge-mini b-1">1</span> <span class="stagger-highlight">Stagger</span>, while
                         <strong>Ranged</strong> are <span class="badge-mini b-0">0</span>. Light Attacks are <span
                             class="badge-mini b-0">0</span> on initial hits and <span class="badge-mini b-1">1</span> on
                         the final hit. The site calculates based on the <strong>Ranged (0)</strong> engaging
@@ -515,7 +490,7 @@
                     <div class="info-footer">
                         Executing a <span class="color-white">Perfect Dodge</span> elevates Soaring Spin to <span
                             class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>. This site
-                        calculates based on this proc'd condition instead of the base Defense <span
+                        calculates based on this proc'd condition instead of the base <span class="defense-highlight">Defense</span> <span
                             class="badge-mini b-1">1</span>.
                     </div>
                 </div>
@@ -540,7 +515,7 @@
                         </div>
                     </div>
                     <div class="info-footer">
-                        Default activation provides Defense <span class="badge-mini b-1">1</span>. Pairing with
+                        Default activation provides <span class="defense-highlight">Defense</span> <span class="badge-mini b-1">1</span>. Pairing with
                         <span class="color-white">Shields</span> (e.g. Thundercry) elevates it to <span
                             class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>. This site
                         calculates for standalone use for <span class="color-white">Qi Regen</span>.
@@ -571,7 +546,7 @@
                             class="badge-mini b-4">4</span>. <span class="color-white">Helmet Attunement</span> then
                         grants <span class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>
                         after
-                        the effect ends. Manual presses can be staggered by Divine Counter.
+                        the effect ends. Manual presses can be <span class="stagger-highlight">staggered</span> by Divine Counter.
                     </div>
                 </div>
             </div>
@@ -597,11 +572,11 @@
                             <div class="trigger-stats">
                                 <div class="mini-stat">
                                     <span class="badge-mini b-1" id="sMatchup">1</span>
-                                    <span>S</span>
+                                    <span class="text-stagger" style="font-weight: 700;">S</span>
                                 </div>
                                 <div class="mini-stat">
                                     <span class="badge-mini b-0" id="pMatchup">0</span>
-                                    <span>D</span>
+                                    <span class="text-defense" style="font-weight: 700;">D</span>
                                 </div>
                             </div>
                         </div>
@@ -626,7 +601,7 @@
         </section>
         <section id="contact" class="tab-pane">
             <div class="dashboard-header">
-                <h2 style="text-transform: uppercase;">Support</h2>
+                <h2 style="text-transform: uppercase;">Create a Ticket</h2>
             </div>
 
             <div class="form-card">
