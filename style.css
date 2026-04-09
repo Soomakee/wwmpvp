@@ -936,7 +936,8 @@ select:focus {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.weapon-ref-card .ref-card-header {
+.weapon-ref-card .ref-card-header,
+.info-entry-card .ref-card-header {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -948,7 +949,8 @@ select:focus {
     min-height: 4.8rem;
 }
 
-.weapon-ref-card .header-text-wrap {
+.weapon-ref-card .header-text-wrap,
+.info-entry-card .header-text-wrap {
     flex: 1;
     display: flex;
     align-items: center;
