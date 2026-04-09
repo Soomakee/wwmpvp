@@ -90,6 +90,17 @@ body {
     gap: 0.5rem;
     justify-content: flex-end;
 }
+.nav-support-text {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    opacity: 0.6;
+}
+
+@media (max-width: 1150px) {
+    .nav-support-text { display: none; }
+}
 .nav-btn {
     background: transparent; border: none; color: var(--text-muted);
     font-size: 0.95rem; font-weight: 600; padding: 0.5rem 1.25rem;
