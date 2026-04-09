@@ -175,20 +175,6 @@ body::after {
     transform: scale(0.96);
 }
 
-.donate-btn {
-    border-color: rgba(244, 114, 182, 0.3) !important;
-    color: #f472b6 !important;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.donate-btn:hover {
-    background: rgba(244, 114, 182, 0.1) !important;
-    border-color: #f472b6 !important;
-    color: #fff !important;
-}
-
 .nav-btn.active {
     color: #fff;
     background: rgba(59, 130, 246, 0.15);
@@ -1070,11 +1056,11 @@ select:focus {
 }
 
 .text-stagger {
-    color: var(--badge-3);
+    color: var(--text-muted);
 }
 
 .text-defense {
-    color: var(--badge-2);
+    color: var(--text-muted);
 }
 
 /* === MYSTIC STAT LAYOUT === */
