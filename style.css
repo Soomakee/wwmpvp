@@ -175,6 +175,32 @@ body::after {
     transform: scale(0.96);
 }
 
+.donate-btn {
+    background: none;
+    border: 1px solid rgba(244, 114, 182, 0.3);
+    color: #f472b6;
+    padding: 0.6rem 1.25rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.donate-btn:hover {
+    background: rgba(244, 114, 182, 0.1);
+    border-color: #f472b6;
+    color: #fff;
+}
+
+.donate-btn:active {
+    transform: scale(0.96);
+}
+
 .nav-btn.active {
     color: #fff;
     background: rgba(59, 130, 246, 0.15);
