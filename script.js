@@ -55,7 +55,7 @@ const mysticSkillsData = {
 // === MYSTIC SKILLS DATA END ==========================================
 // =====================================================================
 
-document.addEventListener('DOMContentLoaded', () => {
+const initApp = () => {
     // --- App State ---
     let appState = {
         activeSlot: null, // 'A' or 'B'
@@ -563,4 +563,10 @@ document.addEventListener('DOMContentLoaded', () => {
     renderWeaponCompendium();
     renderMysticCompendium();
     setupContactForm();
-});
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
+}
