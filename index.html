@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.3">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -23,24 +23,24 @@
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                 </svg>
                 <div class="brand-info">
-                    <span class="brand-name">PvP Priority <span class="wip-pill">⚠️ BETA</span></span>
+                    <span class="brand-name">PvP Priority</span>
                     <span class="nav-credit">by <span class="credit-name">Saia</span></span>
                 </div>
             </div>
 
             <div class="nav-main">
                 <button class="nav-btn active" data-tab="home">Home</button>
-                <button class="nav-btn" data-tab="registry">Skill Priorities</button>
                 <button class="nav-btn" data-tab="calculator">Calculator</button>
                 <button class="nav-btn" data-tab="matchups">Matchups</button>
+                <button class="nav-btn" data-tab="registry">Skill Priorities</button>
+                <button class="nav-btn" data-tab="manual">Ruleset</button>
                 <button class="nav-btn" data-tab="info">Important Information</button>
             </div>
 
             <div class="nav-secondary">
-                <span class="nav-support-text">Find an issue? &rarr;</span>
-                <button class="nav-btn" data-tab="contact">Create a Ticket</button>
-                <a href="https://streamelements.com/imsaia/tip" target="_blank" rel="noopener noreferrer"
-                    class="donate-btn" title="Tip via StreamElements">Donate ❤️</a>
+                <span class="nav-support-text">Wrong Data or Issues? &rarr;</span>
+                <button class="nav-btn" data-tab="contact">Support</button>
+                <span class="wip-pill">⚠️ BETA</span>
             </div>
         </div>
     </nav>
@@ -99,6 +99,20 @@
                     <div class="card-foot">View Data &rarr;</div>
                 </div>
 
+                <!-- Ruleset Card -->
+                <div class="dash-card" onclick="document.querySelector('[data-tab=\'manual\']').click()">
+                    <div class="card-head">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+                            <path d="M8 7h6M8 11h8M8 15h6" />
+                        </svg>
+                    </div>
+                    <h3>Ruleset</h3>
+                    <p>Learn how stagger and defense calculate in the game.</p>
+                    <div class="card-foot">Read Ruleset &rarr;</div>
+                </div>
+
                 <!-- Info -->
                 <div class="dash-card" onclick="document.querySelector('[data-tab=\'info\']').click()">
                     <div class="card-head">
@@ -136,40 +150,22 @@
                     additions.</p>
             </div>
 
-            <div class="priority-info">
-                <div class="info-header">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="16" x2="12" y2="12"></line>
-                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            <!-- Ruleset Redirection Banner -->
+            <div class="notice-banner"
+                style="margin-top: 1rem; border-color: var(--badge-2); background: rgba(14, 165, 233, 0.05); cursor: pointer;"
+                onclick="document.querySelector('[data-tab=\'manual\']').click()">
+                <div class="notice-icon" style="color: var(--badge-2);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+                        <path d="M8 7h6M8 11h8M8 15h6" />
                     </svg>
-                    <span>How Combat Priority Works</span>
                 </div>
-                <div class="info-body">
-                    <div class="info-text">
-                        To win, your <span class="stagger-highlight">Stagger (S)</span> must be <strong>higher</strong>
-                        than their <span class="defense-highlight">Defense
-                            (D)</span>, while your <span class="defense-highlight">Defense</span> holds against their
-                        <span class="stagger-highlight">Stagger</span>.
-                    </div>
-                    <div class="info-example">
-                        <strong>Victory:</strong> Martial Art (<span class="stagger-highlight">S</span>:2, <span
-                            class="defense-highlight">D</span>:1) vs Light Attack (<span
-                            class="stagger-highlight">S</span>:1, <span class="defense-highlight">D</span>:0) =
-                        <strong>Win</strong> (<span class="stagger-highlight">Stagger</span> <strong>beats</strong>
-                        <span class="defense-highlight">Defense</span> and <span
-                            class="defense-highlight">Defense</span> <strong>holds
-                            against</strong> <span class="stagger-highlight">Stagger</span>)
-                    </div>
-                    <div class="info-text">
-                        If both players break through defense (<span class="stagger-highlight">Stagger</span> is
-                        <strong>greater than</strong> <span class="defense-highlight">Defense</span> for both), you get
-                        <strong>Both Staggered</strong>. In this state, whoever casts the ability <strong>first</strong>
-                        wins the trade; however, high <strong>Ping</strong> can cause variations.
-                    </div>
-                </div>
+                <p style="margin: 0; width: 100%;"><strong>Unsure how priority points are determined?</strong> View the
+                    <span style="font-weight: 700; color: var(--badge-2);">Combat Ruleset</span> for a full breakdown of
+                    the 4 Outcomes and Stagger logic. &rarr;
+                </p>
             </div>
+
             <div class="calc-grid">
 
                 <!-- Skill A -->
@@ -200,9 +196,9 @@
                         </div>
                     </div>
                     <div class="skill-footer stats-row">
-                        <div class="stat-pill"><span class="stat-label text-stagger">Stagger</span><span class="badge"
+                        <div class="stat-pill"><span class="stat-label">Stagger</span><span class="badge"
                                 id="sA">0</span></div>
-                        <div class="stat-pill"><span class="stat-label text-defense">Defense</span><span class="badge"
+                        <div class="stat-pill"><span class="stat-label">Defense</span><span class="badge"
                                 id="pA">0</span></div>
                     </div>
                 </div>
@@ -235,9 +231,9 @@
                         </div>
                     </div>
                     <div class="skill-footer stats-row">
-                        <div class="stat-pill"><span class="stat-label text-stagger">Stagger</span><span class="badge"
+                        <div class="stat-pill"><span class="stat-label">Stagger</span><span class="badge"
                                 id="sB">0</span></div>
-                        <div class="stat-pill"><span class="stat-label text-defense">Defense</span><span class="badge"
+                        <div class="stat-pill"><span class="stat-label">Defense</span><span class="badge"
                                 id="pB">0</span></div>
                     </div>
                 </div>
@@ -266,11 +262,8 @@
         <section id="registry" class="tab-pane">
             <div class="dashboard-header">
                 <h2>Skill Priority Registry</h2>
-                <p style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 0.95rem;">Click any skill below
-                    to see a video preview.</p>
                 <div class="legend-container">
                     <div class="legend-item"><span class="badge b-0">X</span> No Attack</div>
-                    <div class="legend-item"><span class="badge b-0">0</span> No Stagger/Defense</div>
                     <div class="legend-item"><span class="badge b-1">1</span> Low Stagger/Defense</div>
                     <div class="legend-item"><span class="badge b-2">2</span> Mid Stagger/Defense</div>
                     <div class="legend-item"><span class="badge b-3">3</span> High Stagger/Defense (Tenacity)</div>
@@ -327,8 +320,7 @@
                         </div>
                     </div>
                     <div class="info-footer">
-                        <strong>Wolfchaser Tier 3 Inner Way</strong> elevates the <strong>Martial Art</strong> <span
-                            class="defense-highlight">Defense</span>
+                        <strong>Wolfchaser Tier 3 Inner Way</strong> elevates the <strong>Martial Art</strong> Defense
                         to <span class="badge-mini b-3">3</span> (<span class="color-tenacity">Tenacity</span>). This
                         site
                         uses the standardized <span class="badge-mini b-2">2</span> / <span
@@ -336,6 +328,32 @@
                     </div>
                 </div>
 
+                <div class="info-entry-card">
+                    <div class="ref-card-header">
+                        <img src="Icons/Phalanxbane Blade.png" class="weapon-icon" alt="Phalanxbane Blade"
+                            onerror="this.style.display='none'">
+                        <div class="header-text-wrap">
+                            Phalanxbane Blade
+                        </div>
+                    </div>
+                    <div class="info-body">
+                        <div class="info-stat-item">
+                            <span class="badge b-2">2</span>
+                            <span class="info-stat-label">Stagger</span>
+                        </div>
+                        <div class="mystic-stat-divider"></div>
+                        <div class="info-stat-item">
+                            <span class="badge b-3">3</span>
+                            <span class="info-stat-label">Defense</span>
+                        </div>
+                    </div>
+                    <div class="info-footer">
+                        Startup is Defense <span class="badge-mini b-2">2</span>, and charging elevates Defense to <span
+                            class="badge-mini b-3">3</span> (<span class="color-tenacity">Tenacity</span>). This site
+                        uses the fully charged <span class="badge-mini b-2">2</span> / <span
+                            class="badge-mini b-3">3</span> values.
+                    </div>
+                </div>
 
                 <div class="info-entry-card">
                     <div class="ref-card-header">
@@ -415,10 +433,8 @@
                     <div class="info-base-label">Calculation Standard</div>
                     <div class="info-footer">
                         Activating the Special executes an initial kick (Melee) at <span class="badge-mini b-2">2</span>
-                        <span class="stagger-highlight">Stagger</span>, then summons the <strong>Turret</strong> at
-                        <span class="badge-mini b-0">0</span>
-                        <span class="stagger-highlight">Stagger</span>. This site calculates based on the
-                        <strong>Ranged/Turret</strong> hit.
+                        Stagger, then summons the <strong>Turret</strong> at <span class="badge-mini b-0">0</span>
+                        Stagger. This site calculates based on the <strong>Ranged/Turret</strong> hit.
                     </div>
                 </div>
 
@@ -440,8 +456,7 @@
                         </div>
                     </div>
                     <div class="info-footer">
-                        <strong>Melee</strong> attacks are <span class="badge-mini b-1">1</span> <span
-                            class="stagger-highlight">Stagger</span>, while
+                        <strong>Melee</strong> attacks are <span class="badge-mini b-1">1</span> Stagger, while
                         <strong>Ranged</strong> are <span class="badge-mini b-0">0</span>. Light Attacks are <span
                             class="badge-mini b-0">0</span> on initial hits and <span class="badge-mini b-1">1</span> on
                         the final hit. The site calculates based on the <strong>Ranged (0)</strong> engaging
@@ -497,8 +512,8 @@
                     <div class="info-footer">
                         Executing a <span class="color-white">Perfect Dodge</span> elevates Soaring Spin to <span
                             class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>. This site
-                        calculates based on this proc'd condition instead of the base <span
-                            class="defense-highlight">Defense</span> <span class="badge-mini b-1">1</span>.
+                        calculates based on this proc'd condition instead of the base Defense <span
+                            class="badge-mini b-1">1</span>.
                     </div>
                 </div>
 
@@ -522,8 +537,7 @@
                         </div>
                     </div>
                     <div class="info-footer">
-                        Default activation provides <span class="defense-highlight">Defense</span> <span
-                            class="badge-mini b-1">1</span>. Pairing with
+                        Default activation provides Defense <span class="badge-mini b-1">1</span>. Pairing with
                         <span class="color-white">Shields</span> (e.g. Thundercry) elevates it to <span
                             class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>. This site
                         calculates for standalone use for <span class="color-white">Qi Regen</span>.
@@ -554,8 +568,7 @@
                             class="badge-mini b-4">4</span>. <span class="color-white">Helmet Attunement</span> then
                         grants <span class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>
                         after
-                        the effect ends. Manual presses can be <span class="stagger-highlight">staggered</span> by
-                        Divine Counter.
+                        the effect ends. Manual presses can be staggered by Divine Counter.
                     </div>
                 </div>
             </div>
@@ -581,11 +594,11 @@
                             <div class="trigger-stats">
                                 <div class="mini-stat">
                                     <span class="badge-mini b-1" id="sMatchup">1</span>
-                                    <span class="text-stagger">S</span>
+                                    <span>S</span>
                                 </div>
                                 <div class="mini-stat">
                                     <span class="badge-mini b-0" id="pMatchup">0</span>
-                                    <span class="text-defense">D</span>
+                                    <span>D</span>
                                 </div>
                             </div>
                         </div>
@@ -608,9 +621,142 @@
                 </div>
             </div>
         </section>
+
+        <!-- RULESET TAB -->
+        <section id="manual" class="tab-pane">
+            <div class="dashboard-header">
+                <h2>Combat Ruleset</h2>
+                <p>A comprehensive guide to understanding Priority, Stagger, and Combat Outcomes.</p>
+            </div>
+
+            <div class="priority-info" style="margin-bottom: 2rem;">
+                <div class="info-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <span>Core Principle</span>
+                </div>
+                <div class="info-body">
+                    <div class="info-text">
+                        To win a trade, your <span class="stagger-highlight">Stagger (S)</span> must be <strong>greater
+                            than</strong> their <span class="defense-highlight">Defense (D)</span>, while your <span
+                            class="defense-highlight">Defense</span> successfully holds against their <span
+                            class="stagger-highlight">Stagger</span>.
+                    </div>
+                </div>
+            </div>
+
+            <!-- The 4 Outcomes -->
+            <h3
+                style="color: var(--text-primary); margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+                The Four Outcomes
+            </h3>
+            <div class="info-card-grid" style="margin-bottom: 2rem;">
+
+                <div class="info-entry-card" style="border-left: 4px solid var(--badge-1)">
+                    <div class="ref-card-header">
+                        <div class="header-text-wrap" style="color: var(--badge-1); font-weight: 800;">1. VICTORY (Win)
+                        </div>
+                    </div>
+                    <div class="info-footer">
+                        Your <span class="stagger-highlight">Stagger</span> is higher than their <span
+                            class="defense-highlight">Defense</span>, AND their <span
+                            class="stagger-highlight">Stagger</span> is lower than or equal to your <span
+                            class="defense-highlight">Defense</span>. You will cleanly break their attack and <span
+                            class="stagger-highlight">Stagger</span> them.
+                        <div class="info-example"
+                            style="margin-top: 0.75rem; border-top: 1px dashed var(--border); padding-top: 0.75rem; font-size: 0.9rem;">
+                            <strong>Example:</strong> Your Martial Art (<span class="stagger-highlight">S</span>:2,
+                            <span class="defense-highlight">D</span>:1) vs Their Light Attack (<span
+                                class="stagger-highlight">S</span>:1, <span class="defense-highlight">D</span>:0). Your
+                            <span class="stagger-highlight">Stagger</span> breaks their <span
+                                class="defense-highlight">Defense</span>, and your <span
+                                class="defense-highlight">Defense</span> successfully holds against their <span
+                                class="stagger-highlight">Stagger</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-entry-card" style="border-left: 4px solid var(--badge-4)">
+                    <div class="ref-card-header">
+                        <div class="header-text-wrap" style="color: var(--badge-4); font-weight: 800;">2. DEFEAT (Loss)
+                        </div>
+                    </div>
+                    <div class="info-footer">
+                        Their <span class="stagger-highlight">Stagger</span> is higher than your <span
+                            class="defense-highlight">Defense</span>, AND your <span
+                            class="stagger-highlight">Stagger</span> is lower than or equal to their <span
+                            class="defense-highlight">Defense</span>. They will break your attack and cleanly <span
+                            class="stagger-highlight">Stagger</span> you.
+                        <div class="info-example"
+                            style="margin-top: 0.75rem; border-top: 1px dashed var(--border); padding-top: 0.75rem; font-size: 0.9rem;">
+                            <strong>Example:</strong> Your Light Attack (<span class="stagger-highlight">S</span>:1,
+                            <span class="defense-highlight">D</span>:0) vs Their Martial Art (<span
+                                class="stagger-highlight">S</span>:2, <span class="defense-highlight">D</span>:1). Their
+                            <span class="stagger-highlight">Stagger</span> breaks your <span
+                                class="defense-highlight">Defense</span>, and their <span
+                                class="defense-highlight">Defense</span> successfully holds against your <span
+                                class="stagger-highlight">Stagger</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-entry-card" style="border-left: 4px solid var(--badge-3)">
+                    <div class="ref-card-header">
+                        <div class="header-text-wrap" style="color: var(--badge-3); font-weight: 800;">3. BOTH STAGGERED
+                            (Clash)</div>
+                    </div>
+                    <div class="info-footer">
+                        Both players have a <span class="stagger-highlight">Stagger</span> that successfully breaks the
+                        opponent's <span class="defense-highlight">Defense</span>. The winner goes to whichever attack
+                        hits and registers first. Because of varied animation speeds, a player who casted 2nd, but has a
+                        faster skill animation speed can <span class="stagger-highlight">Stagger</span> their opponent
+                        first.
+                        <div class="info-example"
+                            style="margin-top: 0.75rem; border-top: 1px dashed var(--border); padding-top: 0.75rem; font-size: 0.9rem;">
+                            <strong>Example:</strong> Heavy Attack (<span class="stagger-highlight">S</span>:1, <span
+                                class="defense-highlight">D</span>:0) vs Light Charged Skill (<span
+                                class="stagger-highlight">S</span>:1, <span class="defense-highlight">D</span>:0). Both
+                            attacks possess a <span class="stagger-highlight">Stagger (1)</span> capable of breaking the
+                            opposing <span class="defense-highlight">Defense (0)</span>. Whoever literally lands the hit
+                            first will win the trade.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-entry-card" style="border-left: 4px solid var(--badge-0)">
+                    <div class="ref-card-header">
+                        <div class="header-text-wrap" style="color: var(--badge-0); font-weight: 800;">4. BOTH DEFEND
+                            (Draw)</div>
+                    </div>
+                    <div class="info-footer">
+                        Neither player has a <span class="stagger-highlight">Stagger</span> high enough to break the
+                        opponent's <span class="defense-highlight">Defense</span>. Both players safely hit each other,
+                        but not <span class="stagger-highlight">Stagger.</span>
+                        <div class="info-example"
+                            style="margin-top: 0.75rem; border-top: 1px dashed var(--border); padding-top: 0.75rem; font-size: 0.9rem;">
+                            <strong>Example:</strong> Special Skill (<span class="stagger-highlight">S</span>:0, <span
+                                class="defense-highlight">D</span>:1) vs Special Skill (<span
+                                class="stagger-highlight">S</span>:0, <span class="defense-highlight">D</span>:1).
+                            Neither <span class="stagger-highlight">Stagger (0)</span> is high enough to punch through a
+                            <span class="defense-highlight">Defense (1)</span>, causing both players to draw. (A
+                            Stagger of 1 vs a Defense of 1 also results in a draw, as Stagger MUST be higher in value).
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
         <section id="contact" class="tab-pane">
             <div class="dashboard-header">
-                <h2 style="text-transform: uppercase;">Create a Ticket</h2>
+                <h2 style="text-transform: uppercase;">Support</h2>
             </div>
 
             <div class="form-card">
@@ -636,7 +782,7 @@
                             <option value="UI / Design">UI / Design Issue</option>
                             <option value="Weapon Balances">Weapon Priority Issue</option>
                             <option value="New Feature">Feature Idea</option>
-                            <option value="Calculator Issue">Calculator Incorrect</option>
+                            <option value="Bug Report">Calculator Incorrect</option>
                             <option value="Bug Report">Bug Report</option>
                             <option value="Other">Other</option>
                         </select>
@@ -693,7 +839,7 @@
 
 
 
-    <script src="script.js?v=2.3"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
