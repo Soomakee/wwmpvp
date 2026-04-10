@@ -6,20 +6,20 @@
 const weaponData = {
     "Strategic Sword": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 1 } },
     "Nameless Sword": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 1 } },
-    "Heavenquaker Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 3 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 3 } },
+    "Heavenquaker Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 3 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged Skill": { S: 1, D: 3 } },
     "Nameless Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 4, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 1 } },
-    "Infernal Twinblades": { "Light Attack": { S: 1, D: 0 }, "Heavy (Rage Mode)": { S: 1, D: 3 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 } },
-    "Mortal Ropedart": { "Light Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 'X', D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 'X', D: 3 }, "Light Varied Combo": { S: 1, D: 1 }, "Heavy Varied Combo": { S: 1, D: 1 } },
+    "Infernal Twinblades": { "Light Attack": { S: 1, D: 0 }, "Burst Skill": { S: 1, D: 3 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 } },
+    "Mortal Ropedart": { "Light Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 'X', D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Charging Stance": { S: 'X', D: 3 }, "Light Charged Varied Combo": { S: 1, D: 1 }, "Heavy Charged Varied Combo": { S: 1, D: 1 } },
     "Everspring Umbrella": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 0, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Heavy Charged": { S: 0, D: 1 } },
-    "Unfettered Rope Dart": { "Light Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 0, D: 3 } },
-    "Thundercry Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 'X', D: 3 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Light Charged": { S: 1, D: 3 }, "Heavy Charged": { S: 1, D: 3 }, "Light Varied Combo": { S: 2, D: 3 }, "Heavy Varied Combo": { S: 2, D: 3 }, "Martial Art (Charged)": { S: 'X', D: 3 } },
-    "Stormbreaker Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 3 }, "Special Skill": { S: 2, D: 4 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 3 } },
-    "Phalanxbane Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 0, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 3 }, "Martial Art (Charged)": { S: 2, D: 3 } },
+    "Unfettered Rope Dart": { "Light Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Charging Stance": { S: 0, D: 3 }, "Heavy Charged Skill": { S: 2, D: 1 } },
+    "Thundercry Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 'X', D: 3 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Light Charged Skill": { S: 1, D: 3 }, "Heavy Charged Skill": { S: 1, D: 3 }, "Light Charged Varied Combo": { S: 2, D: 3 }, "Heavy Charged Varied Combo": { S: 2, D: 3 }, "Martial Art Perception Skill": { S: 'X', D: 3 } },
+    "Stormbreaker Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 3 }, "Special Skill": { S: 2, D: 4 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged Skill": { S: 1, D: 3 } },
+    "Phalanxbane Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 0, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged Skill": { S: 1, D: 3 }, "Martial Art Charged": { S: 2, D: 3 } },
     "Snowparting Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 4, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Light Charged": { S: 1, D: 1 }, "Light Varied Combo": { S: 1, D: 1 }, "Heavy Varied Combo": { S: 2, D: 3 } },
-    "Vernal Umbrella": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 4, D: 1 }, "Special Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Light Charged": { S: 0, D: 1 }, "Heavy Charged": { S: 1, D: 3 }, "Light Varied Combo": { S: 0, D: 0 }, "Heavy Varied Combo": { S: 0, D: 1 } },
-    "Soulshade Umbrella": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 0, D: 0 }, "Martial Art": { S: 0, D: 1 }, "Special Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 0, D: 1 } },
-    "Inkwell Fan": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 0, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Light Charged": { S: 1, D: 1 }, "Heavy Charged": { S: 1, D: 1 } },
-    "Panacea Fan": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 'X', D: 1 }, "Martial Art": { S: 'X', D: 1 }, "Special Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Martial Art (Charged)": { S: 'X', D: 1 }, "Special Skill (Charged)": { S: 'X', D: 1 } }
+    "Vernal Umbrella": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 4, D: 1 }, "Special Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Light Charged Skill": { S: 0, D: 1 }, "Heavy Charged Skill": { S: 1, D: 3 }, "Light Attack Varied Combo": { S: 0, D: 0 }, "Heavy Attack Varied Combo": { S: 0, D: 1 } },
+    "Soulshade Umbrella": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 0, D: 0 }, "Martial Art": { S: 0, D: 1 }, "Special Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged Skill": { S: 0, D: 1 } },
+    "Inkwell Fan": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 0, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Light Charged Skill": { S: 1, D: 1 }, "Heavy Charged Skill": { S: 1, D: 1 }, "Pursuit Skill": { S: 2, D: 1 } },
+    "Panacea Fan": { "Light Attack": { S: 0, D: 0 }, "Healing Skill": { S: 'X', D: 1 }, "Martial Art": { S: 'X', D: 1 }, "Martial Art Perception Skill": { S: 'X', D: 1 }, "Special Skill": { S: 0, D: 1 }, "Special Perception Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 } }
 };
 // =====================================================================
 // === WEAPON DATA END =================================================
@@ -43,7 +43,7 @@ const mysticSkillsData = {
     "Soaring Spin": { S: 2, D: 3 },
     "Dragons Breath": { S: 2, D: 3 },
     "Drunken Poet": { S: 2, D: 3 },
-    "Dragons Head": { S: 2, D: 4 },
+    "Dragon Head": { S: 2, D: 4 },
     "Serene Breeze": { S: 2, D: 4 },
     "Golden Body": { S: 'X', D: 1 },
     "Ghostly Steps": { S: 'X', D: 0 },
@@ -215,12 +215,18 @@ const initApp = () => {
                     </div>
                 </div>
                 <div class="matchup-action-list">
-                    ${group.items.map(i => `
-                        <div class="matchup-action-item">
-                            <span class="m-action-name">${i.action}</span>
+                    ${group.items.map(i => {
+                const videoPath = group.type === 'weapon' ?
+                    `Weapon Previews/${group.name}/${i.action}.mp4` :
+                    `Weapon Previews/${group.name}/${group.name}.mp4`;
+                return `
+                        <div class="matchup-action-item clickable-preview" data-preview="${videoPath}" title="Click to view full preview">
+                            <span class="m-action-name">
+                                ${i.action}
+                            </span>
                             <span class="m-badge ${getBadgeClass(i.stats.S)}">${i.stats.S === 'X' ? 'X' : i.stats.S}</span>
                         </div>
-                    `).join('')}
+                    `}).join('')}
                 </div>
             </div>
         `}).join('');
@@ -321,6 +327,8 @@ const initApp = () => {
     navBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const targetTab = btn.getAttribute('data-tab');
+            if (!targetTab) return; // Ignore links like Donate that don't have a tab
+
             navBtns.forEach(b => b.classList.remove('active'));
             tabPanes.forEach(p => p.classList.remove('active'));
             btn.classList.add('active');
@@ -408,7 +416,7 @@ const initApp = () => {
             resultOutput.style.borderColor = 'var(--badge-3)';
             resultNote.textContent = 'Whoever casts first wins the trade. Ping can impact this and cause variations.';
         } else if (bothHitNoStagger) {
-            resultText.textContent = 'Both hits, but no Stagger';
+            resultText.textContent = 'Draw';
             resultText.style.color = 'var(--text-muted)';
             resultOutput.style.borderColor = 'var(--border-color)';
             resultNote.textContent = '';
@@ -462,8 +470,10 @@ const initApp = () => {
             for (const a of attacks) {
                 const st = weaponData[w][a];
                 htmlBuffer += `
-                    <div class="ref-attack-row ${st.isWIP ? 'wip-row' : ''}">
-                        <span class="ref-attack-name">${a}</span>
+                    <div class="ref-attack-row ${st.isWIP ? 'wip-row' : ''}" data-preview="Weapon Previews/${w}/${a}.mp4" title="Click to view full preview">
+                        <span class="ref-attack-name">
+                            ${a}
+                        </span>
                         <div class="ref-attack-stats">
                             <div class="mini-badge"><span class="b-dot ${(st.isWIP || st.wipS) ? 'b-0' : getBadgeClass(st.S)}">${(st.isWIP || st.wipS) ? '<span class="text-error">X</span>' : st.S}</span></div>
                             <div class="col-divider"></div>
@@ -489,7 +499,7 @@ const initApp = () => {
                     <div class="weapon-ref-card wip-card">
                         <div class="ref-card-header">
                             <img src="Icons/${getImageFileName(m)}.png" class="weapon-icon" alt="${m}" onerror="this.style.display='none'">
-                            ${m}
+                            <div class="header-text-wrap">${m}</div>
                         </div>
                         <div class="ref-card-body wip-body">
                             <div class="wip-overlay">
@@ -509,7 +519,7 @@ const initApp = () => {
                                 ${m} ${isPartiallyWip ? '<span class="wip-tag">TESTING</span>' : ''}
                             </div>
                         </div>
-                        <div class="mystic-stat-body">
+                        <div class="mystic-stat-body clickable-preview" data-preview="Weapon Previews/${m}/${m}.mp4" title="Click to view full preview">
                             <div class="mystic-stat-block">
                                 <span class="b-dot ${st.wipS ? 'b-0' : getBadgeClass(st.S)} mystic-stat-num">${st.wipS ? '<span class="text-error">X</span>' : st.S}</span>
                                 <span class="mystic-stat-label text-stagger">Stagger</span>
@@ -563,6 +573,75 @@ const initApp = () => {
     renderWeaponCompendium();
     renderMysticCompendium();
     setupContactForm();
+
+    // --- Skill Preview Tooltip ---
+    const previewTooltip = document.createElement('div');
+    previewTooltip.className = 'preview-tooltip hidden';
+    previewTooltip.innerHTML = '<video class="preview-video" muted loop playsinline></video>';
+    document.body.appendChild(previewTooltip);
+    const previewVideo = previewTooltip.querySelector('video');
+
+    // Hide tooltip if video fails to load
+    previewVideo.addEventListener('error', () => {
+        previewTooltip.classList.add('hidden');
+    });
+
+    const positionTooltip = (anchor) => {
+        const rect = anchor.getBoundingClientRect();
+        const tooltipWidth = 375;
+        const tooltipHeight = 250;
+        let left = rect.right + 12;
+        if (left + tooltipWidth > window.innerWidth) {
+            left = rect.left - tooltipWidth - 12;
+        }
+        let top = rect.top + window.scrollY - (tooltipHeight / 4);
+        previewTooltip.style.top = `${top}px`;
+        previewTooltip.style.left = `${left}px`;
+    };
+
+    let activePreviewRow = null;
+
+    const closeTooltip = () => {
+        previewVideo.pause();
+        previewVideo.removeAttribute('src');
+        previewTooltip.classList.add('hidden');
+        activePreviewRow = null;
+    };
+
+    document.addEventListener('click', (e) => {
+        if (!previewTooltip.classList.contains('hidden')) {
+            const isClickInsideRow = e.target.closest('[data-preview]');
+            const isClickInsideTooltip = e.target.closest('.preview-tooltip');
+
+            if (isClickInsideRow || isClickInsideTooltip) return;
+            closeTooltip();
+        }
+    });
+
+    const attachPreviewListeners = (gridId) => {
+        const grid = document.getElementById(gridId);
+        if (!grid) return;
+
+        grid.addEventListener('click', (e) => {
+            const row = e.target.closest('[data-preview]');
+            if (!row) return;
+
+            if (activePreviewRow === row) {
+                closeTooltip();
+                return;
+            }
+
+            activePreviewRow = row;
+            previewVideo.src = row.dataset.preview;
+            previewVideo.play().catch(() => { });
+            previewTooltip.classList.remove('hidden');
+            positionTooltip(row);
+        });
+    };
+
+    attachPreviewListeners('referenceGrid');
+    attachPreviewListeners('mysticGrid');
+    attachPreviewListeners('matchupGrid');
 };
 
 if (document.readyState === 'loading') {
