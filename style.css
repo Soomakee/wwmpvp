@@ -108,6 +108,8 @@ body::after {
     font-size: 1.2rem;
     font-weight: 800;
     letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
 }
 
 .nav-credit {
@@ -208,21 +210,7 @@ body::after {
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
 }
 
-.nav-btn-home {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-}
 
-.nav-btn-home span {
-    margin-right: 6px;
-    filter: drop-shadow(0 0 5px var(--primary));
-}
-
-.nav-btn-home:hover {
-    background: rgba(59, 130, 246, 0.1);
-    border-color: var(--primary);
-}
 
 .wip-pill {
     display: inline-flex;
@@ -320,6 +308,16 @@ body::after {
 }
 
 .defense-highlight {
+    color: var(--badge-2);
+    font-weight: 700;
+}
+
+.text-stagger {
+    color: var(--badge-3);
+    font-weight: 700;
+}
+
+.text-defense {
     color: var(--badge-2);
     font-weight: 700;
 }
@@ -1081,13 +1079,7 @@ select:focus {
     font-size: 0.85rem;
 }
 
-.text-stagger {
-    color: var(--text-muted);
-}
-
-.text-defense {
-    color: var(--text-muted);
-}
+/* text-stagger and text-defense colors defined in Priority Guide section above */
 
 /* === MYSTIC STAT LAYOUT === */
 .mystic-stat-body {
@@ -1901,15 +1893,7 @@ select:focus {
     max-width: 450px;
 }
 
-.selector-mini-label {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.5rem;
-}
+
 
 .matchup-results-wrap {
     display: flex;
@@ -1985,14 +1969,7 @@ select:focus {
     text-align: center;
 }
 
-.hero-tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--primary);
-    letter-spacing: 4px;
-    margin-bottom: 1rem;
-    opacity: 0.8;
-}
+
 
 .dash-hero h1 {
     font-size: 4rem;
@@ -2071,12 +2048,7 @@ select:focus {
     color: var(--primary);
 }
 
-.card-head .tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-}
+
 
 .dash-card h3 {
     font-size: 1.5rem;

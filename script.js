@@ -491,7 +491,7 @@ const initApp = () => {
                     <div class="weapon-ref-card wip-card">
                         <div class="ref-card-header">
                             <img src="Icons/${getImageFileName(m)}.png" class="weapon-icon" alt="${m}" onerror="this.style.display='none'">
-                            ${m}
+                            <div class="header-text-wrap">${m}</div>
                         </div>
                         <div class="ref-card-body wip-body">
                             <div class="wip-overlay">
