@@ -1052,6 +1052,18 @@ select:focus {
     font-weight: 600;
     flex: 1;
     word-wrap: break-word;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.play-indicator {
+    width: 14px;
+    height: 14px;
+    color: var(--primary);
+    opacity: 0.6;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    flex-shrink: 0;
 }
 
 .ref-attack-stats {
@@ -1080,6 +1092,69 @@ select:focus {
 }
 
 /* text-stagger and text-defense colors defined in Priority Guide section above */
+
+/* === SKILL PREVIEW TOOLTIP === */
+.preview-tooltip {
+    position: absolute;
+    z-index: 100;
+    width: 375px;
+    background: var(--bg-surface);
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6),
+                0 0 20px rgba(59, 130, 246, 0.2);
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+
+.preview-tooltip.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preview-video {
+    width: 100%;
+    display: block;
+}
+
+/* Highlight row on hover when previews are available */
+.ref-attack-row[data-preview]:hover {
+    background: rgba(59, 130, 246, 0.1);
+    cursor: pointer;
+}
+
+.ref-attack-row[data-preview]:hover .play-indicator,
+.clickable-preview:hover .play-indicator {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.clickable-preview {
+    cursor: pointer;
+    transition: background 0.2s ease;
+    position: relative;
+}
+
+.clickable-preview:hover {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.mystic-play {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+}
+
+/* Disable preview on touch devices */
+@media (hover: none) {
+    .preview-tooltip {
+        display: none !important;
+    }
+}
 
 /* === MYSTIC STAT LAYOUT === */
 .mystic-stat-body {
