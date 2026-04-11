@@ -55,14 +55,61 @@ const mysticSkillsData = {
 // === MYSTIC SKILLS DATA END ==========================================
 // =====================================================================
 
+// =====================================================================
+// === SITE UPDATES DATA START =========================================
+// =====================================================================
+const siteUpdates = [
+    {
+        date: "April 11, 2026",
+        version: "v3.0",
+        type: "Feature",
+        title: "Combat Lab Overhaul",
+        changes: [
+            "Launched the Combat Lab: A unified workspace combining the Calculator, Counter Search, and Build Testing.",
+            "Added Advanced Analysis Toggles: You can now choose to include or exclude Mystic Skills in Build Testing for focused weapon comparisons.",
+            "Data Polish: Fixed the missing icon for the Dragon Head Mystic Skill."
+        ]
+    }
+];
+// =====================================================================
+// === SITE UPDATES DATA END ===========================================
+// =====================================================================
+
 const initApp = () => {
     // --- App State ---
     let appState = {
         activeSlot: null, // 'A' or 'B'
         activeCategory: 'weapons',
+        activeTab: 'home',
+        activeLabTab: 'calc',
         skillA: { type: 'weapon', name: 'Strategic Sword', action: 'Light Attack' },
         skillB: { type: 'weapon', name: 'Nameless Sword', action: 'Light Attack' },
-        skillMatchup: { type: 'weapon', name: 'Strategic Sword', action: 'Light Attack' }
+        skillMatchup: { type: 'weapon', name: 'Strategic Sword', action: 'Light Attack' },
+        // --- Testing Tab Build State ---
+        playerBuild: {
+            weapons: [
+                { name: 'Strategic Sword' },
+                { name: 'Nameless Sword' }
+            ],
+            skills: [
+                { name: 'Meridian Touch' },
+                { name: 'Cloud Steps' },
+                { name: 'Lions Roar' },
+                { name: 'Leaping Toad' },
+                { name: 'Guardians Palm' },
+                { name: 'Flaming Meteor' },
+                { name: 'Flute of the Tides' },
+                { name: 'Talon Strike' }
+            ]
+        },
+        enemyBuild: {
+            weapons: [
+                { name: 'Heavenquaker Spear' },
+                { name: 'Nameless Spear' }
+            ]
+        },
+        activeAnalysisFilter: 'both',
+        lastAnalysisResults: null
     };
 
     // --- Elements ---
@@ -101,6 +148,7 @@ const initApp = () => {
 
     const getImageFileName = (name) => {
         if (name === 'Mortal Ropedart') return 'Mortal Rope Dart';
+        if (name === 'Dragon Head') return 'Dragons Head';
         return name;
     };
 
@@ -132,28 +180,43 @@ const initApp = () => {
     };
 
     const updateSkillUI = (slot) => {
-        const slotData = (slot === 'A' || slot === 'B') ? appState[`skill${slot}`] : appState.skillMatchup;
+        let slotData;
+        if (slot === 'A' || slot === 'B') {
+            slotData = appState[`skill${slot}`];
+        } else if (slot === 'Matchup') {
+            slotData = appState.skillMatchup;
+        } else {
+            // Build slots: PW1, PW2, PS1, PS2, PS3, EW1, EW2
+            const buildType = slot.startsWith('P') ? 'playerBuild' : 'enemyBuild';
+            const category = slot.includes('W') ? 'weapons' : 'skills';
+            const index = parseInt(slot.charAt(slot.length - 1)) - 1;
+            slotData = appState[buildType][category][index];
+            if (!slotData.type) slotData.type = category === 'weapons' ? 'weapon' : 'skill';
+        }
+
         const nameEl = document.getElementById(`name${slot}`);
         const iconEl = document.getElementById(`icon${slot}`);
         const attackGroup = document.getElementById(`attackGroup${slot}`);
         const attackSelect = document.getElementById(`a${slot}`);
 
-        nameEl.textContent = slotData.name;
-        iconEl.src = `Icons/${getImageFileName(slotData.name)}.png`;
+        if (nameEl) nameEl.textContent = slotData.name;
+        if (iconEl) iconEl.src = `Icons/${getImageFileName(slotData.name)}.png`;
 
         if (slotData.type === 'weapon') {
-            attackGroup.style.display = 'flex';
-            const attacks = Object.keys(weaponData[slotData.name] || {});
-            attackSelect.innerHTML = '';
-            attacks.forEach(atk => attackSelect.add(new Option(atk, atk)));
-            attackSelect.value = slotData.action;
+            if (attackGroup) attackGroup.style.display = 'flex';
+            if (attackSelect) {
+                const attacks = Object.keys(weaponData[slotData.name] || {});
+                attackSelect.innerHTML = '';
+                attacks.forEach(atk => attackSelect.add(new Option(atk, atk)));
+                attackSelect.value = slotData.action || attacks[0];
+            }
         } else {
-            attackGroup.style.display = 'none';
+            if (attackGroup) attackGroup.style.display = 'none';
         }
 
         if (slot === 'A' || slot === 'B') {
             updateDisplay();
-        } else {
+        } else if (slot === 'Matchup') {
             updateMatchupDisplay();
         }
     };
@@ -266,7 +329,18 @@ const initApp = () => {
                 const name = el.getAttribute('data-name');
                 const type = el.getAttribute('data-type');
                 const slot = appState.activeSlot;
-                const targetSlot = (slot === 'A' || slot === 'B') ? appState[`skill${slot}`] : appState.skillMatchup;
+
+                let targetSlot;
+                if (slot === 'A' || slot === 'B') {
+                    targetSlot = appState[`skill${slot}`];
+                } else if (slot === 'Matchup') {
+                    targetSlot = appState.skillMatchup;
+                } else {
+                    const buildType = slot.startsWith('P') ? 'playerBuild' : 'enemyBuild';
+                    const category = slot.includes('W') ? 'weapons' : 'skills';
+                    const index = parseInt(slot.charAt(slot.length - 1)) - 1;
+                    targetSlot = appState[buildType][category][index];
+                }
 
                 targetSlot.type = type;
                 targetSlot.name = name;
@@ -294,6 +368,12 @@ const initApp = () => {
     if (trigger2) trigger2.addEventListener('click', () => openPicker('B'));
     const triggerMatchup = document.getElementById('triggerMatchup');
     if (triggerMatchup) triggerMatchup.addEventListener('click', () => openPicker('Matchup'));
+
+    // Testing Tab Triggers
+    ['PW1', 'PW2', 'PS1', 'PS2', 'PS3', 'PS4', 'PS5', 'PS6', 'PS7', 'PS8', 'EW1', 'EW2'].forEach(slot => {
+        const trig = document.getElementById(`trigger${slot}`);
+        if (trig) trig.addEventListener('click', () => openPicker(slot));
+    });
 
     if (closeModal) closeModal.addEventListener('click', () => selectionModal.classList.add('hidden'));
 
@@ -333,6 +413,9 @@ const initApp = () => {
             tabPanes.forEach(p => p.classList.remove('active'));
             btn.classList.add('active');
             document.getElementById(targetTab).classList.add('active');
+            appState.activeTab = targetTab;
+
+            if (targetTab === 'updates') renderUpdates();
         });
     });
 
@@ -354,6 +437,37 @@ const initApp = () => {
             switchSubTab(btn.getAttribute('data-sub'));
         });
     });
+
+    // --- Laboratory Sub-nav Logic ---
+    const subLabBtns = document.querySelectorAll('.lab-sub-btn');
+    const subLabPanes = document.querySelectorAll('.lab-sub-pane');
+
+    const switchLabTab = (subType) => {
+        subLabBtns.forEach(b => {
+            b.classList.toggle('active', b.getAttribute('data-lab-tab') === subType);
+        });
+        subLabPanes.forEach(p => {
+            p.classList.toggle('active', p.id === `lab-${subType}`);
+        });
+        appState.activeLabTab = subType;
+    };
+
+    subLabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            switchLabTab(btn.getAttribute('data-lab-tab'));
+        });
+    });
+
+    window.openLab = (subType) => {
+        // Activate main lab tab
+        const labBtn = document.querySelector('[data-tab="lab"]');
+        if (labBtn) {
+            labBtn.click();
+        }
+
+        // Activate specific sub-tab
+        if (subType) switchLabTab(subType);
+    };
 
     // Global Registry Router
     window.openRegistry = (type) => {
@@ -537,6 +651,26 @@ const initApp = () => {
         grid.innerHTML = htmlBuffer;
     };
 
+    const renderUpdates = () => {
+        const feed = document.getElementById('updatesFeed');
+        if (!feed) return;
+
+        feed.innerHTML = siteUpdates.map(update => `
+            <div class="update-card">
+                <div class="update-header">
+                    <div class="update-title-group">
+                        <span class="update-date">${update.date} • ${update.version}</span>
+                        <h3 class="update-title">${update.title}</h3>
+                    </div>
+                    <span class="update-type-badge badge-type-${update.type.toLowerCase()}">${update.type}</span>
+                </div>
+                <ul class="update-list">
+                    ${update.changes.map(change => `<li>${change}</li>`).join('')}
+                </ul>
+            </div>
+        `).join('');
+    };
+
     const setupContactForm = () => {
         const contactForm = document.querySelector('.contact-form');
         const iframe = document.getElementById('contact-target');
@@ -570,9 +704,139 @@ const initApp = () => {
     updateSkillUI('A');
     updateSkillUI('B');
     updateSkillUI('Matchup');
+    ['PW1', 'PW2', 'PS1', 'PS2', 'PS3', 'PS4', 'PS5', 'PS6', 'PS7', 'PS8', 'EW1', 'EW2'].forEach(slot => updateSkillUI(slot));
     renderWeaponCompendium();
     renderMysticCompendium();
     setupContactForm();
+
+    // --- Build Analysis Logic ---
+    const runAnalysisBtn = document.getElementById('runAnalysisBtn');
+    const analysisResults = document.getElementById('analysisResults');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    const updateFilterLabels = () => {
+        const f1 = document.getElementById('filterEW1');
+        const f2 = document.getElementById('filterEW2');
+        if (f1) f1.textContent = appState.enemyBuild.weapons[0].name;
+        if (f2) f2.textContent = appState.enemyBuild.weapons[1].name;
+    };
+
+    if (runAnalysisBtn) {
+        runAnalysisBtn.addEventListener('click', () => {
+            const playerMoves = [];
+            const enemyMoves = [];
+
+            // Collect Player Moves
+            appState.playerBuild.weapons.forEach(w => {
+                const data = weaponData[w.name];
+                Object.entries(data).forEach(([action, stats]) => {
+                    playerMoves.push({ source: w.name, action, stats });
+                });
+            });
+
+            const includeSkills = document.getElementById('includeSkillsToggle').checked;
+            if (includeSkills) {
+                appState.playerBuild.skills.forEach(s => {
+                    const stats = mysticSkillsData[s.name];
+                    playerMoves.push({ source: s.name, action: 'Mystic Skill', stats });
+                });
+            }
+
+            // Collect Enemy Moves
+            appState.enemyBuild.weapons.forEach(w => {
+                const data = weaponData[w.name];
+                Object.entries(data).forEach(([action, stats]) => {
+                    enemyMoves.push({ source: w.name, action, stats });
+                });
+            });
+
+            const results = playerMoves.map(pMove => {
+                const pS = pMove.stats.S === 'X' ? 0 : Number(pMove.stats.S);
+                const pD = pMove.stats.D === 'X' ? 0 : Number(pMove.stats.D);
+
+                const analysis = enemyMoves.map(eMove => {
+                    const eS = eMove.stats.S === 'X' ? 0 : Number(eMove.stats.S);
+                    const eD = eMove.stats.D === 'X' ? 0 : Number(eMove.stats.D);
+
+                    const pWins = (pS > eD) && (eS <= pD || eMove.stats.S === 'X');
+                    const eWins = (eS > pD) && (pS <= eD || pMove.stats.S === 'X');
+                    const bothStaggered = (pS > eD) && (eS > pD) && pMove.stats.S !== 'X' && eMove.stats.S !== 'X';
+                    const bothDefend = (pS <= eD) && (eS <= pD) && pMove.stats.S !== 'X' && eMove.stats.S !== 'X';
+
+                    let outcome = 'Draw';
+                    let outcomeClass = 'outcome-draw';
+                    if (pWins) { outcome = 'Victory'; outcomeClass = 'outcome-victory'; }
+                    else if (eWins) { outcome = 'Defeat'; outcomeClass = 'outcome-defeat'; }
+                    else if (bothStaggered) { outcome = 'Clash'; outcomeClass = 'outcome-clash'; }
+
+                    return { eMove, outcome, outcomeClass };
+                });
+
+                return { pMove, analysis };
+            });
+
+            appState.lastAnalysisResults = results;
+            updateFilterLabels();
+            renderAnalysisResults();
+        });
+    }
+
+    if (filterBtns) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                appState.activeAnalysisFilter = btn.getAttribute('data-filter');
+                renderAnalysisResults();
+            });
+        });
+    }
+
+    const renderAnalysisResults = () => {
+        if (!appState.lastAnalysisResults) return;
+        analysisResults.classList.remove('hidden');
+
+        const filter = appState.activeAnalysisFilter;
+        let enemyFilterName = null;
+        if (filter === 'ew1') enemyFilterName = appState.enemyBuild.weapons[0].name;
+        if (filter === 'ew2') enemyFilterName = appState.enemyBuild.weapons[1].name;
+
+        analysisResults.innerHTML = appState.lastAnalysisResults.map(res => {
+            // Apply filtering to individual analysis rows
+            const filteredAnalysis = enemyFilterName
+                ? res.analysis.filter(a => a.eMove.source === enemyFilterName)
+                : res.analysis;
+
+            const wins = filteredAnalysis.filter(a => a.outcome === 'Victory').length;
+            const losses = filteredAnalysis.filter(a => a.outcome === 'Defeat').length;
+            const clashes = filteredAnalysis.filter(a => a.outcome === 'Clash').length;
+
+            return `
+                <div class="analysis-card">
+                    <div class="analysis-card-header">
+                        <img src="Icons/${getImageFileName(res.pMove.source)}.png" class="analysis-icon">
+                        <div class="analysis-card-title-group">
+                            <span class="analysis-p-action">${res.pMove.source}</span>
+                            <span class="analysis-p-name">${res.pMove.action}</span>
+                        </div>
+                        <div class="analysis-summary-badges">
+                            <span class="sum-badge win">${wins} W</span>
+                            <span class="sum-badge loss">${losses} L</span>
+                            <span class="sum-badge clash">${clashes} C</span>
+                        </div>
+                    </div>
+                    <div class="analysis-card-body">
+                        ${filteredAnalysis.map(a => `
+                            <div class="analysis-row ${a.outcomeClass}">
+                                <span class="a-enemy-move">${a.eMove.source} (${a.eMove.action})</span>
+                                <span class="a-outcome-tag">${a.outcome}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }).join('');
+    };
 
     // --- Skill Preview Tooltip ---
     const previewTooltip = document.createElement('div');

@@ -2189,6 +2189,178 @@ select:focus {
     }
 }
 
+/* === COMBAT LAB === */
+.lab-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.lab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-surface);
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.lab-info h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #fff;
+}
+
+.lab-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.lab-subnav {
+    display: flex;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.4rem;
+    border-radius: 12px;
+    gap: 0.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lab-sub-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.lab-sub-btn .sub-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.lab-sub-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.lab-sub-btn.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.lab-sub-btn.active .sub-icon {
+    opacity: 1;
+}
+
+.lab-sub-pane {
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.lab-sub-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+    .lab-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .lab-subnav {
+        width: 100%;
+        overflow-x: auto;
+    }
+    
+    .lab-sub-btn {
+        flex: 1;
+        white-space: nowrap;
+        justify-content: center;
+    }
+}
+
+/* --- Analysis Controls Toggles --- */
+.toggle-control {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.toggle-control:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.toggle-control input {
+    appearance: none;
+    width: 32px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toggle-control input::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.toggle-control input:checked {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.toggle-control input:checked::before {
+    left: 16px;
+}
+
+.toggle-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.toggle-control input:checked + .toggle-label {
+    color: #fff;
+}
+
 /* === MATCHUPS TAB === */
 .matchup-container {
     display: flex;
@@ -2468,4 +2640,438 @@ select:focus {
     .dash-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* === UPDATES FEED === */
+.updates-feed {
+    max-width: 900px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.updates-feed::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), transparent);
+    opacity: 0.3;
+}
+
+.update-card {
+    background: rgba(24, 24, 27, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.update-card:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: translateX(10px);
+}
+
+.update-card::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    top: 2.25rem;
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.update-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.update-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.update-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.update-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.update-type-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-type-balance { background: rgba(14, 165, 233, 0.15); color: #0ea5e9; border: 1px solid rgba(14, 165, 233, 0.3); }
+.badge-type-feature { background: rgba(168, 85, 247, 0.15); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.3); }
+.badge-type-fix { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+.update-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.update-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.update-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+/* === TESTING TAB / BUILD COMPARISON === */
+.testing-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.build-config-panel {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .build-config-panel {
+        grid-template-columns: 1fr;
+    }
+    .versus-divider {
+        padding: 1rem 0;
+    }
+}
+
+.build-side {
+    background: rgba(24, 24, 27, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 1.5rem;
+}
+
+.side-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 1rem;
+}
+
+.side-badge {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+.player-side .side-badge {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--primary);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.enemy-side .side-badge {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.side-header h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.build-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.slot-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Expansion for 8 skills */
+.player-side .slot-group:last-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.player-side .slot-group:last-child label {
+    grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+    .player-side .slot-group:last-child {
+        grid-template-columns: 1fr;
+    }
+    .player-side .slot-group:last-child label {
+        grid-column: span 1;
+    }
+}
+
+.slot-group label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.slot-placeholder {
+    padding: 2rem;
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.versus-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.vs-circle {
+    width: 50px;
+    height: 50px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.vs-circle::before, .vs-circle::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, var(--border-color), transparent);
+}
+
+.vs-circle::before { top: -110px; }
+.vs-circle::after { bottom: -110px; }
+
+/* --- ANALYSIS RESULTS --- */
+.analysis-dashboard {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.analysis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.analysis-title-wrap h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.analysis-title-wrap p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.analysis-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Filter Tabs Styling */
+.analysis-filter-tabs {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 4px;
+    border-radius: 12px;
+    display: flex;
+    gap: 4px;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.filter-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.analysis-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.analysis-card-header {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.analysis-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.analysis-card-title-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.analysis-p-action {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.analysis-p-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.analysis-summary-badges {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.sum-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.sum-badge.win { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+.sum-badge.loss { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+.sum-badge.clash { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+
+.analysis-card-body {
+    padding: 0.5rem 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.analysis-row {
+    padding: 0.6rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.analysis-row:last-child { border-bottom: none; }
+
+.a-enemy-move {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.a-outcome-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.outcome-victory .a-outcome-tag { color: #10b981; }
+.outcome-defeat .a-outcome-tag { color: #ef4444; }
+.outcome-clash .a-outcome-tag { color: #f59e0b; }
+.outcome-draw .a-outcome-tag { color: var(--text-muted); opacity: 0.5; }
+
+.analysis-row:hover {
+    background: rgba(255, 255, 255, 0.03);
 }

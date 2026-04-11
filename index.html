@@ -30,10 +30,9 @@
 
             <div class="nav-main">
                 <button class="nav-btn active" data-tab="home">Home</button>
+                <button class="nav-btn" data-tab="updates">Updates</button>
                 <button class="nav-btn" data-tab="ruleset">Ruleset</button>
-                <button class="nav-btn" data-tab="calculator">Calculator</button>
-
-                <button class="nav-btn" data-tab="matchups">Matchups</button>
+                <button class="nav-btn" data-tab="lab">Combat Lab</button>
                 <button class="nav-btn" data-tab="registry">Skill Priorities</button>
                 <button class="nav-btn" data-tab="info">Important Information</button>
             </div>
@@ -73,7 +72,7 @@
                 </div>
 
                 <!-- Calculator -->
-                <div class="dash-card" onclick="document.querySelector('[data-tab=\'calculator\']').click()">
+                <div class="dash-card" onclick="openLab('calc')">
                     <div class="card-head">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -91,7 +90,7 @@
                 </div>
 
                 <!-- Matchups -->
-                <div class="dash-card" onclick="document.querySelector('[data-tab=\'matchups\']').click()">
+                <div class="dash-card" onclick="openLab('match')">
                     <div class="card-head">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -133,136 +132,401 @@
                         priorities.</p>
                     <div class="card-foot">Read Information &rarr;</div>
                 </div>
-            </div>
-        </section>
 
-        <!-- CALCULATION ENGINE TAB -->
-        <section id="calculator" class="tab-pane">
-            <div class="notice-banner">
-                <div class="notice-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
-                        </path>
-                        <line x1="12" y1="9" x2="12" y2="13"></line>
-                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                    </svg>
-                </div>
-                <p>Some skills leverage <strong>Inner Ways</strong> and <strong>Attunements</strong> for priority, such
-                    as adding <span class="tenacity-highlight">Tenacity</span> to said skill etc; however, several are
-                    still being implemented and may be missing. Ongoing testing is in progress for all synergistic
-                    additions.</p>
-            </div>
-
-            <div class="ruleset-redirect-banner">
-                <div class="redirect-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                        <polyline points="14 2 14 8 20 8" />
-                        <line x1="16" y1="13" x2="8" y2="13" />
-                        <line x1="16" y1="17" x2="8" y2="17" />
-                    </svg>
-                </div>
-                <p>Want to understand how <span class="stagger-highlight">stagger/defense</span> logic is functioning?
-                    <a href="#" class="ruleset-link"
-                        onclick="event.preventDefault(); document.querySelector('[data-tab=\'ruleset\']').click();">Read
-                        the full Ruleset &rarr;</a>
-                </p>
-            </div>
-
-
-            <div class="calc-grid">
-
-                <!-- Skill A -->
-                <div class="skill-card card-a">
-                    <div class="skill-header">
-                        <h2>Skill A</h2>
+                <!-- Site Updates -->
+                <div class="dash-card" onclick="document.querySelector('[data-tab=\'updates\']').click()">
+                    <div class="card-head">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 20h9" />
+                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                        </svg>
                     </div>
-                    <div class="skill-body">
-                        <div class="selection-trigger" id="triggerA">
-                            <div class="trigger-icon-wrap">
-                                <img src="Icons/Strategic Sword.png" id="iconA" class="trigger-icon" alt="">
-                            </div>
-                            <div class="trigger-text-wrap">
-                                <span class="trigger-label">Weapon / Skill</span>
-                                <span class="trigger-name" id="nameA">Strategic Sword</span>
-                            </div>
-                            <div class="trigger-chevron">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="input-group" id="attackGroupA">
-                            <label for="aA">Action / Attack Type</label>
-                            <select id="aA"></select>
-                        </div>
-                    </div>
-                    <div class="skill-footer stats-row">
-                        <div class="stat-pill"><span class="stat-label text-stagger">Stagger</span><span class="badge"
-                                id="sA">0</span></div>
-                        <div class="stat-pill"><span class="stat-label text-defense">Defense</span><span class="badge"
-                                id="pA">0</span></div>
-                    </div>
-                </div>
-
-                <!-- Skill B -->
-                <div class="skill-card card-b">
-                    <div class="skill-header">
-                        <h2>Skill B</h2>
-                    </div>
-                    <div class="skill-body">
-                        <div class="selection-trigger" id="triggerB">
-                            <div class="trigger-icon-wrap">
-                                <img src="Icons/Nameless Sword.png" id="iconB" class="trigger-icon" alt="">
-                            </div>
-                            <div class="trigger-text-wrap">
-                                <span class="trigger-label">Weapon / Skill</span>
-                                <span class="trigger-name" id="nameB">Nameless Sword</span>
-                            </div>
-                            <div class="trigger-chevron">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="input-group" id="attackGroupB">
-                            <label for="aB">Action / Attack Type</label>
-                            <select id="aB"></select>
-                        </div>
-                    </div>
-                    <div class="skill-footer stats-row">
-                        <div class="stat-pill"><span class="stat-label text-stagger">Stagger</span><span class="badge"
-                                id="sB">0</span></div>
-                        <div class="stat-pill"><span class="stat-label text-defense">Defense</span><span class="badge"
-                                id="pB">0</span></div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="action-center">
-                <button id="compareBtn" class="btn-primary">COMPARE RESOLUTION</button>
-
-                <div id="resultOutput" class="outcome-card hidden">
-                    <div class="winner-display" id="winnerDisplay">
-                        <div class="winner-icon-wrap">
-                            <img src="" id="winnerIcon" class="winner-icon" alt="">
-                        </div>
-                        <div class="outcome-info">
-                            <div class="outcome-label">Comparison Result</div>
-                            <div id="resultText" class="outcome-text">Draw</div>
-                            <div id="resultNote" class="outcome-note"></div>
-                        </div>
-                    </div>
+                    <h3>Site Updates</h3>
+                    <p>Stay updated with weapon balance changes, new features, and patch notes.</p>
+                    <div class="card-foot">View Changelog &rarr;</div>
                 </div>
             </div>
         </section>
+
+        <!-- COMBAT LAB (CONSOLIDATED TOOLS) -->
+        <section id="lab" class="tab-pane">
+            <div class="lab-container">
+                <div class="lab-header">
+                    <div class="lab-info">
+                        <h2>Combat Laboratory</h2>
+                        <p>Compare all priorities between 2 weapon sets. Helpful to visually see specific matchups
+                            priority strengths and weaknesses.</p>
+                    </div>
+                    <div class="lab-subnav">
+                        <button class="lab-sub-btn active" data-lab-tab="calc">
+                            <span class="sub-icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M14.5 17.5 3 6V3h3l11.5 11.5" />
+                                    <path d="m13 19 2 2 5-5-2-2Z" />
+                                    <path d="M8.5 22 11 19.5" />
+                                    <path d="m15 15 6.5-6.5V6h-2.5L12.5 12.5" />
+                                    <path d="m5 15 2 2" />
+                                    <path d="m2 11 3-3" />
+                                </svg>
+                            </span>
+                            Skill vs Skill
+                        </button>
+                        <button class="lab-sub-btn" data-lab-tab="match">
+                            <span class="sub-icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="m21 21-4.3-4.3" />
+                                </svg>
+                            </span>
+                            Counter Search
+                        </button>
+                        <button class="lab-sub-btn" data-lab-tab="test">
+                            <span class="sub-icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </span>
+                            Build vs Build
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lab-content">
+                    <div id="lab-calc" class="lab-sub-pane active">
+                        <div class="notice-banner">
+                            <div class="notice-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                    </path>
+                                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                            </div>
+                            <p>Some skills leverage <strong>Inner Ways</strong> and <strong>Attunements</strong> for
+                                priority, such as adding <span class="tenacity-highlight">Tenacity</span> to said skill
+                                etc; however, several are still being implemented and may be missing. Ongoing testing is
+                                in progress for all synergistic additions.</p>
+                        </div>
+
+                        <div class="ruleset-redirect-banner">
+                            <div class="redirect-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                </svg>
+                            </div>
+                            <p>Want to understand how <span class="stagger-highlight">stagger/defense</span> logic is
+                                functioning?
+                                <a href="#" class="ruleset-link"
+                                    onclick="event.preventDefault(); document.querySelector('[data-tab=\'ruleset\']').click();">Read
+                                    the full Ruleset &rarr;</a>
+                            </p>
+                        </div>
+
+                        <div class="calc-grid">
+                            <!-- Skill A -->
+                            <div class="skill-card card-a">
+                                <div class="skill-header">
+                                    <h2>Skill A</h2>
+                                </div>
+                                <div class="skill-body">
+                                    <div class="selection-trigger" id="triggerA">
+                                        <div class="trigger-icon-wrap"><img src="Icons/Strategic Sword.png" id="iconA"
+                                                class="trigger-icon" alt=""></div>
+                                        <div class="trigger-text-wrap">
+                                            <span class="trigger-label">Weapon / Skill</span>
+                                            <span class="trigger-name" id="nameA">Strategic Sword</span>
+                                        </div>
+                                        <div class="trigger-chevron">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polyline points="6 9 12 15 18 9"></polyline>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="input-group" id="attackGroupA">
+                                        <label for="aA">Action / Attack Type</label>
+                                        <select id="aA"></select>
+                                    </div>
+                                </div>
+                                <div class="skill-footer stats-row">
+                                    <div class="stat-pill"><span class="stat-label text-stagger">Stagger</span><span
+                                            class="badge" id="sA">0</span></div>
+                                    <div class="stat-pill"><span class="stat-label text-defense">Defense</span><span
+                                            class="badge" id="pA">0</span></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill B -->
+                            <div class="skill-card card-b">
+                                <div class="skill-header">
+                                    <h2>Skill B</h2>
+                                </div>
+                                <div class="skill-body">
+                                    <div class="selection-trigger" id="triggerB">
+                                        <div class="trigger-icon-wrap"><img src="Icons/Nameless Sword.png" id="iconB"
+                                                class="trigger-icon" alt=""></div>
+                                        <div class="trigger-text-wrap">
+                                            <span class="trigger-label">Weapon / Skill</span>
+                                            <span class="trigger-name" id="nameB">Nameless Sword</span>
+                                        </div>
+                                        <div class="trigger-chevron">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polyline points="6 9 12 15 18 9"></polyline>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="input-group" id="attackGroupB">
+                                        <label for="aB">Action / Attack Type</label>
+                                        <select id="aB"></select>
+                                    </div>
+                                </div>
+                                <div class="skill-footer stats-row">
+                                    <div class="stat-pill"><span class="stat-label text-stagger">Stagger</span><span
+                                            class="badge" id="sB">0</span></div>
+                                    <div class="stat-pill"><span class="stat-label text-defense">Defense</span><span
+                                            class="badge" id="pB">0</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-center">
+                            <button id="compareBtn" class="btn-primary">COMPARE RESOLUTION</button>
+                            <div id="resultOutput" class="outcome-card hidden">
+                                <div class="winner-display" id="winnerDisplay">
+                                    <div class="winner-icon-wrap"><img src="" id="winnerIcon" class="winner-icon"
+                                            alt=""></div>
+                                    <div class="outcome-info">
+                                        <div class="outcome-label">Comparison Result</div>
+                                        <div id="resultText" class="outcome-text">Draw</div>
+                                        <div id="resultNote" class="outcome-note"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="lab-match" class="lab-sub-pane">
+                        <div class="matchup-container">
+                            <div class="matchup-selector-card">
+                                <div class="selector-header">
+                                    <h2>Counter Selection</h2>
+                                    <p>Select a skill to see everything that can break it.</p>
+                                </div>
+                                <div class="selector-controls">
+                                    <div class="selection-trigger" id="triggerMatchup">
+                                        <div class="trigger-icon-wrap">
+                                            <img src="Icons/Strategic Sword.png" id="iconMatchup" class="trigger-icon"
+                                                alt="">
+                                        </div>
+                                        <div class="trigger-text-wrap">
+                                            <span class="trigger-label">Target Weapon / Skill</span>
+                                            <span class="trigger-name" id="nameMatchup">Strategic Sword</span>
+                                        </div>
+                                        <div class="trigger-stats">
+                                            <div class="mini-stat">
+                                                <span class="badge-mini b-1" id="sMatchup">1</span>
+                                                <span class="text-stagger">S</span>
+                                            </div>
+                                            <div class="mini-stat">
+                                                <span class="badge-mini b-0" id="pMatchup">0</span>
+                                                <span class="text-defense">D</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group" id="attackGroupMatchup" style="display: none;">
+                                        <label>Select Attack Type</label>
+                                        <select id="aMatchup"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="matchup-results-wrap">
+                                <div class="results-header">
+                                    <h3>Potential Counters</h3>
+                                    <p id="matchupCountText">Select a skill to analyze.</p>
+                                </div>
+                                <div class="matchup-grid" id="matchupGrid">
+                                    <!-- Counters will be rendered here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="lab-test" class="lab-sub-pane">
+                        <div class="testing-container">
+                            <div class="build-config-panel">
+                                <!-- Player Build -->
+                                <div class="build-side player-side">
+                                    <div class="side-header">
+                                        <span class="side-badge">YOUR BUILD</span>
+                                        <h2>Player Loadout</h2>
+                                    </div>
+                                    <div class="build-slots">
+                                        <div class="slot-group">
+                                            <label>Weapons</label>
+                                            <div class="selection-trigger" id="triggerPW1">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Strategic Sword.png"
+                                                        id="iconPW1" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Primary Weapon</span>
+                                                    <span class="trigger-name" id="namePW1">Strategic Sword</span>
+                                                </div>
+                                            </div>
+                                            <div class="selection-trigger" id="triggerPW2">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Nameless Sword.png"
+                                                        id="iconPW2" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Secondary Weapon</span>
+                                                    <span class="trigger-name" id="namePW2">Nameless Sword</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slot-group">
+                                            <label>Mystic Skills</label>
+                                            <div class="selection-trigger" id="triggerPS1">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Meridian Touch.png"
+                                                        id="iconPS1" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Skill 1</span>
+                                                    <span class="trigger-name" id="namePS1">Meridian Touch</span>
+                                                </div>
+                                            </div>
+                                            <div class="selection-trigger" id="triggerPS2">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Cloud Steps.png"
+                                                        id="iconPS2" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Skill 2</span>
+                                                    <span class="trigger-name" id="namePS2">Cloud Steps</span>
+                                                </div>
+                                            </div>
+                                            <div class="selection-trigger" id="triggerPS3">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Lions Roar.png"
+                                                        id="iconPS3" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Skill 3</span>
+                                                    <span class="trigger-name" id="namePS3">Lions Roar</span>
+                                                </div>
+                                            </div>
+                                            <div class="selection-trigger" id="triggerPS4">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Leaping Toad.png"
+                                                        id="iconPS4" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Skill 4</span>
+                                                    <span class="trigger-name" id="namePS4">Leaping Toad</span>
+                                                </div>
+                                            </div>
+                                            <div class="selection-trigger" id="triggerPS5">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Guardians Palm.png"
+                                                        id="iconPS5" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Skill 5</span>
+                                                    <span class="trigger-name" id="namePS5">Guardians Palm</span>
+                                                </div>
+                                            </div>
+                                            <div class="selection-trigger" id="triggerPS6">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Flaming Meteor.png"
+                                                        id="iconPS6" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Skill 6</span>
+                                                    <span class="trigger-name" id="namePS6">Flaming Meteor</span>
+                                                </div>
+                                            </div>
+                                            <div class="selection-trigger" id="triggerPS7">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Flute of the Tides.png"
+                                                        id="iconPS7" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Skill 7</span>
+                                                    <span class="trigger-name" id="namePS7">Flute of the Tides</span>
+                                                </div>
+                                            </div>
+                                            <div class="selection-trigger" id="triggerPS8">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Talon Strike.png"
+                                                        id="iconPS8" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Skill 8</span>
+                                                    <span class="trigger-name" id="namePS8">Talon Strike</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Versus Divider -->
+                                <div class="versus-divider">
+                                    <div class="vs-circle">VS</div>
+                                </div>
+                                <!-- Enemy Build -->
+                                <div class="build-side enemy-side">
+                                    <div class="side-header">
+                                        <span class="side-badge">ENEMY BUILD</span>
+                                        <h2>Opponent Loadout</h2>
+                                    </div>
+                                    <div class="build-slots">
+                                        <div class="slot-group">
+                                            <label>Weapons</label>
+                                            <div class="selection-trigger" id="triggerEW1">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Heavenquaker Spear.png"
+                                                        id="iconEW1" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Primary Weapon</span>
+                                                    <span class="trigger-name" id="nameEW1">Heavenquaker Spear</span>
+                                                </div>
+                                            </div>
+                                            <div class="selection-trigger" id="triggerEW2">
+                                                <div class="trigger-icon-wrap"><img src="Icons/Nameless Spear.png"
+                                                        id="iconEW2" class="trigger-icon" alt=""></div>
+                                                <div class="trigger-text-wrap">
+                                                    <span class="trigger-label">Secondary Weapon</span>
+                                                    <span class="trigger-name" id="nameEW2">Nameless Spear</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slot-placeholder">
+                                            <p>Enemy Mystic Skills are currently unknown and excluded from analysis.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Analysis Dashboard -->
+                            <div class="analysis-dashboard">
+                                <div class="analysis-header">
+                                    <div class="analysis-title-wrap">
+                                        <h3>Tactical Matchup analysis</h3>
+                                        <p>Analyzing build interactions based on current loadouts.</p>
+                                    </div>
+                                    <div class="analysis-controls">
+                                        <label class="toggle-control">
+                                            <input type="checkbox" id="includeSkillsToggle" checked>
+                                            <span class="toggle-label">Include Mystic Skills</span>
+                                        </label>
+                                        <div class="analysis-filter-tabs" id="analysisFilterGroup">
+                                            <button class="filter-btn active" data-filter="both">Both Loadouts</button>
+                                            <button class="filter-btn" data-filter="ew1" id="filterEW1">Weapon
+                                                1</button>
+                                            <button class="filter-btn" data-filter="ew2" id="filterEW2">Weapon
+                                                2</button>
+                                        </div>
+                                        <button id="runAnalysisBtn" class="btn-primary">RUN ANALYSIS</button>
+                                    </div>
+                                </div>
+                                <div id="analysisResults" class="analysis-grid hidden">
+                                    <!-- Categorized Results -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
 
         <!-- RULESET TAB -->
         <section id="ruleset" class="tab-pane">
@@ -716,53 +980,8 @@
             </div>
         </section>
 
-        <!-- MATCHUP ENGINE TAB -->
-        <section id="matchups" class="tab-pane">
-            <div class="matchup-container">
-                <div class="matchup-selector-card">
-                    <div class="selector-header">
-                        <h2>Counter Selection</h2>
-                        <p>Select a skill to see everything that can break it.</p>
-                    </div>
-                    <div class="selector-controls">
-                        <div class="selection-trigger" id="triggerMatchup">
-                            <div class="trigger-icon-wrap">
-                                <img src="Icons/Strategic Sword.png" id="iconMatchup" class="trigger-icon" alt="">
-                            </div>
-                            <div class="trigger-text-wrap">
-                                <span class="trigger-label">Target Weapon / Skill</span>
-                                <span class="trigger-name" id="nameMatchup">Strategic Sword</span>
-                            </div>
-                            <div class="trigger-stats">
-                                <div class="mini-stat">
-                                    <span class="badge-mini b-1" id="sMatchup">1</span>
-                                    <span class="text-stagger">S</span>
-                                </div>
-                                <div class="mini-stat">
-                                    <span class="badge-mini b-0" id="pMatchup">0</span>
-                                    <span class="text-defense">D</span>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="input-group" id="attackGroupMatchup" style="display: none;">
-                            <label>Select Attack Type</label>
-                            <select id="aMatchup"></select>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="matchup-results-wrap">
-                    <div class="results-header">
-                        <h3>Potential Counters</h3>
-                        <p id="matchupCountText">Select a skill to analyze.</p>
-                    </div>
-                    <div class="matchup-grid" id="matchupGrid">
-                        <!-- Counters will be rendered here -->
-                    </div>
-                </div>
-            </div>
-        </section>
         <section id="contact" class="tab-pane">
             <div class="dashboard-header">
                 <h2 style="text-transform: uppercase;">Create a Ticket</h2>
@@ -821,6 +1040,17 @@
                     <div class="success-icon">✓</div>
                     <p>Message Sent! I'll get back to you soon.</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- UPDATES TAB -->
+        <section id="updates" class="tab-pane">
+            <div class="dashboard-header">
+                <h2>Site Updates & Changelog</h2>
+                <p>Tracking the evolution of WWM PvP Priority tools and data.</p>
+            </div>
+            <div class="updates-feed" id="updatesFeed">
+                <!-- Javascript will statically inject update cards here -->
             </div>
         </section>
 
