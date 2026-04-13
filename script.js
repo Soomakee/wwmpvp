@@ -6,7 +6,7 @@
 const weaponData = {
     "Strategic Sword": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 1 } },
     "Nameless Sword": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 1 } },
-    "Heavenquaker Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 3 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged Skill": { S: 1, D: 3 } },
+    "Heavenquaker Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged Skill": { S: 1, D: 3 } },
     "Nameless Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 4, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 1 } },
     "Infernal Twinblades": { "Light Attack": { S: 1, D: 0 }, "Burst Skill": { S: 1, D: 3 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 } },
     "Mortal Ropedart": { "Light Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 'X', D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Charging Stance": { S: 'X', D: 3 }, "Light Charged Varied Combo": { S: 1, D: 1 }, "Heavy Charged Varied Combo": { S: 1, D: 1 } },
@@ -114,18 +114,6 @@ const attunementData = {
             enabled: false,
             locked: false,
             modifies: { weapon: "Infernal Twinblades", action: "Special Skill", stat: "D", value: 3 }
-        },
-        {
-            id: "disc-strategic-sword-martial",
-            label: "Strategic Sword Immobilize",
-            description: "Martial Art gains Immobilize on Staggered/Controlled Units.",
-            gearSlot: "Disc",
-            affects: "Strategic Sword",
-            skillType: "Martial Art",
-            effect: "immobilize",
-            effectDuration: "On Stagger/Control",
-            enabled: false,
-            locked: true
         },
         {
             id: "disc-heavenquaker-special",
@@ -304,7 +292,20 @@ const attunementData = {
 // =====================================================================
 // Inner Ways will modify skill priorities similarly to attunements.
 // Placeholder for future data.
-const innerWayData = [];
+const innerWayData = [
+    {
+        id: "iw-wolfchasers-art-3",
+        label: "Wolfchasers Art Tier 3",
+        description: "While casting Martial Art skill, gain Tenacity during the duration.",
+        affects: "All Weapons",
+        skillType: "Martial Art",
+        effect: "tenacity",
+        effectDuration: "During Cast",
+        enabled: false,
+        locked: false,
+        modifies: { weapon: "Heavenquaker Spear", action: "Martial Art", stat: "D", value: 3 }
+    }
+];
 // =====================================================================
 // === INNER WAYS DATA END =============================================
 // =====================================================================
@@ -377,6 +378,14 @@ const initApp = () => {
     };
     initAttunementState();
 
+    // Initialize inner way toggle state from registry
+    const initInnerWayState = () => {
+        innerWayData.forEach(iw => {
+            appState.innerWays[iw.id] = iw.locked ? false : iw.enabled;
+        });
+    };
+    initInnerWayState();
+
     // --- Elements ---
     const navBtns = document.querySelectorAll('.nav-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
@@ -428,6 +437,18 @@ const initApp = () => {
                 if (!att.modifies || !appState.attunements[att.id]) return;
                 const mod = att.modifies;
                 if (mod.weapon === slotData.name && mod.action === slotData.action) {
+                    const baseVal = (stats[mod.stat] === 'X') ? 0 : Number(stats[mod.stat]);
+                    if (mod.value > baseVal) {
+                        stats[mod.stat] = mod.value;
+                    }
+                }
+            });
+
+            // Apply active inner way modifiers
+            innerWayData.forEach(iw => {
+                if (!iw.modifies || !appState.innerWays[iw.id]) return;
+                const mod = iw.modifies;
+                if (mod.action === slotData.action && (!mod.weapon || mod.weapon === slotData.name)) {
                     const baseVal = (stats[mod.stat] === 'X') ? 0 : Number(stats[mod.stat]);
                     if (mod.value > baseVal) {
                         stats[mod.stat] = mod.value;
@@ -1172,7 +1193,121 @@ const initApp = () => {
                     <p>Inner Way modifiers are being documented and tested. They will appear here once ready.</p>
                 </div>
             `;
+            return;
         }
+
+        let html = `
+            <div class="att-master-controls iw-master-controls">
+                <div class="att-master-left">
+                    <h3>Active Inner Ways</h3>
+                    <span class="att-enabled-count" id="iwEnabledCount">0 / 0 active</span>
+                </div>
+                <div class="att-master-right">
+                    <button class="att-control-btn att-enable-all" id="iwEnableAll">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Enable All
+                    </button>
+                    <button class="att-control-btn att-reset-all" id="iwResetAll">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                            <path d="M3 3v5h5" />
+                        </svg>
+                        Reset All
+                    </button>
+                </div>
+            </div>
+            <div class="att-card-grid">
+        `;
+
+        for (const iw of innerWayData) {
+            const isEnabled = appState.innerWays[iw.id] || false;
+            const isLocked = iw.locked;
+
+            html += `
+                <div class="att-card iw-card ${isLocked ? 'att-locked' : ''} ${isEnabled ? 'att-enabled' : ''}" data-iw-id="${iw.id}">
+                    <div class="att-card-top">
+                        <div class="att-card-weapon-wrap">
+                            <div class="iw-card-icon-wrap">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+                                </svg>
+                            </div>
+                            <div class="att-card-info">
+                                <span class="att-card-weapon">${iw.label}</span>
+                                <span class="att-card-skill">${iw.skillType}</span>
+                            </div>
+                        </div>
+                        <div class="att-card-toggle-area">
+                            ${isLocked
+                    ? '<span class="att-testing-badge">🔒 TESTING</span>'
+                    : `<label class="att-toggle iw-toggle">
+                                    <input type="checkbox" ${isEnabled ? 'checked' : ''} data-iw-id="${iw.id}">
+                                    <span class="att-toggle-slider"></span>
+                                </label>`
+                }
+                        </div>
+                    </div>
+                    <div class="att-card-body">
+                        <p class="att-card-desc">${highlightKeywords(iw.description)}</p>
+                    </div>
+                    <div class="att-card-footer">
+                        <span class="iw-badge-label">Inner Way</span>
+                        ${getEffectBadge(iw.effect)}
+                        <span class="att-duration-badge">${iw.effectDuration}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        html += '</div>';
+        container.innerHTML = html;
+
+        // Attach toggle listeners
+        container.querySelectorAll('input[data-iw-id]').forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const id = e.target.getAttribute('data-iw-id');
+                appState.innerWays[id] = e.target.checked;
+                const card = e.target.closest('.att-card');
+                card.classList.toggle('att-enabled', e.target.checked);
+                updateInnerWayCounts();
+                refreshAttunedViews();
+            });
+        });
+
+        // Add master control listeners
+        const enableAll = document.getElementById('iwEnableAll');
+        const resetAll = document.getElementById('iwResetAll');
+
+        if (enableAll) {
+            enableAll.addEventListener('click', () => {
+                innerWayData.forEach(iw => {
+                    if (!iw.locked) appState.innerWays[iw.id] = true;
+                });
+                renderInnerWays();
+                refreshAttunedViews();
+            });
+        }
+
+        if (resetAll) {
+            resetAll.addEventListener('click', () => {
+                innerWayData.forEach(iw => {
+                    appState.innerWays[iw.id] = false;
+                });
+                renderInnerWays();
+                refreshAttunedViews();
+            });
+        }
+
+        updateInnerWayCounts();
+    };
+
+    const updateInnerWayCounts = () => {
+        const toggleable = innerWayData.filter(iw => !iw.locked);
+        const enabledCount = toggleable.filter(iw => appState.innerWays[iw.id]).length;
+        const countEl = document.getElementById('iwEnabledCount');
+        if (countEl) countEl.textContent = `${enabledCount} / ${toggleable.length} active`;
     };
 
     // --- Initial Init ---

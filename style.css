@@ -2247,8 +2247,15 @@ select:focus {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 900px) {
@@ -2258,12 +2265,12 @@ select:focus {
         gap: 1.5rem;
         padding: 1.5rem;
     }
-    
+
     .lab-subnav {
         width: 100%;
         overflow-x: auto;
     }
-    
+
     .lab-sub-btn {
         flex: 1;
         white-space: nowrap;
@@ -2329,7 +2336,7 @@ select:focus {
     color: var(--text-muted);
 }
 
-.toggle-control input:checked + .toggle-label {
+.toggle-control input:checked+.toggle-label {
     color: #fff;
 }
 
@@ -2693,9 +2700,23 @@ select:focus {
     letter-spacing: 0.5px;
 }
 
-.badge-type-balance { background: rgba(14, 165, 233, 0.15); color: #0ea5e9; border: 1px solid rgba(14, 165, 233, 0.3); }
-.badge-type-feature { background: rgba(168, 85, 247, 0.15); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.3); }
-.badge-type-fix { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+.badge-type-balance {
+    background: rgba(14, 165, 233, 0.15);
+    color: #0ea5e9;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.badge-type-feature {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.badge-type-fix {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
 
 .update-list {
     list-style: none;
@@ -2738,6 +2759,7 @@ select:focus {
     .build-config-panel {
         grid-template-columns: 1fr;
     }
+
     .versus-divider {
         padding: 1rem 0;
     }
@@ -2813,6 +2835,7 @@ select:focus {
     .player-side .slot-group:last-child {
         grid-template-columns: 1fr;
     }
+
     .player-side .slot-group:last-child label {
         grid-column: span 1;
     }
@@ -2855,11 +2878,12 @@ select:focus {
     font-weight: 900;
     font-size: 0.9rem;
     color: var(--text-muted);
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     position: relative;
 }
 
-.vs-circle::before, .vs-circle::after {
+.vs-circle::before,
+.vs-circle::after {
     content: '';
     position: absolute;
     width: 1px;
@@ -2867,8 +2891,13 @@ select:focus {
     background: linear-gradient(to bottom, transparent, var(--border-color), transparent);
 }
 
-.vs-circle::before { top: -110px; }
-.vs-circle::after { bottom: -110px; }
+.vs-circle::before {
+    top: -110px;
+}
+
+.vs-circle::after {
+    bottom: -110px;
+}
 
 /* --- ANALYSIS RESULTS --- */
 .analysis-dashboard {
@@ -3002,9 +3031,20 @@ select:focus {
     border-radius: 4px;
 }
 
-.sum-badge.win { background: rgba(16, 185, 129, 0.2); color: #10b981; }
-.sum-badge.loss { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
-.sum-badge.clash { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+.sum-badge.win {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+.sum-badge.loss {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.sum-badge.clash {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
 
 .analysis-card-body {
     padding: 0.5rem 0;
@@ -3020,7 +3060,9 @@ select:focus {
     border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 }
 
-.analysis-row:last-child { border-bottom: none; }
+.analysis-row:last-child {
+    border-bottom: none;
+}
 
 .a-enemy-move {
     font-size: 0.8rem;
@@ -3033,10 +3075,22 @@ select:focus {
     text-transform: uppercase;
 }
 
-.outcome-victory .a-outcome-tag { color: #10b981; }
-.outcome-defeat .a-outcome-tag { color: #ef4444; }
-.outcome-clash .a-outcome-tag { color: #f59e0b; }
-.outcome-draw .a-outcome-tag { color: var(--text-muted); opacity: 0.5; }
+.outcome-victory .a-outcome-tag {
+    color: #10b981;
+}
+
+.outcome-defeat .a-outcome-tag {
+    color: #ef4444;
+}
+
+.outcome-clash .a-outcome-tag {
+    color: #f59e0b;
+}
+
+.outcome-draw .a-outcome-tag {
+    color: var(--text-muted);
+    opacity: 0.5;
+}
 
 .analysis-row:hover {
     background: rgba(255, 255, 255, 0.03);
@@ -3432,12 +3486,12 @@ select:focus {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.att-toggle input:checked + .att-toggle-slider {
+.att-toggle input:checked+.att-toggle-slider {
     background: rgba(16, 185, 129, 0.2);
     border-color: #10b981;
 }
 
-.att-toggle input:checked + .att-toggle-slider::before {
+.att-toggle input:checked+.att-toggle-slider::before {
     transform: translateX(20px);
     background: #10b981;
     box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
@@ -3555,6 +3609,60 @@ select:focus {
     color: var(--text-muted);
     max-width: 400px;
     line-height: 1.5;
+}
+
+/* --- Inner Way Specific Styles --- */
+.iw-master-controls {
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
+.iw-master-controls h3 {
+    color: #a855f7;
+}
+
+.iw-card:hover {
+    border-color: rgba(168, 85, 247, 0.4);
+}
+
+.iw-card.att-enabled {
+    border-color: rgba(168, 85, 247, 0.5);
+    box-shadow: 0 0 20px -8px rgba(168, 85, 247, 0.2);
+}
+
+.iw-card-icon-wrap {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(168, 85, 247, 0.1);
+    color: #a855f7;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.iw-badge-label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 5px;
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.iw-toggle input:checked+.att-toggle-slider {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: #a855f7;
+}
+
+.iw-toggle input:checked+.att-toggle-slider::before {
+    background: #a855f7;
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.4);
 }
 
 /* --- Responsive --- */
