@@ -48,11 +48,265 @@ const mysticSkillsData = {
     "Golden Body": { S: 'X', D: 1 },
     "Ghostly Steps": { S: 'X', D: 0 },
     "Divine Counter": { S: 4, D: 3 },
+    "Bow Skill": { S: 0, D: 0 },
     "Goosey Slide": { S: 0, D: 0, isWIP: true },
     "Mighty Drop": { S: 0, D: 0, isWIP: true }
 };
 // =====================================================================
 // === MYSTIC SKILLS DATA END ==========================================
+// =====================================================================
+
+// =====================================================================
+// === ATTUNEMENT DATA START ===========================================
+// =====================================================================
+// Attunements modify skill stagger/defense values when equipped.
+// Organized by gear slot: Weapon, Disc, Pendant, Helmet, Thumb Ring.
+const attunementData = {
+    weapon: [
+        {
+            id: "weapon-counterattack-tenacity",
+            label: "Divine Counter Tenacity",
+            description: "Gain Tenacity for 1.5s and recover 30 endurance after damaging a target with Divine Counter.",
+            gearSlot: "Weapon",
+            affects: "All Weapons",
+            skillType: "Divine Counter",
+            effect: "tenacity",
+            effectDuration: "1.5s",
+            enabled: false,
+            locked: true
+        }
+    ],
+    disc: [
+        {
+            id: "disc-nameless-spear-special",
+            label: "Nameless Spear Qi Bonus",
+            description: "Special Skill deals 20 bonus Qi damage to units with Tenacity, Immobilizes for 0.5 seconds.",
+            gearSlot: "Disc",
+            affects: "Nameless Spear",
+            skillType: "Special Skill",
+            effect: "immobilize",
+            effectDuration: "0.5s",
+            enabled: false,
+            locked: true
+        },
+        {
+            id: "disc-phalanx-martial-charged",
+            label: "Phalanxbane Blade Tenacity",
+            description: "Martial Art Charged Skill gains Tenacity for 3 seconds.",
+            gearSlot: "Disc",
+            affects: "Phalanxbane Blade",
+            skillType: "Martial Art Charged",
+            effect: "tenacity",
+            effectDuration: "3s",
+            enabled: false,
+            locked: false,
+            modifies: { weapon: "Phalanxbane Blade", action: "Martial Art Charged", stat: "D", value: 3 }
+        },
+        {
+            id: "disc-twinblades-special",
+            label: "Twinblades Tenacity",
+            description: "Special Skill gains Tenacity during skill.",
+            gearSlot: "Disc",
+            affects: "Infernal Twinblades",
+            skillType: "Special Skill",
+            effect: "tenacity",
+            effectDuration: "During Skill",
+            enabled: false,
+            locked: false,
+            modifies: { weapon: "Infernal Twinblades", action: "Special Skill", stat: "D", value: 3 }
+        },
+        {
+            id: "disc-strategic-sword-martial",
+            label: "Strategic Sword Immobilize",
+            description: "Martial Art gains Immobilize on Staggered/Controlled Units.",
+            gearSlot: "Disc",
+            affects: "Strategic Sword",
+            skillType: "Martial Art",
+            effect: "immobilize",
+            effectDuration: "On Stagger/Control",
+            enabled: false,
+            locked: true
+        },
+        {
+            id: "disc-heavenquaker-special",
+            label: "Heavenquaker Spear Tenacity",
+            description: "Special Skill gains Tenacity on hit.",
+            gearSlot: "Disc",
+            affects: "Heavenquaker Spear",
+            skillType: "Special Skill",
+            effect: "tenacity",
+            effectDuration: "On Hit",
+            enabled: false,
+            locked: true
+        },
+        {
+            id: "disc-thundercry-martial",
+            label: "Thundercry Blade Super Armor (MA)",
+            description: "Martial Art Skill gains Super Armor if hit within 1 second of casting.",
+            gearSlot: "Disc",
+            affects: "Thundercry Blade",
+            skillType: "Martial Art",
+            effect: "superArmor",
+            effectDuration: "If hit within 1s",
+            enabled: false,
+            locked: false,
+            modifies: { weapon: "Thundercry Blade", action: "Martial Art", stat: "D", value: 4 }
+        },
+        {
+            id: "disc-thundercry-special",
+            label: "Thundercry Blade Super Armor (SS)",
+            description: "Special Skill gains Super Armor on the final hit.",
+            gearSlot: "Disc",
+            affects: "Thundercry Blade",
+            skillType: "Special Skill",
+            effect: "superArmor",
+            effectDuration: "Final Hit",
+            enabled: false,
+            locked: true,
+            modifies: { weapon: "Thundercry Blade", action: "Special Skill", stat: "D", value: 4 }
+        },
+        {
+            id: "disc-stormbreaker-special",
+            label: "Stormbreaker Super Armor",
+            description: "Special Skill gains Super Armor if hit on a non-defending target.",
+            gearSlot: "Disc",
+            affects: "Stormbreaker Spear",
+            skillType: "Special Skill",
+            effect: "superArmor",
+            effectDuration: "On non-defending target",
+            enabled: false,
+            locked: false,
+            modifies: { weapon: "Stormbreaker Spear", action: "Special Skill", stat: "D", value: 4 }
+        },
+        {
+            id: "disc-soulshade-martial",
+            label: "Soulshade Umbrella Super Armor",
+            description: "Martial Art Skill gains Super Armor on ally heal (Testing: self-heal may count).",
+            gearSlot: "Disc",
+            affects: "Soulshade Umbrella",
+            skillType: "Martial Art",
+            effect: "superArmor",
+            effectDuration: "On Ally Heal",
+            enabled: false,
+            locked: true
+        },
+        {
+            id: "disc-panacea-special",
+            label: "Panacea Fan Tenacity (SS)",
+            description: "Special Skill grants Tenacity on target if staggered or crowd controlled (Testing: self-cast).",
+            gearSlot: "Disc",
+            affects: "Panacea Fan",
+            skillType: "Special Skill",
+            effect: "tenacity",
+            effectDuration: "On Stagger/CC Target",
+            enabled: false,
+            locked: true
+        },
+        {
+            id: "disc-everspring-martial",
+            label: "Everspring Umbrella Tenacity",
+            description: "Martial Art Skill gains Tenacity on non-defending unit hit.",
+            gearSlot: "Disc",
+            affects: "Everspring Umbrella",
+            skillType: "Martial Art",
+            effect: "tenacity",
+            effectDuration: "On Non-Defending Hit",
+            enabled: false,
+            locked: true
+        }
+    ],
+    pendant: [
+        {
+            id: "pendant-stormbreaker-heavy",
+            label: "Stormbreaker Immobilize",
+            description: "Heavy Charged Skill Immobilizes if unit is below 30% Qi.",
+            gearSlot: "Pendant",
+            affects: "Stormbreaker Spear",
+            skillType: "Heavy Charged Skill",
+            effect: "immobilize",
+            effectDuration: "Below 30% Qi",
+            enabled: false,
+            locked: true
+        },
+        {
+            id: "pendant-panacea-heavy",
+            label: "Panacea Fan Tenacity (Heal)",
+            description: "Healing Skill grants Tenacity if staggered or controlled.",
+            gearSlot: "Pendant",
+            affects: "Panacea Fan",
+            skillType: "Healing Skill",
+            effect: "tenacity",
+            effectDuration: "On Stagger/Control",
+            enabled: false,
+            locked: true
+        },
+        {
+            id: "pendant-soulshade-heavy",
+            label: "Soulshade Umbrella Tenacity",
+            description: "Heavy Charged Skill gains Tenacity on hit.",
+            gearSlot: "Pendant",
+            affects: "Soulshade Umbrella",
+            skillType: "Heavy Charged Skill",
+            effect: "tenacity",
+            effectDuration: "On Hit",
+            enabled: false,
+            locked: true
+        },
+        {
+            id: "pendant-unfettered-charged",
+            label: "Unfettered Rope Dart Tenacity",
+            description: "Heavy Charged Skill gains Tenacity on hit.",
+            gearSlot: "Pendant",
+            affects: "Unfettered Rope Dart",
+            skillType: "Heavy Charged Skill",
+            effect: "tenacity",
+            effectDuration: "On Hit",
+            enabled: false,
+            locked: true
+        }
+    ],
+    helmet: [
+        {
+            id: "helmet-control-remove-tenacity",
+            label: "Post-Super Armor Tenacity",
+            description: "When removing stagger or control effect with Control-Removing Skill, gain Tenacity after Super Armor wears off.",
+            gearSlot: "Helmet",
+            affects: "All Weapons",
+            skillType: "Control-Removing Skill",
+            effect: "tenacity",
+            effectDuration: "After Super Armor",
+            enabled: false,
+            locked: true
+        }
+    ],
+    thumbRing: [
+        {
+            id: "thumbring-bow-tenacity",
+            label: "Bow Tenacity",
+            description: "Every 10 seconds, gain Tenacity for 3 seconds when triggering Bow and Arrow Skill.",
+            gearSlot: "Thumb Ring",
+            affects: "Bow Skill",
+            skillType: "Bow and Arrow Skill",
+            effect: "tenacity",
+            effectDuration: "3s / 10s CD",
+            enabled: false,
+            locked: false,
+            modifies: { mystic: "Bow Skill", stat: "D", value: 3 }
+        }
+    ]
+};
+// =====================================================================
+// === ATTUNEMENT DATA END =============================================
+// =====================================================================
+
+// =====================================================================
+// === INNER WAYS DATA START ===========================================
+// =====================================================================
+// Inner Ways will modify skill priorities similarly to attunements.
+// Placeholder for future data.
+const innerWayData = [];
+// =====================================================================
+// === INNER WAYS DATA END =============================================
 // =====================================================================
 
 // =====================================================================
@@ -109,8 +363,19 @@ const initApp = () => {
             ]
         },
         activeAnalysisFilter: 'both',
-        lastAnalysisResults: null
+        lastAnalysisResults: null,
+        // --- Attunement Toggle State ---
+        attunements: {},
+        innerWays: {}
     };
+
+    // Initialize attunement toggle state from registry
+    const initAttunementState = () => {
+        Object.values(attunementData).flat().forEach(att => {
+            appState.attunements[att.id] = att.locked ? false : att.enabled;
+        });
+    };
+    initAttunementState();
 
     // --- Elements ---
     const navBtns = document.querySelectorAll('.nav-btn');
@@ -153,12 +418,38 @@ const initApp = () => {
     };
 
     const getStats = (slotData) => {
+        let stats;
         if (slotData.type === 'weapon') {
             const weapon = weaponData[slotData.name];
-            return (weapon && weapon[slotData.action]) ? weapon[slotData.action] : { S: 0, D: 0 };
+            stats = (weapon && weapon[slotData.action]) ? { ...weapon[slotData.action] } : { S: 0, D: 0 };
+
+            // Apply active attunement modifiers
+            Object.values(attunementData).flat().forEach(att => {
+                if (!att.modifies || !appState.attunements[att.id]) return;
+                const mod = att.modifies;
+                if (mod.weapon === slotData.name && mod.action === slotData.action) {
+                    const baseVal = (stats[mod.stat] === 'X') ? 0 : Number(stats[mod.stat]);
+                    if (mod.value > baseVal) {
+                        stats[mod.stat] = mod.value;
+                    }
+                }
+            });
         } else {
-            return mysticSkillsData[slotData.name] || { S: 0, D: 0 };
+            stats = { ...(mysticSkillsData[slotData.name] || { S: 0, D: 0 }) };
+
+            // Apply active attunement modifiers to mystic skills
+            Object.values(attunementData).flat().forEach(att => {
+                if (!att.modifies || !appState.attunements[att.id]) return;
+                const mod = att.modifies;
+                if (mod.mystic === slotData.name) {
+                    const baseVal = (stats[mod.stat] === 'X') ? 0 : Number(stats[mod.stat]);
+                    if (mod.value > baseVal) {
+                        stats[mod.stat] = mod.value;
+                    }
+                }
+            });
         }
+        return stats;
     };
 
     // --- UI Updaters ---
@@ -245,8 +536,9 @@ const initApp = () => {
 
         // Check Weapons
         for (const [weaponName, actions] of Object.entries(weaponData)) {
-            for (const [actionName, stats] of Object.entries(actions)) {
-                const s = (stats.S === 'X' || stats.isWIP || stats.wipS) ? 0 : Number(stats.S);
+            for (const [actionName, baseStats] of Object.entries(actions)) {
+                const stats = getStats({ type: 'weapon', name: weaponName, action: actionName });
+                const s = (stats.S === 'X' || baseStats.isWIP || baseStats.wipS) ? 0 : Number(stats.S);
                 if (s > targetD) {
                     if (!grouped[weaponName]) grouped[weaponName] = { name: weaponName, type: 'weapon', items: [] };
                     grouped[weaponName].items.push({ action: actionName, stats });
@@ -416,6 +708,7 @@ const initApp = () => {
             appState.activeTab = targetTab;
 
             if (targetTab === 'updates') renderUpdates();
+            if (targetTab === 'attunements') { renderAttunements(); renderInnerWays(); }
         });
     });
 
@@ -582,7 +875,12 @@ const initApp = () => {
             `;
             const attacks = Object.keys(weaponData[w]);
             for (const a of attacks) {
-                const st = weaponData[w][a];
+                const baseSt = weaponData[w][a];
+                const st = getStats({ type: 'weapon', name: w, action: a });
+                // Preserve WIP flags from base data
+                st.isWIP = baseSt.isWIP;
+                st.wipS = baseSt.wipS;
+                st.wipD = baseSt.wipD;
                 htmlBuffer += `
                     <div class="ref-attack-row ${st.isWIP ? 'wip-row' : ''}" data-preview="Weapon Previews/${w}/${a}.mp4" title="Click to view full preview">
                         <span class="ref-attack-name">
@@ -700,6 +998,183 @@ const initApp = () => {
         }
     };
 
+    // --- Attunements & Inner Ways Rendering ---
+    const gearSlotConfig = {
+        weapon: {
+            label: 'Weapon',
+            icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5 3 6V3h3l11.5 11.5"/><path d="m13 19 2 2 5-5-2-2Z"/></svg>`,
+            color: '#3b82f6'
+        },
+        disc: {
+            label: 'Disc',
+            icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>`,
+            color: '#a855f7'
+        },
+        pendant: {
+            label: 'Pendant',
+            icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>`,
+            color: '#10b981'
+        },
+        helmet: {
+            label: 'Helmet',
+            icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+            color: '#f59e0b'
+        },
+        thumbRing: {
+            label: 'Thumb Ring',
+            icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>`,
+            color: '#ef4444'
+        }
+    };
+
+    const highlightKeywords = (text) => {
+        return text
+            .replace(/\bSuper Armor\b/g, '<span class="color-superarmor">Super Armor</span> <span class="badge-mini b-4">4</span>')
+            .replace(/\bTenacity\b/g, '<span class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>')
+            .replace(/\bImmobilize(?:s|d)?\b/g, (match) => `<span class="color-immobilize">${match}</span>`);
+    };
+
+    const getEffectBadge = (effect) => {
+        if (effect === 'tenacity') return '<span class="att-effect-badge att-tenacity">Tenacity</span>';
+        if (effect === 'superArmor') return '<span class="att-effect-badge att-superarmor">Super Armor</span>';
+        if (effect === 'immobilize') return '<span class="att-effect-badge att-immobilize">Immobilize</span>';
+        return '';
+    };
+
+    const renderAttunements = () => {
+        const container = document.getElementById('attunementCards');
+        if (!container) return;
+
+        let html = '';
+
+        for (const [slotKey, slotCfg] of Object.entries(gearSlotConfig)) {
+            const items = attunementData[slotKey];
+            if (!items || items.length === 0) continue;
+
+            html += `
+                <div class="att-gear-section">
+                    <div class="att-gear-header">
+                        <div class="att-gear-icon" style="color: ${slotCfg.color}; border-color: ${slotCfg.color}40">${slotCfg.icon}</div>
+                        <h3 class="att-gear-title">${slotCfg.label}</h3>
+                        <span class="att-gear-count">${items.length} attunement${items.length !== 1 ? 's' : ''}</span>
+                    </div>
+                    <div class="att-card-grid">
+            `;
+
+            for (const att of items) {
+                const isEnabled = appState.attunements[att.id] || false;
+                const isLocked = att.locked;
+                const weaponIcon = att.affects !== 'All Weapons' && att.affects !== 'Bow Skill'
+                    ? `<img src="Icons/${getImageFileName(att.affects)}.png" class="att-weapon-icon" alt="${att.affects}" onerror="this.style.display='none'">`
+                    : '';
+
+                html += `
+                    <div class="att-card ${isLocked ? 'att-locked' : ''} ${isEnabled ? 'att-enabled' : ''}" data-att-id="${att.id}">
+                        <div class="att-card-top">
+                            <div class="att-card-weapon-wrap">
+                                ${weaponIcon}
+                                <div class="att-card-info">
+                                    <span class="att-card-weapon">${att.affects}</span>
+                                    <span class="att-card-skill">${att.skillType}</span>
+                                </div>
+                            </div>
+                            <div class="att-card-toggle-area">
+                                ${isLocked
+                        ? '<span class="att-testing-badge">🔒 TESTING</span>'
+                        : `<label class="att-toggle">
+                                        <input type="checkbox" ${isEnabled ? 'checked' : ''} data-att-id="${att.id}">
+                                        <span class="att-toggle-slider"></span>
+                                    </label>`
+                    }
+                            </div>
+                        </div>
+                        <div class="att-card-body">
+                            <p class="att-card-desc">${highlightKeywords(att.description)}</p>
+                        </div>
+                        <div class="att-card-footer">
+                            <span class="att-gear-badge" style="background: ${slotCfg.color}20; color: ${slotCfg.color}; border-color: ${slotCfg.color}40">${slotCfg.label}</span>
+                            ${getEffectBadge(att.effect)}
+                            <span class="att-duration-badge">${att.effectDuration}</span>
+                        </div>
+                    </div>
+                `;
+            }
+
+            html += '</div></div>';
+        }
+
+        container.innerHTML = html;
+
+        // Attach toggle listeners
+        container.querySelectorAll('input[data-att-id]').forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const id = e.target.getAttribute('data-att-id');
+                appState.attunements[id] = e.target.checked;
+                const card = e.target.closest('.att-card');
+                card.classList.toggle('att-enabled', e.target.checked);
+                updateAttunementCounts();
+                refreshAttunedViews();
+            });
+        });
+
+        updateAttunementCounts();
+    };
+
+    const updateAttunementCounts = () => {
+        const allAtts = Object.values(attunementData).flat();
+        const toggleable = allAtts.filter(a => !a.locked);
+        const enabledCount = toggleable.filter(a => appState.attunements[a.id]).length;
+        const countEl = document.getElementById('attEnabledCount');
+        if (countEl) countEl.textContent = `${enabledCount} / ${toggleable.length} active`;
+    };
+
+    // Re-render all views that depend on weapon stats when attunements change
+    const refreshAttunedViews = () => {
+        renderWeaponCompendium();
+        updateDisplay();
+        updateMatchupDisplay();
+    };
+
+    const setupAttunementControls = () => {
+        const enableAllBtn = document.getElementById('attEnableAll');
+        const resetAllBtn = document.getElementById('attResetAll');
+
+        if (enableAllBtn) {
+            enableAllBtn.addEventListener('click', () => {
+                Object.values(attunementData).flat().forEach(att => {
+                    if (!att.locked) appState.attunements[att.id] = true;
+                });
+                renderAttunements();
+                refreshAttunedViews();
+            });
+        }
+
+        if (resetAllBtn) {
+            resetAllBtn.addEventListener('click', () => {
+                Object.values(attunementData).flat().forEach(att => {
+                    appState.attunements[att.id] = false;
+                });
+                renderAttunements();
+                refreshAttunedViews();
+            });
+        }
+    };
+
+    const renderInnerWays = () => {
+        const container = document.getElementById('innerWayCards');
+        if (!container) return;
+
+        if (innerWayData.length === 0) {
+            container.innerHTML = `
+                <div class="iw-placeholder">
+                    <div class="iw-placeholder-icon">🔮</div>
+                    <h3>Inner Ways Coming Soon</h3>
+                    <p>Inner Way modifiers are being documented and tested. They will appear here once ready.</p>
+                </div>
+            `;
+        }
+    };
+
     // --- Initial Init ---
     updateSkillUI('A');
     updateSkillUI('B');
@@ -708,6 +1183,28 @@ const initApp = () => {
     renderWeaponCompendium();
     renderMysticCompendium();
     setupContactForm();
+    renderAttunements();
+    renderInnerWays();
+    setupAttunementControls();
+
+    // --- Attunements Sub-nav Logic ---
+    const attSubBtns = document.querySelectorAll('.att-sub-btn');
+    const attSubPanes = document.querySelectorAll('.att-sub-pane');
+
+    const switchAttTab = (subType) => {
+        attSubBtns.forEach(b => {
+            b.classList.toggle('active', b.getAttribute('data-att-tab') === subType);
+        });
+        attSubPanes.forEach(p => {
+            p.classList.toggle('active', p.id === `att-${subType}`);
+        });
+    };
+
+    attSubBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            switchAttTab(btn.getAttribute('data-att-tab'));
+        });
+    });
 
     // --- Build Analysis Logic ---
     const runAnalysisBtn = document.getElementById('runAnalysisBtn');

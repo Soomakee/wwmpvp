@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.2">
+    <link rel="stylesheet" href="style.css?v=2.3">
 </head>
 
 <body>
@@ -34,7 +34,8 @@
                 <button class="nav-btn" data-tab="ruleset">Ruleset</button>
                 <button class="nav-btn" data-tab="lab">Combat Lab</button>
                 <button class="nav-btn" data-tab="registry">Skill Priorities</button>
-                <button class="nav-btn" data-tab="info">Important Information</button>
+                <button class="nav-btn" data-tab="attunements">Attunements/Innerways</button>
+
             </div>
 
             <div class="nav-secondary">
@@ -116,21 +117,27 @@
                     <div class="card-foot">View Data &rarr;</div>
                 </div>
 
-                <!-- Info -->
-                <div class="dash-card" onclick="document.querySelector('[data-tab=\'info\']').click()">
+
+
+                <!-- Attunements -->
+                <div class="dash-card" onclick="document.querySelector('[data-tab=\'attunements\']').click()">
                     <div class="card-head">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path
-                                d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-                            <path d="M9 18h6" />
-                            <path d="M10 22h4" />
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3" />
+                            <path d="M12 1v6" />
+                            <path d="M12 17v6" />
+                            <path d="m4.22 4.22 4.24 4.24" />
+                            <path d="m15.54 15.54 4.24 4.24" />
+                            <path d="M1 12h6" />
+                            <path d="M17 12h6" />
+                            <path d="m4.22 19.78 4.24-4.24" />
+                            <path d="m15.54 8.46 4.24-4.24" />
                         </svg>
                     </div>
-                    <h3>Important Information</h3>
-                    <p>Includes more information about specific priorities due to Inner Ways and Attunements changing
-                        priorities.</p>
-                    <div class="card-foot">Read Information &rarr;</div>
+                    <h3>Attunements</h3>
+                    <p>Configure gear attunements and Inner Ways that modify skill stagger and defense.</p>
+                    <div class="card-foot">Configure Attunements &rarr;</div>
                 </div>
 
                 <!-- Site Updates -->
@@ -562,9 +569,11 @@
 
                     <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
                         If both players break through defense (<span class="stagger-highlight">Stagger</span> > <span
-                            class="defense-highlight">Defense</span> for both), you get
-                        <strong>Both Staggered</strong>. In this state, generally whoever casts the ability
-                        <strong>first</strong> wins the trade; however, high <strong>Ping</strong> can cause variations.
+                            class="defense-highlight">Defense</span> for both), you
+                        <strong>both </strong><span class="stagger-highlight">Stagger</span>. In this state, generally
+                        whoever casts the ability
+                        <strong>first</strong> wins the trade; however, high <strong>Ping</strong> and <strong>Animation
+                            Speed</strong> can cause variations.
                     </p>
                 </div>
             </div>
@@ -666,15 +675,18 @@
                     <div class="outcome-card-body">
                         <p>Neither player has a <span class="stagger-highlight">Stagger</span> high enough to break the
                             opponent's <span class="defense-highlight">Defense</span>. Both players <strong>safely hit
-                                each other, but not Stagger.</strong></p>
+                                each other, but not </strong><span class="stagger-highlight">Stagger</span>.</p>
                     </div>
                     <div class="outcome-card-example">
                         <strong>Example:</strong> Special Skill (<span class="stagger-highlight">S0</span>, <span
                             class="defense-highlight">D1</span>) vs Special Skill (<span
                             class="stagger-highlight">S0</span>, <span class="defense-highlight">D1</span>). Neither
                         <span class="stagger-highlight">Stagger (0)</span> is high enough to punch through a <span
-                            class="defense-highlight">Defense (1)</span>, causing both players to draw. (A Stagger of 1
-                        vs a Defense of 1 also results in a draw, as Stagger MUST be higher in value.)
+                            class="defense-highlight">Defense (1)</span>, causing both players to draw. (A <span
+                            class="stagger-highlight">Stagger</span> of 1
+                        vs a <span class="defense-highlight">Defense</span> of 1 also results in a draw, as <span
+                            class="stagger-highlight">Stagger</span> MUST
+                        be higher in value.)
                     </div>
                 </div>
 
@@ -684,7 +696,7 @@
         <!-- SKILL REGISTRY TAB (CONSOLIDATED) -->
         <section id="registry" class="tab-pane">
             <div class="dashboard-header">
-                <h2>Skill Priority Registry</h2>
+                <h2>Skill Priorities</h2>
                 <p style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 0.95rem;">Click any skill below
                     to see a video preview.</p>
                 <div class="legend-container">
@@ -695,6 +707,24 @@
                     <div class="legend-item"><span class="badge b-3">3</span> High Stagger/Defense (Tenacity)</div>
                     <div class="legend-item"><span class="badge b-4">4</span> Extreme Stagger/Unstaggerable (Super
                         Armor)</div>
+                </div>
+
+                <div class="notice-banner" style="margin-top: 1.5rem;">
+                    <div class="notice-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                            </path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <p>Skill priorities can change dynamically based on active <strong>Inner Ways</strong> and
+                        <strong>Attunements</strong>. Please refer to the <a href="#"
+                            onclick="event.preventDefault(); document.querySelector('[data-tab=\'attunements\']').click();"
+                            class="ruleset-link">Attunements/Innerways</a> tab to toggle these effects, as these numbers
+                        stand as <strong>base levels</strong> without modifications.</p>
                 </div>
 
                 <!-- SUB NAVIGATION -->
@@ -719,268 +749,106 @@
             </div>
         </section>
 
-        <!-- IMPORTANT INFO TAB -->
-        <section id="info" class="tab-pane">
-            <div class="dashboard-header">
-                <h2>Important PvP Information</h2>
-                <p>Inner Way and Attunement information that can cause priority differences.</p>
-            </div>
-            <div class="info-card-grid">
-                <div class="info-entry-card">
-                    <div class="ref-card-header">
-                        <img src="Icons/Heavenquaker Spear.png" class="weapon-icon" alt="Heavenquaker Spear"
-                            onerror="this.style.display='none'">
-                        <div class="header-text-wrap">
-                            Heavenquaker Spear (Martial Art)
-                        </div>
+
+
+        <!-- ATTUNEMENTS / INNERWAYS TAB -->
+        <section id="attunements" class="tab-pane">
+            <div class="att-page-container">
+                <div class="att-page-header">
+                    <div class="att-page-info">
+                        <h2>Attunements & Inner Ways</h2>
+                        <p>Configure gear attunements and Inner Way modifiers that change skill stagger and defense
+                            priorities.</p>
                     </div>
-                    <div class="info-body">
-                        <div class="info-stat-item">
-                            <span class="badge b-2">2</span>
-                            <span class="info-stat-label">Stagger</span>
-                        </div>
-                        <div class="mystic-stat-divider"></div>
-                        <div class="info-stat-item">
-                            <span class="badge b-3">3</span>
-                            <span class="info-stat-label">Defense</span>
-                        </div>
-                    </div>
-                    <div class="info-footer">
-                        <strong>Wolfchaser Tier 3 Inner Way</strong> elevates the <strong>Martial Art</strong> <span
-                            class="defense-highlight">Defense</span>
-                        to <span class="badge-mini b-3">3</span> (<span class="color-tenacity">Tenacity</span>). This
-                        site
-                        uses the standardized <span class="badge-mini b-2">2</span> / <span
-                            class="badge-mini b-3">3</span> values for calculations.
+                    <div class="att-subnav">
+                        <button class="att-sub-btn active" data-att-tab="gear">
+                            <span class="sub-icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path d="M12 1v6" />
+                                    <path d="M12 17v6" />
+                                    <path d="m4.22 4.22 4.24 4.24" />
+                                    <path d="m15.54 15.54 4.24 4.24" />
+                                    <path d="M1 12h6" />
+                                    <path d="M17 12h6" />
+                                    <path d="m4.22 19.78 4.24-4.24" />
+                                    <path d="m15.54 8.46 4.24-4.24" />
+                                </svg>
+                            </span>
+                            Attunements
+                        </button>
+                        <button class="att-sub-btn" data-att-tab="innerways">
+                            <span class="sub-icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5" />
+                                    <path d="M8.5 8.5v.01" />
+                                    <path d="M16 15.5v.01" />
+                                    <path d="M12 12v.01" />
+                                </svg>
+                            </span>
+                            Inner Ways
+                        </button>
                     </div>
                 </div>
 
+                <div class="att-page-content">
+                    <!-- ATTUNEMENTS SUB-PANE -->
+                    <div id="att-gear" class="att-sub-pane active">
+                        <div class="att-notice-banner">
+                            <div class="att-notice-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="12" y1="16" x2="12" y2="12" />
+                                    <line x1="12" y1="8" x2="12.01" y2="8" />
+                                </svg>
+                            </div>
+                            <p>Toggle attunements on/off to configure which gear modifiers are active. Enabled
+                                attunements will eventually modify the Skill Priorities stagger/defense values. Items
+                                marked <span class="att-testing-badge-inline">🔒 TESTING</span> are still being
+                                validated and cannot be toggled yet.</p>
+                        </div>
 
-                <div class="info-entry-card">
-                    <div class="ref-card-header">
-                        <img src="Icons/Snowparting Blade.png" class="weapon-icon" alt="Snowparting Blade"
-                            onerror="this.style.display='none'">
-                        <div class="header-text-wrap">
-                            Snowparting Blade (Special Skill)
+                        <div class="att-master-controls">
+                            <div class="att-master-left">
+                                <h3>Active Attunements</h3>
+                                <span class="att-enabled-count" id="attEnabledCount">0 / 0 active</span>
+                            </div>
+                            <div class="att-master-right">
+                                <button class="att-control-btn att-enable-all" id="attEnableAll">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                    Enable All
+                                </button>
+                                <button class="att-control-btn att-reset-all" id="attResetAll">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                        <path d="M3 3v5h5" />
+                                    </svg>
+                                    Reset All
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="info-body">
-                        <div class="info-stat-item">
-                            <span class="badge b-4">4</span>
-                            <span class="info-stat-label">Stagger</span>
-                        </div>
-                        <div class="mystic-stat-divider"></div>
-                        <div class="info-stat-item">
-                            <span class="badge b-3">3</span>
-                            <span class="info-stat-label">Defense</span>
-                        </div>
-                    </div>
-                    <div class="info-footer">
-                        Initial hits are <span class="badge-mini b-2">2</span>. The final Special Skill hit elevates
-                        to
-                        <span class="badge-mini b-4">4</span> (<span class="color-superarmor">Super Armor</span>) to
-                        break <span class="color-tenacity">Tenacity</span>. This site calculates based on the final
-                        hit.
-                    </div>
-                </div>
 
-                <div class="info-entry-card">
-                    <div class="ref-card-header">
-                        <img src="Icons/Snowparting Blade.png" class="weapon-icon" alt="Snowparting Blade"
-                            onerror="this.style.display='none'">
-                        <div class="header-text-wrap">
-                            Snowparting Blade (Heavy Varied Combo)
+                        <div id="attunementCards">
+                            <!-- JS will render attunement toggle cards here -->
                         </div>
                     </div>
-                    <div class="info-body">
-                        <div class="info-stat-item">
-                            <span class="badge b-2">2</span>
-                            <span class="info-stat-label">Stagger</span>
-                        </div>
-                        <div class="mystic-stat-divider"></div>
-                        <div class="info-stat-item">
-                            <span class="badge b-3">3</span>
-                            <span class="info-stat-label">Defense</span>
-                        </div>
-                    </div>
-                    <div class="info-footer">
-                        This ability is <strong>granted</strong> by the <strong>Frost-Clad Night Tier 0</strong>
-                        Inner
-                        Way and standardized at <span class="badge-mini b-3">3</span> (<span
-                            class="color-tenacity">Tenacity</span>). This site calculates based on this unlocked
-                        <span class="badge-mini b-2">2</span> / <span class="badge-mini b-3">3</span> configuration.
-                    </div>
-                </div>
 
-                <div class="info-entry-card">
-                    <div class="ref-card-header">
-                        <img src="Icons/Vernal Umbrella.png" class="weapon-icon" alt="Vernal Umbrella"
-                            onerror="this.style.display='none'">
-                        <div class="header-text-wrap">
-                            Vernal Umbrella (Special)
+                    <!-- INNER WAYS SUB-PANE -->
+                    <div id="att-innerways" class="att-sub-pane">
+                        <div id="innerWayCards">
+                            <!-- JS will render inner way toggle cards or placeholder -->
                         </div>
-                    </div>
-                    <div class="info-body">
-                        <div class="info-stat-item">
-                            <span class="badge b-0">0</span>
-                            <span class="info-stat-label">Stagger</span>
-                        </div>
-                        <div class="mystic-stat-divider"></div>
-                        <div class="info-stat-item">
-                            <span class="badge b-1">1</span>
-                            <span class="info-stat-label">Defense</span>
-                        </div>
-                    </div>
-                    <div class="info-base-label">Calculation Standard</div>
-                    <div class="info-footer">
-                        Activating the Special executes an initial kick (Melee) at <span class="badge-mini b-2">2</span>
-                        <span class="stagger-highlight">Stagger</span>, then summons the <strong>Turret</strong> at
-                        <span class="badge-mini b-0">0</span>
-                        <span class="stagger-highlight">Stagger</span>. This site calculates based on the
-                        <strong>Ranged/Turret</strong> hit.
-                    </div>
-                </div>
-
-                <div class="info-entry-card">
-                    <div class="ref-card-header">
-                        <div class="header-text-wrap">
-                            Fans & Umbrellas (Light)
-                        </div>
-                    </div>
-                    <div class="info-body">
-                        <div class="info-stat-item">
-                            <span class="badge b-0">0</span>
-                            <span class="info-stat-label">Stagger</span>
-                        </div>
-                        <div class="mystic-stat-divider"></div>
-                        <div class="info-stat-item">
-                            <span class="badge b-0">0</span>
-                            <span class="info-stat-label">Defense</span>
-                        </div>
-                    </div>
-                    <div class="info-footer">
-                        <strong>Melee</strong> attacks are <span class="badge-mini b-1">1</span> <span
-                            class="stagger-highlight">Stagger</span>, while
-                        <strong>Ranged</strong> are <span class="badge-mini b-0">0</span>. Light Attacks are <span
-                            class="badge-mini b-0">0</span> on initial hits and <span class="badge-mini b-1">1</span> on
-                        the final hit. The site calculates based on the <strong>Ranged (0)</strong> engaging
-                        standard.
-                    </div>
-                </div>
-
-                <div class="info-entry-card">
-                    <div class="ref-card-header">
-                        <img src="Icons/Stormbreaker Spear.png" class="weapon-icon" alt="Stormbreaker Spear"
-                            onerror="this.style.display='none'">
-                        <div class="header-text-wrap">
-                            Stormbreaker Spear (Special)
-                        </div>
-                    </div>
-                    <div class="info-body">
-                        <div class="info-stat-item">
-                            <span class="badge b-2">2</span>
-                            <span class="info-stat-label">Stagger</span>
-                        </div>
-                        <div class="mystic-stat-divider"></div>
-                        <div class="info-stat-item">
-                            <span class="badge b-4">4</span>
-                            <span class="info-stat-label">Defense</span>
-                        </div>
-                    </div>
-                    <div class="info-footer">
-                        Landing the Special Skill slam grants 2 seconds of <span class="color-superarmor">Super
-                            Armor</span> <span class="badge-mini b-4">4</span> via a <span class="color-white">Disc
-                            Attunement</span>. This site calculates based on this buff configuration.
-                    </div>
-                </div>
-
-                <div class="info-entry-card">
-                    <div class="ref-card-header">
-                        <img src="Icons/Soaring Spin.png" class="weapon-icon" alt="Soaring Spin"
-                            onerror="this.style.display='none'">
-                        <div class="header-text-wrap">
-                            Soaring Spin (Perfect Dodge)
-                        </div>
-                    </div>
-                    <div class="info-body">
-                        <div class="info-stat-item">
-                            <span class="badge b-2">2</span>
-                            <span class="info-stat-label">Stagger</span>
-                        </div>
-                        <div class="mystic-stat-divider"></div>
-                        <div class="info-stat-item">
-                            <span class="badge b-3">3</span>
-                            <span class="info-stat-label">Defense</span>
-                        </div>
-                    </div>
-                    <div class="info-footer">
-                        Executing a <span class="color-white">Perfect Dodge</span> elevates Soaring Spin to <span
-                            class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>. This site
-                        calculates based on this proc'd condition instead of the base <span
-                            class="defense-highlight">Defense</span> <span class="badge-mini b-1">1</span>.
-                    </div>
-                </div>
-
-                <div class="info-entry-card">
-                    <div class="ref-card-header">
-                        <img src="Icons/Golden Body.png" class="weapon-icon" alt="Golden Body"
-                            onerror="this.style.display='none'">
-                        <div class="header-text-wrap">
-                            Golden Body (Synergy)
-                        </div>
-                    </div>
-                    <div class="info-body">
-                        <div class="info-stat-item">
-                            <span class="badge b-0">0</span>
-                            <span class="info-stat-label">Stagger</span>
-                        </div>
-                        <div class="mystic-stat-divider"></div>
-                        <div class="info-stat-item">
-                            <span class="badge b-1">1</span>
-                            <span class="info-stat-label">Defense</span>
-                        </div>
-                    </div>
-                    <div class="info-footer">
-                        Default activation provides <span class="defense-highlight">Defense</span> <span
-                            class="badge-mini b-1">1</span>. Pairing with
-                        <span class="color-white">Shields</span> (e.g. Thundercry) elevates it to <span
-                            class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>. This site
-                        calculates for standalone use for <span class="color-white">Qi Regen</span>.
-                    </div>
-                </div>
-
-                <div class="info-entry-card">
-                    <div class="ref-card-header">
-                        <img src="Icons/Serene Breeze.png" class="weapon-icon" alt="Serene Breeze"
-                            onerror="this.style.display='none'">
-                        <div class="header-text-wrap">
-                            Serene Breeze (Attunement)
-                        </div>
-                    </div>
-                    <div class="info-body">
-                        <div class="info-stat-item">
-                            <span class="badge b-2">2</span>
-                            <span class="info-stat-label">Stagger</span>
-                        </div>
-                        <div class="mystic-stat-divider"></div>
-                        <div class="info-stat-item">
-                            <span class="badge b-4">4</span>
-                            <span class="info-stat-label">Defense</span>
-                        </div>
-                    </div>
-                    <div class="info-footer">
-                        Automatic cast provides <span class="color-superarmor">Super Armor</span> <span
-                            class="badge-mini b-4">4</span>. <span class="color-white">Helmet Attunement</span> then
-                        grants <span class="color-tenacity">Tenacity</span> <span class="badge-mini b-3">3</span>
-                        after
-                        the effect ends. Manual presses can be <span class="stagger-highlight">staggered</span> by
-                        Divine Counter.
                     </div>
                 </div>
             </div>
         </section>
-
-
 
         <section id="contact" class="tab-pane">
             <div class="dashboard-header">
@@ -1076,9 +944,7 @@
         </div>
     </div>
 
-
-
-    <script src="script.js?v=2.3"></script>
+    <script src="script.js?v=2.4"></script>
 </body>
 
 </html>
