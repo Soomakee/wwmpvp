@@ -992,29 +992,53 @@ const initApp = () => {
 
     const setupContactForm = () => {
         const contactForm = document.querySelector('.contact-form');
-        const iframe = document.getElementById('contact-target');
         const successMsg = document.getElementById('contactSuccess');
         const submitBtn = document.getElementById('contactSubmit');
 
-        if (contactForm && iframe) {
-            contactForm.addEventListener('submit', () => {
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Get form data
+                const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData.entries());
+
+                // Update UI state
+                const originalText = submitBtn.textContent;
                 submitBtn.textContent = 'Sending...';
                 submitBtn.disabled = true;
 
-                // When iframe loads, submission is complete
-                iframe.onload = () => {
-                    contactForm.classList.add('hidden');
-                    successMsg.classList.remove('hidden');
+                try {
+                    const response = await fetch("https://submit-form.com/3wv9HLMXU", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Accept: "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    });
 
-                    // Reset after 5 seconds to allow new submissions
-                    setTimeout(() => {
-                        contactForm.reset();
-                        contactForm.classList.remove('hidden');
-                        successMsg.classList.add('hidden');
-                        submitBtn.textContent = 'Contact';
-                        submitBtn.disabled = false;
-                    }, 5000);
-                };
+                    if (response.ok) {
+                        contactForm.classList.add('hidden');
+                        successMsg.classList.remove('hidden');
+
+                        // Reset form after a delay
+                        setTimeout(() => {
+                            contactForm.reset();
+                            contactForm.classList.remove('hidden');
+                            successMsg.classList.add('hidden');
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                        }, 5000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    alert('Oops! There was a problem submitting your form. Please try again.');
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
             });
         }
     };
