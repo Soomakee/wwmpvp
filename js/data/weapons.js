@@ -1,0 +1,22 @@
+// =====================================================================
+// Define only the attacks that exist for each weapon.
+// Do not define an attack if the weapon does not possess it.
+export const weaponData = {
+    "Strategic Sword": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 1 } },
+    "Nameless Sword": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 1 } },
+    "Heavenquaker Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged Skill": { S: 1, D: 3 } },
+    "Nameless Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 4, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged": { S: 1, D: 1 } },
+    "Infernal Twinblades": { "Light Attack": { S: 1, D: 0 }, "Burst Skill": { S: 1, D: 3 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 } },
+    "Mortal Ropedart": { "Light Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 'X', D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Charging Stance": { S: 'X', D: 3 }, "Light Charged Varied Combo": { S: 1, D: 1 }, "Heavy Charged Varied Combo": { S: 1, D: 1 } },
+    "Everspring Umbrella": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 0, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Heavy Charged": { S: 0, D: 1 } },
+    "Unfettered Rope Dart": { "Light Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Charging Stance": { S: 0, D: 3 }, "Heavy Charged Skill": { S: 2, D: 1 } },
+    "Thundercry Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 'X', D: 3 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Light Charged Skill": { S: 1, D: 3 }, "Heavy Charged Skill": { S: 1, D: 3 }, "Light Charged Varied Combo": { S: 2, D: 3 }, "Heavy Charged Varied Combo": { S: 2, D: 3 }, "Martial Art Perception Skill": { S: 'X', D: 3 } },
+    "Stormbreaker Spear": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 3 }, "Special Skill": { S: 2, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged Skill": { S: 1, D: 3 } },
+    "Phalanxbane Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 0, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged Skill": { S: 1, D: 3 }, "Martial Art Charged": { S: 2, D: 3 } },
+    "Snowparting Blade": { "Light Attack": { S: 1, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 4, D: 3 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Light Charged": { S: 1, D: 1 }, "Light Varied Combo": { S: 1, D: 1 }, "Heavy Varied Combo": { S: 1, D: 3 } },
+    "Vernal Umbrella": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 1, D: 0 }, "Martial Art": { S: 4, D: 1 }, "Special Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Light Charged Skill": { S: 0, D: 1 }, "Heavy Charged Skill": { S: 1, D: 3 }, "Light Attack Varied Combo": { S: 0, D: 0 }, "Heavy Attack Varied Combo": { S: 0, D: 1 } },
+    "Soulshade Umbrella": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 0, D: 0 }, "Martial Art": { S: 0, D: 1 }, "Special Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 2, D: 1 }, "Heavy Charged Skill": { S: 0, D: 1 } },
+    "Inkwell Fan": { "Light Attack": { S: 0, D: 0 }, "Heavy Attack": { S: 0, D: 0 }, "Martial Art": { S: 2, D: 1 }, "Special Skill": { S: 2, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 }, "Light Charged Skill": { S: 1, D: 1 }, "Heavy Charged Skill": { S: 1, D: 1 }, "Pursuit Skill": { S: 2, D: 1 } },
+    "Panacea Fan": { "Light Attack": { S: 0, D: 0 }, "Healing Skill": { S: 'X', D: 1 }, "Martial Art": { S: 'X', D: 1 }, "Martial Art Perception Skill": { S: 'X', D: 1 }, "Special Skill": { S: 0, D: 1 }, "Special Perception Skill": { S: 0, D: 1 }, "Dual Weapon Skill": { S: 0, D: 1 } }
+};
+// =====================================================================

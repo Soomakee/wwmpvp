@@ -1,0 +1,311 @@
+/* === PRIORITY GUIDE === */
+.priority-info {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary);
+}
+
+.info-header span {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.priority-info .info-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.info-text {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.stagger-highlight {
+    color: var(--badge-3);
+    font-weight: 700;
+}
+
+.defense-highlight {
+    color: var(--badge-2);
+    font-weight: 700;
+}
+
+.text-stagger {
+    color: var(--badge-3);
+    font-weight: 700;
+}
+
+.text-defense {
+    color: var(--badge-2);
+    font-weight: 700;
+}
+
+.tenacity-highlight {
+    color: var(--badge-3);
+    font-weight: 700;
+}
+
+.info-example {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-left: 3px solid var(--primary);
+}
+
+.info-example strong {
+    color: var(--text-main);
+}
+
+.tab-pane {
+    display: none;
+    animation: fade-in 0.3s ease-in-out;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === RULESET TAB === */
+.ruleset-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.ruleset-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.ruleset-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.ruleset-core-principle {
+    background: rgba(24, 24, 27, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.core-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary);
+}
+
+.core-icon span {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+.ruleset-core-body p {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.ruleset-core-example {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-left: 3px solid var(--primary);
+}
+
+.ruleset-core-example strong {
+    color: var(--text-main);
+}
+
+.ruleset-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.section-icon-dollar {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+.ruleset-section-title h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+/* Four Outcome Cards Grid */
+.ruleset-outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+.ruleset-outcome-card {
+    background: rgba(24, 24, 27, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ruleset-outcome-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Per-outcome border-top colors */
+.outcome-victory {
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    border-left: 3px solid var(--badge-1);
+}
+
+.outcome-defeat {
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    border-left: 3px solid var(--badge-4);
+}
+
+.outcome-clash {
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-left: 3px solid var(--badge-3);
+    border-right: 2px solid var(--badge-2);
+}
+
+.outcome-draw {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 3px solid var(--badge-0);
+}
+
+.outcome-card-header {
+    padding: 1.25rem 1.25rem 0.75rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.outcome-number {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-muted);
+}
+
+.outcome-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.outcome-victory .outcome-title {
+    color: var(--badge-1);
+}
+
+.outcome-defeat .outcome-title {
+    color: var(--badge-4);
+}
+
+.outcome-clash .outcome-title {
+    color: var(--badge-3);
+}
+
+.outcome-draw .outcome-title {
+    color: #94a3b8;
+}
+
+.outcome-subtitle {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.outcome-card-body {
+    padding: 0 1.25rem 1rem;
+    flex: 1;
+}
+
+.outcome-card-body p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+}
+
+.outcome-card-body strong {
+    color: var(--text-main);
+}
+
+.outcome-card-example {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem 1.25rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.outcome-card-example strong {
+    color: var(--text-main);
+}
+
+/* Responsive: 2 cols for tablets, 1 col for mobile */
+@media (max-width: 1100px) {
+    .ruleset-outcomes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .ruleset-outcomes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ruleset-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .ruleset-header p {
+        font-size: 0.9rem;
+    }
+}
