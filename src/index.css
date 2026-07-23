@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================================================
+ * Base & Theme
+ * Midnight background (#050505), Inter UI, JetBrains Mono for data values.
+ * Override global rounded defaults to enforce strict square geometry.
+ * ========================================================================== */
+:root {
+    color-scheme: dark;
+    --bg: #050505;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.14);
+    --grid-line: rgba(255, 255, 255, 0.04);
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    background: var(--bg);
+}
+
+body {
+    margin: 0;
+    color: rgb(229 231 235);
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
+}
+
+/* Square geometry overrides — defensive belt-and-braces */
+*,
+*::before,
+*::after {
+    border-radius: 0 !important;
+}
+
+button,
+input,
+select,
+textarea {
+    border-radius: 0 !important;
+    font-family: inherit;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.18); }
+
+::selection { background: rgba(59, 130, 246, 0.4); color: white; }
+
+@layer utilities {
+    .mono {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-feature-settings: 'zero', 'ss01';
+        font-variant-numeric: tabular-nums;
+    }
+
+    .glass {
+        background-color: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .glass-strong {
+        background-color: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+        border: 1px solid var(--border-strong);
+        box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+    }
+
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .blink { animation: blink 1.6s ease-in-out infinite; }
+
+    /* ── Tier text/rail/badge colors ────────────────────────────────────── */
+    .tier-x { color: rgba(255,255,255,0.32); }
+    .tier-0 { color: #a3a3a3; }
+    .tier-1 { color: #34d399; }
+    .tier-2 { color: #60a5fa; }
+    .tier-3 { color: #fbbf24; }
+    .tier-4 { color: #f87171; }
+
+    /* Tier-X = "no color": transparent fill, soft dashed-style border,
+     * reads as muted/empty rather than as a painted swatch. */
+    .bg-tier-x { background-color: transparent; border-color: rgba(255,255,255,0.18); }
+    .bg-tier-0 { background-color: rgba(163,163,163,0.12); border-color: rgba(163,163,163,0.45); }
+    .bg-tier-1 { background-color: rgba(52,211,153,0.14);  border-color: rgba(52,211,153,0.55); }
+    .bg-tier-2 { background-color: rgba(96,165,250,0.14);  border-color: rgba(96,165,250,0.55); }
+    .bg-tier-3 { background-color: rgba(251,191,36,0.14);  border-color: rgba(251,191,36,0.6); }
+    .bg-tier-4 { background-color: rgba(248,113,113,0.16); border-color: rgba(248,113,113,0.6); }
+
+    /* ── Category accent colors (rail strips, section headers, active borders) ── */
+    .cat-bellstrike { color: #60a5fa; }
+    .cat-bamboocut { color: #e879f9; }
+    .cat-stonesplit { color: #ef4444; }
+    .cat-silkbind { color: #34d399; }
+    .cat-mystic { color: #facc15; }
+
+    .bg-cat-bellstrike { background-color: #60a5fa; }
+    .bg-cat-bamboocut { background-color: #e879f9; }
+    .bg-cat-stonesplit { background-color: #ef4444; }
+    .bg-cat-silkbind { background-color: #34d399; }
+    .bg-cat-mystic { background-color: #facc15; }
+
+    .border-cat-bellstrike { border-color: #60a5fa; }
+    .border-cat-bamboocut { border-color: #e879f9; }
+    .border-cat-stonesplit { border-color: #ef4444; }
+    .border-cat-silkbind { border-color: #34d399; }
+    .border-cat-mystic { border-color: #facc15; }
+
+    /* Soft (~25% alpha) variants — used as the resting border on
+     * category-tinted weapon cards so the colored outline is present at
+     * rest but doesn't compete with the active selection, then brightens
+     * to the full-saturation `.border-cat-*` on hover and active. */
+    .border-cat-bellstrike-soft { border-color: rgba(96,165,250,0.35); }
+    .border-cat-bamboocut-soft  { border-color: rgba(232,121,249,0.35); }
+    .border-cat-stonesplit-soft { border-color: rgba(239,68,68,0.40); }
+    .border-cat-silkbind-soft   { border-color: rgba(52,211,153,0.35); }
+    .border-cat-mystic-soft     { border-color: rgba(250,204,21,0.40); }
+}
