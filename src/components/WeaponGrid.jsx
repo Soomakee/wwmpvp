@@ -47,7 +47,7 @@ export default function WeaponGrid({
     }, [groups])
 
     const totalCount = computedGroups.reduce((n, g) => n + g.weapons.length, 0)
-    const defaultIconUrl = (item) => `/assets/Icons/${encodeURIComponent(item.name)}.png`
+    const defaultIconUrl = (item) => `${import.meta.env.BASE_URL}assets/Icons/${encodeURIComponent(item.name)}.png`
 
     // Density-aware grid classes: 2-col on both densities. Each set path
     // has exactly 2 weapons, so a 2-col grid uses every cell cleanly. The

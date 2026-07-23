@@ -16,11 +16,11 @@ function previewUrlFor(weaponName, category, index) {
     // prop here would overweight the change.
     if (category === 'Cast') {
         const enc = encodeURIComponent(weaponName)
-        return `/assets/Mystic%20Skills/${enc}/${enc}_${index + 1}.mp4`
+        return `${import.meta.env.BASE_URL}assets/Mystic%20Skills/${enc}/${enc}_${index + 1}.mp4`
     }
     if (!category) return null
     const safeCat = encodeURIComponent(category)
-    return `/assets/Weapon Previews/${encodeURIComponent(weaponName)}/${safeCat}_${index + 1}.mp4`
+    return `${import.meta.env.BASE_URL}assets/Weapon%20Previews/${encodeURIComponent(weaponName)}/${safeCat}_${index + 1}.mp4`
 }
 
 /**
@@ -150,7 +150,7 @@ export default function ActionPreviewPanel({ weaponName, selectedAttack, preview
                                     {!previewable ? (
                                         <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 gap-3">
                                             <img
-                                                src={`/assets/Icons/${encodeURIComponent(weaponName)}.png`}
+                                                src={`${import.meta.env.BASE_URL}assets/Icons/${encodeURIComponent(weaponName)}.png`}
                                                 alt={weaponName}
                                                 className="h-20 w-20 object-contain drop-shadow-[0_0_12px_rgba(250,204,21,0.4)]"
                                                 onError={(e) => { e.currentTarget.style.display = 'none' }}
