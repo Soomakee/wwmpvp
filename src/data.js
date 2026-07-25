@@ -693,7 +693,7 @@ export const weaponData = {
             stages: [
                 { name: "Heavy Attack", rpName: "Virtuous Enthroned", S: 2, D: 0 },
                 {
-                    name: "Heavy Charged Skill", rpName: "Vile Condemned", S: 2, D: 1, source: {
+                    name: "Heavy Charged Skill", rpName: "Vile Condemned", S: 4, D: 1, source: {
                         type: "resource",
                         title: "Resource Required",
                         desc: "Requires 1 stack of Heaven's Will to use this skill.",
@@ -760,7 +760,8 @@ export const mysticSkillsData = {
         stages: [
             { name: "1st Cast", S: 2, D: 3 },
             { name: "2nd Cast", S: 2, D: 3 },
-            { name: "3rd Cast", S: 2, D: 3 }
+            { name: "3rd Cast", S: 2, D: 3 },
+            { name: "Toad Venom", S: 1, D: 'X' }
         ]
     },
     "Guardians Palm": { S: 2, D: 1 },
