@@ -679,7 +679,7 @@ export const weaponData = {
             stages: [
                 { name: "Light Attack", rpName: "Righteous Reign", S: 1, D: 0 },
                 {
-                    name: "Light Varied Combo", rpName: "Wicked Defiance", S: 1, D: 0, source: {
+                    name: "Light Varied Combo", rpName: "Wicked Defiance", S: 2, D: 1, source: {
                         type: "martial art talent",
                         title: "Martial Art Talent",
                         desc: "Requires Perfect Dodge Enhancement, Martial Art Talent to use this skill.",
