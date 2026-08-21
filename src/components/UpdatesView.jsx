@@ -12,8 +12,15 @@ import { motion } from 'framer-motion'
  */
 const RELEASES = [
     {
-        date: '2026-07-23',
+        date: '2026-08-14',
         tag: 'Latest',
+        items: [
+            'New placeholder categories Bamboocut - Draught and Silkbind - Ribbons — flagged TESTING.',
+            'Drunken Gauntlet, Severing Water Twinblades, Ribbon Drum, and Ribbon Fan added as WIP (placeholder names).',
+        ],
+    },
+    {
+        date: '2026-07-23',
         items: [
             'Mystic Skills now play video previews — Leaping Toad, Cloud Steps, Divine Counter, etc.',
             'Stage / Stagger / Defense column header text neutralized (matches Weapons tab).',

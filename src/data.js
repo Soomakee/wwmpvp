@@ -704,7 +704,13 @@ export const weaponData = {
         },
         "Martial Art": {
             stages: [
-                { name: "1st Cast", rpName: "Heavenwill Declared", S: 2, D: 3 },
+                { name: "1st Cast Melee", rpName: "Heavenwill Declared", S: 2, D: 1 },
+                {
+                    name: "1st Cast Ranged",
+                    rpName: "Heavenwill Declared",
+                    S: 2, D: 3,
+                    video: "Martial Art_1.5.mp4"
+                },
                 { name: "2nd Cast", rpName: "Celestial Mandate", S: 2, D: 1 }
             ]
         },
@@ -745,6 +751,118 @@ export const weaponData = {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Rope Dart - Airborne Light Attack", S: 1, D: 0 },
                 { name: "Heavy Attack Airborne", rpName: "Rope Dart - Jump Strike", S: 1, D: 0 }
+            ]
+        }
+    },
+
+    // =============================================================================
+    // PLACEHOLDER / TESTING WEAPONS
+    // -----------------------------------------------------------------------------
+    // Bamboocut - Draught and Silkbind - Ribbons are new categories still under
+    // testing. Weapon names, attack stages, and rpNames are ALL placeholders
+    // (marked `wip: true` so the UI shows WIP badges and a TESTING banner).
+    // S/D are 'X' (unknown) until real numbers land. Drop-in shape matches
+    // the rest of the file so edits to the source-of-truth replace these
+    // wholesale. Do not ship this data as final.
+    // =============================================================================
+
+    "Drunken Gauntlet": {
+        category: "Bamboocut - Draught",
+        wip: true,
+        "Light Attacks": {
+            stages: [
+                { name: "Light Attack", rpName: "TBD", S: "X", D: "X" },
+                { name: "Light Sprint Attack", rpName: "TBD", S: "X", D: "X" }
+            ]
+        },
+        "Heavy Attacks": {
+            stages: [
+                { name: "Heavy Attack", rpName: "TBD", S: "X", D: "X" },
+                { name: "Heavy Charged", rpName: "TBD", S: "X", D: "X" }
+            ]
+        },
+        "Martial Art": { rpName: "TBD", S: "X", D: "X" },
+        "Special Skill": { rpName: "TBD", S: "X", D: "X" },
+        "Dual Weapon Skill": { rpName: "TBD", S: "X", D: "X" },
+        "Airborne Attacks": {
+            stages: [
+                { name: "Light Attack Airborne", rpName: "TBD", S: "X", D: "X" },
+                { name: "Heavy Attack Airborne", rpName: "TBD", S: "X", D: "X" }
+            ]
+        }
+    },
+    "Severing Water Twinblades": {
+        category: "Bamboocut - Draught",
+        wip: true,
+        "Light Attacks": {
+            stages: [
+                { name: "Light Attack", rpName: "TBD", S: "X", D: "X" },
+                { name: "Light Sprint Attack", rpName: "TBD", S: "X", D: "X" }
+            ]
+        },
+        "Heavy Attacks": {
+            stages: [
+                { name: "Heavy Attack", rpName: "TBD", S: "X", D: "X" },
+                { name: "Heavy Charged", rpName: "TBD", S: "X", D: "X" }
+            ]
+        },
+        "Martial Art": { rpName: "TBD", S: "X", D: "X" },
+        "Special Skill": { rpName: "TBD", S: "X", D: "X" },
+        "Dual Weapon Skill": { rpName: "TBD", S: "X", D: "X" },
+        "Airborne Attacks": {
+            stages: [
+                { name: "Light Attack Airborne", rpName: "TBD", S: "X", D: "X" },
+                { name: "Heavy Attack Airborne", rpName: "TBD", S: "X", D: "X" }
+            ]
+        }
+    },
+    "Ribbon Drum": {
+        category: "Silkbind - Ribbons",
+        wip: true,
+        "Light Attacks": {
+            stages: [
+                { name: "Light Attack", rpName: "TBD", S: "X", D: "X" },
+                { name: "Light Sprint Attack", rpName: "TBD", S: "X", D: "X" }
+            ]
+        },
+        "Heavy Attacks": {
+            stages: [
+                { name: "Heavy Attack", rpName: "TBD", S: "X", D: "X" },
+                { name: "Heavy Charged", rpName: "TBD", S: "X", D: "X" }
+            ]
+        },
+        "Martial Art": { rpName: "TBD", S: "X", D: "X" },
+        "Special Skill": { rpName: "TBD", S: "X", D: "X" },
+        "Dual Weapon Skill": { rpName: "TBD", S: "X", D: "X" },
+        "Airborne Attacks": {
+            stages: [
+                { name: "Light Attack Airborne", rpName: "TBD", S: "X", D: "X" },
+                { name: "Heavy Attack Airborne", rpName: "TBD", S: "X", D: "X" }
+            ]
+        }
+    },
+    "Ribbon Fan": {
+        category: "Silkbind - Ribbons",
+        wip: true,
+        "Light Attacks": {
+            stages: [
+                { name: "Light Attack", rpName: "TBD", S: "X", D: "X" },
+                { name: "Light Sprint Attack", rpName: "TBD", S: "X", D: "X" }
+            ]
+        },
+        "Heavy Attacks": {
+            stages: [
+                { name: "Heavy Attack", rpName: "TBD", S: "X", D: "X" },
+                { name: "Heavy Charged", rpName: "TBD", S: "X", D: "X" }
+            ]
+        },
+        "Martial Art": { rpName: "TBD", S: "X", D: "X" },
+        "Special Skill": { rpName: "TBD", S: "X", D: "X" },
+        "Dual Weapon Skill": { rpName: "TBD", S: "X", D: "X" },
+        "Airborne Attacks": {
+            stages: [
+                { name: "Light Attack Airborne", rpName: "TBD", S: "X", D: "X" },
+                { name: "Heavy Attack Airborne", rpName: "TBD", S: "X", D: "X" }
             ]
         }
     }
@@ -802,7 +920,8 @@ export const mysticSkillsData = {
     },
     "Tai Chi": { S: 0, D: 1 },
     "Mighty Drop": { S: 0, D: 0 },
-    "Bow Ring Skill": { S: 0, D: 3 }
+    "Bow Ring Skill": { S: 0, D: 3 },
+    "Nine-arrow Formation": { S: 'X', D: 'X' }
 };
 
 // ===== Helpers ==============================================================

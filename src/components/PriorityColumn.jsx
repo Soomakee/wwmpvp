@@ -134,6 +134,14 @@ export default function PriorityColumn({ weaponName, selectedAttack, onSelectAtt
                             · {weapon.category}
                         </span>
                     )}
+                    {weapon?.wip && (
+                        <span
+                            className="text-[8px] mono uppercase tracking-[0.18em] font-bold px-1 py-px border border-amber-400/60 bg-amber-400/10 text-amber-300 shrink-0"
+                            title="Placeholder weapon — still under testing, data not final."
+                        >
+                            Testing
+                        </span>
+                    )}
                 </div>
                 {weapon && (
                     <span className="text-[10px] mono text-white/40 truncate max-w-[50%]">

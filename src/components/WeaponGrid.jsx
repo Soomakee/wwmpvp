@@ -38,7 +38,7 @@ export default function WeaponGrid({
     iconUrlFor,        // optional override: (item) => string
     setOverride,       // optional override when not derived from item.category
     hideSectionHeaders = false, // when true (e.g. Mystic Skills), skip per-group sub-headers
-    expectedTotal = 18, // denominator for the right-side count chip ("n / total")
+    expectedTotal = Object.keys(weaponData).length, // denominator for the right-side count chip ("n / total")
     density = 'normal', // 'normal' = desktop 2-col 72px cards; 'compact' = mobile 3-col 56px cards
 }) {
     const computedGroups = useMemo(() => {
@@ -80,6 +80,9 @@ export default function WeaponGrid({
                     const key = group.setKey || group.set.split(' - ')[0] || 'Mystic'
                     const rail = SET_RAIL[key] || 'bg-white/40'
                     const text = SET_TEXT[key] || 'text-white/55'
+                    // A section is under testing if any of its weapons carry
+                    // the `wip` flag (placeholder category + placeholder names).
+                    const testing = !hideSectionHeaders && group.weapons.some((w) => w.wip)
                     return (
                         <section key={group.set} className="shrink-0 flex flex-col bg-midnight-950">
                             {!hideSectionHeaders && (
@@ -87,6 +90,24 @@ export default function WeaponGrid({
                                     <span className="text-[9px] mono uppercase tracking-[0.24em] flex items-center gap-2">
                                         <span className={`h-2 w-2 ${rail}`} aria-hidden="true" />
                                         <span className={text}>{group.set}</span>
+                                    </span>
+                                    {testing && (
+                                        <span
+                                            className="text-[8px] mono uppercase tracking-[0.18em] font-bold px-1 py-px border border-amber-400/60 bg-amber-400/10 text-amber-300"
+                                            title="This category is still under testing — names and data are placeholders."
+                                        >
+                                            Testing
+                                        </span>
+                                    )}
+                                </div>
+                            )}
+                            {testing && (
+                                <div className="flex items-center gap-1.5 px-2 py-0.5 bg-amber-400/10 border-y border-amber-400/25">
+                                    <span className="text-[8px] mono uppercase tracking-[0.18em] font-bold text-amber-300">
+                                        Placeholder
+                                    </span>
+                                    <span className="text-[9px] text-amber-200/70 truncate">
+                                        Category &amp; weapon names are not final — data under testing.
                                     </span>
                                 </div>
                             )}

@@ -4,7 +4,7 @@ import PriorityBadge from './PriorityBadge.jsx'
 import SourceCard from './SourceCard.jsx'
 import { weaponData } from '../data.js'
 
-function previewUrlFor(weaponName, category, index) {
+function previewUrlFor(weaponName, category, index, stage) {
     if (!weaponName || index === undefined) return null
     // Mystic skills live at /assets/Mystic%20Skills/<skill>/<skill>_<idx+1>.mp4
     // — each skill has its own subdirectory named after itself (matches
@@ -20,7 +20,12 @@ function previewUrlFor(weaponName, category, index) {
     }
     if (!category) return null
     const safeCat = encodeURIComponent(category)
-    return `${import.meta.env.BASE_URL}assets/Weapon%20Previews/${encodeURIComponent(weaponName)}/${safeCat}_${index + 1}.mp4`
+    // A stage may declare its own video filename (e.g. a fractional index
+    // like "Martial Art_1.5.mp4" for a ranged variant that sits between
+    // two integer-indexed casts). Falls back to the standard
+    // `<category>_<index+1>.mp4` convention otherwise.
+    const file = stage?.video || `${safeCat}_${index + 1}.mp4`
+    return `${import.meta.env.BASE_URL}assets/Weapon%20Previews/${encodeURIComponent(weaponName)}/${file}`
 }
 
 /**
@@ -46,7 +51,7 @@ export default function ActionPreviewPanel({ weaponName, selectedAttack, preview
     const weapon = weaponName ? weaponData[weaponName] : null
     const stage = selectedAttack?.stage
     const previewSrc = selectedAttack && weaponName
-        ? previewUrlFor(weaponName, selectedAttack.category, selectedAttack.index)
+        ? previewUrlFor(weaponName, selectedAttack.category, selectedAttack.index, selectedAttack.stage)
         : null
 
     const handleCanPlay = () => setVideoStatus('ready')
