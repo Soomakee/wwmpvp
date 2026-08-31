@@ -882,7 +882,13 @@ export const mysticSkillsData = {
             { name: "Toad Venom", S: 1, D: 'X' }
         ]
     },
-    "Guardians Palm": { S: 2, D: 1 },
+    "Guardians Palm": {
+        stages: [
+            { name: "Base Cast", S: 2, D: 1 },
+            { name: "Damage Enhancement", S: 2, D: 1 },
+            { name: "Breach", S: 4, D: 1, video: "Guardians Palm_1.mp4" }
+        ]
+    },
     "Flaming Meteor": { S: 2, D: 4 },
     "Flute of the Tides": { S: 0, D: 1 },
     "Talon Strike": { S: 2, D: 0 },

@@ -16,7 +16,11 @@ function previewUrlFor(weaponName, category, index, stage) {
     // prop here would overweight the change.
     if (category === 'Cast') {
         const enc = encodeURIComponent(weaponName)
-        return `${import.meta.env.BASE_URL}assets/Mystic%20Skills/${enc}/${enc}_${index + 1}.mp4`
+        // A stage may declare its own video filename (e.g. to share one clip
+        // across multiple stages that reuse the same animation). Falls back
+        // to the standard `<skill>_<index+1>.mp4` convention otherwise.
+        const file = stage?.video || `${enc}_${index + 1}.mp4`
+        return `${import.meta.env.BASE_URL}assets/Mystic%20Skills/${enc}/${file}`
     }
     if (!category) return null
     const safeCat = encodeURIComponent(category)
