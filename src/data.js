@@ -830,7 +830,14 @@ export const weaponData = {
         },
         "Special Skill": {
             stages: [
-                { name: "Base Cast", rpName: "Nightwick - Tipsylay", S: 2, D: 1 },
+                { name: "Base Cast Instant", rpName: "Nightwick - Tipsylay", S: 2, D: 1 },
+                {
+                    name: "Base Cast after 0.5 Seconds",
+                    rpName: "Nightwick - Tipsylay",
+                    S: 2,
+                    D: 3,
+                    video: "Special Skill_1.mp4"
+                },
                 { name: "Defense Break Skill", rpName: "Nightwick - Primepick", S: 2, D: 1 },
                 { name: "Pursuit Skill", rpName: "Nightwick - Grounddrift", S: 2, D: 1 }
             ]

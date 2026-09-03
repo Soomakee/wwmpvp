@@ -15,30 +15,20 @@ const RELEASES = [
         date: '2026-09-03',
         tag: 'Latest',
         items: [
-            'Riven Twinblades finalized — all 14 stages named and wired to preview clips (Blade Against Waves, Tidepour, Boundvessel, Reveldrift, Hero\'s Blood, Dual Blades).',
-            'Skystrike Gauntlets finalized — all 16 stages named and wired to preview clips (Bloombreak, Whaledraft, Dragonquench - Inebriate, Peakfall - Jadeflush, Nightwick).',
-            'New Binge Points resource gates the Inebriate variants; Dragonquench - Inebriate requires Skyspeak Innerway.',
-            'Heavy Attacks split into Press / Hold (Twinblades) and Drinking Skill / Quick Drink (Gauntlets) variants, each with its own clip.',
-            'Riven Twinblades and Skystrike Gauntlets Stagger/Defense finalized — all 31 stages now carry real trade values (Drinking Skill\'s Stagger still TBD).',
-            'Skystrike Gauntlets Nightwick - Tipsylay (2/1) has delayed tenacity and a perfect-dodge window — exact ruleset representation still TBD.',
-            'All 22 weapons and 23 mystic skills now have dedicated icons — every icon normalized to a uniform 512×512 so the whole site renders at one consistent size.',
-            'Mystic skills renamed to their final names: Guardian Palm, Lion\'s Roar, Dragon\'s Breath, Bursting Nine, and Tai Chi.',
-            'Icon library consolidated under assets/Icons/ — weapon, mystic, innerway, attunement, and martial-art-talent icons live together.',
-        ],
-    },
-    {
-        date: '2026-08-14',
-        items: [
-            'New placeholder categories Bamboocut - Draught and Silkbind - Ribbons — flagged TESTING.',
-            'Skystrike Gauntlets, Riven Twinblades, Ribbon Drum, and Ribbon Fan added as WIP (placeholder names).',
+            'Riven Twinblades finalized — all 14 moves named (Blade Against Waves, Tidepour, Boundvessel, Reveldrift, Hero\'s Blood, Dual Blades), each with a playable preview and final Stagger/Defense values.',
+            'Skystrike Gauntlets finalized — all 16 moves named (Bloombreak, Whaledraft, Dragonquench - Inebriate, Peakfall - Jadeflush, Nightwick), each with a playable preview and final Stagger/Defense values.',
+            'New Binge Points resource gates the Inebriate variants; Dragonquench - Inebriate requires the Skyspeak Innerway.',
+            'Heavy Attacks split into Press / Hold (Twinblades) and Drinking Skill / Quick Drink (Gauntlets) variants.',
+            'Nightwick - Tipsylay splits into an instant cast (2/1) and a 0.5-second delayed cast (2/3) with a perfect-dodge window.',
+            'Every weapon and mystic skill now has a dedicated icon, all at one consistent size.',
+            'Mystic skill names corrected to their real names: Guardian Palm, Lion\'s Roar, Dragon\'s Breath, Bursting Nine, and Tai Chi.',
+            'New mystic casts in the works — Throw (Lion\'s Roar), Fury (Leaping Toad), Gather (Flaming Meteor), Tide (Dragon Head), Umbra (Ghostly Steps), Feather Down (Honking Havoc) — plus the new skill Honking Havoc, marked Work in Progress until finalized.',
         ],
     },
     {
         date: '2026-07-23',
         items: [
             'Mystic Skills now play video previews — Leaping Toad, Cloud Steps, Divine Counter, etc.',
-            'Stage / Stagger / Defense column header text neutralized (matches Weapons tab).',
-            'Removed per-category weapon count badges for a cleaner master panel.',
         ],
     },
     {
@@ -56,7 +46,7 @@ const RELEASES = [
         items: [
             'Mystic Skills view added with the same 3-column layout as Weapons.',
             'Stagger / Defense legend consistent across views.',
-            'Innerway / Resource / Attunement sources flagged on stage rows.',
+            'Moves that require an Innerway, resource, or Attunement are flagged on their rows.',
         ],
     },
 ]
