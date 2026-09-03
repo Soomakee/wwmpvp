@@ -766,53 +766,183 @@ export const weaponData = {
     // wholesale. Do not ship this data as final.
     // =============================================================================
 
-    "Drunken Gauntlet": {
+    "Skystrike Gauntlets": {
         category: "Bamboocut - Draught",
-        wip: true,
         "Light Attacks": {
             stages: [
-                { name: "Light Attack", rpName: "TBD", S: "X", D: "X" },
-                { name: "Light Sprint Attack", rpName: "TBD", S: "X", D: "X" }
+                { name: "Light Attack", rpName: "Gauntlets - Light Attack", S: "X", D: "X" },
+                {
+                    name: "Light Attack Inebriate",
+                    rpName: "Bloombreak",
+                    S: "X",
+                    D: "X",
+                    source: {
+                        type: "resource",
+                        title: "Binge Points Required",
+                        desc: "Requires Binge Points to use this skill."
+                    }
+                },
+                { name: "Light Sprint Attack", rpName: "Gauntlets - Dash", S: "X", D: "X" }
             ]
         },
         "Heavy Attacks": {
             stages: [
-                { name: "Heavy Attack", rpName: "TBD", S: "X", D: "X" },
-                { name: "Heavy Charged", rpName: "TBD", S: "X", D: "X" }
+                { name: "Drinking Skill", rpName: "Whaledraft", S: "X", D: "X" },
+                { name: "Quick Drink", rpName: "Whaledraft", S: "X", D: "X" },
+                {
+                    name: "Heavy Attack Inebriate",
+                    rpName: "Dragonquench - Inebriate",
+                    S: "X",
+                    D: "X",
+                    source: {
+                        type: "resource",
+                        title: "Eonpour Innerway Required",
+                        desc: "Requires Eonpour Innerway to use this skill."
+                    }
+                }
             ]
         },
-        "Martial Art": { rpName: "TBD", S: "X", D: "X" },
-        "Special Skill": { rpName: "TBD", S: "X", D: "X" },
-        "Dual Weapon Skill": { rpName: "TBD", S: "X", D: "X" },
+        "Martial Art": {
+            stages: [
+                { name: "1st Cast", rpName: "Peakfall", S: "X", D: "X" },
+                { name: "2nd Cast", rpName: "Peakfall", S: "X", D: "X" },
+                {
+                    name: "1st Cast Inebriate",
+                    rpName: "Peakfall - Jadeflush",
+                    S: "X",
+                    D: "X",
+                    source: {
+                        type: "resource",
+                        title: "Binge Points Required",
+                        desc: "Requires Binge Points to use this skill."
+                    }
+                },
+                {
+                    name: "2nd Cast Inebriate",
+                    rpName: "Peakfall - Jadeflush",
+                    S: "X",
+                    D: "X",
+                    source: {
+                        type: "resource",
+                        title: "Binge Points Required",
+                        desc: "Requires Binge Points to use this skill."
+                    }
+                }
+            ]
+        },
+        "Special Skill": {
+            stages: [
+                { name: "Base Cast", rpName: "Nightwick - Tipsylay", S: "X", D: "X" },
+                { name: "Defense Break Skill", rpName: "Nightwick - Primepick", S: "X", D: "X" },
+                { name: "Pursuit Skill", rpName: "Nightwick - Grounddrift", S: "X", D: "X" }
+            ]
+        },
+        "Dual Weapon Skill": {
+            stages: [
+                {
+                    name: "Gauntlets",
+                    rpName: "Gauntlets",
+                    S: "X",
+                    D: "X",
+                    video: "Dual Weapon Skill.mp4"
+                }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
-                { name: "Light Attack Airborne", rpName: "TBD", S: "X", D: "X" },
-                { name: "Heavy Attack Airborne", rpName: "TBD", S: "X", D: "X" }
+                { name: "Light Attack Airborne", rpName: "Gauntlets - Airborne Light Attack", S: "X", D: "X" },
+                { name: "Heavy Attack Airborne", rpName: "Gauntlets - Jump Strike", S: "X", D: "X" }
             ]
         }
     },
-    "Severing Water Twinblades": {
+    "Riven Twinblades": {
         category: "Bamboocut - Draught",
-        wip: true,
         "Light Attacks": {
             stages: [
-                { name: "Light Attack", rpName: "TBD", S: "X", D: "X" },
-                { name: "Light Sprint Attack", rpName: "TBD", S: "X", D: "X" }
+                { name: "Light Attack", rpName: "Dual Blades - Light Attack", S: "X", D: "X" },
+                { name: "Light Attack Varied Combo", rpName: "Blade Against Waves", S: "X", D: "X" },
+                { name: "Light Sprint Attack", rpName: "Dual Blades - Dash", S: "X", D: "X" }
             ]
         },
         "Heavy Attacks": {
             stages: [
-                { name: "Heavy Attack", rpName: "TBD", S: "X", D: "X" },
-                { name: "Heavy Charged", rpName: "TBD", S: "X", D: "X" }
+                { name: "Heavy Attack Press", rpName: "Blade Vessel", S: "X", D: "X" },
+                { name: "Heavy Attack Hold", rpName: "Blade Vessel", S: "X", D: "X" },
+                {
+                    name: "Heavy Attack Press - Inebriate",
+                    rpName: "Boundvessel",
+                    S: "X",
+                    D: "X",
+                    video: "Heavy Attacks_4.mp4",
+                    source: {
+                        type: "resource",
+                        title: "Binge Points Required",
+                        desc: "Requires Binge Points to use this skill."
+                    }
+                },
+                {
+                    name: "Heavy Attack Hold - Inebriate",
+                    rpName: "Boundvessel",
+                    S: "X",
+                    D: "X",
+                    video: "Heavy Attacks_5.mp4",
+                    source: {
+                        type: "resource",
+                        title: "Binge Points Required",
+                        desc: "Requires Binge Points to use this skill."
+                    }
+                },
+                {
+                    name: "Heavy Attack Varied Combo",
+                    rpName: "Tidepour",
+                    S: "X",
+                    D: "X",
+                    video: "Heavy Attacks_3.mp4",
+                    source: {
+                        type: "resource",
+                        title: "Binge Points Required",
+                        desc: "Requires Binge Points to use this skill."
+                    }
+                }
             ]
         },
-        "Martial Art": { rpName: "TBD", S: "X", D: "X" },
-        "Special Skill": { rpName: "TBD", S: "X", D: "X" },
-        "Dual Weapon Skill": { rpName: "TBD", S: "X", D: "X" },
+        "Martial Art": {
+            stages: [
+                { name: "1st Cast", rpName: "Reveldrift", S: "X", D: "X" },
+                { name: "2nd Cast", rpName: "Reveldrift", S: "X", D: "X" }
+            ]
+        },
+        "Special Skill": {
+            stages: [
+                { name: "Base Cast", rpName: "Hero's Blood", S: "X", D: "X" },
+                {
+                    name: "Base Cast - Inebriate",
+                    rpName: "Hero's Blood - Inebriate",
+                    S: "X",
+                    D: "X",
+                    source: {
+                        type: "resource",
+                        title: "Binge Points Required",
+                        desc: "Requires Binge Points to use this skill."
+                    }
+                }
+            ]
+        },
+        "Dual Weapon Skill": {
+            stages: [
+                {
+                    name: "Base Cast",
+                    rpName: "Dual Blades",
+                    S: "X",
+                    D: "X",
+                    video: "Dual Weapon Skill.mp4"
+                }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
-                { name: "Light Attack Airborne", rpName: "TBD", S: "X", D: "X" },
-                { name: "Heavy Attack Airborne", rpName: "TBD", S: "X", D: "X" }
+                { name: "Light Airborne", rpName: "Dual Blades - Airborne Light Attack", S: "X", D: "X" },
+                { name: "Heavy Airborne", rpName: "Dual Blades - Airborne Heavy Attack", S: "X", D: "X" }
             ]
         }
     },

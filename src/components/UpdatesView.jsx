@@ -12,11 +12,20 @@ import { motion } from 'framer-motion'
  */
 const RELEASES = [
     {
-        date: '2026-08-14',
+        date: '2026-09-03',
         tag: 'Latest',
         items: [
+            'Riven Twinblades finalized — all 14 stages named and wired to preview clips (Blade Against Waves, Tidepour, Boundvessel, Reveldrift, Hero\'s Blood, Dual Blades).',
+            'Skystrike Gauntlets finalized — all 16 stages named and wired to preview clips (Bloombreak, Whaledraft, Dragonquench - Inebriate, Peakfall - Jadeflush, Nightwick).',
+            'New Binge Points resource gates the Inebriate variants; Dragonquench - Inebriate requires Eonpour Innerway.',
+            'Heavy Attacks split into Press / Hold (Twinblades) and Drinking Skill / Quick Drink (Gauntlets) variants, each with its own clip.',
+        ],
+    },
+    {
+        date: '2026-08-14',
+        items: [
             'New placeholder categories Bamboocut - Draught and Silkbind - Ribbons — flagged TESTING.',
-            'Drunken Gauntlet, Severing Water Twinblades, Ribbon Drum, and Ribbon Fan added as WIP (placeholder names).',
+            'Skystrike Gauntlets, Riven Twinblades, Ribbon Drum, and Ribbon Fan added as WIP (placeholder names).',
         ],
     },
     {
