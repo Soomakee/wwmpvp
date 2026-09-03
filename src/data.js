@@ -26,7 +26,7 @@ export const weaponData = {
                         type: "innerway",
                         title: "Sword Horizon T0",
                         desc: "Requires the Innerway Sword Horizon T0 to unlock this skill.",
-                        icon: "assets/Innerways/Sword Horizon.png"
+                        icon: "assets/Icons/Innerways/Sword Horizon.png"
                     }
                 }
             ]
@@ -43,7 +43,7 @@ export const weaponData = {
                         type: "innerway",
                         title: "Sword Horizon T0",
                         desc: "Requires the Innerway Sword Horizon T0 to unlock this skill.",
-                        icon: "assets/Innerways/Sword Horizon.png"
+                        icon: "assets/Icons/Innerways/Sword Horizon.png"
                     }
                 }
             ]
@@ -59,7 +59,7 @@ export const weaponData = {
                         type: "innerway",
                         title: "Sword Horizon T0",
                         desc: "Requires the Innerway Sword Horizon T0 to unlock this skill.",
-                        icon: "assets/Innerways/Sword Horizon.png"
+                        icon: "assets/Icons/Innerways/Sword Horizon.png"
                     }
                 }
             ]
@@ -92,7 +92,7 @@ export const weaponData = {
                         type: "innerway",
                         title: "Sword Morph T0",
                         desc: "Requires the Innerway Sword Morph T0 to unlock this skill.",
-                        icon: "assets/Innerways/Sword Morph.png"
+                        icon: "assets/Icons/Innerways/Sword Morph.png"
                     }
                 }
             ]
@@ -143,7 +143,7 @@ export const weaponData = {
                         type: "innerway",
                         title: "Wolfchaser's Art T3",
                         desc: "Requires the Innerway Wolfchaser's Art T3 to unlock this skill.",
-                        icon: "assets/Innerways/Wolfchaser's Art.png"
+                        icon: "assets/Icons/Innerways/Wolfchaser's Art.png"
                     }
                 }
             ]
@@ -195,7 +195,7 @@ export const weaponData = {
                 type: "resource",
                 title: "Resource Required",
                 desc: "Requires max Karmic Flame Resource to use Flamelash.",
-                icon: "assets/Martial Art Talents/Flamelash.png"
+                icon: "assets/Icons/Martial Art Talents/Flamelash.png"
             }
         },
         "Martial Art": { rpName: "Addled Mind", S: 2, D: 1 },
@@ -238,7 +238,7 @@ export const weaponData = {
                 type: "resource",
                 title: "Resource Required",
                 desc: "Requires 1 Stack of Token of Gratitude to use this skill.",
-                icon: "assets/Martial Art Talents/Token of Gratitude.png"
+                icon: "assets/Icons/Martial Art Talents/Token of Gratitude.png"
             }
         },
         "Dual Weapon Skill": { rpName: "Rope Dart", S: 2, D: 1 },
@@ -270,7 +270,7 @@ export const weaponData = {
                 type: "resource",
                 title: "Resource Required",
                 desc: "Requires 1 Stack of Fading Crimson to cast this skill.",
-                icon: "assets/Martial Art Talents/Fading Crimson.png"
+                icon: "assets/Icons/Martial Art Talents/Fading Crimson.png"
             }
         },
         "Special Skill": { rpName: "Cyclone Waltz", S: 2, D: 3 },
@@ -299,7 +299,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Resource Required",
                         desc: "Requires 1 bar of Token of Gratitude to use this skill",
-                        icon: "assets/Martial Art Talents/Token of Gratitude.png"
+                        icon: "assets/Icons/Martial Art Talents/Token of Gratitude.png"
                     }
                 },
                 {
@@ -307,7 +307,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Resource Required",
                         desc: "Requires 2 bars of Token of Gratitude to use this skill",
-                        icon: "assets/Martial Art Talents/Token of Gratitude.png"
+                        icon: "assets/Icons/Martial Art Talents/Token of Gratitude.png"
                     }
                 }
             ]
@@ -334,7 +334,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Battle Will Required",
                         desc: "Requires 1 bar of Battle Will to use this skill.",
-                        icon: "assets/Martial Art Talents/Battle Will.png"
+                        icon: "assets/Icons/Martial Art Talents/Battle Will.png"
                     }
                 }
             ]
@@ -348,7 +348,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Battle Will Required",
                         desc: "Requires 1 bar of Battle Will to use this skill.",
-                        icon: "assets/Martial Art Talents/Battle Will.png"
+                        icon: "assets/Icons/Martial Art Talents/Battle Will.png"
                     }
                 }
             ]
@@ -373,7 +373,7 @@ export const weaponData = {
                 type: "resource",
                 title: "Resource Required",
                 desc: "Requires 2 bars of Battle Will to use this skill",
-                icon: "assets/Martial Art Talents/Battle Will.png"
+                icon: "assets/Icons/Martial Art Talents/Battle Will.png"
             }
         },
         "Dual Weapon Skill": { rpName: "Mo Blade", S: 2, D: 1 },
@@ -404,7 +404,7 @@ export const weaponData = {
                 type: "resource",
                 title: "Resource Required",
                 desc: "Requires 2 bars of Battle Will to use this skill",
-                icon: "assets/Martial Art Talents/Battle Will.png"
+                icon: "assets/Icons/Martial Art Talents/Battle Will.png"
             }
         },
         "Dual Weapon Skill": { rpName: "Spear", S: 2, D: 1 },
@@ -432,7 +432,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Blade Momentum Required",
                         desc: "Requires 2 bars of Blade Momentum to use this skill.",
-                        icon: "assets/Martial Art Talents/Blade Momentum.png"
+                        icon: "assets/Icons/Martial Art Talents/Blade Momentum.png"
                     }
                 }
             ]
@@ -448,7 +448,7 @@ export const weaponData = {
                 type: "resource",
                 title: "Blade Momentum Required",
                 desc: "Requires 2 bars of Blade Momentum to use this skill.",
-                icon: "assets/Martial Art Talents/Blade Momentum.png"
+                icon: "assets/Icons/Martial Art Talents/Blade Momentum.png"
             }
         },
         "Dual Weapon Skill": { rpName: "Mo Blade", S: 2, D: 1 },
@@ -477,7 +477,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Resource Required",
                         desc: "Requires 1 Bar of Blade Momentum to use this skill.",
-                        icon: "assets/Martial Art Talents/Blade Momentum.png"
+                        icon: "assets/Icons/Martial Art Talents/Blade Momentum.png"
                     }
                 }
             ]
@@ -496,7 +496,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Blade Momentum Required",
                         desc: "Requires 2 bars of Blade Momentum to use this skill.",
-                        icon: "assets/Martial Art Talents/Blade Momentum.png"
+                        icon: "assets/Icons/Martial Art Talents/Blade Momentum.png"
                     }
                 },
                 {
@@ -504,7 +504,7 @@ export const weaponData = {
                         type: "martial art talent",
                         title: "Special Skill Enhancement",
                         desc: "Requires a Martial Art Breakthrough to unlock this skill.",
-                        icon: "assets/Martial Art Talents/Special Skill Enhancement.png"
+                        icon: "assets/Icons/Martial Art Talents/Special Skill Enhancement.png"
                     }
                 }
             ]
@@ -608,7 +608,7 @@ export const weaponData = {
                         type: "attunement",
                         title: "Disc Attunement Required",
                         desc: "Requires an Attunement on the Disc. When [Special Skill: Peak's Springless Silence] staggers or controls a target, it increases their damage taken by 12% for 5s and grants you 2s of Tenacity.",
-                        icon: "assets/Attunements/Discs/Fan_1.png"
+                        icon: "assets/Icons/Attunements/Discs/Fan_1.png"
                     }
                 }
             ]
@@ -640,7 +640,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Dew Resource Required",
                         desc: "Requires max Dew to use this skill",
-                        icon: "assets/Martial Art Talents/Dew.png"
+                        icon: "assets/Icons/Martial Art Talents/Dew.png"
                     }
                 }
             ]
@@ -652,7 +652,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Dew Resource Required",
                         desc: "Requires 2 Dew to use this skill",
-                        icon: "assets/Martial Art Talents/Dew.png"
+                        icon: "assets/Icons/Martial Art Talents/Dew.png"
                     }
                 },
                 {
@@ -660,7 +660,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Dew Resource Required",
                         desc: "Requires 3 Dew to use this skill",
-                        icon: "assets/Martial Art Talents/Dew.png"
+                        icon: "assets/Icons/Martial Art Talents/Dew.png"
                     }
                 }
             ]
@@ -683,7 +683,7 @@ export const weaponData = {
                         type: "martial art talent",
                         title: "Martial Art Talent",
                         desc: "Requires Perfect Dodge Enhancement, Martial Art Talent to use this skill.",
-                        icon: "assets/Martial Art Talents/Special Skill Enhancement.png"
+                        icon: "assets/Icons/Martial Art Talents/Special Skill Enhancement.png"
                     }
                 },
                 { name: "Light Sprint Attack", rpName: "Gauntlets - Dash", S: 1, D: 0 }
@@ -697,7 +697,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Resource Required",
                         desc: "Requires 1 stack of Heaven's Will to use this skill.",
-                        icon: "assets/Martial Art Talents/Heaven's Will.png"
+                        icon: "assets/Icons/Martial Art Talents/Heaven's Will.png"
                     }
                 }
             ]
@@ -738,7 +738,7 @@ export const weaponData = {
                         type: "resource",
                         title: "Resource Required",
                         desc: "Requires 1 stack of Heaven's Will to use this skill.",
-                        icon: "assets/Martial Art Talents/Heaven's Will.png"
+                        icon: "assets/Icons/Martial Art Talents/Heaven's Will.png"
                     }
                 },
                 { name: "No Resource", rpName: "Boundless Whirl", S: 1, D: 0 }
@@ -758,59 +758,57 @@ export const weaponData = {
     // =============================================================================
     // PLACEHOLDER / TESTING WEAPONS
     // -----------------------------------------------------------------------------
-    // Bamboocut - Draught and Silkbind - Ribbons are new categories still under
-    // testing. Weapon names, attack stages, and rpNames are ALL placeholders
-    // (marked `wip: true` so the UI shows WIP badges and a TESTING banner).
-    // S/D are 'X' (unknown) until real numbers land. Drop-in shape matches
-    // the rest of the file so edits to the source-of-truth replace these
-    // wholesale. Do not ship this data as final.
+    // Bamboocut - Draught (Skystrike Gauntlets, Riven Twinblades) is final:
+    // names, rpNames, videos, and S/D values are real. Silkbind - Ribbons
+    // (Ribbon Drum) is still a placeholder category marked `wip: true` so the
+    // UI shows WIP badges and a TESTING banner until real data lands.
     // =============================================================================
 
     "Skystrike Gauntlets": {
         category: "Bamboocut - Draught",
         "Light Attacks": {
             stages: [
-                { name: "Light Attack", rpName: "Gauntlets - Light Attack", S: "X", D: "X" },
+                { name: "Light Attack", rpName: "Gauntlets - Light Attack", S: 1, D: 0 },
                 {
                     name: "Light Attack Inebriate",
                     rpName: "Bloombreak",
-                    S: "X",
-                    D: "X",
+                    S: 1,
+                    D: 0,
                     source: {
                         type: "resource",
                         title: "Binge Points Required",
                         desc: "Requires Binge Points to use this skill."
                     }
                 },
-                { name: "Light Sprint Attack", rpName: "Gauntlets - Dash", S: "X", D: "X" }
+                { name: "Light Sprint Attack", rpName: "Gauntlets - Dash", S: 1, D: 0 }
             ]
         },
         "Heavy Attacks": {
             stages: [
-                { name: "Drinking Skill", rpName: "Whaledraft", S: "X", D: "X" },
-                { name: "Quick Drink", rpName: "Whaledraft", S: "X", D: "X" },
+                { name: "Drinking Skill", rpName: "Whaledraft", S: "X", D: 0 },
+                { name: "Quick Drink", rpName: "Whaledraft", S: 1, D: 0 },
                 {
                     name: "Heavy Attack Inebriate",
                     rpName: "Dragonquench - Inebriate",
-                    S: "X",
-                    D: "X",
+                    S: 2,
+                    D: 3,
                     source: {
                         type: "resource",
-                        title: "Eonpour Innerway Required",
-                        desc: "Requires Eonpour Innerway to use this skill."
+                        title: "Skyspeak Innerway Required",
+                        desc: "Requires Skyspeak Innerway to use this skill."
                     }
                 }
             ]
         },
         "Martial Art": {
             stages: [
-                { name: "1st Cast", rpName: "Peakfall", S: "X", D: "X" },
-                { name: "2nd Cast", rpName: "Peakfall", S: "X", D: "X" },
+                { name: "1st Cast", rpName: "Peakfall", S: 2, D: 1 },
+                { name: "2nd Cast", rpName: "Peakfall", S: 2, D: 1 },
                 {
                     name: "1st Cast Inebriate",
                     rpName: "Peakfall - Jadeflush",
-                    S: "X",
-                    D: "X",
+                    S: 2,
+                    D: 1,
                     source: {
                         type: "resource",
                         title: "Binge Points Required",
@@ -820,8 +818,8 @@ export const weaponData = {
                 {
                     name: "2nd Cast Inebriate",
                     rpName: "Peakfall - Jadeflush",
-                    S: "X",
-                    D: "X",
+                    S: 2,
+                    D: 3,
                     source: {
                         type: "resource",
                         title: "Binge Points Required",
@@ -832,9 +830,9 @@ export const weaponData = {
         },
         "Special Skill": {
             stages: [
-                { name: "Base Cast", rpName: "Nightwick - Tipsylay", S: "X", D: "X" },
-                { name: "Defense Break Skill", rpName: "Nightwick - Primepick", S: "X", D: "X" },
-                { name: "Pursuit Skill", rpName: "Nightwick - Grounddrift", S: "X", D: "X" }
+                { name: "Base Cast", rpName: "Nightwick - Tipsylay", S: 2, D: 1 },
+                { name: "Defense Break Skill", rpName: "Nightwick - Primepick", S: 2, D: 1 },
+                { name: "Pursuit Skill", rpName: "Nightwick - Grounddrift", S: 2, D: 1 }
             ]
         },
         "Dual Weapon Skill": {
@@ -842,16 +840,16 @@ export const weaponData = {
                 {
                     name: "Gauntlets",
                     rpName: "Gauntlets",
-                    S: "X",
-                    D: "X",
+                    S: 2,
+                    D: 1,
                     video: "Dual Weapon Skill.mp4"
                 }
             ]
         },
         "Airborne Attacks": {
             stages: [
-                { name: "Light Attack Airborne", rpName: "Gauntlets - Airborne Light Attack", S: "X", D: "X" },
-                { name: "Heavy Attack Airborne", rpName: "Gauntlets - Jump Strike", S: "X", D: "X" }
+                { name: "Light Attack Airborne", rpName: "Gauntlets - Airborne Light Attack", S: 1, D: 0 },
+                { name: "Heavy Attack Airborne", rpName: "Gauntlets - Jump Strike", S: 1, D: 0 }
             ]
         }
     },
@@ -859,20 +857,20 @@ export const weaponData = {
         category: "Bamboocut - Draught",
         "Light Attacks": {
             stages: [
-                { name: "Light Attack", rpName: "Dual Blades - Light Attack", S: "X", D: "X" },
-                { name: "Light Attack Varied Combo", rpName: "Blade Against Waves", S: "X", D: "X" },
-                { name: "Light Sprint Attack", rpName: "Dual Blades - Dash", S: "X", D: "X" }
+                { name: "Light Attack", rpName: "Dual Blades - Light Attack", S: 1, D: 0 },
+                { name: "Light Attack Varied Combo", rpName: "Blade Against Waves", S: 2, D: 0 },
+                { name: "Light Sprint Attack", rpName: "Dual Blades - Dash", S: 1, D: 0 }
             ]
         },
         "Heavy Attacks": {
             stages: [
-                { name: "Heavy Attack Press", rpName: "Blade Vessel", S: "X", D: "X" },
-                { name: "Heavy Attack Hold", rpName: "Blade Vessel", S: "X", D: "X" },
+                { name: "Heavy Attack Press", rpName: "Blade Vessel", S: 1, D: 0 },
+                { name: "Heavy Attack Hold", rpName: "Blade Vessel", S: 1, D: 1 },
                 {
                     name: "Heavy Attack Press - Inebriate",
                     rpName: "Boundvessel",
-                    S: "X",
-                    D: "X",
+                    S: 1,
+                    D: 0,
                     video: "Heavy Attacks_4.mp4",
                     source: {
                         type: "resource",
@@ -883,8 +881,8 @@ export const weaponData = {
                 {
                     name: "Heavy Attack Hold - Inebriate",
                     rpName: "Boundvessel",
-                    S: "X",
-                    D: "X",
+                    S: 1,
+                    D: 0,
                     video: "Heavy Attacks_5.mp4",
                     source: {
                         type: "resource",
@@ -895,8 +893,8 @@ export const weaponData = {
                 {
                     name: "Heavy Attack Varied Combo",
                     rpName: "Tidepour",
-                    S: "X",
-                    D: "X",
+                    S: 1,
+                    D: 0,
                     video: "Heavy Attacks_3.mp4",
                     source: {
                         type: "resource",
@@ -908,18 +906,18 @@ export const weaponData = {
         },
         "Martial Art": {
             stages: [
-                { name: "1st Cast", rpName: "Reveldrift", S: "X", D: "X" },
-                { name: "2nd Cast", rpName: "Reveldrift", S: "X", D: "X" }
+                { name: "1st Cast", rpName: "Reveldrift", S: 2, D: 1 },
+                { name: "2nd Cast", rpName: "Reveldrift", S: 2, D: 1 }
             ]
         },
         "Special Skill": {
             stages: [
-                { name: "Base Cast", rpName: "Hero's Blood", S: "X", D: "X" },
+                { name: "Base Cast", rpName: "Hero's Blood", S: 2, D: 1 },
                 {
                     name: "Base Cast - Inebriate",
                     rpName: "Hero's Blood - Inebriate",
-                    S: "X",
-                    D: "X",
+                    S: 2,
+                    D: 3,
                     source: {
                         type: "resource",
                         title: "Binge Points Required",
@@ -933,16 +931,16 @@ export const weaponData = {
                 {
                     name: "Base Cast",
                     rpName: "Dual Blades",
-                    S: "X",
-                    D: "X",
+                    S: 2,
+                    D: 1,
                     video: "Dual Weapon Skill.mp4"
                 }
             ]
         },
         "Airborne Attacks": {
             stages: [
-                { name: "Light Airborne", rpName: "Dual Blades - Airborne Light Attack", S: "X", D: "X" },
-                { name: "Heavy Airborne", rpName: "Dual Blades - Airborne Heavy Attack", S: "X", D: "X" }
+                { name: "Light Airborne", rpName: "Dual Blades - Airborne Light Attack", S: 1, D: 0 },
+                { name: "Heavy Airborne", rpName: "Dual Blades - Airborne Heavy Attack", S: 1, D: 0 }
             ]
         }
     },
@@ -1003,23 +1001,33 @@ export const weaponData = {
 export const mysticSkillsData = {
     "Meridian Touch": { S: 2, D: 1 },
     "Cloud Steps": { S: 4, D: 3 },
-    "Lions Roar": { S: 2, D: 3 },
+    "Lion's Roar": {
+        stages: [
+            { name: "Base Cast", S: 2, D: 3 },
+            { name: "Throw", S: 'X', D: 'X', wip: true }
+        ]
+    },
     "Leaping Toad": {
         stages: [
             { name: "1st Cast", S: 2, D: 3 },
             { name: "2nd Cast", S: 2, D: 3 },
             { name: "3rd Cast", S: 2, D: 3 },
-            { name: "Toad Venom", S: 1, D: 'X' }
+            { name: "Toad Venom", S: 1, D: 'X' },
+            { name: "Fury", S: 'X', D: 'X', wip: true }
         ]
     },
-    "Guardians Palm": {
+    "Guardian Palm": {
         stages: [
             { name: "Base Cast", S: 2, D: 1 },
-            { name: "Damage Enhancement", S: 2, D: 1 },
-            { name: "Breach", S: 4, D: 1, video: "Guardians Palm_1.mp4" }
+            { name: "Breach", S: 4, D: 1 }
         ]
     },
-    "Flaming Meteor": { S: 2, D: 4 },
+    "Flaming Meteor": {
+        stages: [
+            { name: "Base Cast", S: 2, D: 4 },
+            { name: "Gather", S: 'X', D: 'X', wip: true }
+        ]
+    },
     "Flute of the Tides": { S: 0, D: 1 },
     "Talon Strike": { S: 2, D: 0 },
     "Yaksha Rush": {
@@ -1036,12 +1044,22 @@ export const mysticSkillsData = {
             { name: "Dodge Enhancement", S: 2, D: 3 }
         ]
     },
-    "Dragons Breath": { S: 2, D: 3 },
+    "Dragon's Breath": { S: 2, D: 3 },
     "Drunken Poet": { S: 2, D: 3 },
-    "Dragon Head": { S: 2, D: 4 },
+    "Dragon Head": {
+        stages: [
+            { name: "Base Cast", S: 2, D: 4 },
+            { name: "Tide", S: 'X', D: 'X', wip: true }
+        ]
+    },
     "Serene Breeze": { S: 2, D: 4 },
     "Golden Body": { S: 'X', D: 3 },
-    "Ghostly Steps": { S: 'X', D: 0 },
+    "Ghostly Steps": {
+        stages: [
+            { name: "Base Cast", S: 'X', D: 0 },
+            { name: "Umbra", S: 'X', D: 'X' }
+        ]
+    },
     "Divine Counter": {
         stages: [
             { name: "Sword", S: 4, D: 3 },
@@ -1057,7 +1075,13 @@ export const mysticSkillsData = {
     "Tai Chi": { S: 0, D: 1 },
     "Mighty Drop": { S: 0, D: 0 },
     "Bow Ring Skill": { S: 0, D: 3 },
-    "Nine-arrow Formation": { S: 'X', D: 'X' }
+    "Bursting Nine": { S: 2, D: 1, wip: true },
+    "Honking Havoc": {
+        stages: [
+            { name: "Base Cast", S: 'X', D: 'X' },
+            { name: "Feather Down", S: 'X', D: 'X', wip: true }
+        ]
+    }
 };
 
 // ===== Helpers ==============================================================

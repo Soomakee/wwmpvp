@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import PriorityBadge from './PriorityBadge.jsx'
 import SourceCard from './SourceCard.jsx'
-import { weaponData } from '../data.js'
+import { weaponData, mysticSkillsData } from '../data.js'
 
 function previewUrlFor(weaponName, category, index, stage) {
     if (!weaponName || index === undefined) return null
@@ -53,6 +53,11 @@ export default function ActionPreviewPanel({ weaponName, selectedAttack, preview
     }, [weaponName, selectedAttack?.category, selectedAttack?.index])
 
     const weapon = weaponName ? weaponData[weaponName] : null
+    // Mystic skills aren't in weaponData; a whole-skill WIP flag (e.g.
+    // Bursting Nine — Testing) means no clip yet, so honor it the same
+    // way a weapon's `wip` flag is honored in the preview block below.
+    const mysticEntry = !weapon && weaponName ? mysticSkillsData[weaponName] : null
+    const skillWip = !!weapon?.wip || !!mysticEntry?.wip
     const stage = selectedAttack?.stage
     const previewSrc = selectedAttack && weaponName
         ? previewUrlFor(weaponName, selectedAttack.category, selectedAttack.index, selectedAttack.stage)
@@ -159,7 +164,7 @@ export default function ActionPreviewPanel({ weaponName, selectedAttack, preview
                                     {!previewable ? (
                                         <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 gap-3">
                                             <img
-                                                src={`${import.meta.env.BASE_URL}assets/Icons/${encodeURIComponent(weaponName)}.png`}
+                                                src={`${import.meta.env.BASE_URL}assets/Icons/Mystic%20Skill%20Icons/${encodeURIComponent(weaponName)}.png`}
                                                 alt={weaponName}
                                                 className="h-20 w-20 object-contain drop-shadow-[0_0_12px_rgba(250,204,21,0.4)]"
                                                 onError={(e) => { e.currentTarget.style.display = 'none' }}
@@ -171,12 +176,12 @@ export default function ActionPreviewPanel({ weaponName, selectedAttack, preview
                                                 Mystic skills have no combat preview clip — stats above are the source of truth for PvP trade math.
                                             </div>
                                         </div>
-                                    ) : weapon?.wip ? (
+                                    ) : (skillWip || stage?.wip) ? (
                                         <div className="absolute inset-0 flex items-center justify-center text-center p-6">
                                             <div>
                                                 <div className="text-[10px] mono uppercase tracking-[0.22em] text-amber-300 mb-2">Work In Progress</div>
                                                 <div className="text-[12px] text-white/60 max-w-xs">
-                                                    Preview videos for this weapon are not yet available.
+                                                    Preview videos for this move are not yet available.
                                                 </div>
                                             </div>
                                         </div>

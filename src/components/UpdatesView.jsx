@@ -17,8 +17,13 @@ const RELEASES = [
         items: [
             'Riven Twinblades finalized — all 14 stages named and wired to preview clips (Blade Against Waves, Tidepour, Boundvessel, Reveldrift, Hero\'s Blood, Dual Blades).',
             'Skystrike Gauntlets finalized — all 16 stages named and wired to preview clips (Bloombreak, Whaledraft, Dragonquench - Inebriate, Peakfall - Jadeflush, Nightwick).',
-            'New Binge Points resource gates the Inebriate variants; Dragonquench - Inebriate requires Eonpour Innerway.',
+            'New Binge Points resource gates the Inebriate variants; Dragonquench - Inebriate requires Skyspeak Innerway.',
             'Heavy Attacks split into Press / Hold (Twinblades) and Drinking Skill / Quick Drink (Gauntlets) variants, each with its own clip.',
+            'Riven Twinblades and Skystrike Gauntlets Stagger/Defense finalized — all 31 stages now carry real trade values (Drinking Skill\'s Stagger still TBD).',
+            'Skystrike Gauntlets Nightwick - Tipsylay (2/1) has delayed tenacity and a perfect-dodge window — exact ruleset representation still TBD.',
+            'All 22 weapons and 23 mystic skills now have dedicated icons — every icon normalized to a uniform 512×512 so the whole site renders at one consistent size.',
+            'Mystic skills renamed to their final names: Guardian Palm, Lion\'s Roar, Dragon\'s Breath, Bursting Nine, and Tai Chi.',
+            'Icon library consolidated under assets/Icons/ — weapon, mystic, innerway, attunement, and martial-art-talent icons live together.',
         ],
     },
     {

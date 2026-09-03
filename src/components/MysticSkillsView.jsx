@@ -33,6 +33,7 @@ export default function MysticSkillsView({ selectedMystic, onSelectMystic }) {
         return Object.entries(mysticSkillsData).map(([name, entry]) => ({
             name,
             category: null, // no subcategory — mystic skills aren't bucketed
+            wip: !!entry.wip,
             attacks: { Cast: { stages: mysticStages(entry, name) } },
         }))
     }, [])
@@ -55,6 +56,7 @@ export default function MysticSkillsView({ selectedMystic, onSelectMystic }) {
         return {
             name: selectedName,
             category: null,
+            wip: !!entry.wip,
             attacks: { Cast: { stages: mysticStages(entry, selectedName) } },
         }
     }, [selectedName])
@@ -191,6 +193,14 @@ function MysticPriorityColumn({ weapon, selectedAttack, onSelectStage }) {
                     <span className="text-[11px] mono uppercase tracking-[0.22em] text-amber-300 font-semibold">
                         Priorities
                     </span>
+                    {weapon.wip && (
+                        <span
+                            className="shrink-0 text-[8px] mono uppercase tracking-[0.18em] font-bold px-1 py-px border border-amber-400/60 bg-amber-400/10 text-amber-300"
+                            title="Skill under testing — data not final."
+                        >
+                            Testing
+                        </span>
+                    )}
                 </div>
                 <span className="text-[10px] mono text-white/40 truncate max-w-[60%]">{weapon.name}</span>
             </div>
@@ -250,6 +260,14 @@ function MysticStageRow({ stage, index, selected, onSelect }) {
                 <span className={`text-[12.5px] truncate ${selected ? 'text-white' : 'text-white/85'}`}>
                     {stage.name}
                 </span>
+                {stage.wip && (
+                    <span
+                        className="shrink-0 text-[8px] mono uppercase tracking-[0.16em] font-bold px-1 py-px border border-amber-400/60 bg-amber-400/10 text-amber-300"
+                        title="This cast is under testing — data not final."
+                    >
+                        WIP
+                    </span>
+                )}
             </div>
             <PriorityBadge value={stage.S} className="justify-self-end pr-1" />
             <PriorityBadge value={stage.D} className="justify-self-end pr-1" />

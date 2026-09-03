@@ -47,7 +47,12 @@ export default function WeaponGrid({
     }, [groups])
 
     const totalCount = computedGroups.reduce((n, g) => n + g.weapons.length, 0)
-    const defaultIconUrl = (item) => `${import.meta.env.BASE_URL}assets/Icons/${encodeURIComponent(item.name)}.png`
+    // Icons are served straight from each type's home subfolder so the root
+    // Icons folder stays clean (it holds only the two folders below).
+    // WeaponGrid also renders the Mystic Skills grid (setOverride='Mystic'),
+    // so the folder choice follows that flag.
+    const iconFolder = setOverride === 'Mystic' ? 'Mystic Skill Icons' : 'Weapon Icons'
+    const defaultIconUrl = (item) => `${import.meta.env.BASE_URL}assets/Icons/${iconFolder}/${encodeURIComponent(item.name)}.png`
 
     // Density-aware grid classes: 2-col on both densities. Each set path
     // has exactly 2 weapons, so a 2-col grid uses every cell cleanly. The

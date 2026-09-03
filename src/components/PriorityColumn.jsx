@@ -40,6 +40,14 @@ function StageRow({ category, stage, index, selected, onSelect }) {
                 <span className={`text-[12.5px] truncate ${selected ? 'text-white' : 'text-white/85'}`}>
                     {stage.name}
                 </span>
+                {stage.wip && (
+                    <span
+                        className="shrink-0 text-[8px] mono uppercase tracking-[0.16em] font-bold px-1 py-px border border-amber-400/60 bg-amber-400/10 text-amber-300"
+                        title="This stage is under testing — data not final."
+                    >
+                        WIP
+                    </span>
+                )}
                 {hasSource && (
                     <span
                         className="text-[8.5px] mono uppercase tracking-[0.16em] px-1 py-px border border-amber-400/60 bg-amber-400/10 text-amber-300"
