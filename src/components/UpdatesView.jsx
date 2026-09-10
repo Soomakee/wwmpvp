@@ -12,6 +12,14 @@ import { motion } from 'framer-motion'
  */
 const RELEASES = [
     {
+        date: '2026-09-10',
+        tag: 'Latest',
+        items: [
+            'Skystrike Gauntlets Special Skill videos now mapped correctly: Base Cast Instant and 0.5s cast share Special Skill_1.mp4, Defense Break Skill uses Special Skill_2.mp4, Pursuit Skill uses Special Skill_3.mp4.',
+            'Pursuit Skill (Nightwick - Grounddrift) stagger corrected from 2 to 4.',
+        ],
+    },
+    {
         date: '2026-09-03',
         tag: 'Latest',
         items: [
