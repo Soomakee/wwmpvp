@@ -785,7 +785,7 @@ export const weaponData = {
         },
         "Heavy Attacks": {
             stages: [
-                { name: "Drinking Skill", rpName: "Whaledraft", S: "X", D: 0 },
+                { name: "Drinking Skill", rpName: "Whaledraft", S: "X", D: 1 },
                 { name: "Quick Drink", rpName: "Whaledraft", S: 1, D: 0 },
                 {
                     name: "Heavy Attack Inebriate",
