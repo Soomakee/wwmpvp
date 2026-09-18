@@ -224,8 +224,8 @@ export const weaponData = {
         "Charging Stance": {
             stages: [
                 { name: "Base Charge Stance", rpName: "Rodent's Resilience", S: "X", D: 3 },
-                { name: "Light Charged Varied Combo", rpName: "Rodent's Resilience", S: 0, D: 0 },
-                { name: "Heavy Charged Varied Combo", rpName: "Rodent's Resilience", S: 0, D: 0 }
+                { name: "Light Charged Varied Combo", rpName: "Rodent's Resilience", S: 0, D: 0, wip: true },
+                { name: "Heavy Charged Varied Combo", rpName: "Rodent's Resilience", S: 0, D: 0, wip: true }
             ]
         },
         "Martial Art": {
@@ -700,7 +700,7 @@ export const weaponData = {
                     S: 2, D: 3,
                     video: "Martial Art_1.5.mp4"
                 },
-                { name: "2nd Cast", rpName: "Celestial Mandate", S: 2, D: 1 }
+                { name: "2nd Cast", rpName: "Celestial Mandate", S: 2, D: 1, video: "Martial Art_2.mp4" }
             ]
         },
         "Special Skill": { rpName: "All Under Justice", S: 2, D: 1 },
