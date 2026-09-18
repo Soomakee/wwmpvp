@@ -27,18 +27,18 @@ const pathIconUrl = (fullPath) => `${PATH_ICON_BASE}${encodeURIComponent(fullPat
 
 /** Path icon on a black tile with a letter fallback for paths that
  * don't have an icon asset yet (e.g. the WIP "Ribbons" path). */
-function PathIcon({ fullPath, size = 'w-9 h-9', iconSize = 'w-8 h-8' }) {
+function PathIcon({ fullPath, size = 'w-10 h-10' }) {
     const [failed, setFailed] = React.useState(false)
     const pathName = fullPath.split(' - ')[1] || fullPath
     return (
-        <span className={`shrink-0 flex items-center justify-center ${size} bg-black border border-white/10`}>
+        <span className={`shrink-0 flex items-center justify-center ${size} bg-black border border-white/10 overflow-hidden`}>
             {failed ? (
-                <span className={`text-[10px] mono font-bold text-white/45`} aria-hidden="true">
+                <span className={`text-[11px] mono font-bold text-white/45`} aria-hidden="true">
                     {pathName.charAt(0)}
                 </span>
             ) : (
                 <img
-                    className={`${iconSize} antialiased`}
+                    className="h-full w-full object-contain antialiased"
                     src={pathIconUrl(fullPath)}
                     alt=""
                     aria-hidden="true"
