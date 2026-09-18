@@ -646,24 +646,12 @@ export const weaponData = {
             ]
         },
         "Special Skill": {
-            stages: [
-                {
-                    name: "1st Cast", rpName: "Light Dust After Morning Rain", S: 'X', D: 1, source: {
-                        type: "resource",
-                        title: "Dew Resource Required",
-                        desc: "Requires 2 Dew to use this skill",
-                        icon: "assets/Icons/Martial Art Talents/Dew.png"
-                    }
-                },
-                {
-                    name: "2nd Cast", rpName: "Resurrection", S: 'X', D: 1, source: {
-                        type: "resource",
-                        title: "Dew Resource Required",
-                        desc: "Requires 3 Dew to use this skill",
-                        icon: "assets/Icons/Martial Art Talents/Dew.png"
-                    }
-                }
-            ]
+            rpName: "Light Dust After Morning Rain", S: 'X', D: 1, source: {
+                type: "resource",
+                title: "Dew Resource Required",
+                desc: "Requires 2 Dew to use this skill",
+                icon: "assets/Icons/Martial Art Talents/Dew.png"
+            }
         },
         "Dual Weapon Skill": { rpName: "Fan", S: 0, D: 1 },
         "Airborne Attacks": {

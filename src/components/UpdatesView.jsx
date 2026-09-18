@@ -1,60 +1,71 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-/**
+/** =========================================================
  * UpdatesView — site changelog.
- * Plain, date-ordered cards. Designed to be edited by hand each release:
- * just prepend a new object to RELEASES, leave older ones in place.
  *
- * Avoid the temptation to make this elaborate. Bullet points should be
- * one short line per change. If a release has more than ~5 bullets,
- * split it into two dates — the goal is glanceability, not docs.
- */
+ * Reader-facing copy, not dev notes.  Each release should
+ * say what a player would notice.  Edit the RELEASES array
+ * by prepending a new object and leaving older ones intact.
+ * ========================================================= */
+
 const RELEASES = [
+    {
+        date: '2026-09-18',
+        tag: 'Latest',
+        items: [
+            'Panacea Fan Special Skill streamlined to a single cast — "Light Dust After Morning Rain" — instead of two separate casts.',
+            'Every weapon and mystic skill now shows the final, approved moveset and stagger/defense numbers.',
+            'Action previews play the correct video for each move, including Skystrike Gauntlets Special Skill and Panacea Fan\'s Special Skill.',
+            'Stagger and Defense values match the latest patch: Skystrike Gauntlets Pursuit Skill (Nightwick - Grounddrift) is now level 4 stagger.',
+            'Drinking Skill (Whaledraft) on Skystrike Gauntlets now shows the correct 1 Defense.',
+        ],
+    },
     {
         date: '2026-09-10',
         tag: 'Latest',
         items: [
-            'Skystrike Gauntlets Special Skill videos now mapped correctly: Base Cast Instant and 0.5s cast share Special Skill_1.mp4, Defense Break Skill uses Special Skill_2.mp4, Pursuit Skill uses Special Skill_3.mp4.',
-            'Pursuit Skill (Nightwick - Grounddrift) stagger corrected from 2 to 4.',
+            'Skystrike Gauntlets Special Skill videos mapped correctly: Base Cast Instant and 0.5-second cast use the same preview, Defense Break Skill uses its own preview, Pursuit Skill uses its own preview.',
+            'Pursuit Skill (Nightwick - Grounddrift) stagger corrected to level 4.',
         ],
     },
     {
         date: '2026-09-03',
         tag: 'Latest',
         items: [
-            'Riven Twinblades finalized — all 14 moves named (Blade Against Waves, Tidepour, Boundvessel, Reveldrift, Hero\'s Blood, Dual Blades), each with a playable preview and final Stagger/Defense values.',
-            'Skystrike Gauntlets finalized — all 16 moves named (Bloombreak, Whaledraft, Dragonquench - Inebriate, Peakfall - Jadeflush, Nightwick), each with a playable preview and final Stagger/Defense values.',
-            'New Binge Points resource gates the Inebriate variants; Dragonquench - Inebriate requires the Skyspeak Innerway.',
-            'Heavy Attacks split into Press / Hold (Twinblades) and Drinking Skill / Quick Drink (Gauntlets) variants.',
-            'Nightwick - Tipsylay splits into an instant cast (2/1) and a 0.5-second delayed cast (2/3) with a perfect-dodge window.',
-            'Every weapon and mystic skill now has a dedicated icon, all at one consistent size.',
+            'Riven Twinblades finalized — all 14 moves available to preview, including Blade Against Waves, Tidepour, Boundvessel, Reveldrift, Hero\'s Blood, and Dual Blades, each with a playable video and the final Stagger/Defense for the move.',
+            'Skystrike Gauntlets finalized — all 16 moves available to preview, including Bloombreak, Whaledraft, Dragonquench - Inebriate, Peakfall - Jadeflush, and Nightwick, each with its own playable video.',
+            'Binge Points now gate the Inebriate variants; Dragonquench - Inebriate requires the Skyspeak Innerway to use.',
+            'Heavy Attacks split into two styles: Press / Hold for Twinblades and Drinking Skill / Quick Drink for Gauntlets.',
+            'Nightwick splits into an instant cast and a 0.5-second delayed cast, where the delayed cast carries a higher Defense and a perfect-dodge window.',
+            'Every weapon and mystic skill now has its own icon at a consistent size, so the picker and category headers read cleanly at a glance.',
             'Mystic skill names corrected to their real names: Guardian Palm, Lion\'s Roar, Dragon\'s Breath, Bursting Nine, and Tai Chi.',
-            'New mystic casts in the works — Throw (Lion\'s Roar), Fury (Leaping Toad), Gather (Flaming Meteor), Tide (Dragon Head), Umbra (Ghostly Steps), Feather Down (Honking Havoc) — plus the new skill Honking Havoc, marked Work in Progress until finalized.',
+            'New mystic casts in the works — Throw (Lion\'s Roar), Fury (Leaping Toad), Gather (Flaming Meteor), Tide (Dragon Head), Umbra (Ghostly Steps), and Feather Down (Honking Havoc) — plus the new skill Honking Havoc, marked as in progress until its moveset is finalized.',
         ],
     },
     {
         date: '2026-07-23',
+        tag: 'Latest',
         items: [
-            'Mystic Skills now play video previews — Leaping Toad, Cloud Steps, Divine Counter, etc.',
+            'Mystic Skills now play video previews — Leaping Toad, Cloud Steps, Divine Counter, and others each show the move the moment you tap it.',
         ],
     },
     {
         date: '2026-07-15',
         tag: 'Mobile',
         items: [
-            'Master-detail mobile workspace — picker drawer with all 18 weapons.',
-            'Tab nav moved to a thumb-reachable bottom strip on phone widths.',
-            'Weapon card icons sized to fit full names on Galaxy-class screens.',
+            'Master-detail mobile workspace — a picker drawer lists all 18 weapons so you can jump between them without cluttering the screen.',
+            'Tab navigation moved to a thumb-reachable bottom strip on phone widths.',
+            'Weapon card icons sized so full names fit cleanly on Galaxy-class screens.',
         ],
     },
     {
         date: '2026-07-01',
         tag: 'Parity',
         items: [
-            'Mystic Skills view added with the same 3-column layout as Weapons.',
-            'Stagger / Defense legend consistent across views.',
-            'Moves that require an Innerway, resource, or Attunement are flagged on their rows.',
+            'Mystic Skills view mirrors the Weapons layout with the same 3-column priority and preview setup.',
+            'Stagger / Defense legend reads the same in both views, so the numbers mean the same thing everywhere.',
+            'Moves that require an Innerway, resource, or Attunement are flagged directly on the row, so you can tell at a glance what a move needs.',
         ],
     },
 ]
@@ -74,8 +85,8 @@ export default function UpdatesView() {
             </div>
 
             <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3">
-                {RELEASES.map((rel, i) => (
-                    <ReleaseCard key={rel.date} release={rel} index={i} />
+                {RELEASES.map((release, index) => (
+                    <ReleaseCard key={release.date} release={release} index={index} />
                 ))}
 
                 <p className="text-center text-[10.5px] mono uppercase tracking-[0.22em] text-white/25 pt-2 pb-1">
@@ -97,12 +108,11 @@ function ReleaseCard({ release, index }) {
         >
             <header className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                    <span className={`px-1.5 py-0.5 text-[9.5px] mono uppercase tracking-[0.2em] border ${
-                        isLatest
-                            ? 'border-amber-400/60 text-amber-300 bg-amber-400/10'
-                            : 'border-white/15 text-white/55 bg-white/[0.04]'
+                    <span className={`px-1.5 py-0.5 text-[9.5px] mono uppercase tracking-[0.2em] border ${isLatest
+                        ? 'border-amber-400/60 text-amber-300 bg-amber-400/10'
+                        : 'border-white/15 text-white/55 bg-white/[0.04]'
                     }`}>
-                        {release.tag}
+                        {release.tag || release.date}
                     </span>
                     <span className="text-[12px] font-semibold text-white/85">{release.date}</span>
                 </div>
