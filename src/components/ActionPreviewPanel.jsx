@@ -7,18 +7,23 @@ const SKILL_ICON_BASE = `${import.meta.env.BASE_URL}assets/Icons/Weapon%20Skill%
 
 /**
  * SkillIcon — the per-skill icon from /assets/Weapon Skill Icons/<weapon>/.
- * Files are auto-detected by name: drop a PNG named after the stage name
- * (e.g. "Heavy Attack.png"), the category ("Martial Art.png"), or the
+ * Files are auto-detected by name: drop a PNG named after the
+ * category + stage combination ("Martial Art 1st Cast.png" — needed when
+ * stage names like "1st Cast" repeat across categories), the stage name
+ * alone ("Heavy Attack.png"), the category ("Martial Art.png"), or the
  * rpName into the weapon's folder and it appears with no code changes.
- * We try candidates in that order and advance on 404.
+ * We try candidates most-specific-first and advance on 404.
  *
  * The black backing is pure CSS on the tile — never baked into the PNGs.
  * The tile is hidden until an image actually loads, so weapons without
  * icons yet show nothing instead of an empty black box.
  */
 function SkillIcon({ weaponName, category, stage }) {
+    const combo = category && stage?.name ? `${category} ${stage.name}` : null
+    // "Special Skill 1st Cast" → "Special 1st Cast" (common file shorthand)
+    const comboShort = combo?.replace(' Skill ', ' ')
     const candidates = []
-    for (const name of [stage?.name, category, stage?.rpName]) {
+    for (const name of [combo, comboShort, stage?.name, category, stage?.rpName]) {
         if (name && !candidates.includes(name)) candidates.push(name)
     }
     const [idx, setIdx] = useState(0)
