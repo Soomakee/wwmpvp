@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import PriorityBadge from './PriorityBadge.jsx'
-import SourceCard from './SourceCard.jsx'
 import { weaponData, mysticSkillsData } from '../data.js'
 
 function previewUrlFor(weaponName, category, index, stage) {
@@ -146,9 +145,6 @@ export default function ActionPreviewPanel({ weaponName, selectedAttack, preview
                                     </div>
                                 </div>
                             </div>
-
-                            {/* Source */}
-                            <SourceCard source={stage.source} />
 
                             {/* Preview video (or mystic fallback) */}
                             <div className="glass border border-white/10 overflow-hidden">

@@ -24,7 +24,6 @@ function setText(set)  { return SET_CLASS[set] ? SET_CLASS[set].split(' ')[0] : 
  *  in the middle of that box — no longer right-anchored to a fixed
  *  column rail. */
 function StageRow({ category, stage, index, selected, onSelect }) {
-    const hasSource = !!stage.source
     return (
         <button
             onClick={() => onSelect({ category, stage, index })}
@@ -46,14 +45,6 @@ function StageRow({ category, stage, index, selected, onSelect }) {
                         title="This stage is under testing — data not final."
                     >
                         WIP
-                    </span>
-                )}
-                {hasSource && (
-                    <span
-                        className="text-[8.5px] mono uppercase tracking-[0.16em] px-1 py-px border border-amber-400/60 bg-amber-400/10 text-amber-300"
-                        title={stage.source.title}
-                    >
-                        {stage.source.type.split(' ').map((w) => w[0]).join('').toUpperCase()}
                     </span>
                 )}
             </div>
