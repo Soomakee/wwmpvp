@@ -27,7 +27,7 @@ const pathIconUrl = (fullPath) => `${PATH_ICON_BASE}${encodeURIComponent(fullPat
 
 /** Path icon on a black tile with a letter fallback for paths that
  * don't have an icon asset yet (e.g. the WIP "Ribbons" path). */
-function PathIcon({ fullPath, size = 'w-7 h-7', iconSize = 'w-6 h-6' }) {
+function PathIcon({ fullPath, size = 'w-9 h-9', iconSize = 'w-8 h-8' }) {
     const [failed, setFailed] = React.useState(false)
     const pathName = fullPath.split(' - ')[1] || fullPath
     return (
@@ -137,7 +137,7 @@ export default function WeaponGrid({
                                     type="button"
                                     onClick={() => setCollapsed((v) => !v)}
                                     aria-expanded={!collapsed}
-                                    className="flex items-center gap-2.5 px-2.5 py-2 w-full text-left hover:bg-white/[0.03] transition-colors"
+                                    className="flex items-center gap-3 px-3 py-2.5 w-full text-left hover:bg-white/[0.03] transition-colors"
                                 >
                                     {/* Chevron — inline SVG so collapse state never
                                         depends on an image asset existing. */}
@@ -152,7 +152,7 @@ export default function WeaponGrid({
                                     {/* Path icon on a black tile — the source PNGs
                                         are transparent and need a dark backing. */}
                                     <PathIcon fullPath={group.set} />
-                                    <span className={`text-[10.5px] mono uppercase tracking-[0.22em] font-semibold ${text}`}>{group.set}</span>
+                                    <span className={`text-[12px] mono uppercase tracking-[0.2em] font-semibold ${text}`}>{group.set}</span>
                                     {testing && (
                                         <span
                                             className="text-[8px] mono uppercase tracking-[0.18em] font-bold px-1 py-px border border-amber-400/60 bg-amber-400/10 text-amber-300"

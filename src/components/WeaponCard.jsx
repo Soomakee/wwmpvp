@@ -52,9 +52,12 @@ const SET = {
  * scannable across the whole master panel at a glance.
  *
  * The card body background stays neutral faint white so the category color
- * only appears on the outline (border + rail + active corner ticks).
+ * only appears on the outline (border + rail + active tint).
  *
- * Active state: corner ticks in category color, z-10 lift.
+ * Active state: the left rail widens and the card body picks up a faint
+ * tint of the category color — one continuous signal instead of
+ * decorative corner marks. z-10 lift keeps the active card above
+ * siblings during the transition.
  * WIP weapons get an amber WIP badge in the top-right.
  */
 export default function WeaponCard({ weapon, active, onClick, iconAvailable, iconUrl, setOverride, compact = false }) {
@@ -70,6 +73,16 @@ export default function WeaponCard({ weapon, active, onClick, iconAvailable, ico
     const rowPad = compact ? 'pl-2.5 pr-2 py-2 gap-2' : 'pl-3 pr-3 py-2.5 gap-2.5'
     const nameText = compact ? 'text-[11px]' : 'text-[13px]'
 
+    // Active state gets a faint wash of the category color behind the
+    // content (e.g. Bellstrike blue at ~8% alpha) on top of the neutral    // base, so the whole card reads as "lit" without a second box.
+    const activeTint = {
+        Bellstrike: 'bg-[rgba(96,165,250,0.10)]',
+        Bamboocut:  'bg-[rgba(167,139,250,0.10)]',
+        Stonesplit: 'bg-[rgba(248,113,113,0.10)]',
+        Silkbind:   'bg-[rgba(52,211,153,0.10)]',
+        Mystic:     'bg-[rgba(251,191,36,0.10)]',
+    }[setKey] || 'bg-white/[0.08]'
+
     return (
         <button
             type="button"
@@ -77,15 +90,21 @@ export default function WeaponCard({ weapon, active, onClick, iconAvailable, ico
             aria-pressed={active}
             title={`${weapon.name} — ${weapon.category || setKey}`}
             className={
-                `relative h-full w-full text-left flex flex-row items-center ${rowPad} transition-all duration-200 ` +
+                `group relative h-full w-full text-left flex flex-row items-center ${rowPad} transition-all duration-200 ` +
                 `border ${set.border} ${set.hover} ` +
                 (active
-                    ? `bg-white/[0.08] z-10`
+                    ? `${activeTint} border-white/25 z-10`
                     : `bg-white/[0.025] hover:bg-white/[0.05]`)
             }
         >
-            {/* Left rail in full category color */}
-            <span className={`absolute top-0 left-0 bottom-0 w-[3px] ${set.rail}`} aria-hidden="true" />
+            {/* Left rail in full category color — widens on active so the
+                rail itself carries the selected state. */}
+            <span
+                className={`absolute top-0 left-0 bottom-0 ${set.rail} transition-all duration-200 ${
+                    active ? 'w-[5px]' : 'w-[3px] group-hover:w-[4px]'
+                }`}
+                aria-hidden="true"
+            />
 
             {/* Weapon icon */}
             <div className={`${iconBox} border border-white/15 flex items-center justify-center bg-black/40 overflow-hidden shrink-0`}>
@@ -126,13 +145,6 @@ export default function WeaponCard({ weapon, active, onClick, iconAvailable, ico
                 )}
             </div>
 
-            {/* Active corner ticks in category accent color */}
-            {active && (
-                <>
-                    <span className={`absolute top-0 right-0 w-1.5 h-1.5 ${set.rail}`} aria-hidden="true" />
-                    <span className={`absolute bottom-0 right-0 w-1.5 h-1.5 ${set.rail}`} aria-hidden="true" />
-                </>
-            )}
         </button>
     )
 }
