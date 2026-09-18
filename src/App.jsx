@@ -21,11 +21,11 @@ const TABS = [
     { id: 'updates', label: 'Updates' },
 ] 
 
-const DEFAULT_WEAPON = 'Strategic Sword'
-
 export default function App() {
     const [tab, setTab] = useState('weapons')
-    const [selectedWeapon, setSelectedWeapon] = useState(DEFAULT_WEAPON)
+    // No weapon is selected on first entry — Priorities and Action
+    // Preview show their waiting screens until the user picks one.
+    const [selectedWeapon, setSelectedWeapon] = useState(null)
     const [selectedAttack, setSelectedAttack] = useState(null)
     const [selectedMystic, setSelectedMystic] = useState(null)
 
@@ -47,7 +47,9 @@ export default function App() {
 
     const handleWeapon = useCallback((name) => {
         if (!weaponData[name]) return
-        setSelectedWeapon(name)
+        // Clicking the active weapon again deselects it, returning the
+        // workspace to the waiting screens.
+        setSelectedWeapon((prev) => (prev === name ? null : name))
     }, [])
 
     return (
@@ -189,9 +191,9 @@ function DesktopWorkspace({ selectedWeapon, selectedAttack, onSelectWeapon, onSe
                                 Weapon
                             </span>
                             <span className="text-[12.5px] font-semibold text-white/90 truncate min-w-0">
-                                {selectedWeapon}
+                                {selectedWeapon || 'None selected'}
                             </span>
-                            {weaponData[selectedWeapon]?.wip && (
+                            {selectedWeapon && weaponData[selectedWeapon]?.wip && (
                                 <span className="shrink-0 text-[8.5px] mono uppercase tracking-[0.18em] text-amber-300 font-bold">
                                     WIP
                                 </span>
