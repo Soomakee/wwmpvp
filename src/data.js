@@ -218,13 +218,13 @@ export const weaponData = {
         "Light Attacks": {
             stages: [
                 { name: "Light Attack", rpName: "Rope Dart - Light Attack", S: 1, D: 0 },
-                { name: "Light Sprint Attack", rpName: "Rope Dart - Dash", S: 1, D: 0 }
+                { name: "Light Sprint Attack", rpName: "Rope Dart - Dash", S: 1, D: 0 },
+                { name: "Light Charged Varied Combo", rpName: "Rodent's Resilience", S: 0, D: 0, wip: true }
             ]
         },
         "Charging Stance": {
             stages: [
                 { name: "Base Charge Stance", rpName: "Rodent's Resilience", S: "X", D: 3 },
-                { name: "Light Charged Varied Combo", rpName: "Rodent's Resilience", S: 0, D: 0, wip: true },
                 { name: "Heavy Charged Varied Combo", rpName: "Rodent's Resilience", S: 0, D: 0, wip: true }
             ]
         },
