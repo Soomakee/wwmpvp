@@ -19,7 +19,7 @@ export const weaponData = {
                 { name: "Heavy Attack", rpName: "Sword - Heavy Attack", S: 1, D: 0 },
                 { name: "Heavy Charged", rpName: "Second Track Slash", S: 1, D: 1 },
                 {
-                    name: "Heavy Charged Crisscross",
+                    name: "Heavy Charged 2nd Cast",
                     rpName: "Sword Horizon",
                     S: 2, D: 1,
                     source: {
@@ -36,7 +36,7 @@ export const weaponData = {
                 { name: "1st Cast", rpName: "Inner Track Slash", S: 2, D: 1 },
                 { name: "2nd Cast", rpName: "Inner Track Slash", S: 2, D: 1 },
                 {
-                    name: "3rd Cast Crisscross",
+                    name: "3rd Cast",
                     rpName: "Sword Horizon",
                     S: 2, D: 1,
                     source: {
@@ -52,7 +52,7 @@ export const weaponData = {
             stages: [
                 { name: "1st Cast", rpName: "Inner Balance Strike III", S: 2, D: 1 },
                 {
-                    name: "2nd Cast Crisscross",
+                    name: "2nd Cast",
                     rpName: "Sword Horizon",
                     S: 2, D: 1,
                     source: {
