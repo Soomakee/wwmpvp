@@ -7,9 +7,14 @@ const SKILL_ICON_BASE = `${import.meta.env.BASE_URL}assets/Weapon%20Skill%20Icon
 
 /**
  * SkillIcon — the per-skill icon from /assets/Weapon Skill Icons/<weapon>/.
- * File naming on disk is loose, so we try candidates in order (stage name,
- * category, rpName) and advance on 404. Renders on a black square tile since
- * the source PNGs are transparent. Hides itself if nothing resolves.
+ * Files are auto-detected by name: drop a PNG named after the stage name
+ * (e.g. "Heavy Attack.png"), the category ("Martial Art.png"), or the
+ * rpName into the weapon's folder and it appears with no code changes.
+ * We try candidates in that order and advance on 404.
+ *
+ * The black backing is pure CSS on the tile — never baked into the PNGs.
+ * The tile is hidden until an image actually loads, so weapons without
+ * icons yet show nothing instead of an empty black box.
  */
 function SkillIcon({ weaponName, category, stage }) {
     const candidates = []
@@ -17,16 +22,22 @@ function SkillIcon({ weaponName, category, stage }) {
         if (name && !candidates.includes(name)) candidates.push(name)
     }
     const [idx, setIdx] = useState(0)
-    useEffect(() => { setIdx(0) }, [weaponName, category, stage?.name])
+    const [loaded, setLoaded] = useState(false)
+    useEffect(() => { setIdx(0); setLoaded(false) }, [weaponName, category, stage?.name])
     if (!candidates.length || idx >= candidates.length) return null
     const src = `${SKILL_ICON_BASE}${encodeURIComponent(weaponName)}/${encodeURIComponent(candidates[idx])}.png`
     return (
-        <span className="shrink-0 flex items-center justify-center h-14 w-14 bg-black border border-white/10">
+        <span
+            className={`shrink-0 flex items-center justify-center h-14 w-14 bg-black border border-white/10 transition-opacity duration-200 ${
+                loaded ? 'opacity-100' : 'opacity-0'
+            }`}
+        >
             <img
                 src={src}
                 alt=""
                 aria-hidden="true"
                 className="h-full w-full object-contain antialiased"
+                onLoad={() => setLoaded(true)}
                 onError={() => setIdx((i) => i + 1)}
             />
         </span>
