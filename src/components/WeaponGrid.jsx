@@ -17,6 +17,23 @@ const SET_RAIL = {
     Mystic:     'bg-cat-mystic',
 }
 
+const CATEGORY_ICON = {
+    Bellstrike: 'assets/Icons/Weapon School Icons/Bellstrike.png',
+    Bamboocut:  'assets/Icons/Weapon School Icons/Bamboocut.png',
+    Stonesplit: 'assets/Icons/Weapon School Icons/Stonesplit.png',
+    Silkbind:   'assets/Icons/Weapon School Icons/Silkbind.png',
+    Mystic:     'assets/Icons/Weapon School Icons/Silkbind.png',
+}
+
+/** Collapsed-categories state, keyed by full category path so multiple paths
+ * under the same set are collapsed independently.
+ */
+const CATEGORY_COLLAPSE_ICON = {
+    collapsed: 'assets/Icons/Weapon School Icons/Category Chevron Down.png',
+    expanded:  'assets/Icons/Weapon School Icons/Category Chevron Right.png',
+}
+
+
 /**
  * WeaponGrid — left master panel.
  * Renders items grouped by FULL PATH (e.g. "Bellstrike - Umbra") rather
@@ -88,12 +105,42 @@ export default function WeaponGrid({
                     // A section is under testing if any of its weapons carry
                     // the `wip` flag (placeholder category + placeholder names).
                     const testing = !hideSectionHeaders && group.weapons.some((w) => w.wip)
+
+                    // Per-category collapse state. Each category path is independent
+                    // so collapsing "Bellstrike - Umbra" does not collapse
+                    // "Bellstrike - Splendor".
+                    const [collapsed, setCollapsed] = React.useState(false)
+
+                    const categoryIcon = (key === 'Mystic'
+                        ? CATEGORY_ICON.Mystic
+                        : CATEGORY_ICON[key] ||
+                        `assets/Icons/Weapon School Icons/${key}.png`)
+
+                    const chevronIcon = collapsed
+                        ? CATEGORY_COLLAPSE_ICON.collapsed
+                        : CATEGORY_COLLAPSE_ICON.expanded
+
                     return (
                         <section key={group.set} className="shrink-0 flex flex-col bg-midnight-950">
                             {!hideSectionHeaders && (
-                                <div className="flex items-center gap-2 px-2 pt-1.5 pb-1">
+                                <button
+                                    type="button"
+                                    onClick={() => setCollapsed((v) => !v)}
+                                    className="flex items-center gap-2 px-2 pt-1.5 pb-1 w-full text-left"
+                                >
                                     <span className="text-[9px] mono uppercase tracking-[0.24em] flex items-center gap-2">
-                                        <span className={`h-2 w-2 ${rail}`} aria-hidden="true" />
+                                        <img
+                                            className="shrink-0 w-3.5 h-3.5 antialiased"
+                                            src={chevronIcon}
+                                            alt={collapsed ? 'Expand category' : 'Collapse category'}
+                                            aria-hidden="false"
+                                        />
+                                        <img
+                                            className="shrink-0 w-3.5 h-3.5 antialiased"
+                                            src={categoryIcon}
+                                            alt={group.set}
+                                            aria-hidden="true"
+                                        />
                                         <span className={text}>{group.set}</span>
                                     </span>
                                     {testing && (
@@ -104,7 +151,7 @@ export default function WeaponGrid({
                                             Testing
                                         </span>
                                     )}
-                                </div>
+                                </button>
                             )}
                             {testing && (
                                 <div className="flex items-center gap-1.5 px-2 py-0.5 bg-amber-400/10 border-y border-amber-400/25">
@@ -116,7 +163,8 @@ export default function WeaponGrid({
                                     </span>
                                 </div>
                             )}
-                            <div className={`grid ${gridCols} gap-[2px] bg-white/[0.04] ${hideSectionHeaders ? 'px-[2px] py-[2px]' : 'px-[2px] pb-[2px]'}`}>
+                            {!collapsed && (
+                                <div className={`grid ${gridCols} gap-[2px] bg-white/[0.04] ${hideSectionHeaders ? 'px-[2px] py-[2px]' : 'px-[2px] pb-[2px]'}`}>
                                 {group.weapons.map((weapon) => (
                                     <div key={weapon.name} className={`bg-midnight-950 ${cardMin} min-w-0 relative`}>
                                         <WeaponCard
@@ -130,7 +178,8 @@ export default function WeaponGrid({
                                         />
                                     </div>
                                 ))}
-                            </div>
+                                </div>
+                            )}
                         </section>
                     )
                 })}
