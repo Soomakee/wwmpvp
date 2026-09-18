@@ -224,7 +224,8 @@ export const weaponData = {
         "Charging Stance": {
             stages: [
                 { name: "Base Charge Stance", rpName: "Rodent's Resilience", S: "X", D: 3 },
-                { name: "Charged Varied Combo", rpName: "Rodent's Resilience", S: 1, D: 1 }
+                { name: "Light Charged Varied Combo", rpName: "Rodent's Resilience", S: 0, D: 0 },
+                { name: "Heavy Charged Varied Combo", rpName: "Rodent's Resilience", S: 0, D: 0 }
             ]
         },
         "Martial Art": {
