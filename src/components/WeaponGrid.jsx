@@ -17,17 +17,17 @@ const SET_RAIL = {
     Mystic:     'bg-cat-mystic',
 }
 
-// School icons are provided per PATH variant (Umbra, Splendor, Wind, Dust,
+// Path icons are provided per PATH variant (Umbra, Splendor, Wind, Dust,
 // Kite, Might, Strength, Jade, Deluge, Draught), not per set — e.g. the Dust
 // icon sits next to "Bamboocut - Dust". The PNGs are transparent, so they
 // render on a black tile (see the header button markup below).
-const PATH_ICON_BASE = `${import.meta.env.BASE_URL}assets/Weapon School Icons/`
+const PATH_ICON_BASE = `${import.meta.env.BASE_URL}assets/Weapon Paths Icons/`
 const pathIconUrl = (fullPath) => `${PATH_ICON_BASE}${encodeURIComponent(fullPath.split(' - ')[1] || fullPath)}.png`
 
 
-/** School icon on a black tile with a letter fallback for paths that
+/** Path icon on a black tile with a letter fallback for paths that
  * don't have an icon asset yet (e.g. the WIP "Ribbons" path). */
-function SchoolIcon({ fullPath, size = 'w-7 h-7', iconSize = 'w-6 h-6' }) {
+function PathIcon({ fullPath, size = 'w-7 h-7', iconSize = 'w-6 h-6' }) {
     const [failed, setFailed] = React.useState(false)
     const pathName = fullPath.split(' - ')[1] || fullPath
     return (
@@ -149,9 +149,9 @@ export default function WeaponGrid({
                                     >
                                         <path d="M4 2.5 L8 6 L4 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
-                                    {/* School icon on a black tile — the source PNGs
+                                    {/* Path icon on a black tile — the source PNGs
                                         are transparent and need a dark backing. */}
-                                    <SchoolIcon fullPath={group.set} />
+                                    <PathIcon fullPath={group.set} />
                                     <span className={`text-[10.5px] mono uppercase tracking-[0.22em] font-semibold ${text}`}>{group.set}</span>
                                     {testing && (
                                         <span
