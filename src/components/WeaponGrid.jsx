@@ -21,7 +21,7 @@ const SET_RAIL = {
 // Kite, Might, Strength, Jade, Deluge, Draught), not per set — e.g. the Dust
 // icon sits next to "Bamboocut - Dust". The PNGs are transparent, so they
 // render on a black tile (see the header button markup below).
-const PATH_ICON_BASE = `${import.meta.env.BASE_URL}assets/Weapon Paths Icons/`
+const PATH_ICON_BASE = `${import.meta.env.BASE_URL}assets/Icons/Weapon Paths Icons/`
 const pathIconUrl = (fullPath) => `${PATH_ICON_BASE}${encodeURIComponent(fullPath.split(' - ')[1] || fullPath)}.png`
 
 

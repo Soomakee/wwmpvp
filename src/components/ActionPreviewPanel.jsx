@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import PriorityBadge from './PriorityBadge.jsx'
 import { weaponData, mysticSkillsData } from '../data.js'
 
-const SKILL_ICON_BASE = `${import.meta.env.BASE_URL}assets/Weapon%20Skill%20Icons/`
+const SKILL_ICON_BASE = `${import.meta.env.BASE_URL}assets/Icons/Weapon%20Skill%20Icons/`
 
 /**
  * SkillIcon — the per-skill icon from /assets/Weapon Skill Icons/<weapon>/.
@@ -46,7 +46,7 @@ function SkillIcon({ weaponName, category, stage }) {
 
 function previewUrlFor(weaponName, category, index, stage) {
     if (!weaponName || index === undefined) return null
-    // Mystic skills live at /assets/Mystic%20Skills/<skill>/<skill>_<idx+1>.mp4
+    // Mystic skills live at /assets/Mystic%20Skill%20Previews/<skill>/<skill>_<idx+1>.mp4
     // — each skill has its own subdirectory named after itself (matches
     // the Weapon Previews convention for weapons, so URL routing is
     // symmetric). MysticSkillsView always synthesizes category='Cast'
@@ -60,7 +60,7 @@ function previewUrlFor(weaponName, category, index, stage) {
         // across multiple stages that reuse the same animation). Falls back
         // to the standard `<skill>_<index+1>.mp4` convention otherwise.
         const file = stage?.video || `${enc}_${index + 1}.mp4`
-        return `${import.meta.env.BASE_URL}assets/Mystic%20Skills/${enc}/${file}`
+        return `${import.meta.env.BASE_URL}assets/Mystic%20Skill%20Previews/${enc}/${file}`
     }
     if (!category) return null
     const safeCat = encodeURIComponent(category)
