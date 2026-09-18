@@ -17,22 +17,37 @@ const SET_RAIL = {
     Mystic:     'bg-cat-mystic',
 }
 
-const CATEGORY_ICON = {
-    Bellstrike: 'assets/Icons/Weapon School Icons/Bellstrike.png',
-    Bamboocut:  'assets/Icons/Weapon School Icons/Bamboocut.png',
-    Stonesplit: 'assets/Icons/Weapon School Icons/Stonesplit.png',
-    Silkbind:   'assets/Icons/Weapon School Icons/Silkbind.png',
-    Mystic:     'assets/Icons/Weapon School Icons/Silkbind.png',
-}
+// School icons are provided per PATH variant (Umbra, Splendor, Wind, Dust,
+// Kite, Might, Strength, Jade, Deluge, Draught), not per set — e.g. the Dust
+// icon sits next to "Bamboocut - Dust". The PNGs are transparent, so they
+// render on a black tile (see the header button markup below).
+const PATH_ICON_BASE = `${import.meta.env.BASE_URL}assets/Weapon School Icons/`
+const pathIconUrl = (fullPath) => `${PATH_ICON_BASE}${encodeURIComponent(fullPath.split(' - ')[1] || fullPath)}.png`
 
-/** Collapsed-categories state, keyed by full category path so multiple paths
- * under the same set are collapsed independently.
- */
-const CATEGORY_COLLAPSE_ICON = {
-    collapsed: 'assets/Icons/Weapon School Icons/Category Chevron Down.png',
-    expanded:  'assets/Icons/Weapon School Icons/Category Chevron Right.png',
-}
 
+/** School icon on a black tile with a letter fallback for paths that
+ * don't have an icon asset yet (e.g. the WIP "Ribbons" path). */
+function SchoolIcon({ fullPath, size = 'w-7 h-7', iconSize = 'w-6 h-6' }) {
+    const [failed, setFailed] = React.useState(false)
+    const pathName = fullPath.split(' - ')[1] || fullPath
+    return (
+        <span className={`shrink-0 flex items-center justify-center ${size} bg-black border border-white/10`}>
+            {failed ? (
+                <span className={`text-[10px] mono font-bold text-white/45`} aria-hidden="true">
+                    {pathName.charAt(0)}
+                </span>
+            ) : (
+                <img
+                    className={`${iconSize} antialiased`}
+                    src={pathIconUrl(fullPath)}
+                    alt=""
+                    aria-hidden="true"
+                    onError={() => setFailed(true)}
+                />
+            )}
+        </span>
+    )
+}
 
 /**
  * WeaponGrid — left master panel.
@@ -108,17 +123,12 @@ export default function WeaponGrid({
 
                     // Per-category collapse state. Each category path is independent
                     // so collapsing "Bellstrike - Umbra" does not collapse
-                    // "Bellstrike - Splendor".
-                    const [collapsed, setCollapsed] = React.useState(false)
-
-                    const categoryIcon = (key === 'Mystic'
-                        ? CATEGORY_ICON.Mystic
-                        : CATEGORY_ICON[key] ||
-                        `assets/Icons/Weapon School Icons/${key}.png`)
-
-                    const chevronIcon = collapsed
-                        ? CATEGORY_COLLAPSE_ICON.collapsed
-                        : CATEGORY_COLLAPSE_ICON.expanded
+                    // "Bellstrike - Splendor". Categories start COLLAPSED by
+                    // default, except the one holding the currently selected
+                    // weapon so the active selection is never hidden.
+                    const [collapsed, setCollapsed] = React.useState(
+                        !group.weapons.some((w) => w.name === selected)
+                    )
 
                     return (
                         <section key={group.set} className="shrink-0 flex flex-col bg-midnight-950">
@@ -126,23 +136,23 @@ export default function WeaponGrid({
                                 <button
                                     type="button"
                                     onClick={() => setCollapsed((v) => !v)}
-                                    className="flex items-center gap-2 px-2 pt-1.5 pb-1 w-full text-left"
+                                    aria-expanded={!collapsed}
+                                    className="flex items-center gap-2.5 px-2.5 py-2 w-full text-left hover:bg-white/[0.03] transition-colors"
                                 >
-                                    <span className="text-[9px] mono uppercase tracking-[0.24em] flex items-center gap-2">
-                                        <img
-                                            className="shrink-0 w-3.5 h-3.5 antialiased"
-                                            src={chevronIcon}
-                                            alt={collapsed ? 'Expand category' : 'Collapse category'}
-                                            aria-hidden="false"
-                                        />
-                                        <img
-                                            className="shrink-0 w-3.5 h-3.5 antialiased"
-                                            src={categoryIcon}
-                                            alt={group.set}
-                                            aria-hidden="true"
-                                        />
-                                        <span className={text}>{group.set}</span>
-                                    </span>
+                                    {/* Chevron — inline SVG so collapse state never
+                                        depends on an image asset existing. */}
+                                    <svg
+                                        className={`shrink-0 w-3 h-3 text-white/40 transition-transform duration-150 ${collapsed ? '' : 'rotate-90'}`}
+                                        viewBox="0 0 12 12"
+                                        fill="none"
+                                        aria-hidden="true"
+                                    >
+                                        <path d="M4 2.5 L8 6 L4 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                    {/* School icon on a black tile — the source PNGs
+                                        are transparent and need a dark backing. */}
+                                    <SchoolIcon fullPath={group.set} />
+                                    <span className={`text-[10.5px] mono uppercase tracking-[0.22em] font-semibold ${text}`}>{group.set}</span>
                                     {testing && (
                                         <span
                                             className="text-[8px] mono uppercase tracking-[0.18em] font-bold px-1 py-px border border-amber-400/60 bg-amber-400/10 text-amber-300"
