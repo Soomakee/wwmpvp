@@ -3,6 +3,36 @@ import { motion, AnimatePresence } from 'framer-motion'
 import PriorityBadge from './PriorityBadge.jsx'
 import { weaponData, mysticSkillsData } from '../data.js'
 
+const SKILL_ICON_BASE = `${import.meta.env.BASE_URL}assets/Weapon%20Skill%20Icons/`
+
+/**
+ * SkillIcon — the per-skill icon from /assets/Weapon Skill Icons/<weapon>/.
+ * File naming on disk is loose, so we try candidates in order (stage name,
+ * category, rpName) and advance on 404. Renders on a black square tile since
+ * the source PNGs are transparent. Hides itself if nothing resolves.
+ */
+function SkillIcon({ weaponName, category, stage }) {
+    const candidates = []
+    for (const name of [stage?.name, category, stage?.rpName]) {
+        if (name && !candidates.includes(name)) candidates.push(name)
+    }
+    const [idx, setIdx] = useState(0)
+    useEffect(() => { setIdx(0) }, [weaponName, category, stage?.name])
+    if (!candidates.length || idx >= candidates.length) return null
+    const src = `${SKILL_ICON_BASE}${encodeURIComponent(weaponName)}/${encodeURIComponent(candidates[idx])}.png`
+    return (
+        <span className="shrink-0 flex items-center justify-center h-14 w-14 bg-black border border-white/10">
+            <img
+                src={src}
+                alt=""
+                aria-hidden="true"
+                className="h-full w-full object-contain antialiased"
+                onError={() => setIdx((i) => i + 1)}
+            />
+        </span>
+    )
+}
+
 function previewUrlFor(weaponName, category, index, stage) {
     if (!weaponName || index === undefined) return null
     // Mystic skills live at /assets/Mystic%20Skills/<skill>/<skill>_<idx+1>.mp4
@@ -129,11 +159,20 @@ export default function ActionPreviewPanel({ weaponName, selectedAttack, preview
                         >
                             {/* Identity */}
                             <div className="glass border border-white/10 p-3 space-y-1.5">
-                                <div className="text-[10px] mono uppercase tracking-[0.22em] text-white/50">
-                                    {selectedAttack.category}
+                                <div className="flex items-start gap-3">
+                                    <SkillIcon
+                                        weaponName={weaponName}
+                                        category={selectedAttack.category}
+                                        stage={stage}
+                                    />
+                                    <div className="min-w-0 flex-1 space-y-1.5">
+                                        <div className="text-[10px] mono uppercase tracking-[0.22em] text-white/50">
+                                            {selectedAttack.category}
+                                        </div>
+                                        <div className="text-[16px] leading-tight font-semibold">{stage.name}</div>
+                                        <div className="mono text-[12px] text-blue-300 truncate">{stage.rpName || '—'}</div>
+                                    </div>
                                 </div>
-                                <div className="text-[16px] leading-tight font-semibold">{stage.name}</div>
-                                <div className="mono text-[12px] text-blue-300 truncate">{stage.rpName || '—'}</div>
                                 <div className="flex flex-wrap gap-2 pt-1.5">
                                     <div className="flex items-center gap-2">
                                         <span className="text-[9.5px] mono uppercase tracking-[0.22em] text-white/45">Stagger</span>
