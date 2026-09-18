@@ -131,18 +131,24 @@ export default function WeaponGrid({
                     )
 
                     return (
-                        <section key={group.set} className="shrink-0 flex flex-col bg-midnight-950">
+                        <section key={group.set} className={`shrink-0 flex flex-col bg-midnight-950 ${testing ? 'border border-amber-400/25' : ''}`}>
                             {!hideSectionHeaders && (
                                 <button
                                     type="button"
                                     onClick={() => setCollapsed((v) => !v)}
                                     aria-expanded={!collapsed}
-                                    className="flex items-center gap-3 px-3 py-2.5 w-full text-left hover:bg-white/[0.03] transition-colors"
+                                    className={`flex items-center gap-3 px-3 py-2.5 w-full text-left transition-colors ${
+                                        testing
+                                            ? 'bg-amber-400/[0.06] hover:bg-amber-400/[0.1]'
+                                            : 'hover:bg-white/[0.03]'
+                                    }`}
                                 >
                                     {/* Chevron — inline SVG so collapse state never
                                         depends on an image asset existing. */}
                                     <svg
-                                        className={`shrink-0 w-3 h-3 text-white/40 transition-transform duration-150 ${collapsed ? '' : 'rotate-90'}`}
+                                        className={`shrink-0 w-3 h-3 transition-transform duration-150 ${
+                                            testing ? 'text-amber-300/70' : 'text-white/40'
+                                        } ${collapsed ? '' : 'rotate-90'}`}
                                         viewBox="0 0 12 12"
                                         fill="none"
                                         aria-hidden="true"
@@ -152,26 +158,24 @@ export default function WeaponGrid({
                                     {/* Path icon on a black tile — the source PNGs
                                         are transparent and need a dark backing. */}
                                     <PathIcon fullPath={group.set} />
-                                    <span className={`text-[12px] mono uppercase tracking-[0.2em] font-semibold ${text}`}>{group.set}</span>
+                                    <span className="flex flex-col min-w-0">
+                                        <span className={`text-[12px] mono uppercase tracking-[0.2em] font-semibold ${text}`}>{group.set}</span>
+                                        {testing && (
+                                            <span className="text-[9px] text-amber-200/70 mt-0.5">
+                                
+ Placeholder data under testing — names and values not final.
+                                            </span>
+                                        )}
+                                    </span>
                                     {testing && (
                                         <span
-                                            className="text-[8px] mono uppercase tracking-[0.18em] font-bold px-1 py-px border border-amber-400/60 bg-amber-400/10 text-amber-300"
+                                            className="shrink-0 ml-auto text-[8px] mono uppercase tracking-[0.18em] font-bold px-1 py-px border border-amber-400/60 bg-amber-400/10 text-amber-300"
                                             title="This category is still under testing — names and data are placeholders."
                                         >
                                             Testing
                                         </span>
                                     )}
                                 </button>
-                            )}
-                            {testing && (
-                                <div className="flex items-center gap-1.5 px-2 py-0.5 bg-amber-400/10 border-y border-amber-400/25">
-                                    <span className="text-[8px] mono uppercase tracking-[0.18em] font-bold text-amber-300">
-                                        Placeholder
-                                    </span>
-                                    <span className="text-[9px] text-amber-200/70 truncate">
-                                        Category &amp; weapon names are not final — data under testing.
-                                    </span>
-                                </div>
                             )}
                             {!collapsed && (
                                 <div className={`grid ${gridCols} gap-[2px] bg-white/[0.04] ${hideSectionHeaders ? 'px-[2px] py-[2px]' : 'px-[2px] pb-[2px]'}`}>
