@@ -548,7 +548,7 @@ export const weaponData = {
         "Special Skill": {
             stages: [
                 {
-                    name: "1st Cast", rpName: "Fleeting Trace", S: 2, D: 3, source: {
+                    name: "Base Cast", rpName: "Fleeting Trace", S: 2, D: 3, source: {
                         type: "resource",
                         title: "Blade Momentum Required",
                         desc: "Requires 2 bars of Blade Momentum to use this skill.",
@@ -556,7 +556,7 @@ export const weaponData = {
                     }
                 },
                 {
-                    name: "2nd Cast", rpName: "Fleeting Trace", S: 4, D: 3, source: {
+                    name: "Final Hit", rpName: "Fleeting Trace", S: 4, D: 3, source: {
                         type: "martial art talent",
                         title: "Special Skill Enhancement",
                         desc: "Requires a Martial Art Breakthrough to unlock this skill.",
