@@ -65,6 +65,11 @@ export const weaponData = {
             ]
         },
         "Dual Weapon Skill": { rpName: "Sword", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Sword", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_1.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Sword - Airborne Light Attack", S: 1, D: 0 },
@@ -111,6 +116,11 @@ export const weaponData = {
             ]
         },
         "Dual Weapon Skill": { rpName: "Sword", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Sword", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_1.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Sword - Airborne Light Attack", S: 1, D: 0 },
@@ -150,6 +160,11 @@ export const weaponData = {
         },
         "Special Skill": { rpName: "Sweep All", S: 2, D: 1 },
         "Dual Weapon Skill": { rpName: "Spear", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Spear", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_2.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Spear - Airborne Light Attack", S: 1, D: 0 },
@@ -174,6 +189,11 @@ export const weaponData = {
         "Martial Art": { rpName: "Qiankun's Lock", S: 4, D: 1 },
         "Special Skill": { rpName: "Legion Crusher", S: 2, D: 1 },
         "Dual Weapon Skill": { rpName: "Spear", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Spear", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_2.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Spear - Airborne Light Attack", S: 1, D: 0 },
@@ -206,6 +226,11 @@ export const weaponData = {
             ]
         },
         "Dual Weapon Skill": { rpName: "Dual Blades", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Dual Blades", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_5.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Dual Blades - Airborne Light Attack", S: 1, D: 0 },
@@ -243,6 +268,11 @@ export const weaponData = {
             }
         },
         "Dual Weapon Skill": { rpName: "Rope Dart", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Rope Dart", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_6.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Rope Dart - Airborne Light Attack", S: 1, D: 0 },
@@ -276,6 +306,11 @@ export const weaponData = {
         },
         "Special Skill": { rpName: "Cyclone Waltz", S: 2, D: 3 },
         "Dual Weapon Skill": { rpName: "Umbrella", S: 0, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Umbrella", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_4.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Umbrella - Airborne Light Attack", S: 1, D: 0 },
@@ -316,6 +351,11 @@ export const weaponData = {
         "Martial Art": { rpName: "Soul Sweep", S: 2, D: 1 },
         "Special Skill": { rpName: "Burn and Bury", S: 2, D: 3 },
         "Dual Weapon Skill": { rpName: "Rope Dart", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Rope Dart", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_6.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Rope Dart - Airborne Light Attack", S: 1, D: 0 },
@@ -378,6 +418,11 @@ export const weaponData = {
             }
         },
         "Dual Weapon Skill": { rpName: "Mo Blade", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Mo Blade", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_7.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Mo Blade - Airborne Light Attack", S: 1, D: 0 },
@@ -409,6 +454,11 @@ export const weaponData = {
             }
         },
         "Dual Weapon Skill": { rpName: "Spear", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Spear", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_2.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Spear - Airborne Light Attack", S: 1, D: 0 },
@@ -453,6 +503,11 @@ export const weaponData = {
             }
         },
         "Dual Weapon Skill": { rpName: "Mo Blade", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Mo Blade", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_7.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Mo Blade - Airborne Light Attack", S: 1, D: 0 },
@@ -511,6 +566,11 @@ export const weaponData = {
             ]
         },
         "Dual Weapon Skill": { rpName: "Heng Blade", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Heng Blade", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_7.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Heng Blade - Airborne Light Attack", S: 1, D: 0 },
@@ -546,6 +606,11 @@ export const weaponData = {
             }
         },
         "Dual Weapon Skill": { rpName: "Umbrella", S: 0, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Umbrella", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_4.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Umbrella - Airborne Light Attack", S: 1, D: 0 },
@@ -572,6 +637,11 @@ export const weaponData = {
         "Martial Art": { rpName: "Floating Grace", S: 0, D: 1 },
         "Special Skill": { rpName: "Echoes of a Thousand Plants", S: 0, D: 1 },
         "Dual Weapon Skill": { rpName: "Umbrella", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Umbrella", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_4.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Umbrella - Airborne Light Attack", S: 1, D: 0 },
@@ -615,6 +685,11 @@ export const weaponData = {
             ]
         },
         "Dual Weapon Skill": { rpName: "Fan", S: 0, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Fan", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_3.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Fan - Airborne Light Attack", S: 1, D: 0 },
@@ -655,6 +730,11 @@ export const weaponData = {
             }
         },
         "Dual Weapon Skill": { rpName: "Fan", S: 0, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Fan", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_3.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Fan - Airborne Light Attack", S: 1, D: 0 },
@@ -705,6 +785,11 @@ export const weaponData = {
         },
         "Special Skill": { rpName: "All Under Justice", S: 2, D: 1 },
         "Dual Weapon Skill": { rpName: "Gauntlets", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Gauntlets", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_8.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Gauntlets - Airborne Light Attack", S: 1, D: 0 },
@@ -736,6 +821,11 @@ export const weaponData = {
         "Martial Art": { rpName: "Snaring Lash", S: 2, D: 1 },
         "Special Skill": { rpName: "Sky-Snare Stance", S: 2, D: 1 },
         "Dual Weapon Skill": { rpName: "Rope Dart", S: 2, D: 1 },
+        "Divine Counter": {
+            stages: [
+                { name: "Rope Dart", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_6.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Rope Dart - Airborne Light Attack", S: 1, D: 0 },
@@ -842,6 +932,11 @@ export const weaponData = {
                 }
             ]
         },
+        "Divine Counter": {
+            stages: [
+                { name: "Gauntlets", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_8.mp4" }
+            ]
+        },
         "Airborne Attacks": {
             stages: [
                 { name: "Light Attack Airborne", rpName: "Gauntlets - Airborne Light Attack", S: 1, D: 0 },
@@ -931,6 +1026,11 @@ export const weaponData = {
                     D: 1,
                     video: "Dual Weapon Skill.mp4"
                 }
+            ]
+        },
+        "Divine Counter": {
+            stages: [
+                { name: "Dual Blades", rpName: "Divine Counter", S: 4, D: 3, video: "/assets/Mystic Skill Previews/Divine Counter/Divine Counter_5.mp4" }
             ]
         },
         "Airborne Attacks": {
@@ -1054,18 +1154,6 @@ export const mysticSkillsData = {
         stages: [
             { name: "Base Cast", S: 'X', D: 0 },
             { name: "Umbra", S: 'X', D: 'X' }
-        ]
-    },
-    "Divine Counter": {
-        stages: [
-            { name: "Sword", S: 4, D: 3 },
-            { name: "Spear", S: 4, D: 3 },
-            { name: "Fan", S: 4, D: 3 },
-            { name: "Umbrella", S: 4, D: 3 },
-            { name: "Dual Blades", S: 4, D: 3 },
-            { name: "Rope Dart", S: 4, D: 3 },
-            { name: "Heng Blade", S: 4, D: 3 },
-            { name: "Gauntlets", S: 4, D: 3 }
         ]
     },
     "Tai Chi": { S: 0, D: 1 },

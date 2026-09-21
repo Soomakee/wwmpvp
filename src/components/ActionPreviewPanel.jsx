@@ -61,18 +61,22 @@ function previewUrlFor(weaponName, category, index, stage) {
     // prop here would overweight the change.
     if (category === 'Cast') {
         const enc = encodeURIComponent(weaponName)
-        // A stage may declare its own video filename (e.g. to share one clip
-        // across multiple stages that reuse the same animation). Falls back
-        // to the standard `<skill>_<index+1>.mp4` convention otherwise.
+        // A stage may declare its own video path (absolute "/assets/..." for
+        // clips shared across weapons, e.g. Divine Counter) or filename
+        // (e.g. to share one clip across multiple stages of the same skill).
+        // Falls back to the standard `<skill>_<index+1>.mp4` convention.
+        if (stage?.video?.startsWith('/')) return `${import.meta.env.BASE_URL}${stage.video.slice(1)}`
         const file = stage?.video || `${enc}_${index + 1}.mp4`
         return `${import.meta.env.BASE_URL}assets/Mystic%20Skill%20Previews/${enc}/${file}`
     }
     if (!category) return null
-    const safeCat = encodeURIComponent(category)
-    // A stage may declare its own video filename (e.g. a fractional index
-    // like "Martial Art_1.5.mp4" for a ranged variant that sits between
-    // two integer-indexed casts). Falls back to the standard
+    // A stage may declare its own video path (absolute "/assets/..." for clips
+    // shared across weapons) or filename (e.g. a fractional index like
+    // "Martial Art_1.5.mp4" for a ranged variant that sits between two
+    // integer-indexed casts). Falls back to the standard
     // `<category>_<index+1>.mp4` convention otherwise.
+    if (stage?.video?.startsWith('/')) return `${import.meta.env.BASE_URL}${stage.video.slice(1)}`
+    const safeCat = encodeURIComponent(category)
     const file = stage?.video || `${safeCat}_${index + 1}.mp4`
     return `${import.meta.env.BASE_URL}assets/Weapon%20Previews/${encodeURIComponent(weaponName)}/${file}`
 }
