@@ -9,17 +9,6 @@ import React from 'react'
 
 const SOCIALS = [
     {
-        key: 'email',
-        label: 'Email — isaiahnbailey@gmail.com',
-        href: 'mailto:isaiahnbailey@gmail.com',
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="m22 7-10 6L2 7" />
-            </svg>
-        ),
-    },
-    {
         key: 'discord',
         label: 'Discord',
         href: 'https://discord.gg/jwfe7NsY6f',

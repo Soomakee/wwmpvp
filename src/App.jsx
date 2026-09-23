@@ -13,6 +13,7 @@ import UpdatesView from './components/UpdatesView.jsx'
 import FloatingSocials from './components/FloatingSocials.jsx'
 import BottomNav from './components/BottomNav.jsx'
 import WeaponPicker from './components/WeaponPicker.jsx'
+import ContactModal from './components/ContactModal.jsx'
 
 const TABS = [
     { id: 'weapons', label: 'Weapons' },
@@ -28,6 +29,7 @@ export default function App() {
     const [selectedWeapon, setSelectedWeapon] = useState(null)
     const [selectedAttack, setSelectedAttack] = useState(null)
     const [selectedMystic, setSelectedMystic] = useState(null)
+    const [contactOpen, setContactOpen] = useState(false)
 
     useEffect(() => {
         if (tab !== 'weapons') setSelectedAttack(null)
@@ -54,7 +56,7 @@ export default function App() {
 
     return (
         <div className="relative z-10 flex flex-col h-screen w-screen overflow-hidden text-white">
-            <NavBar activeTab={tab} onTabChange={setTab} tabs={TABS} />
+            <NavBar activeTab={tab} onTabChange={setTab} tabs={TABS} onOpenContact={() => setContactOpen(true)} />
             <LegendBar hidden={tab === 'ruleset' || tab === 'updates'} />
 
             {/* On mobile the fixed BottomNav (h-14) sits over the bottom
@@ -124,6 +126,7 @@ export default function App() {
 
             <FloatingSocials />
             <BottomNav activeTab={tab} onTabChange={setTab} tabs={TABS} />
+            <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
         </div>
     )
 }

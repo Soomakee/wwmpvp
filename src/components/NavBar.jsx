@@ -1,15 +1,15 @@
 import React from 'react'
 
 /**
- * NavBar — top brand bar with grouped nav links + donate CTA.
+ * NavBar — top brand bar with grouped nav links + contact/donate CTAs.
  * Square corners, glass, neon-red glow on the donate button.
  *
  * On mobile (<md) the tab buttons deliberately live in <BottomNav>
  * (fixed bottom strip) instead of up here — keeps the top bar to just
- * brand + donate, and the active-tab indicator is more visible as a
- * thumb-reachable nav.
+ * brand + contact + donate, and the active-tab indicator is more visible
+ * as a thumb-reachable nav.
  */
-export default function NavBar({ activeTab, onTabChange, tabs }) {
+export default function NavBar({ activeTab, onTabChange, tabs, onOpenContact }) {
     return (
         <header className="relative z-30 glass border-b border-white/10 px-3 sm:px-6">
             <div className="h-14 flex items-center justify-between gap-2 sm:gap-4">
@@ -51,6 +51,20 @@ export default function NavBar({ activeTab, onTabChange, tabs }) {
                         )
                     })}
                 </nav>
+
+                {/* Contact — opens the in-site form modal (no mailto
+                    prompt). Quieter than Donate: neutral glass, no glow. */}
+                <button
+                    onClick={onOpenContact}
+                    className="shrink-0 inline-flex items-center gap-1.5 h-9 sm:h-10 px-3 sm:px-4 border border-white/20 text-white/70 hover:text-white hover:border-white/40 hover:bg-white/[0.06] transition-colors"
+                    title="Contact — report an issue or send feedback"
+                >
+                    <svg className="h-3.5 w-3.5 sm:h-[14px] sm:w-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                        <path d="m22 7-10 6L2 7" />
+                    </svg>
+                    <span className="hidden xs:inline sm:inline text-[10px] sm:text-[11px] mono uppercase tracking-[0.22em] font-semibold">Contact</span>
+                </button>
 
                 {/* Donate — compact on phones so the brand row never
                     overflows. h-9 px-3 text-[10px] mobile vs h-10 px-4
