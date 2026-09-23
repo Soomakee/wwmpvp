@@ -2,10 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 // Formspree endpoint — submissions are delivered as email to
-// isaiahnbailey@gmail.com. Replace the placeholder form ID with the real
-// one from https://formspree.io once the form is created (Form "New form"
-// → copy the https://formspree.io/f/<FORM_ID> endpoint).
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_FORM_ID'
+// isaiahnbailey@gmail.com via the form at formspree.io/f/xeelzrkd.
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeelzrkd'
 
 const TOPICS = [
     'Bug report',
