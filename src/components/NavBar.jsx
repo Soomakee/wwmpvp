@@ -52,11 +52,12 @@ export default function NavBar({ activeTab, onTabChange, tabs, onOpenContact }) 
                     })}
                 </nav>
 
-                {/* Contact — opens the in-site form modal (no mailto
-                    prompt). Quieter than Donate: neutral glass, no glow. */}
+                {/* Contact — desktop only. On mobile the contact entry
+                    lives in the BottomNav strip (see BottomNav.jsx); the
+                    header would crowd the brand row. */}
                 <button
                     onClick={onOpenContact}
-                    className="shrink-0 inline-flex items-center gap-1.5 h-9 sm:h-10 px-3 sm:px-4 border border-white/20 text-white/70 hover:text-white hover:border-white/40 hover:bg-white/[0.06] transition-colors"
+                    className="hidden md:inline-flex shrink-0 items-center gap-1.5 h-9 sm:h-10 px-3 sm:px-4 border border-white/20 text-white/70 hover:text-white hover:border-white/40 hover:bg-white/[0.06] transition-colors"
                     title="Contact — report an issue or send feedback"
                 >
                     <svg className="h-3.5 w-3.5 sm:h-[14px] sm:w-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

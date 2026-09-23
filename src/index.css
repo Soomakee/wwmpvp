@@ -30,7 +30,15 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    overflow: hidden;
+    /* Mobile: the page scrolls as one document. Desktop (md+ / 768px+):
+       the app is a fixed-viewport workspace and each pane scrolls
+       internally, so clip the body there to avoid double scrollbars. */
+}
+
+@media (min-width: 768px) {
+    body {
+        overflow: hidden;
+    }
 }
 
 body::before {

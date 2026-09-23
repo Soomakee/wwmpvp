@@ -127,7 +127,7 @@ export default function App() {
             </main>
 
             <FloatingSocials />
-            <BottomNav activeTab={tab} onTabChange={setTab} tabs={TABS} />
+            <BottomNav activeTab={tab} onTabChange={setTab} tabs={TABS} onOpenContact={() => setContactOpen(true)} />
             <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
         </div>
     )

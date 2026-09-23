@@ -44,7 +44,27 @@ const TAB_ICONS = {
     ),
 }
 
-export default function BottomNav({ activeTab, onTabChange, tabs }) {
+/**
+ * BottomNav — fixed-position bottom navigation strip, mobile only.
+ *
+ * On phones (<md) the top NavBar carries the brand and Donate button
+ * but no longer carries the tab buttons — they live here so the top bar
+ * stays uncluttered. A CONTACT entry sits after the tabs and opens the
+ * site's contact modal (passed down as `onOpenContact`), so mobile users
+ * get the form without crowding the header.
+ *
+ * Active tab gets:
+ *   • A 2px blue accent strip across the top of its cell
+ *   • A 1.4px label text in blue-300
+ *   • A subtle tinted background (bg-blue-500/10)
+ *
+ * The accent strip is animated with framer-motion's `layoutId` so it
+ * smoothly slides from one tab to another when switching.
+ *
+ * Below the WeaponPicker (z-60) priority, above the main content (z<=20)
+ * so it sits as a stable footer bar.
+ */
+export default function BottomNav({ activeTab, onTabChange, tabs, onOpenContact }) {
     return (
         <nav
             aria-label="Primary navigation"
@@ -79,6 +99,23 @@ export default function BottomNav({ activeTab, onTabChange, tabs }) {
                     </button>
                 )
             })}
+
+            {/* Contact — opens the in-site form modal (no mailto prompt).
+                Visually separated from the tabs by a left divider. */}
+            <button
+                type="button"
+                onClick={onOpenContact}
+                aria-label="Contact — report an issue or send feedback"
+                className="relative flex-1 flex flex-col items-center justify-center gap-0.5 text-white/55 hover:text-white hover:bg-white/[0.04] transition-colors border-l border-white/10"
+            >
+                <span className="h-5 w-5 block">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                        <path d="m22 7-10 6L2 7" />
+                    </svg>
+                </span>
+                <span className="text-[10px] mono uppercase tracking-[0.18em] font-semibold">Contact</span>
+            </button>
         </nav>
     )
 }
