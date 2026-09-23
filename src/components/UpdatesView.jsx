@@ -9,10 +9,23 @@ import { motion } from 'framer-motion'
  * by prepending a new object and leaving older ones intact.
  * ========================================================= */
 
+// Only the newest release carries the "Latest" tag — older entries keep
+// their plain date/category tags. `isLatest` styling (amber border/chip)
+// keys off that tag, so leave it off past entries when prepending.
 const RELEASES = [
     {
-        date: '2026-09-18',
+        date: '2026-09-23',
         tag: 'Latest',
+        items: [
+            'Divine Counter is now part of every weapon — find it as its own category on each weapon\'s page with the counter clip for that weapon type (Sword, Spear, Fan, Umbrella, Dual Blades, Rope Dart, Blade, and Gauntlets).',
+            'Contact the site owner directly: a new Contact button opens a quick form for bug reports, wrong skill data, or suggestions — no email app needed.',
+            'On phones, the whole page now scrolls naturally instead of trapping you in fixed panels — weapon lists, priorities, and previews flow top to bottom.',
+            'The Contact button on mobile lives in the bottom navigation bar alongside the other tabs.',
+            'Snowparting Blade Special Skill casts renamed to Base Cast and Final Hit.',
+        ],
+    },
+    {
+        date: '2026-09-18',
         items: [
             'Panacea Fan Special Skill streamlined to a single cast — "Light Dust After Morning Rain" — instead of two separate casts.',
             'Every weapon and mystic skill now shows the final, approved moveset and stagger/defense numbers.',
@@ -23,7 +36,6 @@ const RELEASES = [
     },
     {
         date: '2026-09-10',
-        tag: 'Latest',
         items: [
             'Skystrike Gauntlets Special Skill videos mapped correctly: Base Cast Instant and 0.5-second cast use the same preview, Defense Break Skill uses its own preview, Pursuit Skill uses its own preview.',
             'Pursuit Skill (Nightwick - Grounddrift) stagger corrected to level 4.',
@@ -31,7 +43,6 @@ const RELEASES = [
     },
     {
         date: '2026-09-03',
-        tag: 'Latest',
         items: [
             'Riven Twinblades finalized — all 14 moves available to preview, including Blade Against Waves, Tidepour, Boundvessel, Reveldrift, Hero\'s Blood, and Dual Blades, each with a playable video and the final Stagger/Defense for the move.',
             'Skystrike Gauntlets finalized — all 16 moves available to preview, including Bloombreak, Whaledraft, Dragonquench - Inebriate, Peakfall - Jadeflush, and Nightwick, each with its own playable video.',
@@ -45,7 +56,6 @@ const RELEASES = [
     },
     {
         date: '2026-07-23',
-        tag: 'Latest',
         items: [
             'Mystic Skills now play video previews — Leaping Toad, Cloud Steps, Divine Counter, and others each show the move the moment you tap it.',
         ],
