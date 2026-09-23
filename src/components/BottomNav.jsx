@@ -36,6 +36,12 @@ const TAB_ICONS = {
             <path d="M3 4h18v2H3V4zm2 4h2v12H5V8zm6 0h2v12h-2V8zm6 0h2v12h-2V8z" />
         </svg>
     ),
+    updates: (
+        // Megaphone / announcement
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20 3v18l-7-4H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h8l7-4zM7 18h3l1 3H8l-1-3z" />
+        </svg>
+    ),
 }
 
 export default function BottomNav({ activeTab, onTabChange, tabs }) {
