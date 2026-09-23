@@ -122,7 +122,9 @@ export default function ActionPreviewPanel({ weaponName, selectedAttack, preview
     const handleLoadStart = () => setVideoStatus('loading')
 
     return (
-        <div className="flex flex-col h-full w-full overflow-hidden">
+        // Mobile: grows with content so the PAGE scrolls; desktop keeps
+        // the fixed-height internally-scrolling pane.
+        <div className="flex flex-col md:h-full w-full">
             {/* Header */}
             <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-white/10 bg-midnight-900/60">
                 <div className="flex items-center gap-2">
@@ -167,7 +169,7 @@ export default function ActionPreviewPanel({ weaponName, selectedAttack, preview
                 fallback : video` decision still works for any future
                 previewable=false caller (ruleset preview mode, etc.). */}
             {stage && (
-                <div className="flex-1 min-h-0 overflow-y-auto">
+                <div className="md:flex-1 md:min-h-0 md:overflow-y-auto">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={`${selectedAttack.category}-${selectedAttack.index}`}

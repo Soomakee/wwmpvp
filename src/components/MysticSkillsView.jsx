@@ -115,8 +115,9 @@ export default function MysticSkillsView({ selectedMystic, onSelectMystic }) {
                 </div>
             </div>
 
-            {/* Mobile: master-detail with picker modal — mirrors Weapons mobile workspace */}
-            <div className="md:hidden flex flex-col h-full gap-2">
+            {/* Mobile: natural page flow — the page scrolls, sections stack
+                at their own height (mirrors the weapons mobile workspace). */}
+            <div className="md:hidden flex flex-col gap-2">
                 {/* Selected-skill header strip + Change button */}
                 <div className="glass border border-white/10 shrink-0">
                     <div className="flex items-center justify-between gap-2 px-3 py-2.5 bg-midnight-900/60">
@@ -140,12 +141,12 @@ export default function MysticSkillsView({ selectedMystic, onSelectMystic }) {
                 </div>
 
                 {/* Priorities (gold-accented) */}
-                <div className="glass border border-white/10 flex-[1.4] min-h-0 overflow-hidden">
+                <div className="glass border border-white/10 overflow-hidden">
                     <MysticPriorityColumn weapon={syntheticWeapon} selectedAttack={syntheticSelectedAttack} onSelectStage={setStageIndex} />
                 </div>
 
                 {/* Action preview (no video for mystics) */}
-                <div className="glass border border-white/10 flex-1 min-h-0 overflow-hidden">
+                <div className="glass border border-white/10 overflow-hidden">
                     <ActionPreviewPanel
                         weaponName={selectedName}
                         selectedAttack={syntheticSelectedAttack}
@@ -186,8 +187,9 @@ function MysticPriorityColumn({ weapon, selectedAttack, onSelectStage }) {
     }
     const stages = attackStages(weapon.attacks.Cast)
     return (
-        <div className="flex flex-col h-full w-full overflow-hidden">
-            <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-white/10 bg-midnight-900/60">
+        // Mobile: grows with content (page scrolls); desktop fixed pane.
+        <div className="flex flex-col md:h-full w-full">
+            <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-white/10 bg-midnight-900/60 shrink-0">
                 <div className="flex items-center gap-2 min-w-0">
                     <span className="h-1.5 w-1.5 bg-cat-mystic" aria-hidden="true" />
                     <span className="text-[11px] mono uppercase tracking-[0.22em] text-amber-300 font-semibold">
@@ -205,7 +207,7 @@ function MysticPriorityColumn({ weapon, selectedAttack, onSelectStage }) {
                 <span className="text-[10px] mono text-white/40 truncate max-w-[60%]">{weapon.name}</span>
             </div>
 
-            <div className="flex-1 min-h-0 overflow-y-auto">
+            <div className="md:flex-1 md:min-h-0 md:overflow-y-auto">
                 <div className="sticky top-0 z-[3] grid grid-cols-[1fr_3.5rem_3.5rem] sm:grid-cols-[1fr_4.5rem_4.5rem] gap-2 sm:gap-3 items-center px-2.5 sm:px-3 py-1.5 sm:py-2 bg-midnight-900/95 backdrop-blur-sm border-b-2 border-cat-mystic/60">
                     <span className="text-[10.5px] mono uppercase tracking-[0.24em] font-bold text-white/85">Stage</span>
                     <div className="justify-self-end pr-1 text-right">

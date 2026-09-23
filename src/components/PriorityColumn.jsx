@@ -120,9 +120,12 @@ export default function PriorityColumn({ weaponName, selectedAttack, onSelectAtt
         : null
 
     return (
-        <div className="flex flex-col h-full w-full overflow-hidden">
+        // Mobile: the pane grows with its content (no fixed height, no
+        // internal scroll) so the PAGE scrolls. Desktop (md+): fixed-height
+        // pane with internal scroll, as always.
+        <div className="flex flex-col md:h-full w-full">
             {/* Header strip */}
-            <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-white/10 bg-midnight-900/60">
+            <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-white/10 bg-midnight-900/60 shrink-0">
                 <div className="flex items-center gap-2 min-w-0">
                     <span className={`h-1.5 w-1.5 ${accent ? accent.rail : 'bg-violet-300'} ${accent ? '' : 'shadow-[0_0_8px_rgba(168,85,247,0.9)]'}`} aria-hidden="true" />
                     <span className={`text-[11px] mono uppercase tracking-[0.22em] font-semibold ${accent ? accent.text : 'text-white/85'}`}>
@@ -166,7 +169,7 @@ export default function PriorityColumn({ weaponName, selectedAttack, onSelectAtt
 
             {/* Categories */}
             {weapon && (
-                <div className="flex-1 min-h-0 overflow-y-auto">
+                <div className="md:flex-1 md:min-h-0 md:overflow-y-auto">
                     <ColumnHeader />
                     <AnimatePresence mode="wait">
                         <motion.div

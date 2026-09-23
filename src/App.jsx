@@ -55,13 +55,15 @@ export default function App() {
     }, [])
 
     return (
-        <div className="relative z-10 flex flex-col h-screen w-screen overflow-hidden text-white">
+        <div className="relative z-10 flex flex-col min-h-screen md:h-screen w-screen md:overflow-hidden text-white">
             <NavBar activeTab={tab} onTabChange={setTab} tabs={TABS} onOpenContact={() => setContactOpen(true)} />
             <LegendBar hidden={tab === 'ruleset' || tab === 'updates'} />
 
-            {/* On mobile the fixed BottomNav (h-14) sits over the bottom
-                of <main>; pad-bottom on mobile so the last preview row
-                isn't covered by the nav strip. Desktop unchanged. */}
+            {/* Mobile: the page itself scrolls (min-h-screen, no overflow
+                clip) so content flows naturally under the fixed bottom
+                nav — panes don't trap scroll. Desktop (md+): the shell
+                stays h-screen overflow-hidden with fixed panes and each
+                column scrolls internally, as before. */}
             <main className="flex-1 min-h-0 relative px-2 sm:px-3 pb-16 md:pb-3 pt-2 sm:pt-3">
                 <AnimatePresence mode="wait">
                     {tab === 'weapons' && (
@@ -71,7 +73,7 @@ export default function App() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -6 }}
                             transition={{ duration: 0.2 }}
-                            className="h-full"
+                            className="md:h-full"
                         >
                             <DesktopWorkspace
                                 selectedWeapon={selectedWeapon}
@@ -89,7 +91,7 @@ export default function App() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -6 }}
                             transition={{ duration: 0.2 }}
-                            className="h-full"
+                            className="md:h-full"
                         >
                             <MysticSkillsView
                                 selectedMystic={selectedMystic}
@@ -104,7 +106,7 @@ export default function App() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -6 }}
                             transition={{ duration: 0.2 }}
-                            className="h-full"
+                            className="md:h-full"
                         >
                             <RulesetView />
                         </motion.div>
@@ -116,7 +118,7 @@ export default function App() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -6 }}
                             transition={{ duration: 0.2 }}
-                            className="h-full"
+                            className="md:h-full"
                         >
                             <UpdatesView />
                         </motion.div>
@@ -184,8 +186,12 @@ function DesktopWorkspace({ selectedWeapon, selectedAttack, onSelectWeapon, onSe
                 </div>
             </div>
 
-            <div className="md:hidden flex flex-col h-full gap-2">
-                {/* Mobile: current-weapon header strip + Change button */}
+            {/* Mobile: natural page flow — the weapon strip, Priorities and
+                Action Preview stack at their natural heights and the PAGE
+                itself scrolls (see main shell above). The desktop grid is
+                untouched: it keeps fixed-height internally-scrolling panes. */}
+            <div className="md:hidden flex flex-col gap-2">
+                {/* Current-weapon header strip + Change button */}
                 <div className="glass border border-white/10 shrink-0">
                     <div className="flex items-center justify-between gap-2 px-3 py-2.5 bg-midnight-900/60">
                         <div className="flex items-center gap-2 min-w-0">
@@ -212,8 +218,8 @@ function DesktopWorkspace({ selectedWeapon, selectedAttack, onSelectWeapon, onSe
                     </div>
                 </div>
 
-                {/* Priorities — gets a slight flex edge over the preview */}
-                <div className="glass border border-white/10 flex-[1.4] min-h-0 overflow-hidden">
+                {/* Priorities */}
+                <div className="glass border border-white/10 overflow-hidden">
                     <PriorityColumn
                         weaponName={selectedWeapon}
                         selectedAttack={selectedAttack}
@@ -222,7 +228,7 @@ function DesktopWorkspace({ selectedWeapon, selectedAttack, onSelectWeapon, onSe
                 </div>
 
                 {/* Action preview */}
-                <div className="glass border border-white/10 flex-1 min-h-0 overflow-hidden">
+                <div className="glass border border-white/10 overflow-hidden">
                     <ActionPreviewPanel
                         weaponName={selectedWeapon}
                         selectedAttack={selectedAttack}

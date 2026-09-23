@@ -72,7 +72,9 @@ const RELEASES = [
 
 export default function UpdatesView() {
     return (
-        <div className="flex flex-col h-full w-full overflow-hidden">
+        // Mobile: the page scrolls, so the view just grows. Desktop (md+):
+        // fixed-height pane with internal scroll.
+        <div className="flex flex-col md:h-full w-full">
             {/* Header — same chrome as RulesetView for visual consistency */}
             <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-white/10 bg-midnight-900/60">
                 <div className="flex items-center gap-2">
@@ -84,7 +86,7 @@ export default function UpdatesView() {
                 <span className="text-[10px] mono text-white/40">Site Changelog</span>
             </div>
 
-            <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3">
+            <div className="md:flex-1 md:min-h-0 md:overflow-y-auto p-4 space-y-3">
                 {RELEASES.map((release, index) => (
                     <ReleaseCard key={release.date} release={release} index={index} />
                 ))}
